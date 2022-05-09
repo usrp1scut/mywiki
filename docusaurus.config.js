@@ -2,10 +2,10 @@ const math = require('remark-math');
 const katex = require('rehype-katex');
 
 module.exports = {
-  title: "co.link",
+  title: "xiebo.pro",
   titleDelimiter: "🦖", // Defaults to `|`
   tagline: "",
-  url: "http://127.0.0.1:3000",
+  url: "https://xiebo.pro",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -69,7 +69,7 @@ module.exports = {
 
     hideableSidebar: false,
     navbar: {
-      title: "co.link",
+      title: "xiebo.pro",
       hideOnScroll: false,
       //style: 'primary',
       /*
