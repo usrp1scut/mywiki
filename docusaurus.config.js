@@ -9,9 +9,10 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "https://docusaurus.io/img/docusaurus.svg",
+  favicon: "https://xiebo.pro/img/cathole.jpeg",
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
+
   themeConfig: {
 
     footer: {
@@ -22,18 +23,7 @@ module.exports = {
 
     //sidebarCollapsible: true, //默认折叠
     image: 'https://docusaurus.io/img/docusaurus.svg',
-    algolia: {
-      apiKey: "5c07d8bf9c9928c4453857f6cad0420e",
-      indexName: "wiki-power",
 
-      // Optional: see doc section bellow
-      contextualSearch: true,
-
-      // Optional: Algolia search parameters
-      searchParameters: {},
-
-      //... other Algolia params
-    },
 
 
     
@@ -72,26 +62,20 @@ module.exports = {
       title: "Jacob's wiki",
       hideOnScroll: false,
       //style: 'primary',
-      /*
+
       logo: {
         alt: "My Site Logo",
         src:
-          "https://wiki-media-1253965369.cos.ap-guangzhou.myqcloud.com/img/20201122195819.png",
+          "https://xiebo.pro/img/cathole.jpeg",
       },
-      */
+
       items: [
         {
           to: "blog",
           label: "博客",
           position: "right",
         },
-        /*
-        {
-          href: "https://wiki.wildwolf.tech/",
-          label: "队内知识库",
-          position: "right",
-        },
-        */
+
         {
           href: "https://google.com/",
           label: "搜索",
@@ -106,15 +90,6 @@ module.exports = {
     },
   }, 
 
-  stylesheets: [
-    {
-      href: 'https://cdn.jsdelivr.net/gh/linyuxuanlin/Wiki_Docusaurus/static/katex/v0.12.0/katex.min.css',
-      type: 'text/css',
-      integrity:
-        'sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X',
-      crossorigin: 'anonymous',
-    },
-  ],
 
   presets: [
     [
@@ -140,15 +115,7 @@ module.exports = {
           blogSidebarTitle: 'Recent',
           //sidebarPath: require.resolve("./sidebars.js"),
           editUrl: 'https://lab.co.link/Jacob/wiki-doc/-/tree/main/blog/back',
-          /*
-          feedOptions: {
-            type: 'all', // required. 'rss' | 'feed' | 'all'
-            title: 'Power\'s Blog', // default to siteConfig.title
-            description: '个人博客', // default to  `${siteConfig.title} Blog`
-            copyright: 'Copyright © ${new Date().getFullYear()} Power Lin',
-            language: undefined, // possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-          },
-          */
+
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

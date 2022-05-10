@@ -12,6 +12,7 @@
     "clear": "docusaurus clear"
   },
   "dependencies": {
+    "@cmfcmf/docusaurus-search-local": "^0.10.0",
     "@docsearch/react": "^3.0.0-alpha.40",
     "@docusaurus/core": "2.0.0-beta.6",
     "@docusaurus/mdx-loader": "^2.0.0-beta.6",
@@ -19,6 +20,7 @@
     "@docusaurus/preset-classic": "2.0.0-beta.6",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
+    "node-gyp": "^9.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "rehype-katex": "^4.0.0",
