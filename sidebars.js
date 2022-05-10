@@ -5,7 +5,7 @@ module.exports = {
       type: 'category',
       label: '网络',
       items: [
-        'frp实现内网穿透',
+        'net/frp实现内网穿透',
 
       ],
     },
@@ -13,14 +13,14 @@ module.exports = {
       type: 'category',
       label: '系统',
       items: [
-
+        'sys/gitlab-ce管理设置保存时出现500报错',
       ],
     },
     {
       type: 'category',
       label: 'Kubernetes',
       items: [
-        'kubeadm搭建3节点k8s集群',
+        'k8s/kubeadm搭建3节点k8s集群',
 
       ],
     },
@@ -46,6 +46,7 @@ module.exports = {
       type: 'category',
       label: '杂七杂八',
       items: [
+        'another/解决网页需登陆后复制',
 
       ],
     },

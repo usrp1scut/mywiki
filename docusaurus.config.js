@@ -24,9 +24,6 @@ module.exports = {
     //sidebarCollapsible: true, //默认折叠
     image: 'https://docusaurus.io/img/docusaurus.svg',
 
-
-
-    
     
     colorMode: {
       // "light" | "dark"
@@ -119,6 +116,7 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+          
         },
       },
     ],

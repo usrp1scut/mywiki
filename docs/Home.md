@@ -4,9 +4,11 @@ title: Jacob's wiki
 sidebar_label: 目录
 slug: /
 ---
-CKA Kubernetes 认证管理员
+#### Who am I
 
-RHCE 红帽认证工程师
+* CKA Kubernetes 认证管理员
+
+* RHCE 红帽认证工程师
 
 这是运维笔记本
 
