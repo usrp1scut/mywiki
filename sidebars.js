@@ -3,7 +3,7 @@ module.exports = {
     'Home',
     {
       type: 'category',
-      label: '前端',
+      label: '网络',
       items: [
         'test1',
 
@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: '后台',
+      label: '系统',
       items: [
         'test2',
         'back/1234',
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: '数据',
+      label: 'Kubernetes',
       items: [
         'test3',
 
@@ -28,7 +28,15 @@ module.exports = {
     },
     {
       type: 'category',
-      label: '运维',
+      label: 'Nginx',
+      items: [
+        'test3',
+
+      ],
+    },
+    {
+      type: 'category',
+      label: '监控日志',
       items: [
         'test4',
       ],
@@ -36,7 +44,7 @@ module.exports = {
 
     {
       type: 'category',
-      label: '产品&运营',
+      label: '杂七杂八',
       items: [
         'test5',
 

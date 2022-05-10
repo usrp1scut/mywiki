@@ -2,7 +2,7 @@ const math = require('remark-math');
 const katex = require('rehype-katex');
 
 module.exports = {
-  title: "xiebo.pro",
+  title: "Jacob's wiki",
   titleDelimiter: "🦖", // Defaults to `|`
   tagline: "",
   url: "https://xiebo.pro",
@@ -13,12 +13,12 @@ module.exports = {
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
   themeConfig: {
-/*
+
     footer: {
       
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.pro"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2022055105号 </a> | Built with Docusaurus`,
     },
-    */
+    
 
     //sidebarCollapsible: true, //默认折叠
     image: 'https://docusaurus.io/img/docusaurus.svg',
@@ -69,7 +69,7 @@ module.exports = {
 
     hideableSidebar: false,
     navbar: {
-      title: "xiebo.pro",
+      title: "Jacob's wiki",
       hideOnScroll: false,
       //style: 'primary',
       /*
@@ -98,7 +98,7 @@ module.exports = {
           position: "right",
         },
         {
-          href: "https://www.hao123.com/",
+          href: "https://co.link/",
           label: "友链 & 导航站",
           position: "right",
         },
@@ -126,20 +126,20 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
-          editUrl: "https://127.0.0.1",
+          editUrl: "https://lab.co.link/Jacob/wiki-doc/-/tree/main/docs",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
         blog: {
-          //blogTitle: 'Power\'s blog!',
-          //blogDescription: 'A docusaurus powered blog!',
+          blogTitle: 'Jacob\'s blog!',
+          blogDescription: 'A docusaurus powered blog!',
           blogSidebarCount: 8,
           postsPerPage: 8,
           showReadingTime: false,
           path: 'blog',
           blogSidebarTitle: 'Recent',
           //sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: 'https://127.0.0.1',
+          editUrl: 'https://lab.co.link/Jacob/wiki-doc/-/tree/main/blog/back',
           /*
           feedOptions: {
             type: 'all', // required. 'rss' | 'feed' | 'all'
