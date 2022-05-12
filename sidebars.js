@@ -13,6 +13,7 @@ module.exports = {
       type: 'category',
       label: '系统',
       items: [
+        'sys/shell监控脚本',
         'sys/gitlab-ce管理设置保存时出现500报错',
       ],
     },

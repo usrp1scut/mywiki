@@ -45,6 +45,12 @@
   
   }
 ```
+### 针对路径的重定向配置,改变客户端浏览器url
+```
+        location ^~ /news {
+           return       301 http://www.example.com$request_uri;
+        }
+```
 ### nginx 日志配置
 * 可配在最外层、http层及server层
 ```

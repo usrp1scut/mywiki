@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "https://xiebo.pro/img/cathole.jpeg",
+  favicon: "https://xiebo.pro/img/cathole.png",
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
 
@@ -61,9 +61,9 @@ module.exports = {
       //style: 'primary',
 
       logo: {
-        alt: "My Site Logo",
+        alt: "My Wiki Logo",
         src:
-          "https://xiebo.pro/img/cathole.jpeg",
+          "https://xiebo.pro/img/cathole.png",
       },
 
       items: [

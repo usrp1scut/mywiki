@@ -1,18 +1,20 @@
 ---
 id: Home
-title: Jacob's wiki
-sidebar_label: 目录
+title: 我的知识库
+sidebar_label: 主页
 slug: /
 ---
 #### Who am I
 
-* CKA Kubernetes 认证管理员
+![avatar](https://docusaurus.io/img/docusaurus.svg)
 
-* RHCE 红帽认证工程师
+* ## <font color="#02acbe" >CKA Kubernetes 认证管理员 </font>
 
-这是运维笔记本
+* ## <font color="#02acbe" >(过期的)RHCE 红帽认证工程师  </font>
 
-为了避免遗忘、便于分享，我在这里记录。  
+这是我的运维笔记本
 
-请随意浏览～
+为了避免遗忘、便于查阅。  
+
+
 
