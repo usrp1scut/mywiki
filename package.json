@@ -1,6 +1,6 @@
 {
-  "name": "wiki-docusaurus",
-  "version": "0.0.0",
+  "name": "mywiki",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -37,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "notebook",
+  "main": "docusaurus.config.js",
+  "repository": "https://github.com/usrp1scut/mywiki.git",
+  "author": "Jacob.xie",
+  "license": "MIT"
 }
