@@ -98,7 +98,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateAuthor: false,
           showLastUpdateTime: false,
-          editUrl: "https://lab.co.link/Jacob/wiki-doc/-/tree/main/docs",
+          editUrl: "https://github.com/usrp1scut/mywiki/tree/main/docs",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -111,7 +111,7 @@ module.exports = {
           path: 'blog',
           blogSidebarTitle: 'Recent',
           //sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: 'https://lab.co.link/Jacob/wiki-doc/-/tree/main/blog/back',
+          editUrl: 'https://github.com/usrp1scut/mywiki/tree/main/blog/',
 
         },
         theme: {
