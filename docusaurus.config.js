@@ -25,7 +25,7 @@ module.exports = {
     image: 'https://docusaurus.io/img/docusaurus.svg',
 
     
-    colorMode: {
+    colorModeToggle: {
       // "light" | "dark"
       //defaultMode: "dark",
       disableSwitch: false,
@@ -61,7 +61,7 @@ module.exports = {
       //style: 'primary',
 
       logo: {
-        alt: "My Wiki Logo",
+        alt: "My  Logo",
         src:
           "https://xiebo.pro/img/cathole.png",
       },
@@ -70,17 +70,17 @@ module.exports = {
         {
           to: "blog",
           label: "博客",
-          position: "right",
+          position: "left",
         },
 
         {
-          href: "https://google.com/",
-          label: "搜索",
+          href: "https://lab.co.link/",
+          label: "开放代码托管",
           position: "right",
         },
         {
           href: "https://co.link/",
-          label: "友链 & 导航站",
+          label: "可链科技",
           position: "right",
         },
       ],
