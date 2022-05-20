@@ -60,7 +60,8 @@ module.exports = {
       type: 'category',
       label: '项目管理',
       items: [
-
+        'pm/项目管理基础',
+        'pm/工作中的项目管理思维',
       ],
     },
 
