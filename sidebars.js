@@ -15,6 +15,8 @@ module.exports = {
       items: [
         'sys/shell监控脚本',
         'sys/gitlab-ce管理设置保存时出现500报错',
+        'sys/Linux常用内核参数调优',
+        'sys/Linux修改最大打开文件数',
       ],
     },
     {
