@@ -54,6 +54,7 @@ module.exports = {
       items: [
         'another/解决网页需登陆后复制',
         'another/使用acme生成泛域名证书',
+        'another/iMac检测与系统恢复',
 
       ],
     },
