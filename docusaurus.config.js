@@ -2,8 +2,8 @@ const math = require('remark-math');
 const katex = require('rehype-katex');
 
 module.exports = {
-  title: "Jacob's wiki",
-  titleDelimiter: "🦖", // Defaults to `|`
+  title: "我的运维知识库",
+  titleDelimiter: "|", // Defaults to `|`
   tagline: "",
   url: "https://xiebo.pro",
   baseUrl: "/",

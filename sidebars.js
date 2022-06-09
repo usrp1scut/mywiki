@@ -6,7 +6,8 @@ module.exports = {
       label: '网络',
       items: [
         'net/frp实现内网穿透',
-
+        'net/tcp端口探测工具paping',
+        'net/各系统查看路由表命令',
       ],
     },
     {
@@ -17,6 +18,7 @@ module.exports = {
         'sys/gitlab-ce管理设置保存时出现500报错',
         'sys/Linux常用内核参数调优',
         'sys/Linux修改最大打开文件数',
+        'sys/gitlab恢复账号密码登陆',
       ],
     },
     {
