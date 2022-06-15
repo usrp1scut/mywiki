@@ -19,6 +19,7 @@ module.exports = {
         'sys/Linux常用内核参数调优',
         'sys/Linux修改最大打开文件数',
         'sys/gitlab恢复账号密码登陆',
+        'sys/ESXI7.0开机紫屏问题',
       ],
     },
     {
@@ -57,6 +58,7 @@ module.exports = {
         'another/解决网页需登陆后复制',
         'another/使用acme生成泛域名证书',
         'another/iMac检测与系统恢复',
+        'another/基于Docusaurus及gitlab pages搭建博客',
 
       ],
     },

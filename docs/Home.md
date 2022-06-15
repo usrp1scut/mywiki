@@ -6,7 +6,9 @@ slug: /
 ---
 #### Who am I
 
-![avatar](https://docusaurus.io/img/docusaurus.svg)
+![avatar](https://xiebo.pro/img/cks.png)
+
+* ## <font color="#02acbe" >CKS Kubernetes 认证安全专家 </font>
 
 * ## <font color="#02acbe" >CKA Kubernetes 认证管理员 </font>
 
