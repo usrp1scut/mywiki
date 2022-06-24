@@ -27,7 +27,7 @@ module.exports = {
       label: 'Kubernetes',
       items: [
         'k8s/kubeadm搭建3节点k8s集群',
-
+        'k8s/docker常用配置',
       ],
     },
     {
