@@ -8,6 +8,7 @@ module.exports = {
         'net/frp实现内网穿透',
         'net/tcp端口探测工具paping',
         'net/各系统查看路由表命令',
+        'net/配置dnsmasq作为内网DNS',
       ],
     },
     {

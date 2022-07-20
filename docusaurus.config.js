@@ -74,15 +74,11 @@ module.exports = {
         },
 
         {
-          href: "https://lab.co.link/",
-          label: "开放代码托管",
+          href: "mailto:me@xiebo.pro",
+          label: "联系我",
           position: "right",
         },
-        {
-          href: "https://co.link/",
-          label: "可链科技",
-          position: "right",
-        },
+
       ],
     },
   }, 
