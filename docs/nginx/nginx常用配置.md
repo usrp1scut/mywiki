@@ -64,11 +64,15 @@ log_format  main  '$remote_addr - $http_x_forwarded_for - $remote_user [$time_lo
                   '"$http_user_agent" "$upstream_cache_status"'
                   '"$http_cookie" "$cookie_access-key"';
 ```
-### 正则表达式匹配
+### location正则表达式匹配，优先级从上到下
 ```
-  ~ 为区分大小写匹配
-  ~* 为不区分大小写匹配
-  !~和!~*分别为区分大小写不匹配及不区分大小写不匹配
+  1. = 精确匹配
+  2. ^~ 前缀匹配
+  3. ~ 为区分大小写匹配
+  4. ~* 为不区分大小写匹配
+  5. !~和!~*分别为区分大小写不匹配及不区分大小写不匹配
+  6. 通配符路径，即“/”开头
+
 ```
 ### 文件及目录匹配，其中：
 ```

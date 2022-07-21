@@ -29,8 +29,17 @@ module.exports = {
       items: [
         'k8s/kubeadm搭建3节点k8s集群',
         'k8s/docker常用配置',
+        'k8s/namespace切换工具kubens',
       ],
     },
+
+    {
+      type: 'category',
+      label: 'istio服务网格',
+      items: [
+      ],
+    },
+
     {
       type: 'category',
       label: 'Nginx',
