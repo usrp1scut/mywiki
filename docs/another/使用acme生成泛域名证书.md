@@ -15,9 +15,10 @@ acme.sh  --issue  --dns  -d example.com -d *.example.com \
 acme.sh  --renew  -d example.com -d *.example.com \
  --yes-I-know-dns-manual-mode-enough-go-ahead-please
 #安装证书
-acme.sh --install-cert -d example.com -d *.example.com \
- --key-file         /path/to/ssl/nginx.key \ 
- --fullchain-file   /path/to/ssl/nginx.crt
+acme.sh --install-cert -d *.example.com \
+--key-file       /path/to/keyfile/in/nginx/key.pem  \
+--fullchain-file /path/to/fullchain/nginx/cert.pem \
+--reloadcmd     "service nginx force-reload"
 ```
 ### 2.自动创建
 以 dnspod 为例, 你需要先登录到 dnspod 账号, 生成你的 api id 和 api key, 都是免费的. 然后:

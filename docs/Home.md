@@ -4,7 +4,6 @@ title: 我的知识库
 sidebar_label: 主页
 slug: /
 ---
-
 ### 收藏夹
 * 容器
   * [kubectl 命令查询](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
@@ -31,11 +30,15 @@ slug: /
 
 #### Who am I
 
-*  <font color="#d9d919" >CKS Kubernetes 认证安全专家 </font>
-
-*  <font color="#d9d919" >CKA Kubernetes 认证管理员 </font>
-
+*  <font color="#d9d919" >CKS Kubernetes 认证安全专家 </font> 
+*  <font color="#d9d919" >CKA Kubernetes 认证管理员 </font>   
 *  <font color="#d9d919" >RHCE 红帽认证工程师  </font>
+
+<figure>
+<img src="https://xiebo.pro/img/CKS.png" width="280" height="210"/>
+<img src="https://xiebo.pro/img/CKA.png" width="280" height="210"/>
+<img src="https://xiebo.pro/img/RHCE.png" width="280" height="210"/>
+</figure>
 
 这是我的运维笔记本
 

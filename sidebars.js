@@ -22,6 +22,7 @@ module.exports = {
         'sys/gitlab恢复账号密码登陆',
         'sys/ESXI7.0开机紫屏问题',
         'sys/Docker-compose搭建gitlab',
+        'sys/docker gitlab 13.12升级至15.2'
       ],
     },
     {

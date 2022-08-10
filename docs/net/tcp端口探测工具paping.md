@@ -32,3 +32,34 @@ MAX=`echo $RESULT | tail -n 1 | awk -F ',' '{print $4}' |sed 's/ms//g' -|awk '{p
 info="丢包$LOSS个,最大延时$MAX ms"
 echo $info
 ```
+
+### 批量接口tcp探测脚本
+
+`paping_patch.sh`
+
+```
+old_IFS=$IFS
+#定义分隔符为换行符
+IFS='
+'
+for i in `/usr/bin/cat /root/ip_port.txt`
+do
+{
+  ip=`echo $i| awk '{print $1}'`
+  port=`echo $i|awk '{print $2}'`
+  RESULT=`/root/paping -p $port $ip -c 10 --nocolor`
+  LOSS=`echo $RESULT | tail -n 1 | awk -F ',' '{print $3}' | awk '{print int($3)}'`
+  MAX=`echo $RESULT | tail -n 1 | awk -F ',' '{print $4}' |sed 's/ms//g' -|awk '{print int($3)}'`
+  echo "$ip 端口$port丢包$LOSS个,最大延时$MAX ms"
+}&
+done
+IFS=$old_IFS 
+
+```
+
+ip_port.txt格式
+
+ip port
+```
+10.0.0.1 80
+```
