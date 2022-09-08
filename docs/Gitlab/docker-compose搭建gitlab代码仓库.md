@@ -15,6 +15,13 @@ services:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'https://gitlab.example.com'
         nginx['redirect_http_to_https'] = true
+        #前端使用LB配置ssl回源http可使用以下配置，同时需禁用重定向,registry和pages同理
+        #nginx['listen_port'] = 80
+        #nginx['listen_https'] = false
+        #registry_nginx['listen_port'] = 5050
+        #registry_nginx['listen_https'] = false
+        #pages_nginx['listen_port'] = 5050
+        #pages_nginx['listen_https'] = false
         #关闭自带pgsql模块
         postgresql['enable'] = false
         gitlab_rails['db_adapter'] = 'postgresql'
@@ -40,7 +47,7 @@ services:
         gitlab_rails['smtp_enable_starttls_auto'] = true
         gitlab_rails['smtp_tls'] = true
         user["git_user_email"] = "no-reply@example.com"
-        #设置自动分配头像图标库，使用默认会出现图裂
+        #设置自动分配头像图标库，使用默认出现图裂
         gitlab_rails['gravatar_plain_url'] = 'http://sdn.geekzu.org/avatar/%{hash}?s=%{size}&d=identicon'
         gitlab_rails['gravatar_ssl_url'] = 'https://sdn.geekzu.org/avatar/%{hash}?s=%{size}&d=identicon'
         gitlab_rails['lfs_enabled'] = true

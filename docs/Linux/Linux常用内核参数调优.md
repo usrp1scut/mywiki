@@ -1,5 +1,5 @@
 [原文链接 ...](https://www.jianshu.com/p/fb7c482da86f)
-### <font color="#02acbe" >sysctl -a 查看所有系统变量</font>
+### sysctl -a 查看所有系统变量
 ```
 -n：打印值时不打印关键字； 
 -e：忽略未知关键字错误； 
@@ -9,7 +9,7 @@
 -a：打印当前所有可用的内核参数变量和值； 
 -A：以表格方式打印当前所有可用的内核参数变量和值。
 ```
-### <font color="#02acbe" >/proc/sys下内核文件与配置文件sysctl.conf中变量存在着对应关系 配置说明:</font>
+### /proc/sys下内核文件与配置文件sysctl.conf中变量存在着对应关系 配置说明:
 ```
 #最大的待发送TCP数据缓冲区空间  
 net.inet.tcp.sendspace=65536 
@@ -146,7 +146,7 @@ net.inet.ip.fw.dyn_max=65535
 net.inet.ipf.fr_tcpidletimeout=864000
 ```
 
-### <font color="#02acbe" >参考值(具体根据系统硬件配置对应值)</font>
+### "#02acbe" >参考值(具体根据系统硬件配置对应值)
 ```
 $ /proc/sys/net/core/wmem_max
 最大socket写buffer,可参考的优化值:873200

@@ -1,6 +1,6 @@
 ---
 id: Home
-title: 我的知识库
+title: Jacob's wiki
 sidebar_label: 主页
 slug: /
 ---

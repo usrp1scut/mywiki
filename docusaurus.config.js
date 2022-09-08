@@ -2,7 +2,7 @@ const math = require('remark-math');
 const katex = require('rehype-katex');
 
 module.exports = {
-  title: "我的运维知识库",
+  title: "Jacob's wiki",
   titleDelimiter: "|", // Defaults to `|`
   tagline: "",
   url: "https://xiebo.pro",
@@ -12,12 +12,21 @@ module.exports = {
   favicon: "https://xiebo.pro/img/cathole.png",
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
-
+  i18n: {
+    defaultLocale: "zh-Hans",
+    locales: ["zh-Hans"],
+  },
   themeConfig: {
 
     footer: {
       
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.pro"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2022055105号 </a> | Built with Docusaurus`,
+    },
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+      defaultLanguage: "shell",
+      additionalLanguages: ["java", "git","nginx","http","python","sql"],
     },
     
 
@@ -92,16 +101,24 @@ module.exports = {
           sidebarCollapsible: true, //默认折叠
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           editUrl: "https://github.com/usrp1scut/mywiki/tree/main/docs",
-          remarkPlugins: [math],
-          rehypePlugins: [katex],
+          // include: ['**/*.md', '**/*.mdx'],
+          // exclude: [
+          //   '**/_*.{js,jsx,ts,tsx,md,mdx}',
+          //   '**/_*/**',
+          //   '**/*.test.{js,jsx,ts,tsx}',
+          //   '**/__tests__/**',
+          // ],
+          // remarkPlugins: [math],
+          // rehypePlugins: [katex],
         },
         blog: {
           blogTitle: 'Jacob\'s blog!',
           blogDescription: 'A docusaurus powered blog!',
           blogSidebarCount: 8,
+          blogSidebarTitle: "文章",
           postsPerPage: 8,
           showReadingTime: false,
           path: 'blog',
