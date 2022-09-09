@@ -1,20 +1,31 @@
 /* 主题色 */
 :root {
 	/*--ifm-color-primary: #0094d9;*/
-	--ifm-color-primary: #d8b132;
+	--ifm-color-primary: #1fa588;
 }
 
 
 /* 目录样式优化 */
-.table-of-contents .table-of-contents__link--active {
+/* .table-of-contents .table-of-contents__link--active {
 	font-weight: var(--ifm-font-weight-semibold);
 	margin-left: -16px;
 	padding-left: 12px;
 	border-left: 4px solid var(--ifm-link-color);
-}
+} */
+/* 覆盖 Infima 根变量 */
+[data-theme='dark'] {
+	--ifm-color-primary: #4e89e8;
+  }
 
-
-
+.banner {
+	padding: 4rem;
+  }
+  /** 在移动设备上，缩小 padding */
+  @media screen and (max-width: 996px) {
+	.heroBanner {
+	  padding: 2rem;
+	}
+  }
 /* 去掉侧边栏右侧的分割线 */
 .main-wrapper>div>div {
 	border-right: none !important;
@@ -32,7 +43,7 @@
 	-webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
   }
   ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255, 0, 0, 0.4);
+	background: rgba(0, 255, 195, 0.4);
   }
   .dropdown__menu{
 	min-width: 7rem!important;

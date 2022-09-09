@@ -1,4 +1,4 @@
-```
+```sql
 解决方法：
 
 gitlab-psql gitlabhq_production

@@ -1,6 +1,6 @@
 ### 连接pgsql清除token，注意会影响runner,导致runner需要重新注册
 
-```
+```sql
 gitlab=> UPDATE projects SET runners_token = null, runners_token_encrypted = null;
 UPDATE 1
 gitlab=> UPDATE namespaces SET runners_token = null, runners_token_encrypted = null;

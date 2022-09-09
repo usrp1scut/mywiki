@@ -1,4 +1,4 @@
-```
+```nginx
 stream {
     #tcp端口转发
     server {

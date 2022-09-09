@@ -2,7 +2,7 @@
 
 `vi ~/.docker/config.json `
 
-```
+```json
 {
  "proxies":
  {
@@ -20,7 +20,7 @@
 
 `cat /etc/docker/daemon.json `
 
-```
+```json
 {
   "registry-mirrors": ["https://og45rd7t.mirror.aliyuncs.com"]
 }

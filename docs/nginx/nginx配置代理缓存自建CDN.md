@@ -1,7 +1,7 @@
 #### nginx proxy cache缓存配置
 
 
-```
+```nginx
     #缓存路径，缓存2级目录，缓存名称cache_one,分配100m内存，占用最大存储空间4g，不活跃的缓存1天后清除。
     proxy_cache_path /etc/nginx/cache_dir levels=1:2 keys_zone=cache_one:100m max_size=4g inactive=1d;
    

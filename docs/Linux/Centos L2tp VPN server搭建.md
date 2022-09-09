@@ -1,24 +1,30 @@
 #### 1.先看看你的主机是否支持pptp，返回结果为yes就表示通过。
-
-`modprobe ppp-compress-18 && echo yes`
+```
+modprobe ppp-compress-18 && echo yes
+```
 
 #### 2 .是否开启了TUN，有的虚拟机主机需要开启，返回结果为cat: /dev/net/tun: File descriptor in bad state。就表示通过。
-
-`cat /dev/net/tun`
+```
+cat /dev/net/tun
+```
 
 #### 3.更新一下再安装
+```
+yum install update
 
-`yum install update`
-
-`yum update -y`
+yum update -y
+```
 
 #### 4.安装EPEL源（CentOS7官方源中已经去掉了xl2tpd）
 
-`yum install -y epel-release`
+```
+yum install -y epel-release
+```
 
 #### 5.安装xl2tpd和libreswan(openswan已经停止维护)
-
-`yum install -y xl2tpd libreswan lsof`
+```
+yum install -y xl2tpd libreswan lsof
+```
 
 #### 6.vi /etc/xl2tpd/xl2tpd.conf
 ```

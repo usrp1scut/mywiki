@@ -1,5 +1,5 @@
 #### nginx配置limit_rate实现客户端限速和代理转发限速
-```
+```nginx
   server {
     listen 80;
     server_name www.example.com;

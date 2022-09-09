@@ -8,7 +8,7 @@ ubuntu:`sudo apt install dnsmasq`
 
 `vi /etc/dnsmasq.conf`
 
-```
+```bash
 #缓存过期时间，单位为秒
 local-ttl=3600
 #缓存记录的条数
@@ -36,7 +36,7 @@ conf-dir=/etc/dnsmasq.d
 
 `vi /etc/dnsmasq.d/local.conf`
 
-```
+```bash
 address=/k8s-node1/192.168.1.41
 address=/k8s-node2/192.168.1.42
 address=/k8s-node3/192.168.1.43

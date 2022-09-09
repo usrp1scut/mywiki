@@ -26,7 +26,7 @@ module.exports = {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
       defaultLanguage: "shell",
-      additionalLanguages: ["java", "git","nginx","http","python","sql"],
+      additionalLanguages: ["git","nginx","http","python","sql"],
     },
     
 
@@ -103,7 +103,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: "https://github.com/usrp1scut/mywiki/tree/main/docs",
+          editUrl: "https://github.com/usrp1scut/mywiki/tree/main",
           // include: ['**/*.md', '**/*.mdx'],
           // exclude: [
           //   '**/_*.{js,jsx,ts,tsx,md,mdx}',
@@ -124,7 +124,7 @@ module.exports = {
           path: 'blog',
           blogSidebarTitle: 'Recent',
           //sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: 'https://github.com/usrp1scut/mywiki/tree/main/blog/',
+          editUrl: 'https://github.com/usrp1scut/mywiki/tree/main',
 
         },
         theme: {
