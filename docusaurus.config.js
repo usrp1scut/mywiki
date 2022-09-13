@@ -23,7 +23,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.pro"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2022055105号 </a> | Built with Docusaurus`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
+      theme: require('prism-react-renderer/themes/vsDark'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
       defaultLanguage: "shell",
       additionalLanguages: ["git","nginx","http","python","sql"],
@@ -36,7 +36,7 @@ module.exports = {
     
     colorModeToggle: {
       // "light" | "dark"
-      //defaultMode: "dark",
+      defaultMode: "dark",
       disableSwitch: false,
       respectPrefersColorScheme: true,
 
@@ -63,7 +63,6 @@ module.exports = {
       },
     },
 
-    hideableSidebar: false,
     navbar: {
       title: "Jacob's wiki",
       hideOnScroll: false,
