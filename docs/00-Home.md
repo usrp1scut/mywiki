@@ -1,10 +1,10 @@
 ---
 id: Home
 title: Jacob's wiki
-sidebar_label: 主页
+sidebar_label: 外链
 slug: /
 ---
-### 我的官方文档收藏夹
+### 外链收藏夹
 * 容器
   * [kubectl 命令查询](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-)
   * [Kubernetes 官方文档](https://kubernetes.io/zh-cn/docs/home/)

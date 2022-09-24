@@ -41,6 +41,13 @@ Making this installation the default for injection and validation.
 Thank you for installing Istio 1.15.  Please take a few minutes to tell us about your install/upgrade experience!  https://forms.gle/SWHFBmwJspusK1hv6
 ```
 
+配置自动注册和DNS代理的安装
+
+```bash
+istioctl install --set profile=demo --set values.pilot.env.PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION=true --set meshConfig.defaultConfig.proxyMetadata.ISTIO_META_DNS_CAPTURE='\"true\"'
+#会遇到egress和ingress起不来的情况，传参bug，手动修改egress和ingress的deployment，找到ISTIO_META_DNS_CAPTURE，值由'"true"'改为"true"
+```
+
 ## 3.为工作负载注入sidecar
   
 ```

@@ -4,12 +4,12 @@ const katex = require('rehype-katex');
 module.exports = {
   title: "Jacob's wiki",
   titleDelimiter: "|", // Defaults to `|`
-  tagline: "",
+  tagline: '净整些没用的',
   url: "https://xiebo.pro",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "https://xiebo.pro/img/cathole.png",
+  favicon: "img/logo.png",
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
   i18n: {
@@ -17,6 +17,20 @@ module.exports = {
     locales: ["zh-Hans"],
   },
   themeConfig: {
+    announcementBar: {
+      id: '想学才学',
+      content:
+        '新增首页，更新logo，更新Linux、Oracle、Istio笔记',
+      backgroundColor: '#56dbc8',
+      textColor: '#000',
+      isCloseable: false,
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
 
     footer: {
       
@@ -31,7 +45,7 @@ module.exports = {
     
 
     //sidebarCollapsible: true, //默认折叠
-    image: 'https://docusaurus.io/img/docusaurus.svg',
+    image: 'img/logo.png',
 
     
     colorModeToggle: {
@@ -71,10 +85,15 @@ module.exports = {
       logo: {
         alt: "My  Logo",
         src:
-          "https://xiebo.pro/img/cathole.png",
+          "img/logo.png",
       },
 
       items: [
+        {
+          to: "docs",
+          label: "知识库",
+          position: "left",
+        },
         {
           to: "blog",
           label: "博客",
@@ -91,14 +110,14 @@ module.exports = {
     },
   }, 
 
-
   presets: [
     [
       "@docusaurus/preset-classic",
       {
         docs: {
           sidebarCollapsible: true, //默认折叠
-          routeBasePath: "/",
+          //breadcrumbs: false,
+          //routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
@@ -110,8 +129,8 @@ module.exports = {
           //   '**/*.test.{js,jsx,ts,tsx}',
           //   '**/__tests__/**',
           // ],
-          // remarkPlugins: [math],
-          // rehypePlugins: [katex],
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {
           blogTitle: 'Jacob\'s blog!',
@@ -133,4 +152,5 @@ module.exports = {
       },
     ],
   ],
+
 };
