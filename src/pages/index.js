@@ -18,15 +18,14 @@ function Home() {
         <header className={styles.hero}>
           <div className="container">
             <div className="row">
-              <div className="col col--6">
-                <h1>
+              <div className="col">
+                <h1 >
                 <br /><br />
-                Life is boring<br />But learning is interesting <br />
+                Life is boring,<br />But learning is interesting.
                 </h1>
                 <Link
                 className={clsx(
-                    "button button--primary button--lg",
-                    styles.getStartedButton
+                    "button button--outline button--primary button--lg",
                 )}
                 to="/docs"
                 >
@@ -37,7 +36,7 @@ function Home() {
                 搞不懂前端， <strong>手动换行符居中</strong><br /><br /><br />
                 </p>
               </div>
-              <div className="col col--6">
+              <div className="col">
                 <img
                 className={styles.logo}
                 src={useBaseUrl("img/logo.png")}

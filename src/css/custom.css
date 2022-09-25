@@ -14,7 +14,7 @@
 } */
 /* 覆盖 Infima 根变量 */
 [data-theme='dark'] {
-	--ifm-color-primary: #4e89e8;
+	--ifm-color-primary: #1393b3;
   }
 
 .banner {
