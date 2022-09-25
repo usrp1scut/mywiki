@@ -23,7 +23,7 @@ module.exports = {
         '新增首页，更新logo，更新Linux、Oracle、Istio笔记',
       backgroundColor: '#56dbc8',
       textColor: '#000',
-      isCloseable: false,
+      isCloseable: true,
     },
     docs: {
       sidebar: {
