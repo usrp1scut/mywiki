@@ -18,7 +18,7 @@ function Home() {
         <header className={styles.hero}>
           <div className="container">
             <div className="row">
-              <div className="col">
+              <div className="col col--6">
                 <h1>
                 <br /><br />
                 Life is boring<br />But learning is interesting <br />
@@ -37,7 +37,7 @@ function Home() {
                 搞不懂前端， <strong>手动换行符居中</strong><br /><br /><br />
                 </p>
               </div>
-              <div className="col">
+              <div className="col col--6">
                 <img
                 className={styles.logo}
                 src={useBaseUrl("img/logo.png")}
