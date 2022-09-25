@@ -1,10 +1,11 @@
 .hero {
   display: flex;
-  padding: 10rem 10rem;
+  padding: 0 0 var(--ifm-navbar-height);
   text-align: center; 
   align-items: center;
   vertical-align: center;
   position: relative;
+  height: calc(100vh - calc(2 * var(--ifm-navbar-height)));
   /* background: #f9f9f9; */
 }
 
@@ -13,6 +14,9 @@
   padding-bottom: 1rem;
 } */
 
+.hero h1 {
+  font-size: 2.5rem;
+}
 .getStartedButton {
   margin-right: 0.6rem;
 }
