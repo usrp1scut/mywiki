@@ -14,7 +14,7 @@ function Home() {
 
       title="Jacob's wiki"
       description="Be yourself"
-      keywords={['111', '222','333']}>
+      keywords={['运维', '知识库','devops']}>
         <header className={styles.hero}>
           <div className="container">
             <div className="row">
@@ -33,7 +33,7 @@ function Home() {
                 </Link>
 
                 <p className="padding-top--md">
-                搞不懂前端， <strong>手动换行符居中</strong><br /><br /><br />
+                便于查询，避免遗忘<br /><br /><br />
                 </p>
               </div>
               <div className="col">

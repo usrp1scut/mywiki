@@ -20,7 +20,7 @@ module.exports = {
     announcementBar: {
       id: '想学才学',
       content:
-        '新增首页，更新logo，更新Linux、Oracle、Istio笔记',
+        '新增Istio wordEntry笔记',
       backgroundColor: '#56dbc8',
       textColor: '#000',
       isCloseable: true,
