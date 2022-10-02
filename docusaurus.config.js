@@ -36,7 +36,7 @@ module.exports = {
     announcementBar: {
       id: '想学才学',
       content:
-        '文档搜索功能重磅上线！',
+        '更新Istio安全管理笔记',
       backgroundColor: '#56dbc8',
       textColor: '#000',
       isCloseable: true,

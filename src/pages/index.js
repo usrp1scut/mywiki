@@ -33,7 +33,7 @@ function Home() {
                 </Link>
 
                 <p className="padding-top--md">
-                便于查询，避免遗忘<br /><br /><br />
+                <strong>恐惧源于火力不足</strong> <br /><br /><br />
                 </p>
               </div>
               <div className="col">
