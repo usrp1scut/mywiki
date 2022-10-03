@@ -13,8 +13,8 @@ module.exports = {
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
   i18n: {
-    defaultLocale: "zh-Hans",
-    locales: ["zh-Hans"],
+    defaultLocale: "zh-CN",
+    locales: ["zh-CN"],
   },
   themes: [
     // ... Your other themes.
@@ -26,7 +26,7 @@ module.exports = {
         hashed: true,
         // For Docs using Chinese, The `language` is recommended to set to:
         // ```
-        // language: ["en", "zh"],
+        language: ["en", "zh"],
         // ```
       },
     ],
