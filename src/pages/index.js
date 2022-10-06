@@ -20,8 +20,8 @@ function Home() {
             <div className="row">
               <div className="col">
                 <h1 >
-                <br /><br />
-                Life is boring,<br />But learning is interesting.
+                
+                骐骥一跃，不能十步；<br />驽马十驾，功在不舍。
                 </h1>
                 <Link
                 className={clsx(

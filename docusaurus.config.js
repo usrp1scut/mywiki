@@ -36,7 +36,7 @@ module.exports = {
     announcementBar: {
       id: '想学才学',
       content:
-        '更新Istio安全管理笔记',
+        '开更openstack,找时间补充一下CKA及CKS的笔记',
       backgroundColor: '#56dbc8',
       textColor: '#000',
       isCloseable: true,
