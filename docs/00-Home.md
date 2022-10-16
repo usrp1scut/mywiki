@@ -23,7 +23,7 @@ slug: /
   * [Rocky Linux (替代Centos)](https://rockylinux.org/download/)
   * [Ubuntu 下载](https://cn.ubuntu.com/download)
   * [Debian 下载](https://www.debian.org/download)
-
+  * [Openstack各种镜像下载](https://docs.openstack.org/image-guide/obtain-images.html)
 * CI/CD
   * [Gitlab 文档](https://docs.gitlab.com/ee/)
 

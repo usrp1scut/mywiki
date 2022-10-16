@@ -56,7 +56,7 @@ module.exports = {
       theme: require('prism-react-renderer/themes/vsDark'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
       defaultLanguage: "shell",
-      additionalLanguages: ["git","nginx","http","python","sql"],
+      additionalLanguages: ['git','nginx','python','sql','yaml'],
     },
     
 
