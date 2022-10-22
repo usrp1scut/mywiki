@@ -22,7 +22,7 @@ NodeVolumeNodeConflict
 
 1.为节点添加标签
 
-```bash
+```sh
 kubectl label nodes <your-node-name> disktype=ssd
 ```
 

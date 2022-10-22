@@ -15,8 +15,22 @@
  }
 }
 ```
+### 2. 配置镜像下载代理
 
-### 2.docker 镜像加速器
+```bash
+mkdir /etc/systemd/system/docker.service.d
+
+vi /etc/systemd/system/docker.serivce.d/http-proxy.conf
+#配置代理信息
+[Service]
+Environment="HTTP_PROXY=http://192.168.1.2:7890/"
+Environment="HTTPS_PROXY=http://192.168.1.2:7890/"
+
+systemctl daemon-reload
+systemctl restart docker
+```
+
+### 3.docker 镜像加速器
 
 `cat /etc/docker/daemon.json `
 

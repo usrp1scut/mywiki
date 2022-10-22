@@ -236,7 +236,7 @@ systemctl status kubelet
 
 在里面创建一个文件
 
-```yaml
+```yml
 apiVersion: v1
 kind: Pod
 metadata:
