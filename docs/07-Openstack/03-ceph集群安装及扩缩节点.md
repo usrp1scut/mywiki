@@ -1,4 +1,7 @@
 ## 系统环境
+
+### ceph架构
+![ceph架构图](/img/ceph.drawio.png)
 ### 系统配置
 
 3台CentOS 7 server，除系统盘每台额外添加3块硬盘
@@ -91,6 +94,8 @@ osd_pool_default_min_size = 1   #最小副本数
 mon_osd_full_ratio = .85
 
 #在这里我们单独加上 mon_osd_full_ratio = .85 的目的是，集群创建好之后健康状态是 err 的，为我们后面修改参数做准备用的。
+
+
 
 ```
 
@@ -361,5 +366,47 @@ Do you really want to remove active logical volume ceph-58416bbc-9803-4674-aba4-
   Volume group "ceph-50b5c8ef-0d21-424c-b3f7-687fb8bb79bc" successfully removed
 ```
 
+## 参数设置
 
+nearfull_ratio <= backfillfull_ratio <= full_ratio
+
+* mon_osd_nearfull_ratio 
+
+告警水位，集群中的任一 OSD 空间使用率大于等于此数值时，集群将被标记为 NearFull，此时集群将产生告警，并提示所有已经处于 NearFull 状态的 OSD
+
+默认值：0.85
+
+* mon_osd_backfillfull_ratio OSD 
+
+空间使用率大于等于此数值时，拒绝 PG 通过 Backfill 方式迁出或者继续迁入本 OSD
+
+默认值：0.90
+
+* mon_osd_full_ratio 
+
+报停水位，集群任意一个 OSD 使用率大于等于此数值时，集群将被标记为 full，此时集群停止接受客户端的写入请求
+
+默认值：0.95
+
+```bash
+#查看健康状态
+ceph health detial
+#设置 full_ratio 需要小于等于 osd_failsafe_full_ratio
+#nearfull_ratio <= backfillfull_ratio <= full_ratio
+ceph osd set-nearfull-ratio 0.8
+#查看值
+[root@vms81 ceph-install]# ceph osd dump |grep full
+full_ratio 0.85
+backfillfull_ratio 0.9
+nearfull_ratio 0.8
+#查看默认参数配置
+[root@vms81 ceph-install]# ceph --show-config | grep full_ratio
+mon_osd_backfillfull_ratio = 0.900000
+mon_osd_full_ratio = 0.850000
+mon_osd_nearfull_ratio = 0.850000
+osd_failsafe_full_ratio = 0.970000
+osd_pool_default_cache_target_full_ratio = 0.800000
+#修改完后推送到所有节点
+ceph-deploy --overwrite-conf config push vms81 vms83
+```
 
