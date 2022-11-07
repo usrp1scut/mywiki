@@ -3,9 +3,8 @@
 块管理通过rdb接口操作
 
 ```bash
-[root@vms81 ceph-install]# ceph osd crush reweight osd.6 0.02930
-reweighted item id 6 name 'osd.6' to 0.0293 in crush map
-[root@vms81 ceph-install]# ceph osd pool application get pool1
+ceph osd pool application enable pool1 rbd
+ceph osd pool application get pool1
 {
     "rbd": {}
 }
@@ -196,3 +195,116 @@ rbd resize --image pool1/block1 --size 4096
 xfs_growfs /dev/rbd0
 ```
 
+### 重命名块
+
+不允许将块重命名到不同的池，如`rbd rename pool1/block2 pool2/blockx`，剪切也一样
+```bash
+rbd create pool1/block2 --size 2048
+rbd rename pool1/block2 pool1/blockx
+rbd -p pool1 ls
+```
+### 复制块
+
+```bash
+[root@vms81 ~]# rbd cp pool1/block2 pool2/block2
+Image copy: 100% complete...done.
+```
+### 回收块
+
+避免误删，可以将块先放到回收站
+
+```bash
+#回收
+[root@vms81 ~]# rbd trash mv pool2/block2
+#查看回收站
+[root@vms81 ~]# rbd trash -p pool2 ls
+85fe6b8b4567 block2
+#恢复
+[root@vms81 ~]# rbd trash -p pool2 restore 85fe6b8b4567
+#彻底删除
+[root@vms81 ~]# rbd trash -p pool2 rm 85fe6b8b4567
+Removing image: 100% complete...done.
+```
+### 快照
+
+基本操作
+```bash
+#查看快照
+[root@vms81 ~]# rbd snap ls pool1/block1
+#创建快照，语法rbd snap create 池/块@快照名
+[root@vms81 ~]# rbd snap create pool1/block1@s_block
+[root@vms81 ~]# rbd snap ls pool1/block1
+SNAPID NAME    SIZE TIMESTAMP                
+     4 s_block 4GiB Mon Nov  7 21:09:47 2022 
+#恢复快照，语法rbd snap rollback 池/块@快照名，恢复快照前客户端应先取消挂载
+[root@vms81 ~]# rbd snap rollback pool1/block1@s_block
+Rolling back to snapshot: 100% complete...done.
+```
+
+从快照克隆出块
+
+```bash
+#克隆前须对快照设置写保护
+[root@vms81 ~]# rbd snap protect pool1/block1@s_block
+#克隆快照为块
+[root@vms81 ~]# rbd clone pool1/block1@s_block pool1/clone_block
+#解除克隆块与快照关联
+[root@vms81 ~]# rbd flatten pool1/clone_block
+Image flatten: 100% complete...done.
+#解除快照写保护
+[root@vms81 ~]# rbd snap unprotect pool1/block1@s_block
+```
+
+### 导入导出块
+
+```bash
+[root@vms81 ~]# rbd export pool1/block1 block1-1.data
+Exporting image: 100% complete...done.
+[root@vms81 ~]# ls
+anaconda-ks.cfg  block1-1.data  ceph-install  set.sh
+[root@vms81 ~]# rbd import block1-1.data pool2/block1
+Importing image: 100% complete...done.
+```
+
+增量备份导出和恢复
+
+```bash
+#修改后创建快照1
+[root@vms81 ~]# rbd snap create pool1/block1@s_block1
+#再次修改后窗建快照2
+[root@vms81 ~]# rbd snap create pool1/block1@s_block2
+#导出到快照1的增量备份
+[root@vms81 ~]# rbd export-diff pool1/block1@s_block1 a.data
+Exporting image: 100% complete...done.
+[root@vms81 ~]# ls
+a.data  anaconda-ks.cfg  block1-1.data  ceph-install  set.sh
+#导出到快照2的增量备份
+[root@vms81 ~]# rbd export-diff --from-snap s_block1 pool1/block1@s_block2 b.data
+Exporting image: 100% complete...done.
+#导入初始备份
+[root@vms81 ~]# rbd import block1-1.data pool2/block1
+rbd: image creation failed
+Importing image: 0% complete...failed.
+2022-11-07 21:33:05.542321 7f959d1a6d40 -1 librbd: rbd image block1 already exists
+rbd: import failed: (17) File exists
+#增量导入备份1
+[root@vms81 ~]# rbd import-diff a.data pool2/block1
+Importing image diff: 100% complete...done.
+#增量导入备份2
+[root@vms81 ~]# rbd import-diff b.data pool2/block1
+Importing image diff: 100% complete...done.
+```
+
+挂载验证
+
+```bash
+[root@vms81 ~]# rbd feature disable pool2/block1 exclusive-lock, object-map, fast-diff, deep-flatten
+[root@vms82 123]# rbd map --image pool2/block1
+/dev/rbd2
+[root@vms82 123]# mkdir /333
+[root@vms82 123]# mount /dev/rbd2 /333/
+[root@vms82 /]# umount /123
+[root@vms82 /]# mount /dev/rbd2 /333/
+[root@vms82 /]# ls /333
+11111  222222  33333
+```
