@@ -36,7 +36,7 @@ module.exports = {
     announcementBar: {
       id: '想学才学',
       content:
-        '开更openstack,找时间补充一下CKA及CKS的笔记',
+        '技多不压身',
       backgroundColor: '#56dbc8',
       textColor: '#000',
       isCloseable: true,
