@@ -21,8 +21,8 @@ deploying:
   only:
     - main
   script:
-    - ls build
-    - ./ossutil64 ls oss://xiebo-pro
+    - ls -l build
+    - /home/gitlab-runner/ossutil64 cp build/* oss://xiebo-pro/
 
   tags:
     - shell
