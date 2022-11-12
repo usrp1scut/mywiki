@@ -5,7 +5,7 @@ building:
   only:
     - main
   script:
-    - npm install --progress=false --no-optional
+    - npm install 
     - npm run build
 #生成产物上传
   artifacts:
