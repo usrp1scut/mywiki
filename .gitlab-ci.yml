@@ -1,0 +1,28 @@
+#构建网站静态文件
+building:
+  stage: build
+  image: node:16.17.0-alpine
+  only:
+    - main
+  script:
+    - npm install --progress=false --no-optional
+    - npm run build
+#生成产物上传
+  artifacts:
+    expire_in: 3 days
+    paths:
+      - build
+  tags:
+    - docker-shell
+
+#将生成的网站文件部署到pages
+deploying:
+  stage: deploy
+  only:
+    - main
+  script:
+    - ls build
+    - ./ossutil64 ls oss://xiebo-pro
+
+  tags:
+    - docker-bash
