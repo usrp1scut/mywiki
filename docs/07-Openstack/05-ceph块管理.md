@@ -239,6 +239,9 @@ SNAPID NAME    SIZE TIMESTAMP
 #恢复快照，语法rbd snap rollback 池/块@快照名，恢复快照前客户端应先取消挂载
 [root@vms81 ~]# rbd snap rollback pool1/block1@s_block
 Rolling back to snapshot: 100% complete...done.
+#删除快照
+[root@vms81 ~]# rbd snap purge pool2/block1
+Removing all snapshots: 100% complete...done.
 ```
 
 从快照克隆出块
