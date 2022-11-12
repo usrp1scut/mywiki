@@ -13,9 +13,8 @@ building:
     paths:
       - build
   tags:
-    - docker-shell
+    - docker-1
 
-#将生成的网站文件部署到pages
 deploying:
   stage: deploy
   only:
@@ -25,4 +24,4 @@ deploying:
     - ./ossutil64 ls oss://xiebo-pro
 
   tags:
-    - docker-bash
+    - shell
