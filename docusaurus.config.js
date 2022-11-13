@@ -112,7 +112,7 @@ module.exports = {
         },
         {
           to: "blog",
-          label: "博客",
+          label: "发布日志",
           position: "left",
         },
 
