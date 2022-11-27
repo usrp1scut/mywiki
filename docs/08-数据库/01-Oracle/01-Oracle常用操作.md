@@ -40,3 +40,29 @@ SQL> ALTER DATABASE CHARACTER SET INTERNAL_USE ZHS16GBK;
 SQL> SHUTDOWN IMMEDIATE
 SQL> STARTUP
 ```
+
+## 清空用户下所有对象
+
+```sql
+begin
+for s in (select 'drop '||object_type||' '||object_name|| case when object_type='TABLE' then ' cascade constraints' else ' ' end drop_object
+from user_objects a
+where object_type in ('SEQUENCE','PROCEDURE','FUNCTION','PACKAGE','VIEW','TABLE') 
+) loop
+execute immediate s.drop_object;
+end loop;
+end;
+/
+```
+
+## 查询用户历史命令
+
+```sql
+select 
+    SQL_TEXT,LAST_ACTIVE_TIME 
+from 
+    v$sqlarea t 
+  where t.PARSING_SCHEMA_NAME 
+  in ('USERNAME大写') 
+  order by t.LAST_ACTIVE_TIME;
+```
