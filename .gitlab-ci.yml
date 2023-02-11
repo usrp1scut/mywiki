@@ -22,7 +22,7 @@ deploying:
     - main
   script:
     - ls -l build
-    - /home/gitlab-runner/ossutil64 cp -r -u build/ oss://xiebo-pro/
+    - /usr/bin/ossutil64 cp -r -u build/ oss://xiebo-pro/
 
   tags:
     - shell
