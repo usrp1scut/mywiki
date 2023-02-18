@@ -26,6 +26,7 @@ ALTER USER username ACCOUNT UNLOCK;
 
 
 ## 修改字符集
+
 ```sql
 select userenv('language') from dual;
 select * from nls_database_parameters;
@@ -39,6 +40,12 @@ SQL> ALTER DATABASE CHARACTER SET INTERNAL_USE ZHS16GBK;
 --   ALTER DATABASE NATIONAL CHARACTER SET INTERNAL_USE ALL16UTF16; 
 SQL> SHUTDOWN IMMEDIATE
 SQL> STARTUP
+```
+
+## 更新数据
+
+```sql
+update tablename set column_name = 'value' where column_name = 'value';
 ```
 
 ## 清空用户下所有对象
