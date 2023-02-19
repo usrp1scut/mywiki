@@ -8,7 +8,9 @@
 
 ### 3.配置系统环境变量
 
-新建系统环境变量CURL_HOME指向解压缩后的curl目录
+新建系统环境变量`CURL_HOME`指向解压缩后的curl目录
+
+找到`Path`变量并修改，在变量值末尾加入`;%CURL_HOME%`
 
 ### 4.打开cmd或powershell即可使用
 
