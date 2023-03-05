@@ -1,3 +1,5 @@
+# python根据IP地址范围生成所有IP地址列表
+
 ```python
 #!/usr/bin/env python
 
