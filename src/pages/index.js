@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import { Poetry } from './诗词表';
 
 function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
+  const [randomData, setRandomData] = useState(null);
+  useEffect(() => {
+    // 获取包含 JSON 数据的文件或定义 JSON 对象
+    const jsonData = Poetry;
+
+    // 随机抽取 JSON 数据项
+    const randomIndex = Math.floor(Math.random() * jsonData.length);
+    const randomItem = jsonData[randomIndex];
+
+    // 设置随机抽取到的数据项
+    setRandomData(randomItem);
+  }, []);
   return (
     <Layout
 
@@ -19,10 +32,12 @@ function Home() {
           <div className="container">
             <div className="row">
               <div className="col">
-                <h1 >
-                
-                骐骥一跃，不能十步；<br />驽马十驾，功在不舍。
-                </h1>
+                <img
+                className={styles.logo}
+                src={useBaseUrl("img/logo.png")}
+                alt="my Logo"
+                />
+                <br />
                 <Link
                 className={clsx(
                     "button button--outline button--primary button--lg",
@@ -32,16 +47,20 @@ function Home() {
                 我的笔记
                 </Link>
 
-                <p className="padding-top--md">
-                <strong>恐惧源于火力不足</strong> <br /><br /><br />
+                <p className='padding-top--md'>
+                恐惧源于火力不足
                 </p>
               </div>
               <div className="col">
-                <img
-                className={styles.logo}
-                src={useBaseUrl("img/logo.png")}
-                alt="my Logo"
-                />
+                {randomData && (
+                  <h2 >{randomData.title}</h2>
+                )}
+                {randomData && (
+                  <p>{randomData.author}</p>
+                )}
+                {randomData && (
+                  <body>{randomData.content}</body>
+                )}
               </div>
             </div>
           </div>
