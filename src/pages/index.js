@@ -59,7 +59,7 @@ function Home() {
                   <p>{randomData.author}</p>
                 )}
                 {randomData && (
-                  <body>{randomData.content}</body>
+                  <p dangerouslySetInnerHTML={{ __html: randomData.content.replace(/\n/g, '<br />') }} />
                 )}
               </div>
             </div>
