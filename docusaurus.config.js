@@ -34,10 +34,10 @@ module.exports = {
 
   themeConfig: {
     announcementBar: {
-      id: '想学才学',
+      id: 'relax',
       content:
-        '技多不压身',
-      backgroundColor: '#56dbc8',
+        'It is with deep sorrow and profound sadness that we mourn the passing of the renowned singer COCO LI',
+      backgroundColor: '#808080',
       textColor: '#000',
       isCloseable: true,
     },
