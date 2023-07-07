@@ -1,6 +1,6 @@
 .hero {
   display: flex;
-  padding: 10rem 10rem 0rem 0rem ;
+  padding: 10rem 0rem 10rem 0rem ;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -13,21 +13,22 @@
 }
 
 .hero h1 {
-  padding: 2rem;
+  padding: 4rem;
   font-size: 40px;
 
   /* padding: 3rem; */
 }
 
 .hero h2 {
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 4rem 2rem 1rem 2rem;
   font-size: 25px;
 
   /* padding: 3rem; */
 }
 
 .logo {
-  width: 60%;
-  height: 60%;
+  padding: 2rem 2rem 0rem 0rem;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }

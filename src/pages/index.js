@@ -46,12 +46,8 @@ function Home() {
                 >
                 我的笔记
                 </Link>
-
-                <p className='padding-top--md'>
-                恐惧源于火力不足
-                </p>
               </div>
-              <div className="col">
+              <div className="col" >
                 {randomData && (
                   <h2 >{randomData.title}</h2>
                 )}
