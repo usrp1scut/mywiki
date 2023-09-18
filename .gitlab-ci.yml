@@ -1,7 +1,7 @@
 #构建网站静态文件
 building:
   stage: build
-  image: node:16.18-alpine
+  image: node:18.17-alpine
   only:
     - main
   script:
