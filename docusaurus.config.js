@@ -36,8 +36,8 @@ module.exports = {
     announcementBar: {
       id: 'relax',
       content:
-        'It is with deep sorrow and profound sadness that we mourn the passing of the renowned singer COCO LI',
-      backgroundColor: '#808080',
+        'just for fun',
+      backgroundColor: '#1fa588',
       textColor: '#000',
       isCloseable: true,
     },
@@ -125,7 +125,9 @@ module.exports = {
       ],
     },
   }, 
-
+  plugins: [
+    ['mindmap', {}],
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
