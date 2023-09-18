@@ -125,9 +125,6 @@ module.exports = {
       ],
     },
   }, 
-  plugins: [
-    ['mindmap', {}],
-  ],
   presets: [
     [
       "@docusaurus/preset-classic",
