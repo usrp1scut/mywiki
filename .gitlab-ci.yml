@@ -5,6 +5,7 @@ building:
   only:
     - main
   script:
+    - npm config set registry https://registry.npmmirror.com
     - npm install yarn
     - yarn add @node-rs/jieba-linux-x64-musl
     - yarn build
