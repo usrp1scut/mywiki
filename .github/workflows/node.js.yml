@@ -21,12 +21,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: |
-        npm install @node-rs/jieba-linux-x64-glibc
-        npm run build
-        tree -L 3
+        node-version: '20.x'
+    - name: Install dependencies
+      run: yarn
+    - run: yarn add @node-rs/jieba-linux-x64-musl
+    - run: yarn build
+    - run: tree -L 3
