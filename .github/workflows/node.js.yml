@@ -27,6 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: |
-        npm install @node-rs/jieba-linux-x64-musl
+        npm install @node-rs/jieba-linux-x64-glibc
         npm run build
         tree -L 3
