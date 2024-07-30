@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build
+    - run: npm install yarn
+    - run: yarn add @node-rs/jieba-linux-x64-musl
+    - run: yarn build
     - run: tree -L 3
