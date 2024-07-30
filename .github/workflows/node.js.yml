@@ -24,4 +24,14 @@ jobs:
       run: yarn
     - run: yarn add @node-rs/jieba-linux-x64-musl
     - run: yarn build
-    - run: tree -L 3
+    - run: sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+    - run: |
+            cat <<EOF > ~/.ossutilconfig
+            [Credentials]
+            language=EN
+            endpoint=${{ secrets.END_POINT }}
+            accessKeyID=${{ secrets.ACCESS_KEY_ID }}
+            accessKeySecret=${{ secrets.ACCESS_KEY_SECRET }}
+            EOF
+            
+    - run: ossutil64 cp -r -u build/ oss://xiebo-pro/
