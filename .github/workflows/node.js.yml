@@ -32,6 +32,5 @@ jobs:
             endpoint=${{ secrets.END_POINT }}
             accessKeyID=${{ secrets.ACCESS_KEY_ID }}
             accessKeySecret=${{ secrets.ACCESS_KEY_SECRET }}
-            EOF
-            
+            EOF            
     - run: ossutil64 cp -r -u build/ oss://xiebo-pro/
