@@ -1,3 +1,4 @@
+import {themes as prismThemes} from 'prism-react-renderer';
 const math = require('remark-math');
 const katex = require('rehype-katex');
 
@@ -54,6 +55,8 @@ module.exports = {
     },
     
     prism: {
+      theme: prismThemes.jettwaveLight,
+      darkTheme: prismThemes.dracula,
       defaultLanguage: "shell",
       additionalLanguages: ['git','nginx','python','sql','yaml'],
     },
@@ -98,7 +101,7 @@ module.exports = {
       //style: 'primary',
 
       logo: {
-        alt: "My  Logo",
+        alt: "Jacob",
         src:
           "img/logo.png",
       },
