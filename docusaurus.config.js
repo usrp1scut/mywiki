@@ -52,9 +52,8 @@ module.exports = {
       
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.pro"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2022055105号 </a> | Built with Docusaurus`,
     },
+    
     prism: {
-      theme: require('prism-react-renderer/themes/vsDark'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
       defaultLanguage: "shell",
       additionalLanguages: ['git','nginx','python','sql','yaml'],
     },

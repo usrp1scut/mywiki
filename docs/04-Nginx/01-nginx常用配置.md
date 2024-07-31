@@ -3,7 +3,7 @@
 `server_tokens off;`
 
 ### https配置
-```nginx
+```conf
     server {
         listen       443 ssl http2 default_server;
         listen       [::]:443 ssl http2 default_server;
@@ -35,7 +35,7 @@
     }
 ```
  ### http重定向到https
-```nginx
+```conf
   server {
     listen 80;
     server_name www.example.com;
@@ -46,14 +46,14 @@
   }
 ```
 ### 针对路径的重定向配置,改变客户端浏览器url
-```nginx
+```conf
         location ^~ /news {
            return       301 http://www.example.com$request_uri;
         }
 ```
 ### nginx 日志配置
 * 可配在最外层、http层及server层
-```nginx
+```conf
 #错误日志
 error_log /var/log/nginx/error.log;
 #连接日志
@@ -65,7 +65,7 @@ log_format  main  '$remote_addr - $http_x_forwarded_for - $remote_user [$time_lo
                   '"$http_cookie" "$cookie_access-key"';
 ```
 ### location正则表达式匹配，优先级从上到下
-```nginx
+```conf
   1. = 精确匹配
   2. ^~ 前缀匹配
   3. ~ 为区分大小写匹配
@@ -88,4 +88,4 @@ log_format  main  '$remote_addr - $http_x_forwarded_for - $remote_user [$time_lo
 3.redirect  返回302临时重定向，浏览器地址会显示跳转后的URL地址。
 4.permanent  返回301永久重定向，浏览器地址会显示跳转后的URL地址。
 ```
-* 使用last和break实现URI重写，浏览器地址栏不变。而且两者有细微差别，使用alias指令必须用last标记;使用proxy_pass指令时，需要使用break标记。Last标记在本条rewrite规则执行完毕后，会对其所在server{......}标签重新发起请求，而break标记则在本条规则匹配完成后，终止匹配。
+* 使用last和break实现URI重写，浏览器地址栏不变。而且两者有细微差别，使用alias指令必须用last标记;使用proxy_pass指令时，需要使用break标记。Last标记在本条rewrite规则执行完毕后，会对其所在`server{......}`标签重新发起请求，而break标记则在本条规则匹配完成后，终止匹配。

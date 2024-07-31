@@ -368,7 +368,7 @@ Do you really want to remove active logical volume ceph-58416bbc-9803-4674-aba4-
 
 ## 参数设置
 
-nearfull_ratio <= backfillfull_ratio <= full_ratio
+`nearfull_ratio <= backfillfull_ratio <= full_ratio`
 
 * mon_osd_nearfull_ratio 
 
