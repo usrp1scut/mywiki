@@ -73,3 +73,56 @@ from
   in ('USERNAME大写') 
   order by t.LAST_ACTIVE_TIME;
 ```
+
+## oracle账号密码过期
+oracle账号密码过期处理步骤如下：
+### 1.查看用户的资源计划是哪个
+```sql
+SELECT username,PROFILE FROM dba_users where username=‘用户名’
+```
+### 2.查看密码过期时间
+```sql
+select username,expiry_date,profile from dba_users ;
+```
+或查看I密码有效期
+```sql
+SELECT * FROM dba_profiles s WHERE s.profile='DEFAULT' AND resource_name='PASSWORD_LIFE_TIME';
+```
+### 3.设置密码永不过期
+
+由于用户使用的资源计划是default，所以修改default的就行
+```sql
+alter profile default limit password_life_time unlimited; --永久期限
+```
+### 4.修改完后解锁用户或者修改密码
+```sql
+alter user username identified by "password";
+alter user username account unlock;
+```
+### 修改密码可能报错密码复杂度的问题
+
+同样先查看用户使用的那个资源计划，然后根据资源计划名查询resource_name，密码复杂度的为PASSWORD_VERIFY_FUNCTION
+
+```sql
+select profile,resource_name,resource_type,limit from dba_profiles where profile='DEFAULT';
+```
+
+然后将密码负责度resource设置为null
+
+```sql
+alter profile default limit password_verify_function null;
+```
+重置密码
+
+完成后如有需要在将密码复杂度的resource设置回原来的默认设置
+
+## 查看Oracle数据库中所有表的无效索引
+
+```sql
+SELECT owner, table_name, index_name, status
+FROM all_indexes
+WHERE status = 'INVALID'
+ORDER BY owner, table_name;
+```
+
+该语句将返回所有拥有无效索引的表的所有者、表名、索引名和状态。您还可以根据需要添加其他条件（例如，指定特定的表空间或索引类型）。

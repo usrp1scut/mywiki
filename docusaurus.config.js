@@ -111,8 +111,8 @@ module.exports = {
         },
         {
           to: "blog",
-          label: "发布日志",
-          position: "left",
+          label: "博客",
+          position: "right",
         },
 
         {

@@ -19,6 +19,8 @@
     "@docusaurus/preset-classic": "3.4.0",
     "@docusaurus/theme-common": "3.4.0",
     "@docusaurus/theme-live-codeblock": "^3.4.0",
+    "@docusaurus/module-type-aliases": "3.4.0",
+    "@docusaurus/types": "3.4.0",
     "@easyops-cn/docusaurus-search-local": "^0.44.4",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@material-ui/core": "^4.12.4",
