@@ -1,34 +1,75 @@
 .hero {
   display: flex;
-  padding: 10rem 0rem 10rem 0rem ;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 使内容在整个视口高度内居中 */
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: url(/img/bg.jpg) no-repeat center center/cover; /* 添加背景图片 */
+  color: white;
+  padding: 2rem 0;
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.hero h1 {
-  padding: 4rem;
-  font-size: 40px;
-
-  /* padding: 3rem; */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* 使行元素高度充满父容器 */
 }
 
-.hero h2 {
-  padding: 4rem 2rem 1rem 2rem;
-  font-size: 25px;
-
-  /* padding: 3rem; */
+.col {
+  flex: 1 1 50%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  padding: 2rem 2rem 0rem 0rem;
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem; /* 增加一些底部间距 */
+}
+
+button {
+  margin-top: 0rem;
+}
+
+/* 新增样式 */
+.poetry {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.poetry h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.poetry p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .col {
+    flex: 1 1 100%;
+  }
+
+  .hero {
+    padding: 1rem 0;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
 }

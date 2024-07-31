@@ -2,7 +2,7 @@
 
 ### Need 
 
-node.js
+`node.js >=18.X`
 
 ### init
 
