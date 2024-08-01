@@ -3,7 +3,7 @@
 `server_tokens off;`
 
 ### https配置
-```conf
+```nginx
     server {
         listen       443 ssl http2 default_server;
         listen       [::]:443 ssl http2 default_server;
@@ -35,7 +35,7 @@
     }
 ```
  ### http重定向到https
-```conf
+```nginx
   server {
     listen 80;
     server_name www.example.com;
@@ -46,14 +46,14 @@
   }
 ```
 ### 针对路径的重定向配置,改变客户端浏览器url
-```conf
+```nginx
         location ^~ /news {
            return       301 http://www.example.com$request_uri;
         }
 ```
 ### nginx 日志配置
 * 可配在最外层、http层及server层
-```conf
+```nginx
 #错误日志
 error_log /var/log/nginx/error.log;
 #连接日志
@@ -65,7 +65,7 @@ log_format  main  '$remote_addr - $http_x_forwarded_for - $remote_user [$time_lo
                   '"$http_cookie" "$cookie_access-key"';
 ```
 ### location正则表达式匹配，优先级从上到下
-```conf
+```nginx
   1. = 精确匹配
   2. ^~ 前缀匹配
   3. ~ 为区分大小写匹配
