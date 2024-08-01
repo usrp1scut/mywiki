@@ -4,7 +4,7 @@
   justify-content: center;
   height: 100vh; /* 使内容在整个视口高度内居中 */
   text-align: center;
-  background: url(/img/bg.jpg) no-repeat center center/cover; /* 添加背景图片 */
+  background: url(/img/bg1.jpg) no-repeat center center/cover; /* 添加背景图片 */
   color: white;
   padding: 2rem 0;
 }
@@ -33,9 +33,9 @@
 }
 
 .logo {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
-  margin-bottom: 2rem; /* 增加一些底部间距 */
+  margin-bottom: 0rem; /* 增加一些底部间距 */
 }
 
 button {
@@ -50,12 +50,12 @@ button {
 }
 
 .poetry h2 {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 1rem;
 }
 
 .poetry p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin: 0.5rem 0;
 }

@@ -17,7 +17,9 @@ function Home() {
     const randomItem = jsonData[randomIndex];
     setRandomData(randomItem);
   }, []);
-
+const refreshPage = () => {
+  window.location.reload();
+};
   return (
     <Layout
       title="Jacob's wiki"
@@ -40,9 +42,17 @@ function Home() {
                   <h2>{randomData.title}</h2>
                   <p>{randomData.author}</p>
                   <p dangerouslySetInnerHTML={{ __html: randomData.content.replace(/\n/g, '<br />') }} />
+                  <button
+                    className={clsx(
+                      "button button--outline button--primary button--lg",
+                    )}
+                    onClick={refreshPage}
+                  >
+                    换一首
+                  </button>
                 </div>
               ) : (
-                <p>加载中...</p>
+                <p>加载中...</p>               
               )}
             </div>
           </div>

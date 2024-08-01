@@ -3,7 +3,38 @@
 	/*--ifm-color-primary: #0094d9;*/
 	--ifm-color-primary: #1fa588;
 }
+body::before {
+	content: "";
+	background: url('/img/bg-light.jpg') no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	filter: blur(10px); /* 设置虚化效果 */
+	transform: scale(1.1); /* 可选：放大背景图以适应模糊 */
+  }
 
+[data-theme='dark'] body::before {
+	content: "";
+	background: url('/img/bg-dark.jpg') no-repeat center center fixed;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	filter: blur(10px); /* 设置虚化效果 */
+	transform: scale(1.1); /* 可选：放大背景图以适应模糊 */
+  }
+  
+  main {
+	position: relative;
+	z-index: 0;
+  }
 
 /* 目录样式优化 */
 /* .table-of-contents .table-of-contents__link--active {
