@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 使内容在整个视口高度内居中 */
+  height: 90vh; /* 使内容在整个视口高度内居中 */
   text-align: center;
   background: url(/img/bg1.jpg) no-repeat center center/cover; /* 添加背景图片 */
   color: white;
