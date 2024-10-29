@@ -6,7 +6,7 @@ module.exports = {
   title: "Jacob's wiki",
   titleDelimiter: "|", // Defaults to `|`
   tagline: '净整些没用的',
-  url: "https://xiebo.pro",
+  url: "https://xiebo.fun",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -51,7 +51,7 @@ module.exports = {
 
     footer: {
       
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.pro"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2022055105号 </a> | Built with Docusaurus`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.fun"> xiebo.pro </a> | <a href="https://beian.miit.gov.cn">粤ICP备2024327945号 </a> | Built with Docusaurus`,
     },
     
     prism: {
