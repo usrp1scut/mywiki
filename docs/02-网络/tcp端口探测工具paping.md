@@ -7,7 +7,7 @@ wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google
 
 ```
 #通过本站获取
-wget https://xiebo.pro/tools/paping_1.5.5_x86-64_linux.tar.gz
+wget https://xiebo.fun/tools/paping_1.5.5_x86-64_linux.tar.gz
 ```
 ### 参数
 

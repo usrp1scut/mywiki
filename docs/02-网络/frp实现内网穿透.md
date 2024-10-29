@@ -6,7 +6,7 @@
 操作系统基于Centos 7
 
 [github下载frp](https://github.com/fatedier/frp/releases)
-[本站下载frp](https://xiebo.pro/tools/frp_0.43.0_linux_amd64.tar.gz)
+[本站下载frp](https://xiebo.fun/tools/frp_0.43.0_linux_amd64.tar.gz)
 
 
 server与client均包含在内

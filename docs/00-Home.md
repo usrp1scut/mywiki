@@ -35,9 +35,9 @@ slug: /
 *  <font color="#d9d919" >RHCE 红帽认证工程师  </font>
 
 <figure>
-<img src="https://xiebo.pro/img/CKS.png" width="280" height="210"/>
-<img src="https://xiebo.pro/img/CKA.png" width="280" height="210"/>
-<img src="https://xiebo.pro/img/RHCE.png" width="280" height="210"/>
+<img src="https://xiebo.fun/img/CKS.png" width="280" height="210"/>
+<img src="https://xiebo.fun/img/CKA.png" width="280" height="210"/>
+<img src="https://xiebo.fun/img/RHCE.png" width="280" height="210"/>
 </figure>
 
 这是我的运维笔记本
