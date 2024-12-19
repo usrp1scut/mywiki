@@ -42,7 +42,6 @@ button {
   margin-top: 0rem;
 }
 
-/* 新增样式 */
 .poetry {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 2rem;
@@ -59,17 +58,19 @@ button {
   line-height: 1.6;
   margin: 0.5rem 0;
 }
-
+/* 媒体查询 */
 @media (max-width: 768px) {
-  .col {
-    flex: 1 1 100%;
-  }
-
   .hero {
     padding: 1rem 0;
+    height: auto; /* 允许内容根据需要扩展高度 */
   }
 
-  .container {
-    padding: 0 0.5rem;
+  .col {
+    flex: 1 1 100%;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    max-width: 100%;
   }
 }
