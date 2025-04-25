@@ -16,6 +16,7 @@ slug: /
 * [Jumpserver开源堡垒机](https://github.com/jumpserver/jumpserver)
 * [glance资讯主页，轻量化自定义展示丰富的RSS订阅、天气、股市行情等信息的个人主页](https://github.com/glanceapp/glance)
 * [MagicMirror魔镜,常用于树莓派等嵌入式电子时钟制作](https://github.com/MagicMirrorOrg/MagicMirror)
+* [硅基智能开源数字人](https://github.com/GuijiAI/HeyGem.ai)
 
 ## 硬件
 优先迷你主机
