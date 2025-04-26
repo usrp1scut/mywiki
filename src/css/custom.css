@@ -3,7 +3,7 @@
 	/*--ifm-color-primary: #0094d9;*/
 	--ifm-color-primary: #1fa588;
 }
-body::before {
+/* body::before {
 	content: "";
 	background: url('/img/bg-light.jpg') no-repeat center center fixed;
 	background-size: cover;
@@ -13,9 +13,9 @@ body::before {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	filter: blur(10px); /* 设置虚化效果 */
-	transform: scale(1.1); /* 可选：放大背景图以适应模糊 */
-  }
+	filter: blur(10px); 
+	transform: scale(1.1); 
+}  */
 
 [data-theme='dark'] body::before {
 	content: "";
