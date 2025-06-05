@@ -5,7 +5,7 @@ sidebar_label: 旁门左道
 slug: /
 ---
 ## 资讯热点(IPv6)
-<iframe src="https://news.xiebo.fun" width="100%" height="600px" sframeborder="0"></iframe>
+<iframe src="https://news.xiebo.fun" width="100%" height="600px" sframeborder="0">资讯</iframe>
 
 ## 实用开源项目
 * [talebook电子书库](https://github.com/talebook/talebook)
