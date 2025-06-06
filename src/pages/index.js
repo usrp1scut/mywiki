@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -10,6 +10,8 @@ import { Poetry } from './诗词表';
 function Home() {
   const { siteConfig = {} } = useDocusaurusContext();
   const [randomData, setRandomData] = useState(null);
+  const audioRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const jsonData = Poetry;
@@ -17,9 +19,36 @@ function Home() {
     const randomItem = jsonData[randomIndex];
     setRandomData(randomItem);
   }, []);
-const refreshPage = () => {
-  window.location.reload();
-};
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  // 点击logo播放/暂停音乐
+  const handleLogoClick = () => {
+    if (!audioRef.current) return;
+    if (playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setPlaying(!playing);
+  };
+
+  // 音乐播放状态同步
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    audio.addEventListener('play', onPlay);
+    audio.addEventListener('pause', onPause);
+    return () => {
+      audio.removeEventListener('play', onPlay);
+      audio.removeEventListener('pause', onPause);
+    };
+  }, []);
+
   return (
     <Layout
       title="Jacob's wiki"
@@ -27,13 +56,18 @@ const refreshPage = () => {
       keywords={['运维', '知识库', 'devops']}
     >
       <header className={styles.hero}>
+        {/* 背景音乐播放器 */}
+        <audio ref={audioRef} src={useBaseUrl("/audio/bg.mp3")} loop />
         <div className="container">
           <div className={styles.row}>
             <div className={styles.col}>
               <img
-                className={styles.logo}
-                src={useBaseUrl("/img/logo.png")}
+                className={clsx(styles.logo, playing && styles.logoSpin)}
+                src={useBaseUrl("/img/musical.png")}
                 alt="Jacob"
+                onClick={handleLogoClick}
+                style={{ cursor: 'pointer' }}
+                title={playing ? "点击暂停音乐" : "牛马之歌"}
               />
             </div>
             <div className={styles.col}>
