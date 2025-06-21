@@ -112,14 +112,14 @@ module.exports = {
           label: "知识库",
           position: "left",
         },
-        {
-          to: "blog",
-          label: "博客",
-          position: "right",
-        },
+        // {
+        //   to: "blog",
+        //   label: "博客",
+        //   position: "right",
+        // },
 
         {
-          href: "mailto:me@xiebo.pro",
+          href: "mailto:jacob@xiebo.fun",
           label: "联系我",
           position: "right",
         },
