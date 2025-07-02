@@ -4,7 +4,7 @@
   justify-content: center;
   height: 90vh; /* 使内容在整个视口高度内居中 */
   text-align: center;
-  background: url(/img/bg1.jpg) no-repeat center center/cover; /* 添加背景图片 */
+  background: url(/img/18.png) no-repeat center center/cover; /* 添加背景图片 */
   color: white;
   padding: 2rem 0;
 }
@@ -43,7 +43,7 @@ button {
 }
 
 .poetry {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   border-radius: 10px;
 }

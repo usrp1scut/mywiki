@@ -3,9 +3,9 @@
 	/*--ifm-color-primary: #0094d9;*/
 	--ifm-color-primary: #1fa588;
 }
-/* body::before {
+body::before {
 	content: "";
-	background: url('/img/bg-light.jpg') no-repeat center center fixed;
+	background: url('/img/14.png') no-repeat center center fixed;
 	background-size: cover;
 	position: fixed;
 	top: 0;
@@ -13,9 +13,9 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	filter: blur(10px); 
+	filter: blur(3px); 
 	transform: scale(1.1); 
-}  */
+} 
 
 [data-theme='dark'] body::before {
 	content: "";
@@ -27,7 +27,7 @@
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	filter: blur(10px); /* 设置虚化效果 */
+	filter: blur(8px); /* 设置虚化效果 */
 	transform: scale(1.1); /* 可选：放大背景图以适应模糊 */
   }
   
@@ -83,4 +83,17 @@
   code {
   color: var(--ifm-color-primary);
   font-family: 'Noto Sans';
+}
+/* 导航栏毛玻璃效果 */
+.navbar {
+  background: rgba(255, 255, 255, 0.4); /* 浅色主题下半透明 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: background 0.3s;
+}
+
+/* 深色模式下适配 */
+[data-theme='dark'] .navbar {
+  background: rgba(30, 30, 30, 0.4); /* 深色主题下半透明 */
 }
