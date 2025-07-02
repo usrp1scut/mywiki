@@ -67,7 +67,7 @@ function Home() {
                 alt="Jacob"
                 onClick={handleLogoClick}
                 style={{ cursor: 'pointer' }}
-                title={playing ? "点击暂停音乐" : "牛马之歌"}
+                title={playing ? "点击暂停音乐" : "bgm"}
               />
             </div>
             <div className={styles.col}>
