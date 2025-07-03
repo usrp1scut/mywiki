@@ -86,14 +86,13 @@ body::before {
 }
 /* 导航栏毛玻璃效果 */
 .navbar {
-  background: rgba(255, 255, 255, 0.4); /* 浅色主题下半透明 */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7); /* 浅色主题下半透明 */
+
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: background 0.3s;
 }
 
 /* 深色模式下适配 */
 [data-theme='dark'] .navbar {
-  background: rgba(30, 30, 30, 0.4); /* 深色主题下半透明 */
+  background: rgba(30, 30, 30, 0.7); /* 深色主题下半透明 */
 }
