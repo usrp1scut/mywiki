@@ -58,7 +58,7 @@ module.exports = {
       theme: prismThemes.jettwaveLight,
       darkTheme: prismThemes.dracula,
       defaultLanguage: "shell",
-      additionalLanguages: ['git','nginx','python','sql','yaml'],
+      additionalLanguages: ['git','nginx','python','sql','yaml','go'],
     },
     
 
@@ -112,11 +112,11 @@ module.exports = {
           label: "知识库",
           position: "left",
         },
-        // {
-        //   to: "blog",
-        //   label: "博客",
-        //   position: "right",
-        // },
+        {
+          to: "blog",
+          label: "博客",
+          position: "right",
+        },
 
         {
           href: "mailto:jacob@xiebo.fun",
