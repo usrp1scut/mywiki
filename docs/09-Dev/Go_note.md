@@ -98,3 +98,12 @@ func main() {
 	fmt.Printf("%v\n", end-start)
 }
 ```
+### 随机数生成
+```go
+package main
+import "math/rand"
+func main() {
+	rand.New(rand.NewSource(time.Now().UnixNano()))
+	ran := rand.Intn(100) + 1
+}
+```
