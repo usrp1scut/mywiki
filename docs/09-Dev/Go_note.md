@@ -107,3 +107,84 @@ func main() {
 	ran := rand.Intn(100) + 1
 }
 ```
+
+## 类型断言
+```go
+//类型判断实践
+func TypeJudge(items ...interface{}) {
+	for index, x := range items {
+		switch x.(type) {//.(type)固定用法
+		case bool:
+			fmt.Printf("第%v个参数是bool类型,值是%v\n", index, x)
+		case int, int32, int64:
+			fmt.Printf("第%v个参数是整数类型,值是%v\n", index, x)
+		case float32, float64:
+			fmt.Printf("第%v个参数是浮点数类型,值是%v\n", index, x)
+		case string:
+			fmt.Printf("第%v个参数是字符串类型,值是%v\n", index, x)
+		case byte:
+			fmt.Printf("第%v个参数是字节类型,值是%v\n", index, x)
+		default:
+			fmt.Printf("第%v个参数类型不确定,值是%v\n", index, x)
+		}
+	}
+}
+
+```
+## 文件读写
+```go
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	file := ".\\test.txt"
+	//一次性读
+	content, err := os.ReadFile(file)
+	if err != nil {
+		fmt.Printf("read file err= %v", err)
+	}
+	fmt.Println(string(content))
+	//写文件，不存在则创建
+	file2, err2 := os.OpenFile(".\\abc.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	if err != nil {
+		fmt.Println("ERR:", err2)
+		return
+	}
+	defer file2.Close()
+	str := "hello,gardon\n"
+	//缓存写
+	writer := bufio.NewWriter(file2)
+	for i := 0; i < 5; i++ {
+		writer.WriteString(str)
+	}
+	writer.Flush()
+}
+```
+### 读写模式FLAG
+```go
+    O_RDONLY int = syscall.O_RDONLY // 只读模式打开文件
+    O_WRONLY int = syscall.O_WRONLY // 只写模式打开文件
+    O_RDWR   int = syscall.O_RDWR   // 读写模式打开文件
+    O_APPEND int = syscall.O_APPEND // 写操作时将数据附加到文件尾部
+    O_CREATE int = syscall.O_CREAT  // 如果不存在将创建一个新文件
+    O_EXCL   int = syscall.O_EXCL   // 和O_CREATE配合使用，文件必须不存在
+    O_SYNC   int = syscall.O_SYNC   // 打开文件用于同步I/O
+    O_TRUNC  int = syscall.O_TRUNC  // 如果可能，打开时清空文件
+```
+
+### 判断文件或目录是否存在
+```go
+func PathExist(path string) (bool, error) {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true, nil
+	}
+	if os.IsNotExist(err) {
+		return false, err
+	}
+	return false, err
+}
+```
