@@ -1,6 +1,7 @@
-## Golang标准库文档
+## 库文档
 
-https://studygolang.com/pkgdoc
+* [标准库](https://pkg.go.dev/std)
+* [go-redis](https://redis.uptrace.dev/zh/guide/go-redis.html)
 
 ## 字符串常用函数
 
@@ -186,5 +187,83 @@ func PathExist(path string) (bool, error) {
 		return false, err
 	}
 	return false, err
+}
+```
+## 错误处理
+```go
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("ERR", err)
+		}
+	}()
+```
+## 协程与管道
+### 找素数例程
+```go
+
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+//推数据至channel
+func putNum(intChan chan int) {
+	for i := 1; i <= 2000000; i++ {
+		intChan <- i
+	}
+	close(intChan)
+}
+//读自然数channel,判断素数并写入素数channel
+func primeNum(intChan chan int, primeChan chan int) {
+	var flag bool
+	for {
+		num, ok := <-intChan
+		if !ok {
+			break
+		}
+		flag = true
+		//素数判断
+		for i := 2; i < num; i++ {
+			if num%i == 0 {
+				flag = false
+				break
+			}
+		}
+		if flag {
+			primeChan <- num
+		}
+	}
+	fmt.Println("协程退出")
+}
+
+func main() {
+	intChan := make(chan int, 1000)
+	primeChan := make(chan int, 2000)
+	var wg sync.WaitGroup
+	start := time.Now().Local().Unix()
+	go putNum(intChan)
+	wg.Add(8)
+	for i := 0; i < 8; i++ {
+		go func() {
+			defer wg.Done()
+			primeNum(intChan, primeChan)
+		}()
+	}
+	go func() {
+		wg.Wait()
+		end := time.Now().Unix()
+		fmt.Println("耗时", end-start)
+		close(primeChan)
+
+	}()
+	for {
+		_, ok := <-primeChan
+		if !ok {
+			break
+		}
+		//fmt.Println(v)
+	}
 }
 ```
