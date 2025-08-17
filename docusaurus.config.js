@@ -5,7 +5,7 @@ const katex = require('rehype-katex');
 module.exports = {
   title: "Jacob's wiki",
   titleDelimiter: "|", // Defaults to `|`
-  tagline: '净整些没用的',
+  tagline: '',
   url: "https://xiebo.fun",
   baseUrl: "/",
   onBrokenLinks: "warn",
@@ -37,7 +37,7 @@ module.exports = {
     announcementBar: {
       id: 'relax',
       content:
-        'just for fun',
+        '欲买桂花同载酒，终不似，少年游。',
       backgroundColor: '#1fa588',
       textColor: '#000',
       isCloseable: true,
