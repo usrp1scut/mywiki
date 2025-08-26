@@ -9,6 +9,7 @@ slug: /
 
 ## 实用开源项目
 * [talebook电子书库](https://github.com/talebook/talebook)
+* [开源白板工具](https://github.com/plait-board/drawnix)
 * [frp内网穿透工具](https://github.com/fatedier/frp)
 * [openvpn一键安装脚本](https://github.com/Nyr/openvpn-install)
 * [newsnow资讯汇总页面](https://github.com/ourongxing/newsnow)
