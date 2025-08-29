@@ -2,6 +2,7 @@
 
 * [标准库](https://pkg.go.dev/std)
 * [go-redis](https://redis.uptrace.dev/zh/guide/go-redis.html)
+* [Gin_Web框架](https://gin-gonic.com/zh-cn/docs/quickstart/)
 
 ## 字符串常用函数
 
