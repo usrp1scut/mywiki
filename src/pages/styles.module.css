@@ -4,7 +4,7 @@
   justify-content: center;
   height: 90vh; /* 使内容在整个视口高度内居中 */
   text-align: center;
-  background: url(/img/e38da78cfea67963693e64684f8d44c545c6a1e057e8eee55001b9866e84b11c.png) no-repeat center center/cover;  
+  background: url(/img/bg.jpeg) no-repeat center center/cover;  
   color: white;
   padding: 2rem 0;
 }
