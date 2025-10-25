@@ -3,6 +3,15 @@
 	/*--ifm-color-primary: #0094d9;*/
 	--ifm-color-primary: #1fa588;
 }
+
+body {
+  cursor: url('/img/mouse.png'), auto; /* 使用自定义光标 */
+}
+
+a {
+  cursor: url('/img/mouse-link.png'), auto;
+}
+
 body::before {
 	content: "";
 	background: url('/img/14.png') no-repeat center center fixed;
