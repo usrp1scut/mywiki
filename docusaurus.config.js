@@ -49,8 +49,7 @@ module.exports = {
       },
     },
 
-    footer: {
-      
+    footer: {      
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://xiebo.fun"> xiebo.fun </a> | <a href="https://beian.miit.gov.cn">粤ICP备2024327945号 </a> | Built with Docusaurus`,
     },
     

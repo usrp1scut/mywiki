@@ -2,6 +2,8 @@
 :root {
 	/*--ifm-color-primary: #0094d9;*/
 	--ifm-color-primary: #1fa588;
+	--ifm-navbar-height: 60px; /* 导航栏高度 */
+    --ifm-footer-height: 80px; /* 页脚高度 */
 }
 
 body {
@@ -95,13 +97,27 @@ body::before {
 }
 /* 导航栏毛玻璃效果 */
 .navbar {
-  background: rgba(255, 255, 255, 0.7); /* 浅色主题下半透明 */
+  background: rgba(255, 255, 255, 0.6); /* 浅色主题下半透明 */
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: background 0.3s;
+  z-index: 1000; /* 导航栏层级 */
 }
 
 /* 深色模式下适配 */
 [data-theme='dark'] .navbar {
-  background: rgba(30, 30, 30, 0.7); /* 深色主题下半透明 */
+  background: rgba(30, 30, 30, 0.6); /* 深色主题下半透明 */
+}
+
+/* 页脚层级 */
+.footer {
+  background: rgba(255, 255, 255, 0.6); /* 浅色主题下半透明 */
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: background 0.3s;
+  z-index: 1000; /* 页脚层级 */
+}
+
+[data-theme='dark'] .footer {
+  background: rgba(30, 30, 30, 0.6); /* 深色主题下半透明 */
 }
