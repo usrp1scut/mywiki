@@ -1,12 +1,9 @@
 ---
 id: Home
 title: 关于HomeLab
-sidebar_label: 旁门左道
+sidebar_label: Home
 slug: /
 ---
-## 资讯热点(IPv6)
-<iframe src="https://news.xiebo.fun" width="100%" height="600px" sframeborder="0">资讯</iframe>
-
 ## 实用开源项目
 * [talebook电子书库](https://github.com/talebook/talebook)
 * [开源白板工具](https://github.com/plait-board/drawnix)
