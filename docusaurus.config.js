@@ -34,14 +34,14 @@ module.exports = {
   ],
 
   themeConfig: {
-    announcementBar: {
-      id: 'relax',
-      content:
-        '欲买桂花同载酒，终不似，少年游。',
-      backgroundColor: '#1fa588',
-      textColor: '#000',
-      isCloseable: true,
-    },
+    // announcementBar: {
+    //   id: 'relax',
+    //   content:
+    //     '欲买桂花同载酒，终不似，少年游。',
+    //   backgroundColor: '#1fa588',
+    //   textColor: '#000',
+    //   isCloseable: true,
+    // },
     docs: {
       sidebar: {
         hideable: true,
