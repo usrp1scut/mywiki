@@ -7,7 +7,7 @@
   color: white;
   padding: 2rem 0;
   position: relative; /* 确保内容定位正常 */
-  z-index: 0; /* 默认层级 */
+  z-index:  calc(var(--ifm-z-index-fixed)-1); 
 }
 
 .hero::before {
