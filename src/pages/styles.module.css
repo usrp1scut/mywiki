@@ -2,15 +2,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(90vh - var(--ifm-navbar-height) - var(--ifm-footer-height)); /* 减去导航栏和页脚的高度 */
+  height: calc(90vh - var(--ifm-navbar-height) ); /* 减去导航栏和页脚的高度 */
   text-align: center;
   color: white;
   padding: 2rem 0;
   position: relative; /* 确保内容定位正常 */
-  z-index:  calc(var(--ifm-z-index-fixed)-1); 
+  z-index:  0; 
 }
 
 .hero::before {
+  content: "";
+  position: fixed; /* 背景图固定在视口 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/img/sunrise.jpeg) no-repeat center center/cover;
+  z-index: -1; /* 确保背景图在内容后面 */
+}
+[data-theme='dark'] .hero::before {
   content: "";
   position: fixed; /* 背景图固定在视口 */
   top: 0;

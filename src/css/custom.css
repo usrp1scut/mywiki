@@ -8,6 +8,7 @@
 
 body {
   cursor: url('/img/mouse.png'), auto; /* 使用自定义光标 */
+  
 }
 
 a {
@@ -16,16 +17,13 @@ a {
 
 body::before {
 	content: "";
-	background: url('/img/14.png') no-repeat center center fixed;
-	background-size: cover;
+	background-color: rgb(245,235,215);
+
 	position: fixed;
-	top: 0;
-	left: 0;
+
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	filter: blur(3px); 
-	transform: scale(1.1); 
 } 
 
 [data-theme='dark'] body::before {
@@ -56,7 +54,7 @@ body::before {
 } */
 /* 覆盖 Infima 根变量 */
 [data-theme='dark'] {
-	--ifm-color-primary: #1393b3;
+	--ifm-color-primary: #6dbee3;
   }
 
 .banner {
@@ -97,7 +95,7 @@ body::before {
 }
 /* 导航栏毛玻璃效果 */
 .navbar {
-  background: rgba(255, 255, 255, 0.6); /* 浅色主题下半透明 */
+  background: rgba(255, 255, 255, 0.3); /* 浅色主题下半透明 */
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: background 0.3s;
@@ -111,7 +109,7 @@ body::before {
 
 /* 页脚层级 */
 .footer {
-  background: rgba(255, 255, 255, 0.6); /* 浅色主题下半透明 */
+  background: rgba(255, 255, 255, 0.3); /* 浅色主题下半透明 */
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: background 0.3s;
