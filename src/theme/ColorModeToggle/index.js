@@ -16,11 +16,11 @@ export default function ColorModeToggleWrapper({className, ...props}) {
       onClick={() => setColorMode(isDarkMode ? 'light' : 'dark')}
       {...props}>
       {isDarkMode ? (
-        <span title="切换到明亮模式" className={styles.icon}>
+        <span title="阳" className={styles.icon}>
           ☯ {/* 明亮模式图标 */}
         </span>
       ) : (
-        <span title="切换到暗黑模式" className={styles.icon}>
+        <span title="阴" className={styles.icon}>
           ☯ {/* 暗黑模式图标 */}
         </span>
       )}
