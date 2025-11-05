@@ -10,6 +10,7 @@ slug: /
 * [frp内网穿透工具](https://github.com/fatedier/frp)
 * [openvpn一键安装脚本](https://github.com/Nyr/openvpn-install)
 * [newsnow资讯汇总页面](https://github.com/ourongxing/newsnow)
+* [资讯推送飞书、企微等，使用github action和page，无成本](https://github.com/sansan0/TrendRadar)
 * [wxauto微信自动回复](https://github.com/cluic/wxauto)
 * [qinglong青龙面板](https://github.com/whyour/qinglong)
 * [青龙面板常用脚本](https://github.com/shufflewzc/faker4)
