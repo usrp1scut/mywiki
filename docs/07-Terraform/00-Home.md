@@ -1,0 +1,5 @@
+* [Terraform官方](https://developer.hashicorp.com/terraform/docs)
+* [TF Registry](https://registry.terraform.io/)
+* [LocalStack AWS本地模拟器](https://github.com/localstack/localstack)
+* [Test AWS infrastructure by using LocalStack and Terraform Tests](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/test-aws-infra-localstack-terraform.html)
+* [基于AWS LocalStack的Terraform样例](https://github.com/aws-samples/localstack-terraform-test)
