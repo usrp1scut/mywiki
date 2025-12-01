@@ -1,6 +1,6 @@
 ### 删除一个或数个文件。
 
-```bat
+```batch
 del [/P] [/F] [/S] [/Q] [/A[[:]attributes]] names
 ```
 ### 参数说明：

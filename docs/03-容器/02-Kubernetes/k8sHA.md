@@ -36,8 +36,8 @@ ssh root@192.168.1.193 "nmcli con delete uuid d1141403-18c6-3149-907c-ed5f09663a
 
 # 参数解释
 # 
-# ssh ssh root@192.168.1.21
-# 使用SSH登录到IP为192.168.1.21的主机，使用root用户身份。
+# ssh ssh root@192.168.3.31
+# 使用SSH登录到IP为192.168.3.31的主机，使用root用户身份。
 # 
 # nmcli con delete uuid 708a1497-2192-43a5-9f03-2ab936fb3c44
 # 删除 UUID 为 708a1497-2192-43a5-9f03-2ab936fb3c44 的网络连接，这是 NetworkManager 中一种特定网络配置的唯一标识符。
@@ -51,11 +51,11 @@ ssh root@192.168.1.193 "nmcli con delete uuid d1141403-18c6-3149-907c-ed5f09663a
 # 简单来说，这个命令的作用是删除一个特定的网络连接配置，并添加一个名为 ens160 的以太网连接，然后启用这个新的连接。
 
 # 修改静态的IPv4地址
-ssh root@192.168.1.189 "nmcli con mod ens160 ipv4.addresses 192.168.1.21/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
-ssh root@192.168.1.190 "nmcli con mod ens160 ipv4.addresses 192.168.1.22/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
-ssh root@192.168.1.191 "nmcli con mod ens160 ipv4.addresses 192.168.1.23/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
-ssh root@192.168.1.192 "nmcli con mod ens160 ipv4.addresses 192.168.1.24/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
-ssh root@192.168.1.193 "nmcli con mod ens160 ipv4.addresses 192.168.1.25/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
+ssh root@192.168.1.189 "nmcli con mod ens160 ipv4.addresses 192.168.3.31/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
+ssh root@192.168.1.190 "nmcli con mod ens160 ipv4.addresses 192.168.3.32/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
+ssh root@192.168.1.191 "nmcli con mod ens160 ipv4.addresses 192.168.3.33/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
+ssh root@192.168.1.192 "nmcli con mod ens160 ipv4.addresses 192.168.3.34/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
+ssh root@192.168.1.193 "nmcli con mod ens160 ipv4.addresses 192.168.3.35/24; nmcli con mod ens160 ipv4.gateway  192.168.1.1; nmcli con mod ens160 ipv4.method manual; nmcli con mod ens160 ipv4.dns "8.8.8.8"; nmcli con up ens160"
 
 
 # 参数解释
@@ -63,8 +63,8 @@ ssh root@192.168.1.193 "nmcli con mod ens160 ipv4.addresses 192.168.1.25/24; nmc
 # ssh root@192.168.1.189
 # 使用SSH登录到IP为192.168.1.189的主机，使用root用户身份。
 # 
-# "nmcli con mod ens160 ipv4.addresses 192.168.1.21/24"
-# 修改ens160网络连接的IPv4地址为192.168.1.21，子网掩码为 24。
+# "nmcli con mod ens160 ipv4.addresses 192.168.3.31/24"
+# 修改ens160网络连接的IPv4地址为192.168.3.31，子网掩码为 24。
 # 
 # "nmcli con mod ens160 ipv4.gateway 192.168.1.1"
 # 修改ens160网络连接的IPv4网关为192.168.1.1。
@@ -84,23 +84,23 @@ ssh root@192.168.1.193 "nmcli con mod ens160 ipv4.addresses 192.168.1.25/24; nmc
 # 所以我配置了内网的IPv6地址，可以实现固定的访问地址
 
 # 我使用的方式。只配置IPv6地址不配置网关DNS
-ssh root@192.168.1.21 "nmcli con mod ens160 ipv6.addresses fc00::21/8; nmcli con up ens160"
-ssh root@192.168.1.22 "nmcli con mod ens160 ipv6.addresses fc00::22/8; nmcli con up ens160"
-ssh root@192.168.1.23 "nmcli con mod ens160 ipv6.addresses fc00::23/8; nmcli con up ens160"
-ssh root@192.168.1.24 "nmcli con mod ens160 ipv6.addresses fc00::24/8; nmcli con up ens160"
-ssh root@192.168.1.25 "nmcli con mod ens160 ipv6.addresses fc00::25/8; nmcli con up ens160"
+ssh root@192.168.3.31 "nmcli con mod ens160 ipv6.addresses fc00::31/8; nmcli con up ens160"
+ssh root@192.168.3.32 "nmcli con mod ens160 ipv6.addresses fc00::32/8; nmcli con up ens160"
+ssh root@192.168.3.33 "nmcli con mod ens160 ipv6.addresses fc00::33/8; nmcli con up ens160"
+ssh root@192.168.3.34 "nmcli con mod ens160 ipv6.addresses fc00::34/8; nmcli con up ens160"
+ssh root@192.168.3.35 "nmcli con mod ens160 ipv6.addresses fc00::35/8; nmcli con up ens160"
 
 # IPv6地址路由DNS，样例
-ssh root@192.168.1.21 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::10; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
-ssh root@192.168.1.22 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::20; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
-ssh root@192.168.1.23 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::30; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
-ssh root@192.168.1.24 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::40; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
-ssh root@192.168.1.25 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::50; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
+ssh root@192.168.3.31 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::10; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
+ssh root@192.168.3.32 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::20; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
+ssh root@192.168.3.33 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::30; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
+ssh root@192.168.3.34 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::40; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
+ssh root@192.168.3.35 "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::50; nmcli con mod ens160 ipv6.gateway fc00:43f4:1eea:1::1; nmcli con mod ens160 ipv6.method manual; nmcli con mod ens160 ipv6.dns "2400:3200::1"; nmcli con up ens160"
 
 # 参数解释
 # 
-# ssh root@192.168.1.21
-# 通过SSH连接到IP地址为192.168.1.21的远程主机，使用root用户进行登录。
+# ssh root@192.168.3.31
+# 通过SSH连接到IP地址为192.168.3.31的远程主机，使用root用户进行登录。
 # 
 # "nmcli con mod ens160 ipv6.addresses fc00:43f4:1eea:1::10"
 # 使用nmcli命令修改ens160接口的IPv6地址为fc00:43f4:1eea:1::10。
@@ -133,13 +133,13 @@ timestamp=1742703386
 [ethernet]
 
 [ipv4]
-address1=192.168.1.21/24,192.168.1.1
+address1=192.168.3.31/24,192.168.1.1
 dns=192.168.1.99;
 method=manual
 
 [ipv6]
 addr-gen-mode=default
-address1=fc00::21/8
+address1=fc00::31/8
 method=auto
 
 [proxy]
@@ -528,7 +528,7 @@ systemctl restart chronyd ; systemctl enable chronyd
 # apt install chrony -y
 yum install chrony -y
 cat > /etc/chrony.conf << EOF 
-pool 192.168.1.21 iburst
+pool 192.168.3.31 iburst
 driftfile /var/lib/chrony/drift
 makestep 1.0 3
 rtcsync
@@ -613,7 +613,7 @@ EOF
 # apt install -y sshpass
 yum install -y sshpass
 ssh-keygen -f /root/.ssh/id_rsa -P ''
-export IP="192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25"
+export IP="192.168.3.31 192.168.3.32 192.168.3.33 192.168.3.34 192.168.3.35"
 export SSHPASS=123123
 for HOST in $IP;do
      sshpass -e ssh-copy-id -o StrictHostKeyChecking=no $HOST
@@ -627,7 +627,7 @@ done
 # 
 # 2. `ssh-keygen -f /root/.ssh/id_rsa -P ''`：生成SSH密钥对。该命令会在/root/.ssh目录下生成私钥文件id_rsa和公钥文件id_rsa.pub，同时不设置密码（即-P参数后面为空），方便后续通过ssh-copy-id命令自动复制公钥。
 # 
-# 3. `export IP="192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25"`：设置一个包含多个远程主机IP地址的环境变量IP，用空格分隔开，表示要将SSH公钥复制到这些远程主机上。
+# 3. `export IP="192.168.3.31 192.168.3.32 192.168.3.33 192.168.3.34 192.168.3.35"`：设置一个包含多个远程主机IP地址的环境变量IP，用空格分隔开，表示要将SSH公钥复制到这些远程主机上。
 # 
 # 4. `export SSHPASS=123123`：设置环境变量SSHPASS，将sshpass所需的SSH密码（在这里是"123123"）赋值给它，这样sshpass命令可以自动使用这个密码进行登录。
 # 
@@ -894,18 +894,18 @@ cat > /etc/hosts <<EOF
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
-192.168.1.21 k8s-master01
-192.168.1.22 k8s-master02
-192.168.1.23 k8s-master03
-192.168.1.24 k8s-node01
-192.168.1.25 k8s-node02
-192.168.1.36 lb-vip
+192.168.3.31 k8s-master01
+192.168.3.32 k8s-master02
+192.168.3.33 k8s-master03
+192.168.3.34 k8s-node01
+192.168.3.35 k8s-node02
+192.168.3.36 lb-vip
 
-fc00::21 k8s-master01
-fc00::22 k8s-master02
-fc00::23 k8s-master03
-fc00::24 k8s-node01
-fc00::25 k8s-node02
+fc00::31 k8s-master01
+fc00::32 k8s-master02
+fc00::33 k8s-master03
+fc00::34 k8s-node01
+fc00::35 k8s-node02
 EOF
 ```
 
@@ -1330,9 +1330,9 @@ backend k8s-master
  option tcp-check
  balance roundrobin
  default-server inter 10s downinter 5s rise 2 fall 2 slowstart 60s maxconn 250 maxqueue 256 weight 100
- server  k8s-master01  192.168.1.21:6443 check
- server  k8s-master02  192.168.1.22:6443 check
- server  k8s-master03  192.168.1.23:6443 check
+ server  k8s-master01  192.168.3.31:6443 check
+ server  k8s-master02  192.168.3.32:6443 check
+ server  k8s-master03  192.168.3.33:6443 check
 EOF
 ```
 
@@ -1375,9 +1375,9 @@ EOF
    - option tcp-check: 启用TCP检查功能。
    - balance roundrobin: 使用轮询算法进行负载均衡。
    - default-server inter 10s downinter 5s rise 2 fall 2 slowstart 60s maxconn 250 maxqueue 256 weight 100: 设置默认的服务器参数。
-   - server k8s-master01 192.168.1.21:6443 check: 增加一个名为k8s-master01的服务器，IP地址为192.168.1.21，端口号为6443，并对其进行健康检查。
-   - server k8s-master02 192.168.1.22:6443 check: 增加一个名为k8s-master02的服务器，IP地址为192.168.1.22，端口号为6443，并对其进行健康检查。
-   - server k8s-master03 192.168.1.23:6443 check: 增加一个名为k8s-master03的服务器，IP地址为192.168.1.23，端口号为6443，并对其进行健康检查。
+   - server k8s-master01 192.168.3.31:6443 check: 增加一个名为k8s-master01的服务器，IP地址为192.168.3.31，端口号为6443，并对其进行健康检查。
+   - server k8s-master02 192.168.3.32:6443 check: 增加一个名为k8s-master02的服务器，IP地址为192.168.3.32，端口号为6443，并对其进行健康检查。
+   - server k8s-master03 192.168.3.33:6443 check: 增加一个名为k8s-master03的服务器，IP地址为192.168.3.33，端口号为6443，并对其进行健康检查。
 
 以上就是这段配置代码的详细解释。它主要定义了全局配置、默认配置、前端监听和后端服务器组的相关参数和设置。通过这些配置，可以实现负载均衡和监控功能。
 ```
@@ -1404,7 +1404,7 @@ vrrp_instance VI_1 {
     state MASTER
     # 注意网卡名
     interface ens160 
-    mcast_src_ip 192.168.1.21
+    mcast_src_ip 192.168.3.31
     virtual_router_id 51
     priority 100
     nopreempt
@@ -1414,7 +1414,7 @@ vrrp_instance VI_1 {
         auth_pass K8SHA_KA_AUTH
     }
     virtual_ipaddress {
-        192.168.1.36
+        192.168.3.36
     }
     track_script {
       chk_apiserver 
@@ -1446,7 +1446,7 @@ vrrp_instance VI_1 {
     state BACKUP
     # 注意网卡名
     interface ens160
-    mcast_src_ip 192.168.1.22
+    mcast_src_ip 192.168.3.32
     virtual_router_id 51
     priority 80
     nopreempt
@@ -1456,7 +1456,7 @@ vrrp_instance VI_1 {
         auth_pass K8SHA_KA_AUTH
     }
     virtual_ipaddress {
-        192.168.1.36
+        192.168.3.36
     }
     track_script {
       chk_apiserver 
@@ -1488,7 +1488,7 @@ vrrp_instance VI_1 {
     state BACKUP
     # 注意网卡名
     interface ens160
-    mcast_src_ip 192.168.1.23
+    mcast_src_ip 192.168.3.33
     virtual_router_id 51
     priority 50
     nopreempt
@@ -1498,7 +1498,7 @@ vrrp_instance VI_1 {
         auth_pass K8SHA_KA_AUTH
     }
     virtual_ipaddress {
-        192.168.1.36
+        192.168.3.36
     }
     track_script {
       chk_apiserver 
@@ -1524,7 +1524,7 @@ EOF
 - `vrrp_instance`部分定义了一个VRRP实例。`VI_1`是实例的名称。
     - `state`参数指定了当前实例的状态，这里设置为MASTER表示当前实例是主节点。
     - `interface`参数指定了要监听的网卡，这里设置为ens160。
-    - `mcast_src_ip`参数指定了VRRP报文的源IP地址，这里设置为192.168.1.21。
+    - `mcast_src_ip`参数指定了VRRP报文的源IP地址，这里设置为192.168.3.31。
     - `virtual_router_id`参数指定了虚拟路由器的ID，这里设置为51。
     - `priority`参数指定了实例的优先级，优先级越高（数值越大）越有可能被选为主节点。
     - `nopreempt`参数指定了当主节点失效后不要抢占身份，即不要自动切换为主节点。
@@ -1532,7 +1532,7 @@ EOF
     - `authentication`部分指定了认证参数
     	- `auth_type`参数指定了认证类型，这里设置为PASS表示使用密码认证，
     	- `auth_pass`参数指定了认证密码，这里设置为K8SHA_KA_AUTH。
-    - `virtual_ipaddress`部分指定了虚拟IP地址，这里设置为192.168.1.36。
+    - `virtual_ipaddress`部分指定了虚拟IP地址，这里设置为192.168.3.36。
     - `track_script`部分指定了要跟踪的脚本，这里跟踪了chk_apiserver脚本。
 ```
 
@@ -1601,10 +1601,10 @@ systemctl status keepalived.service
 
 ```shell
 # 能ping同
-[root@k8s-node02 ~]# ping 192.168.1.36
+[root@k8s-node02 ~]# ping 192.168.3.36
 
 # 能telnet访问
-[root@k8s-node02 ~]# telnet 192.168.1.36 9443
+[root@k8s-node02 ~]# telnet 192.168.3.36 9443
 
 # 关闭主节点，看vip是否漂移到备节点
 ```
@@ -1649,7 +1649,7 @@ bootstrapTokens:
   - authentication
 kind: InitConfiguration
 localAPIEndpoint:
-  advertiseAddress: 192.168.1.21
+  advertiseAddress: 192.168.3.31
   bindPort: 6443
 nodeRegistration:
   # criSocket: unix:///run/containerd/containerd.sock
@@ -1658,7 +1658,7 @@ nodeRegistration:
   imagePullSerial: true
   kubeletExtraArgs:
   - name: "node-ip"
-    value: "192.168.1.21,fc00::21"
+    value: "192.168.3.31,fc00::31"
   name: k8s-master01
   taints:
   - effect: PreferNoSchedule
@@ -1679,15 +1679,15 @@ apiServer:
     - k8s-master01
     - k8s-master02
     - k8s-master03
-    - 192.168.1.21
-    - 192.168.1.22
-    - 192.168.1.23
-    - 192.168.1.24
-    - 192.168.1.25
-    - 192.168.1.26
-    - 192.168.1.27
-    - 192.168.1.28
-    - 192.168.1.29
+    - 192.168.3.31
+    - 192.168.3.32
+    - 192.168.3.33
+    - 192.168.3.34
+    - 192.168.3.35
+    - 192.168.3.36
+    - 192.168.3.37
+    - 192.168.3.38
+    - 192.168.3.39
     - 127.0.0.1
   timeoutForControlPlane: 4m0s
 apiVersion: kubeadm.k8s.io/v1beta4
@@ -1710,7 +1710,7 @@ networking:
   serviceSubnet: 10.96.0.0/16,fd00:1111::/112
 proxy: {}
 scheduler: {}
-controlPlaneEndpoint: "192.168.1.36:9443"
+controlPlaneEndpoint: "192.168.3.36:9443"
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
@@ -1772,15 +1772,15 @@ W0323 14:33:08.591394   15471 checks.go:846] detected that the sandbox image "re
 [certs] Using certificateDir folder "/etc/kubernetes/pki"
 [certs] Generating "ca" certificate and key
 [certs] Generating "apiserver" certificate and key
-[certs] apiserver serving cert is signed for DNS names [k8s-master01 k8s-master02 k8s-master03 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local node x.oiox.cn z.oiox.cn] and IPs [10.96.0.1 192.168.1.21 192.168.1.36 192.168.1.22 192.168.1.23 192.168.1.24 192.168.1.25 192.168.1.26 192.168.1.27 192.168.1.28 192.168.1.29 127.0.0.1]
+[certs] apiserver serving cert is signed for DNS names [k8s-master01 k8s-master02 k8s-master03 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local node x.oiox.cn z.oiox.cn] and IPs [10.96.0.1 192.168.3.31 192.168.3.36 192.168.3.32 192.168.3.33 192.168.3.34 192.168.3.35 192.168.3.36 192.168.3.37 192.168.3.38 192.168.3.39 127.0.0.1]
 [certs] Generating "apiserver-kubelet-client" certificate and key
 [certs] Generating "front-proxy-ca" certificate and key
 [certs] Generating "front-proxy-client" certificate and key
 [certs] Generating "etcd/ca" certificate and key
 [certs] Generating "etcd/server" certificate and key
-[certs] etcd/server serving cert is signed for DNS names [localhost node] and IPs [192.168.1.21 127.0.0.1 ::1]
+[certs] etcd/server serving cert is signed for DNS names [localhost node] and IPs [192.168.3.31 127.0.0.1 ::1]
 [certs] Generating "etcd/peer" certificate and key
-[certs] etcd/peer serving cert is signed for DNS names [localhost node] and IPs [192.168.1.21 127.0.0.1 ::1]
+[certs] etcd/peer serving cert is signed for DNS names [localhost node] and IPs [192.168.3.31 127.0.0.1 ::1]
 [certs] Generating "etcd/healthcheck-client" certificate and key
 [certs] Generating "apiserver-etcd-client" certificate and key
 [certs] Generating "sa" key and public key
@@ -1844,13 +1844,13 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 You can now join any number of control-plane nodes by copying certificate authorities
 and service account keys on each node and then running the following as root:
 
-  kubeadm join 192.168.1.36:9443 --token abcdef.0123456789abcdef \
+  kubeadm join 192.168.3.36:9443 --token abcdef.0123456789abcdef \
 	--discovery-token-ca-cert-hash sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92 \
 	--control-plane 
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 192.168.1.36:9443 --token abcdef.0123456789abcdef \
+kubeadm join 192.168.3.36:9443 --token abcdef.0123456789abcdef \
 	--discovery-token-ca-cert-hash sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92 
 [root@k8s-master01 ~]# 
 
@@ -1876,7 +1876,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```shell
 # 使用脚本将这如果你睡拷贝到其他maser节点
 USER=root
-CONTROL_PLANE_IPS="192.168.1.22 192.168.1.23"
+CONTROL_PLANE_IPS="192.168.3.32 192.168.3.33"
 for host in ${CONTROL_PLANE_IPS}; do
     scp /etc/kubernetes/pki/ca.crt "${USER}"@$host:
     scp /etc/kubernetes/pki/ca.key "${USER}"@$host:
@@ -1912,7 +1912,7 @@ apiVersion: kubeadm.k8s.io/v1beta4
 caCertPath: /etc/kubernetes/pki/ca.crt
 discovery:
   bootstrapToken:
-    apiServerEndpoint: 192.168.1.36:9443
+    apiServerEndpoint: 192.168.3.36:9443
     token: abcdef.0123456789abcdef
     caCertHashes:
     - "sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92"
@@ -1921,7 +1921,7 @@ discovery:
 kind: JoinConfiguration
 controlPlane:
   localAPIEndpoint:
-    advertiseAddress: "192.168.1.22"
+    advertiseAddress: "192.168.3.32"
     bindPort: 6443
 nodeRegistration:
   # criSocket: unix:///run/containerd/containerd.sock
@@ -1934,7 +1934,7 @@ nodeRegistration:
     key: node-role.kubernetes.io/master
   kubeletExtraArgs:
   - name: "node-ip"
-    value: "192.168.1.22,fc00::22"
+    value: "192.168.3.32,fc00::32"
 timeouts:
   controlPlaneComponentHealthCheck: 4m0s
   discovery: 5m0s
@@ -1957,7 +1957,7 @@ apiVersion: kubeadm.k8s.io/v1beta4
 caCertPath: /etc/kubernetes/pki/ca.crt
 discovery:
   bootstrapToken:
-    apiServerEndpoint: 192.168.1.36:9443
+    apiServerEndpoint: 192.168.3.36:9443
     token: abcdef.0123456789abcdef
     caCertHashes:
     - "sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92"
@@ -1966,7 +1966,7 @@ discovery:
 kind: JoinConfiguration
 controlPlane:
   localAPIEndpoint:
-    advertiseAddress: "192.168.1.23"
+    advertiseAddress: "192.168.3.33"
     bindPort: 6443
 nodeRegistration:
   # criSocket: unix:///run/containerd/containerd.sock
@@ -1979,7 +1979,7 @@ nodeRegistration:
     key: node-role.kubernetes.io/master
   kubeletExtraArgs:
   - name: "node-ip"
-    value: "192.168.1.23,fc00::23"
+    value: "192.168.3.33,fc00::33"
 timeouts:
   controlPlaneComponentHealthCheck: 4m0s
   discovery: 5m0s
@@ -2002,7 +2002,7 @@ apiVersion: kubeadm.k8s.io/v1beta4
 caCertPath: /etc/kubernetes/pki/ca.crt
 discovery:
   bootstrapToken:
-    apiServerEndpoint: 192.168.1.36:9443
+    apiServerEndpoint: 192.168.3.36:9443
     token: abcdef.0123456789abcdef
     caCertHashes:
     - "sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92"
@@ -2018,7 +2018,7 @@ nodeRegistration:
   taints: null
   kubeletExtraArgs:
   - name: "node-ip"
-    value: "192.168.1.24,fc00::24"
+    value: "192.168.3.34,fc00::34"
 timeouts:
   controlPlaneComponentHealthCheck: 4m0s
   discovery: 5m0s
@@ -2040,7 +2040,7 @@ apiVersion: kubeadm.k8s.io/v1beta4
 caCertPath: /etc/kubernetes/pki/ca.crt
 discovery:
   bootstrapToken:
-    apiServerEndpoint: 192.168.1.36:9443
+    apiServerEndpoint: 192.168.3.36:9443
     token: abcdef.0123456789abcdef
     caCertHashes:
     - "sha256:1a6196cd63edf4e78f39d34d448d6333d25e1ad0ff650839260fc7df25ec8a92"
@@ -2056,7 +2056,7 @@ nodeRegistration:
   taints: null
   kubeletExtraArgs:
   - name: "node-ip"
-    value: "192.168.1.25,fc00::25"
+    value: "192.168.3.35,fc00::35"
 timeouts:
   controlPlaneComponentHealthCheck: 4m0s
   discovery: 5m0s
@@ -2455,11 +2455,11 @@ metrics-server-7c8b55c754-w7q8v            1/1     Running   0          3m56s   
 # 进入busybox ping其他节点上的pod
 
 kubectl exec -ti busybox -- sh
-/ # ping 192.168.1.23
-PING 192.168.1.23 (192.168.1.23): 56 data bytes
-64 bytes from 192.168.1.23: seq=0 ttl=62 time=0.494 ms
-64 bytes from 192.168.1.23: seq=1 ttl=62 time=0.342 ms
-64 bytes from 192.168.1.23: seq=2 ttl=62 time=0.335 ms
+/ # ping 192.168.3.33
+PING 192.168.3.33 (192.168.3.33): 56 data bytes
+64 bytes from 192.168.3.33: seq=0 ttl=62 time=0.494 ms
+64 bytes from 192.168.3.33: seq=1 ttl=62 time=0.342 ms
+64 bytes from 192.168.3.33: seq=2 ttl=62 time=0.335 ms
 
 # 可以连通证明这个pod是可以跨命名空间和跨主机通信的
 ```
@@ -2595,7 +2595,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IjVWNTNJSGFsNDhTLU1TNDVEZkZmeUlkbFpaUEVsVU8yOXZqQjJ0
 
 ## 登录dashboard
 
-https://192.168.1.21:31495/
+https://192.168.3.31:31495/
 
 # ingress安装
 
@@ -2853,7 +2853,7 @@ Accept-Ranges: bytes
 
 
 # 使用IPv4地址访问测试
-[root@k8s-master01 ~]# curl -I http://192.168.1.21:32386
+[root@k8s-master01 ~]# curl -I http://192.168.3.31:32386
 HTTP/1.1 200 OK
 Server: nginx/1.21.6
 Date: Thu, 05 May 2022 10:20:59 GMT
@@ -2865,7 +2865,7 @@ ETag: "61f01158-267"
 Accept-Ranges: bytes
 
 # 使用主机的内网IPv6地址测试
-[root@k8s-master01 ~]# curl -I http://[fc00::21]:32386
+[root@k8s-master01 ~]# curl -I http://[fc00::31]:32386
 HTTP/1.1 200 OK
 Server: nginx/1.21.6
 Date: Thu, 05 May 2022 10:20:54 GMT

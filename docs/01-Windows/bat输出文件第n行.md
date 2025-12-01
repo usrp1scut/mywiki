@@ -1,6 +1,6 @@
 保存为.bat，用法在cmd或powershell中输入`<filename>.bat 行数 要读取的文件名`
 
-```bat
+```batch
 @echo off
 
 if [%1] == [] goto usage

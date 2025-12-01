@@ -54,10 +54,10 @@ module.exports = {
     },
     
     prism: {
-      theme: prismThemes.jettwaveLight,
+      theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      defaultLanguage: "shell",
-      additionalLanguages: ['git','nginx','python','sql','yaml','go'],
+      defaultLanguage: "bash",
+      additionalLanguages: ['git','nginx','python','sql','yaml','go','powershell','batch','bash'],
     },
     
 
