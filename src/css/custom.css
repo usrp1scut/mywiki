@@ -175,28 +175,41 @@ body::before {
   background: rgba(31, 165, 136, 0.1);
 }
 
+html[data-theme='dark'].blog-list-page main.col.col--7 > article,
+html[data-theme='dark'] .blog-list-page main.col.col--7 > article,
 [data-theme='dark'] .blog-list-page main article {
-  background: linear-gradient(135deg, rgba(14, 20, 35, 0.82), rgba(8, 14, 28, 0.82));
-  border-color: rgba(89, 132, 170, 0.45);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  background: #0b1322 !important;
+  background-image: linear-gradient(160deg, #0b1322, #12203a) !important;
+  border-color: rgba(142, 194, 230, 0.58) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.48) !important;
 }
 
+html[data-theme='dark'].blog-list-page main.col.col--7 > article:first-of-type,
+html[data-theme='dark'] .blog-list-page main.col.col--7 > article:first-of-type,
 [data-theme='dark'] .blog-list-page main article:first-of-type {
-  border-left-color: rgba(126, 186, 224, 0.72);
+  border-left-color: rgba(142, 194, 230, 0.78);
 }
 
+html[data-theme='dark'].blog-list-page main.col.col--7 > article h2 a,
+html[data-theme='dark'].blog-list-page main.col.col--7 > article h3 a,
+html[data-theme='dark'] .blog-list-page main article h2 a,
+html[data-theme='dark'] .blog-list-page main article h3 a,
 [data-theme='dark'] .blog-list-page main article h2 a,
 [data-theme='dark'] .blog-list-page main article h3 a {
-  color: #d5e4f8;
+  color: #d2dded;
 }
 
+html[data-theme='dark'].blog-list-page main.col.col--7 > article a[class*='tag'],
+html[data-theme='dark'] .blog-list-page main article a[class*='tag'],
 [data-theme='dark'] .blog-list-page main article a[class*='tag'] {
-  border-color: rgba(126, 186, 224, 0.45);
+  border-color: rgba(142, 194, 230, 0.58);
   color: #bfe4ff;
 }
 
+html[data-theme='dark'].blog-list-page main.col.col--7 > article a[class*='tag']:hover,
+html[data-theme='dark'] .blog-list-page main article a[class*='tag']:hover,
 [data-theme='dark'] .blog-list-page main article a[class*='tag']:hover {
-  background: rgba(126, 186, 224, 0.12);
+  background: rgba(142, 194, 230, 0.16);
 }
 
 @media (max-width: 768px) {
@@ -245,10 +258,26 @@ body::before {
   background: rgba(253, 250, 241, 0.74);
 }
 
-[data-theme='dark'] .blog-post-page main article {
-  background: linear-gradient(135deg, rgba(14, 20, 35, 0.85), rgba(8, 14, 28, 0.84));
-  border-color: rgba(89, 132, 170, 0.45);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+html[data-theme='dark'].blog-post-page main.col.col--7 > article,
+html[data-theme='dark'] .blog-post-page main.col.col--7 > article,
+[data-theme='dark'] .blog-post-page main.col.col--7 > article,
+[data-theme='dark'] .blog-post-page main article,
+[data-theme='dark'] .theme-blog-post-page main article,
+.dark-theme .blog-post-page main article,
+.dark-theme .theme-blog-post-page main article {
+  background: #0b1322 !important;
+  background-image: linear-gradient(160deg, #0b1322, #12203a) !important;
+  border-color: rgba(142, 194, 230, 0.58) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.48) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']).blog-post-page main.col.col--7 > article {
+    background: #0b1322;
+    background-image: linear-gradient(160deg, #0b1322, #12203a);
+    border-color: rgba(142, 194, 230, 0.58);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.48);
+  }
 }
 
 [data-theme='dark'] .blog-post-page .markdown {
