@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useGlobalData from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
 import {Poetry} from './诗词表';
 
@@ -33,26 +34,21 @@ const readingPaths = [
   {label: '效率工具实践', text: '使用自动化、脚本与模板提升日常运维效率。'},
 ];
 
-const recentPosts = [
-  {
-    title: '2026-1-10：近期实践记录',
-    summary: '聚焦近期线上运维实践与可复用经验。',
-    to: '/blog',
-  },
-  {
-    title: '2025-12-12：排障与优化',
-    summary: '围绕定位流程、性能观察与问题闭环。',
-    to: '/blog',
-  },
-  {
-    title: '2025-8-12：工程化积累',
-    summary: '将零散操作沉淀为规范化、可检索的知识条目。',
-    to: '/blog',
-  },
-];
-
 function Home() {
+
   const {siteConfig = {}} = useDocusaurusContext();
+
+  const globalData = useGlobalData();
+  const blogPluginData = globalData['docusaurus-plugin-content-blog']?.default;
+
+  const recentPosts = useMemo(() => {
+    const posts = blogPluginData?.blogPosts ?? [];
+    return posts.slice(0, 3).map((post) => ({
+      title: post.metadata.title,
+      summary: post.metadata.description || '点击查看完整文章内容。',
+      to: post.metadata.permalink,
+    }));
+  }, [blogPluginData]);
 
   const [poetryIndex, setPoetryIndex] = useState(0);
 
