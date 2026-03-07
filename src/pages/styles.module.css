@@ -1,108 +1,259 @@
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(90vh - var(--ifm-navbar-height) ); /* 减去导航栏和页脚的高度 */
-  text-align: center;
-  color: white;
-  padding: 2rem 0;
-  position: relative; /* 确保内容定位正常 */
-  z-index:  0; 
-}
-
-.hero::before {
-  content: "";
-  position: fixed; /* 背景图固定在视口 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(/img/sunrise.jpeg) no-repeat center center/cover;
-  z-index: -1; /* 确保背景图在内容后面 */
-}
-[data-theme='dark'] .hero::before {
-  content: "";
-  position: fixed; /* 背景图固定在视口 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(/img/bg.jpeg) no-repeat center center/cover;
-  z-index: -1; /* 确保背景图在内容后面 */
-}
-
-.container {
-  max-width: 1200px;
+.page {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2rem 1rem 4rem;
+  position: relative;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  height: 100%; /* 使行元素高度充满父容器 */
+.inkWash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.24;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(160, 132, 87, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 15%, rgba(120, 96, 66, 0.1), transparent 36%),
+    radial-gradient(circle at 60% 75%, rgba(112, 92, 66, 0.1), transparent 40%);
 }
 
-.col {
-  flex: 1 1 50%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
 }
 
-.logo {
-  max-width: 50%;
-  height: auto;
-  padding: 2rem;/* 增加一些底部间距 */
+.heroContent,
+.poetryCard,
+.card,
+.pathList li {
+  background: linear-gradient(135deg, rgba(253, 250, 241, 0.88), rgba(245, 238, 221, 0.78));
+  border: 1px solid rgba(181, 156, 120, 0.38);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(111, 90, 56, 0.11);
 }
 
-button {
-  margin-top: 0rem;
+[data-theme='dark'] .heroContent,
+[data-theme='dark'] .poetryCard,
+[data-theme='dark'] .card,
+[data-theme='dark'] .pathList li {
+  background: linear-gradient(135deg, rgba(14, 20, 35, 0.82), rgba(8, 14, 28, 0.82));
+  border-color: rgba(89, 132, 170, 0.45);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
 
-.poetry {
-  background-color: rgba(0, 0, 0, 0.5);
+.heroContent {
   padding: 2rem;
-  border-radius: 10px;
 }
 
-.poetry h2 {
-  font-size: 2.0rem;
+.badge {
+  margin: 0;
+  color: #1f6f8d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  margin: 1rem 0 0;
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.7;
+}
+
+[data-theme='dark'] .subtitle,
+[data-theme='dark'] .card p,
+[data-theme='dark'] .pathList span,
+[data-theme='dark'] .author {
+  color: #c9d6ea;
+}
+
+[data-theme='dark'] .heroActions :global(.button--secondary) {
+  background: rgba(214, 229, 255, 0.12);
+  color: #dbe8ff;
+  border-color: rgba(171, 205, 255, 0.35);
+}
+
+[data-theme='dark'] .heroActions :global(.button--secondary):hover {
+  background: rgba(214, 229, 255, 0.2);
+}
+
+.heroActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.poetryCard {
+  padding: 1.5rem;
+  position: relative;
+}
+
+.hanTitle {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hanTitle::before,
+.hanTitle::after {
+  content: '✦';
+  font-size: 0.75rem;
+  color: rgba(146, 93, 35, 0.65);
+}
+
+[data-theme='dark'] .hanTitle::before,
+[data-theme='dark'] .hanTitle::after {
+  color: rgba(126, 186, 224, 0.72);
+}
+
+.poetryTitle {
+  margin-bottom: 0.3rem;
+}
+
+.sealMark {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid rgba(154, 34, 34, 0.7);
+  color: rgba(154, 34, 34, 0.85);
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+[data-theme='dark'] .sealMark {
+  border-color: rgba(232, 109, 109, 0.75);
+  color: rgba(232, 109, 109, 0.85);
+}
+
+.poetryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.poetryHeader h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.switchButton {
+  white-space: nowrap;
+}
+
+.author {
+  margin: 0.5rem 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.content {
+  margin: 0;
+  line-height: 1.85;
+}
+
+.contentWrapper {
+  position: relative;
+  max-height: 13.5rem;
+  overflow: auto;
+  padding-right: 0.35rem;
+  mask-image: linear-gradient(180deg, #000 72%, rgba(0, 0, 0, 0.3) 90%, transparent 100%);
+}
+
+.contentExpanded {
+  max-height: none;
+  mask-image: none;
+}
+
+.expandButton {
+  margin-top: 0.75rem;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.poetry p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0.5rem 0;
+.sectionTitle h2 {
+  margin: 0;
 }
 
-.logoSpin {
-  animation: logo-spin 2s linear infinite;
+.section h2 {
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  100% {
-    transform: rotate(360deg);
-  }
+.recentGrid,
+.cardGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-/* 媒体查询 */
-@media (max-width: 768px) {
+
+.card {
+  padding: 1.25rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.inlineLink {
+  font-weight: 600;
+}
+
+.pathList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pathList li {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pathList span {
+  color: var(--ifm-font-color-secondary);
+}
+
+@media (max-width: 996px) {
   .hero {
-    padding: 1rem 0;
-    height: auto; /* 允许内容根据需要扩展高度 */
+    grid-template-columns: 1fr;
   }
 
-  .col {
-    flex: 1 1 100%;
-    padding: 0.5rem;
+  .recentGrid,
+  .cardGrid {
+    grid-template-columns: 1fr;
   }
 
-  .logo {
-    max-width: 100%;
+  .heroContent,
+  .poetryCard {
+    padding: 1.25rem;
   }
 }
