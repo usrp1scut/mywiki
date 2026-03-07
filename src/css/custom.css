@@ -114,8 +114,27 @@ body::before {
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: background 0.3s;
   z-index: 1000; /* 页脚层级 */
+  border-top: 1px solid rgba(120, 102, 77, 0.16);
 }
 
 [data-theme='dark'] .footer {
   background: rgba(30, 30, 30, 0.6); /* 深色主题下半透明 */
+  border-top-color: rgba(109, 190, 227, 0.2);
+}
+
+.footer__copyright {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.25rem 1rem;
+  line-height: 1.8;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .footer__copyright {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    padding: 0.5rem 0.75rem;
+  }
 }
