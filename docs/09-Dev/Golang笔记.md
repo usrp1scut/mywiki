@@ -1,8 +1,8 @@
 ## 库文档
 
-* [标准库](https://pkg.go.dev/std)
-* [go-redis](https://redis.uptrace.dev/zh/guide/go-redis.html)
-* [Gin_Web框架](https://gin-gonic.com/zh-cn/docs/quickstart/)
+- [标准库](https://pkg.go.dev/std)
+- [go-redis](https://redis.uptrace.dev/zh/guide/go-redis.html)
+- [Gin_Web框架](https://gin-gonic.com/zh-cn/docs/quickstart/)
 
 ## 字符串常用函数
 
@@ -63,6 +63,7 @@ func main() {
 
 }
 ```
+
 ## 时间与日期函数
 ```go
 package main
@@ -100,6 +101,7 @@ func main() {
 	fmt.Printf("%v\n", end-start)
 }
 ```
+
 ### 随机数生成
 ```go
 package main
@@ -133,6 +135,7 @@ func TypeJudge(items ...interface{}) {
 }
 
 ```
+
 ## 文件读写
 ```go
 import (
@@ -165,6 +168,7 @@ func main() {
 	writer.Flush()
 }
 ```
+
 ### 读写模式FLAG
 ```go
     O_RDONLY int = syscall.O_RDONLY // 只读模式打开文件
@@ -190,6 +194,7 @@ func PathExist(path string) (bool, error) {
 	return false, err
 }
 ```
+
 ## 错误处理
 ```go
 	defer func() {
@@ -198,7 +203,9 @@ func PathExist(path string) (bool, error) {
 		}
 	}()
 ```
+
 ## 协程与管道
+
 ### 找素数例程
 ```go
 
@@ -268,7 +275,9 @@ func main() {
 	}
 }
 ```
+
 ## 排序
+
 ### 冒泡排序
 ```go
 func sort(slice []int) {
@@ -286,6 +295,7 @@ func sort(slice []int) {
 
 }
 ```
+
 ### 插入排序
 ```go
 
@@ -305,6 +315,7 @@ func InsertSort(arr []int) {
 	}
 }
 ```
+
 ### 选择排序
 ```go
 func selectSort(arr []int) {
@@ -323,6 +334,7 @@ func selectSort(arr []int) {
 	}
 }
 ```
+
 ### 快速排序
 ```go
 func quickSort(left int, right int, arr []int) {

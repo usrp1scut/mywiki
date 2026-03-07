@@ -40,6 +40,7 @@ ppp debug = yes
 pppoptfile = /etc/ppp/options.xl2tpd
 length bit = yes
 ```
+
 #### 7.vi /etc/ppp/options.xl2tpd
 ```
 ipcp-accept-local
@@ -55,10 +56,11 @@ debug
 proxyarp
 connect-delay 5000
 ```
+
 #### 8.vi /etc/ipsec.conf
 ```
 config setup
- 
+
  virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.1.0.0/12,%v4:25.0.0.0/8,%v4:100.64.0.0/10,%v6:fd00::/8,%v6:fe80::/10
 include /etc/ipsec.d/*.conf
 ```
@@ -72,7 +74,6 @@ config setup
 
 include /etc/ipsec.d/*.conf
 ```
-
 
 #### 9.vi /etc/ipsec.d/l2tp-ipsec.conf
 ```
@@ -97,6 +98,7 @@ conn L2TP-PSK-noNAT
     right=%any  
     rightprotoport=17/%any  
 ```
+
 #### 10.设置用户名和密码
 
 `vi /etc/ppp/chap-secrets`
@@ -104,11 +106,14 @@ conn L2TP-PSK-noNAT
 # client server secret IP addresses
 username * passwd *
 ```
+
 #### 11.设置安全组，开放udp端口1701、4500、500
+
 #### 12.vi /etc/ipsec.d/default.secrets
 ```
 : PSK “123456”
 ```
+
 #### 13.vi /etc/sysctl.conf,执行 sysctl -p 生效配置
 ```
 net.ipv4.ip_forward = 1
@@ -131,6 +136,7 @@ net.ipv4.icmp_echo_ignore_broadcasts = 1
 # # 开启恶意icmp错误消息保护
 net.ipv4.icmp_ignore_bogus_error_responses = 1
 ```
+
 #### 14.ipsec启动&检查
 ```
 systemctl enable ipsec
@@ -139,15 +145,18 @@ systemctl restart ipsec
 检查：ipsec verify 全部通过
 
 #### 15.设置隧道认证
+
 `vi /etc/xl2tpd/l2tp-secrets`
 ```
 #格式为us them secret    ,这个them就是路由器中的本段名称
 * them secret
 ```
+
 #### 16.启动xl2tp
 
 systemctl enable xl2tpd
 systemctl restart xl2tpd
 
 #### 17.配置内核NAT
+
 `iptables -t nat -A POSTROUTING -s 192.168.110.0/255.255.255.0 -j SNAT --to-source 10.31.2.13`

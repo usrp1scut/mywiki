@@ -10,7 +10,7 @@ unset OS_SERVICE_TOKEN
     export OS_REGION_NAME=RegionOne
     export OS_AUTH_URL=http://192.168.26.71:5000/v3
     export PS1='[\u@\h \W(keystone_admin)]\$ '
-    
+
 export OS_PROJECT_NAME=admin
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
@@ -150,11 +150,13 @@ openstack domain list
 openstack domain set --disable domain1
 openstack domain delete domain1
 ```
+
 ### 为域创建用户
 
 ```bash
 openstack user create --email user1@aa.com --password password --domain domain1
 ```
+
 ### 查看指定域的对象
 
 查看用户
@@ -184,4 +186,3 @@ openstack user create --email user1@aa.com --password password --domain domain1
 ```bash
 openstack role add --user 815153ae546c48f4bf525126c5aeb2cd --project 5edb69f4845245dcb7d8be64a10fd7ba admin
 ```
-

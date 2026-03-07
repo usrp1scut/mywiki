@@ -1,8 +1,9 @@
-* [acme.sh](https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E)工具可以自动化申请Let's Encrypt 证书，并可通过api自动化创建dns解析完成验证，acme.sh 目前支持 cloudflare, dnspod, cloudxns, godaddy 以及 ovh 等数十种解析商的自动集成.
+- [acme.sh](https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E)工具可以自动化申请Let's Encrypt 证书，并可通过api自动化创建dns解析完成验证，acme.sh 目前支持 cloudflare, dnspod, cloudxns, godaddy 以及 ovh 等数十种解析商的自动集成.
 
 现在新规则免费证书都只有三个月，很麻烦，提供一种思路以自动更新
 
 ## 自动创建证书
+
 我的静态站点和域名DNS都是阿里云的
 
 配置acme使用阿里云API自动申请证书

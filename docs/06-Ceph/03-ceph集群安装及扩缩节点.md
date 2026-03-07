@@ -1,7 +1,9 @@
 ## 系统环境
 
 ### ceph架构
+
 ![ceph架构图](/img/ceph.drawio.png)
+
 ### 系统配置
 
 3台CentOS 7 server，除系统盘每台额外添加3块硬盘
@@ -9,11 +11,13 @@
 ![vm-demo](/img/ceph-vmdemo.png)
 
 ### 规划
-* vms81 192.168.26.81  同时用作部署节点  
 
-* vms82 192.168.26.82  同时用作删除节点实验
+- vms81 192.168.26.81  同时用作部署节点
 
-* vms83 192.168.26.83  初始部署时不纳入ceph集群，用作扩容实验
+- vms82 192.168.26.82  同时用作删除节点实验
+
+- vms83 192.168.26.83  初始部署时不纳入ceph集群，用作扩容实验
+
 ## 安装部署
 
 ### 所有节点都需要安装的部分
@@ -185,12 +189,12 @@ ID CLASS WEIGHT  TYPE NAME      STATUS REWEIGHT PRI-AFF
  ## 扩容节点
 
  在部署节点vms81上操作
- 
+
 ### 创建 mon
 ```bash
 ceph-deploy mon create vms83
 ```
- 
+
 ### 创建 OSD
 ```bash
 for n in b c d ; do ceph-deploy osd create --data /dev/sd$n vms83;done
@@ -370,19 +374,19 @@ Do you really want to remove active logical volume ceph-58416bbc-9803-4674-aba4-
 
 `nearfull_ratio <= backfillfull_ratio <= full_ratio`
 
-* mon_osd_nearfull_ratio 
+- mon_osd_nearfull_ratio
 
 告警水位，集群中的任一 OSD 空间使用率大于等于此数值时，集群将被标记为 NearFull，此时集群将产生告警，并提示所有已经处于 NearFull 状态的 OSD
 
 默认值：0.85
 
-* mon_osd_backfillfull_ratio OSD 
+- mon_osd_backfillfull_ratio OSD
 
 空间使用率大于等于此数值时，拒绝 PG 通过 Backfill 方式迁出或者继续迁入本 OSD
 
 默认值：0.90
 
-* mon_osd_full_ratio 
+- mon_osd_full_ratio
 
 报停水位，集群任意一个 OSD 使用率大于等于此数值时，集群将被标记为 full，此时集群停止接受客户端的写入请求
 
@@ -409,4 +413,3 @@ osd_pool_default_cache_target_full_ratio = 0.800000
 #修改完后推送到所有节点
 ceph-deploy --overwrite-conf config push vms81 vms83
 ```
-

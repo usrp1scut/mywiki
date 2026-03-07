@@ -4,6 +4,7 @@
 ```bash
 ceph osd pool ls
 ```
+
 ### 创建池
 
 语法
@@ -86,6 +87,7 @@ systemctl restart ceph-mon.target
 [root@vms81 ceph-install]# rados rmpool pool1 pool1 --yes-i-really-really-mean-it
 successfully deleted pool pool1
 ```
+
 ### pg数量计算
 
 每个osd的pg数量控制在50-100为最佳，建议不少于30个
@@ -130,7 +132,6 @@ ceph osd df tree | awk '/osd\./{print $NF":"$(NF-1)}'
 for i in `ceph osd ls`;do echo -n "osd.$i:";ceph pg ls-by-osd $i | grep -v '^pg_stat' | wc -l;done
 ```
 
-
 显示所有 pg 的分配情况，第 17 列显示的是某个 pg 所在的 osd。
 ```bash
 ceph pg dump 
@@ -143,18 +144,18 @@ rados bench 的用法：
 rados bench -p <pool_name> <seconds> <write|seq|rand> -b <block size> -t --no-cleanup
 ```
 
-* `<pool_name>`：池名称
-* `<seconds>`：测试所持续的秒数
-* `<write|seq|rand>`：操作模式，
-  * write：写，
-  * seq：顺序读；
-  * rand：随机读
+- `<pool_name>`：池名称
+- `<seconds>`：测试所持续的秒数
+- `<write|seq|rand>`：操作模式，
+  - write：写，
+  - seq：顺序读；
+  - rand：随机读
 
-* -b：块大小，即一次写入的数据量大小,默认为 4MB
+- -b：块大小，即一次写入的数据量大小,默认为 4MB
 
-* -t：线程数量,默认为 16
+- -t：线程数量,默认为 16
 
-* --no-cleanup 表示测试完成后不删除测试用数据。在做读测试之前，需要使用该参数来运行一遍写测试来产生测试数据，在全部测试结束后可以运行 `rados -p <pool_name> cleanup` 来清理所有测试数据。默认是会被清空
+- --no-cleanup 表示测试完成后不删除测试用数据。在做读测试之前，需要使用该参数来运行一遍写测试来产生测试数据，在全部测试结束后可以运行 `rados -p <pool_name> cleanup` 来清理所有测试数据。默认是会被清空
 
 例子：
 ```
@@ -233,9 +234,9 @@ ceph osd pool application get pool1
 `ceph osd pool application enable 池名 类型`
 
 意思是把这个池的应用类型设置为指定的类型，可选的类型为:
-* rbd
-* cephfs
-* rgw
+- rbd
+- cephfs
+- rgw
 
 ```bash
 #未设置应用类型

@@ -1,5 +1,5 @@
- 
-```nginx 
+
+```nginx
     server {
       listen 80;
       server_name ;
@@ -12,7 +12,7 @@
       #压缩的资源类型
       gzip_types application/atom+xml application/javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon image/jpeg image/jpg image/png text/css text/plain text/x-component;
       location / {
-      
+
       }
     }
 ```

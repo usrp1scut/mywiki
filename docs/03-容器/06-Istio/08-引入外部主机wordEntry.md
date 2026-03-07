@@ -9,6 +9,7 @@ dpkg -i istio-sidecar.deb
 https://storage.googleapis.com/istio-release/releases/1.15.0/rpm/istio-sidecar.rpm
 rpm -ivh istio-sidecar.deb
 ```
+
 ## 创建workloadGroup
 
 mywg.yaml
@@ -88,4 +89,5 @@ spec:
   selector:
     app: gitlab
 ```
+
 ## 最后可以通过gateway和VS将svc对外发布，详见[VS流量管理](https://xiebo.pro/docs/Istio/VS%E6%B5%81%E9%87%8F%E7%AE%A1%E7%90%86)章节

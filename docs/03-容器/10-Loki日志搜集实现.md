@@ -25,7 +25,7 @@ rpm -ivh loki-2.8.2.x86_64.rpm
 
 配置文件在`/etc/loki/config.yml`，只需要修改监听IP和按需配置存储路径，其余使用默认配置就行
 
-```yml 
+```yml
 auth_enabled: false
 
 server:
@@ -83,6 +83,7 @@ ruler:
 ```bash
 systemctl restart loki
 ```
+
 ### Promtail
 
 安装
@@ -127,11 +128,11 @@ systemctl restart promtail
 ```
 
 :::tip
-* redhat6及之前版本无法将promtail注册到systemd需要使用命令手动启动
+- redhat6及之前版本无法将promtail注册到systemd需要使用命令手动启动
 ```bash
 nohup /usr/bin/promtail -config.file /etc/promtail/config.yml &
 ```
-* windows命令，可使用 NSSM（Non-Sucking Service Manager）工具注册为服务
+- windows命令，可使用 NSSM（Non-Sucking Service Manager）工具注册为服务
 ```bat
 D:\promtail\promtail-windows-amd64.exe --config.file=D:\promtail\config\config.yml
 ```

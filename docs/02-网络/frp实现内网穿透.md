@@ -1,4 +1,5 @@
 ###  需求
+
 公网弹性IP云服务器*1  运行frps
 
 内网服务器*1         运行frpc
@@ -8,8 +9,8 @@
 [github下载frp](https://github.com/fatedier/frp/releases)
 [本站下载frp](https://xiebo.fun/tools/frp_0.43.0_linux_amd64.tar.gz)
 
-
 server与client均包含在内
+
 #### frp下载(服务端与客户端)
 
 1. 下载并解压缩
@@ -40,6 +41,7 @@ server与client均包含在内
 
  log_max_days = 3 
 ```
+
 #### 客户端frpc.ini配置
 ```
  [common] 
@@ -68,9 +70,9 @@ server与client均包含在内
 
 ####   将frp服务加入自启动
 
- `vim /lib/systemd/system/frpc.service`（客户端） 
+ `vim /lib/systemd/system/frpc.service`（客户端）
 
- `vim /lib/systemd/system/frps.service`（服务端） 
+ `vim /lib/systemd/system/frps.service`（服务端）
 ```
  [Unit] 
 

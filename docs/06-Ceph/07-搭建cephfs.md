@@ -79,4 +79,3 @@ systemctl stop ceph-mds.target
 systemctl disable ceph-mds.target
 ceph fs rm cephfs --yes-i-really-mean-it
 ```
-

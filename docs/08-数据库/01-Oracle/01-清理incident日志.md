@@ -35,6 +35,7 @@ show incident
 ```
 purge -age 43200 -type incident
 ```
+
 ## 6.purge其他用法
 ```
 help purge

@@ -1,10 +1,12 @@
 ## 📌 RMAN基本概念
 
 ### 什么是RMAN？
+
 - **Recovery Manager（RMAN）**：Oracle官方的备份恢复工具
 - **特点**：集成在数据库内部，支持块级备份、增量备份、压缩、加密等高级功能
 
 ### RMAN优势
+
 - **块级备份**：只备份已使用的数据块，节省空间
 - **增量备份**：仅备份变化的数据块
 - **自动管理**：自动跟踪备份文件，无需人工记录
@@ -52,6 +54,7 @@ RMAN> CONFIGURE DEVICE TYPE DISK PARALLELISM 3;
 ## 📊 备份类型详解
 
 ### 1. 数据库备份
+
 #### 完整备份
 ```sql
 -- 备份整个数据库（包括数据文件）
@@ -113,6 +116,7 @@ RMAN> CONFIGURE CONTROLFILE AUTOBACKUP ON;
 ```
 
 ### 4. 增量备份
+
 #### 差异增量备份（默认）
 ```sql
 -- Level 0（基础备份，相当于完整备份）
@@ -256,11 +260,11 @@ RUN {
   ALLOCATE CHANNEL ch1 DEVICE TYPE DISK FORMAT '/u01/backup/ch1_%U';
   ALLOCATE CHANNEL ch2 DEVICE TYPE DISK FORMAT '/u01/backup/ch2_%U';
   ALLOCATE CHANNEL ch3 DEVICE TYPE DISK FORMAT '/u01/backup/ch3_%U';
-  
+
   BACKUP DATABASE
     FILESPERSET 10  -- 每个备份集包含的文件数
     PLUS ARCHIVELOG;
-  
+
   RELEASE CHANNEL ch1;
   RELEASE CHANNEL ch2;
   RELEASE CHANNEL ch3;
@@ -268,6 +272,7 @@ RUN {
 ```
 
 ### 2. 备份脚本
+
 #### RMAN命令文件
 ```sql
 -- backup.rman
@@ -320,6 +325,7 @@ df -h /u01/backup
 ```
 
 ### 2. 最佳实践
+
 - **定期验证备份**：每月至少执行一次 `VALIDATE BACKUP`
 - **测试恢复流程**：每季度至少测试一次完整恢复
 - **监控备份日志**：检查备份完成状态和错误信息
@@ -390,6 +396,7 @@ ORDER BY session_key;
 ## 💎 总结要点
 
 ### 关键命令速查
+
 | 操作 | 命令 |
 |------|------|
 | **完整备份** | `BACKUP DATABASE PLUS ARCHIVELOG` |
@@ -402,12 +409,14 @@ ORDER BY session_key;
 | **恢复测试** | `RESTORE DATABASE VALIDATE` |
 
 ### 备份策略选择
+
 - **小型数据库**：每日完整备份 + 归档日志备份
 - **中型数据库**：每周完整备份 + 每日增量备份
 - **大型数据库**：镜像副本 + 增量更新备份策略
 - **关键业务系统**：多重备份（磁盘+磁带+异地）
 
 ### 最重要的原则
+
 1. **备份必须可恢复**：定期验证和测试恢复
 2. **保护备份文件**：加密、访问控制、异地存储
 3. **文档化流程**：备份策略、恢复步骤、联系人

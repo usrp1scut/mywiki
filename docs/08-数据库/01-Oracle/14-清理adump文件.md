@@ -6,13 +6,13 @@
 
 3. 运行以下命令清理ADUMP文件（请将`<days>`替换为你想要保留的天数）：
 
-* 如果您使用Windows系统：
-   
+- 如果您使用Windows系统：
+
 ```bat
 forfiles /p . /s /m *.trc /d -<days> /c "cmd /c del @path"
 ```
 
-* 如果您使用Linux/Unix系统：
+- 如果您使用Linux/Unix系统：
 
 ```bash
 find . -name "*.aud" -mtime +<days> -exec rm {} \;

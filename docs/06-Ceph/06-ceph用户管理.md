@@ -109,4 +109,3 @@ updated caps for client.tom
 [root@vms82 ~]# rbd --user tom -p pool1 ls
 [root@vms82 ~]# 
 ```
-

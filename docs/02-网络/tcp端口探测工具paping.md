@@ -1,4 +1,5 @@
 ### 下载
+
 PaPing 是谷歌开发的一个跨平台的开源工具，可以在 Linux 中发起 TCP 端口连通性和网路时延的测试。
 ```
 #官方获取
@@ -9,6 +10,7 @@ wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google
 #通过本站获取
 wget https://xiebo.fun/tools/paping_1.5.5_x86-64_linux.tar.gz
 ```
+
 ### 参数
 
 ```
@@ -24,6 +26,7 @@ Options:
 ```
 /root/paping -p 80 10.0.0.1 -c 10 -t 2000 --nocolor
 ```
+
 ### 获取最大延时及丢包数脚本
 ```
 RESULT=`/root/paping -p 80 10.31.54.17 -c 10 -t 2000 --nocolor`

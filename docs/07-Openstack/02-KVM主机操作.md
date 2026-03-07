@@ -2,6 +2,7 @@
 ```bash
 virsh list --all
 ```
+
 ## 在线加硬盘
 
 ```bash
@@ -21,6 +22,7 @@ virsh setvcpus vm-name 16
 默认KVM配置未能使用所有CPU指令集，需要修改配置文件
 
 ### 修改KVM CPU MODE配置
+
 先关闭虚拟机
 
 一般配置路径在`/etc/libvirt/qemu/XXX.xml`
@@ -36,7 +38,6 @@ host-passthrough（直接将物理CPU 暴露给虚拟机使用，在虚拟机上
 修改xml中的CPU mode配置
 
 修改为host-model模式，会根据宿主机的CPU使用接近的虚拟机CPU类型，解锁更多宿主机的指令集，如果仍然缺少则选择host-passthrough模式直通宿主机CPU,但影响迁移兼容性
-
 
 ```xml
   <cpu mode='host-model' check='partial'>

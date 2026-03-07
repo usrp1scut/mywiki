@@ -1,6 +1,8 @@
 # PVE 8 安装 ReakTEK RTL8125B 2.5G网卡驱动
+
 ### [原文链接~](https://evine.win/p/pve-install-realtek-8125-driver/)
-*  RealTEK RTL8125 2.5GB 网卡默认加载的驱动是r8169，会出现掉速不稳定情况
+
+- RealTEK RTL8125 2.5GB 网卡默认加载的驱动是r8169，会出现掉速不稳定情况
 ```bash
 ## 看看网卡的pci编号
 lspci | grep RTL8125 

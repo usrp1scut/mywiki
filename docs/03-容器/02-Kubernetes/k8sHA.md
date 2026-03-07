@@ -1,6 +1,6 @@
 # 使用kubeadm部署高可用IPV4/IPV6集群
 
-原文：https://github.com/cby-chen/Kubernetes 
+原文：https://github.com/cby-chen/Kubernetes
 
 ## k8s基础系统环境配置
 
@@ -503,7 +503,6 @@ systemctl restart NetworkManager
 # 通过使用这个参数，可以将特定的接口排除在 NetworkManager 的管理范围之外，以便其他工具或进程可以独立地管理和配置这些接口。
 ```
 
-
 ### 进行时间同步
 
 ```shell
@@ -606,7 +605,6 @@ EOF
 # hard表示硬限制，即系统设置的最大值。memlock表示一个进程可锁定在RAM中的最大内存，默认值为64 KB。这里的硬限制设置为unlimited，即系统设置的最大内存锁定为无限制。
 ```
 
-
 ### 配置免密登录
 
 ```shell
@@ -692,8 +690,6 @@ yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm -y ; s
 # 离线版本 
 yum install -y /root/cby/kernel-lt-*-1.el7.elrepo.x86_64.rpm ; grubby --set-default $(ls /boot/vmlinuz-* | grep elrepo) ; grubby --default-kernel ; reboot 
 ```
-
-
 
 ### 安装ipvsadm
 
@@ -886,7 +882,6 @@ sysctl --system
 #     - 允许IPv6数据包转发。
 ```
 
-
 ### 所有节点配置hosts本地解析
 
 ```shell
@@ -975,7 +970,6 @@ sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 ```
 
 ps: 由于官网未开放同步方式, 可能会有索引gpg检查失败的情况, 这时请用 `yum install -y --nogpgcheck kubelet kubeadm kubectl` 安装
-
 
 # k8s基本组件安装
 
@@ -1205,6 +1199,7 @@ EOF
 # 
 # 总而言之，SystemdCgroup参数的作用是为了确保containerd能够正确地管理容器的资源使用，以实现资源的限制、隔离和公平分配。
 ```
+
 ### 配置runc
 ```shell
 # https://github.com/opencontainers/runc/releases
@@ -1278,7 +1273,7 @@ crictl info
 # 这些参数可以根据需要进行修改，以便与容器运行时进行有效的通信和管理。
 ```
 
-## 高可用keepalived、haproxy 
+## 高可用keepalived、haproxy
 
 ### 安装keepalived和haproxy服务
 
@@ -1865,6 +1860,7 @@ kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
 kubeadm reset --cri-socket unix:///var/run/containerd/containerd.sock
 
 ```
+
 ### 配置kubectl
 ```shell
 # 配置kubectl
@@ -1872,6 +1868,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+
 ### 配置证书
 ```shell
 # 使用脚本将这如果你睡拷贝到其他maser节点
@@ -1902,6 +1899,7 @@ mv /${USER}/etcd-ca.crt /etc/kubernetes/pki/etcd/ca.crt
 # 如果你正使用外部 etcd，忽略下一行
 mv /${USER}/etcd-ca.key /etc/kubernetes/pki/etcd/ca.key
 ```
+
 ### 初始化Master2
 ```shell
 
@@ -1993,6 +1991,7 @@ EOF
 kubeadm join --config=kubeadm-join-master-03.yaml
 
 ```
+
 ### 初始化Node1
 ```shell
 # 在node01上执行操作，将加入工作节点
@@ -2031,6 +2030,7 @@ EOF
 
 kubeadm join --config=kubeadm-join-node-01.yaml
 ```
+
 ### 初始化Node2
 ```shell
 # 在node02上执行操作，将加入工作节点
@@ -2305,7 +2305,6 @@ http://192.168.1.31:32648
 http://192.168.1.31:30495
 http://192.168.1.31:31568
 ```
-
 
 ## 查看集群
 

@@ -41,9 +41,10 @@ address=/k8s-node1/192.168.1.41
 address=/k8s-node2/192.168.1.42
 address=/k8s-node3/192.168.1.43
 ```
+
 ### 4.配置上游DNS解析规则
 
-* [别人整理的规则](https://github.com/felixonmars/dnsmasq-china-list)
+- [别人整理的规则](https://github.com/felixonmars/dnsmasq-china-list)
 
 `vi /etc/dnsmasq.d/server.conf`
 
@@ -60,6 +61,7 @@ server=/tencent.com/119.29.29.29
 server=/tencent-cloud.com/119.29.29.29
 server=/tencentmusic.com/119.29.29.29
 ```
+
 ### 5.启动服务
 
 ```

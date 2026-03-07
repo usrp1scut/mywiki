@@ -3,6 +3,7 @@
 ```sql
 conn / as sysdba 
 ```
+
 ## 创建用户
 ```sql
 create tablespace username    logging   datafile '/data/u02/oradata/username.dbf' size 500m autoextend on next  10m maxsize unlimited;
@@ -23,7 +24,6 @@ grant unlimited tablespace to username;
 ```sql
 ALTER USER username ACCOUNT UNLOCK;
 ```
-
 
 ## 修改字符集
 
@@ -62,7 +62,7 @@ end;
 /
 ```
 
-## 查询用户历史命令 
+## 查询用户历史命令
 
 ```sql
 select 
@@ -75,11 +75,14 @@ from
 ```
 
 ## oracle账号密码过期
+
 oracle账号密码过期处理步骤如下：
+
 ### 1.查看用户的资源计划是哪个
 ```sql
 SELECT username,PROFILE FROM dba_users where username=‘用户名’
 ```
+
 ### 2.查看密码过期时间
 ```sql
 select username,expiry_date,profile from dba_users ;
@@ -88,17 +91,20 @@ select username,expiry_date,profile from dba_users ;
 ```sql
 SELECT * FROM dba_profiles s WHERE s.profile='DEFAULT' AND resource_name='PASSWORD_LIFE_TIME';
 ```
+
 ### 3.设置密码永不过期
 
 由于用户使用的资源计划是default，所以修改default的就行
 ```sql
 alter profile default limit password_life_time unlimited; --永久期限
 ```
+
 ### 4.修改完后解锁用户或者修改密码
 ```sql
 alter user username identified by "password";
 alter user username account unlock;
 ```
+
 ### 修改密码可能报错密码复杂度的问题
 
 同样先查看用户使用的那个资源计划，然后根据资源计划名查询resource_name，密码复杂度的为PASSWORD_VERIFY_FUNCTION

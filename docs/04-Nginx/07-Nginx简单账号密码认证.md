@@ -6,6 +6,7 @@ yum install httpd-tools
 #debian、ubuntu
 sudo apt install apache2-utils
 ```
+
 ### 创建登陆验证文件
 ```bash
 touch /usr/local/nginx/.htpasswd

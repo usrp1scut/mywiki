@@ -9,6 +9,7 @@ ceph osd pool application get pool1
     "rbd": {}
 }
 ```
+
 ### 查看块
 
 ```bash
@@ -29,14 +30,14 @@ rbd image 'block1':
 ```
 
 features 指定的是这个块所具备的功能是什么，这些功能的意思大概如下：
-* layering: 分层支持 cloning。
-* striping: 条带化 v2 用于加强性能，当前只有 librbd 支持。
-* exclusive-lock: 支持独占锁
-* object-map: 支持对象映射（依赖 exclusive-lock）
-* fast-diff: 快速计算差异（依赖 object-map 和 exclusive-lock）
-* deep-flatten: 支持快照扁平化操作
-* journaling: 支持记录 IO 操作（依赖 exclusive-lock）
-* data-pool: EC data pool 支持
+- layering: 分层支持 cloning。
+- striping: 条带化 v2 用于加强性能，当前只有 librbd 支持。
+- exclusive-lock: 支持独占锁
+- object-map: 支持对象映射（依赖 exclusive-lock）
+- fast-diff: 快速计算差异（依赖 object-map 和 exclusive-lock）
+- deep-flatten: 支持快照扁平化操作
+- journaling: 支持记录 IO 操作（依赖 exclusive-lock）
+- data-pool: EC data pool 支持
 
 要在客户端上使用这个块的话，我们需要关闭除了 layering 之外其他的所有的功能，
 
@@ -203,12 +204,14 @@ rbd create pool1/block2 --size 2048
 rbd rename pool1/block2 pool1/blockx
 rbd -p pool1 ls
 ```
+
 ### 复制块
 
 ```bash
 [root@vms81 ~]# rbd cp pool1/block2 pool2/block2
 Image copy: 100% complete...done.
 ```
+
 ### 回收块
 
 避免误删，可以将块先放到回收站
@@ -225,6 +228,7 @@ Image copy: 100% complete...done.
 [root@vms81 ~]# rbd trash -p pool2 rm 85fe6b8b4567
 Removing image: 100% complete...done.
 ```
+
 ### 快照
 
 基本操作

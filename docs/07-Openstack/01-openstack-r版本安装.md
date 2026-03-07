@@ -2,9 +2,9 @@
 
 ## 实验环境
 
-* 控制节点：192.168.26.71 4c8g Centos7 200G硬盘
+- 控制节点：192.168.26.71 4c8g Centos7 200G硬盘
 
-* 计算节点：192.168.26.72 4c8g Centos7 200G硬盘
+- 计算节点：192.168.26.72 4c8g Centos7 200G硬盘
 
 ## 初始化（所有节点）
 
@@ -53,11 +53,13 @@ yum clean all
 ```bash
 yum install * -y
 ```
+
 ### 降低leatherman版本
 ```bash
 yum remove leatherman-1.10.0-1.el7.x86_64
 yum install leatherman-1.3.0-9.el7.x86_64
 ```
+
 ## 安装packstack及openstack(控制节点操作)
 
 ### 安装packstack
@@ -82,6 +84,7 @@ sed -i '/^CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=/cCONFIG_NEUTRON_OVS_BRIDGE_MAPPING
 #管理员密码
 sed -i.bak -r 's/(.+_PW)=[0-9a-z]+/\1=password/g' aa.txt
 ```
+
 ### 安装openstack
 ```bash
 packstack --answer-file=aa.txt
@@ -101,7 +104,7 @@ unset OS_SERVICE_TOKEN
     export OS_REGION_NAME=RegionOne
     export OS_AUTH_URL=http://192.168.26.71:5000/v3
     export PS1='[\u@\h \W(keystone_admin)]\$ '
-    
+
 export OS_PROJECT_NAME=admin
 export OS_USER_DOMAIN_NAME=Default
 export OS_PROJECT_DOMAIN_NAME=Default
