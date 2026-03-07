@@ -253,7 +253,7 @@ function makeMiscIndex(docsDir) {
     lines.push('');
   }
 
-  return {indexPath, content: lines.join('\\n').replace(/\\n+$/g, '\\n')};
+  return {indexPath, content: lines.join('\n').replace(/\n+$/g, '\n')};
 }
 
 const files = walkMarkdown(docsRoot);
