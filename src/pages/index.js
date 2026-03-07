@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -54,9 +54,12 @@ const recentPosts = [
 function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
 
-  const [poetryIndex, setPoetryIndex] = useState(() =>
-    Math.floor(Math.random() * Poetry.length),
-  );
+  const [poetryIndex, setPoetryIndex] = useState(0);
+
+  useEffect(() => {
+    if (Poetry.length === 0) return;
+    setPoetryIndex(Math.floor(Math.random() * Poetry.length));
+  }, []);
 
   const poetry = useMemo(() => Poetry[poetryIndex], [poetryIndex]);
   const [poetryExpanded, setPoetryExpanded] = useState(false);
