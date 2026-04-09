@@ -511,3 +511,29 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
     line-height: 1.82;
   }
 }
+:root {
+  --content-shell-wide-max: 1560px;
+  --content-rail-wide-max: 320px;
+  --docs-prose-wide-max: 1040px;
+}
+
+/* Large-screen content width tuning */
+@media (min-width: 1440px) {
+  html.docs-wrapper.plugin-docs.docs-doc-page [class*='docMainContainer_'] > .container,
+  html.blog-wrapper.blog-post-page .main-wrapper > .container {
+    max-width: min(var(--content-shell-wide-max), calc(100vw - 3rem));
+  }
+
+  html.docs-wrapper.plugin-docs.docs-doc-page [class*='docMainContainer_'] > .container > .row > .col.col--3,
+  html.blog-wrapper.blog-post-page .main-wrapper > .container > .row > aside.col.col--3 {
+    --ifm-col-width: min(22%, var(--content-rail-wide-max));
+  }
+
+  html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown {
+    max-width: min(100%, var(--docs-prose-wide-max));
+  }
+
+  html.blog-wrapper.blog-post-page .main-wrapper > .container > .row > main.col.col--7 {
+    --ifm-col-width: calc(100% - min(22%, var(--content-rail-wide-max)));
+  }
+}
