@@ -96,9 +96,19 @@ module.exports = {
           position: "left",
         },
         {
-          to: "/sbti",
-          label: "SBTI 测试",
+          type: "dropdown",
+          label: "性格测试",
           position: "left",
+          items: [
+            {
+              to: "/sbti",
+              label: "SBTI 测试",
+            },
+            {
+              to: "/mbti",
+              label: "MBTI 测试",
+            },
+          ],
         },
         {
           to: "blog",

@@ -34,12 +34,20 @@ const readingPaths = [
   {label: '效率工具实践', text: '把脚本、自动化和模板逐步固化成自己的工作流。'},
 ];
 
-const toolSpotlight = {
-  title: 'SBTI 测试',
-  description: '把外部趣味人格测试整合进站内，进入后可以直接在 wiki 里答题和查看结果。',
-  to: '/sbti',
-  cta: '打开测试',
-};
+const toolSpotlights = [
+  {
+    title: 'SBTI 测试',
+    description: '把外部趣味人格测试整合进站内，进入后可以直接在 wiki 里答题和查看结果。',
+    to: '/sbti',
+    cta: '打开测试',
+  },
+  {
+    title: 'MBTI 测试',
+    description: '集成 qwegogo/mbti-test，60 道题、多语言、纯前端运行，适合直接在站内完成测试。',
+    to: '/mbti',
+    cta: '打开测试',
+  },
+];
 
 function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
@@ -163,24 +171,6 @@ function Home() {
         </section>
 
         <section className={styles.section}>
-          <div className={styles.sectionTitle}>
-            <h2 className={styles.hanTitle}>站内工具</h2>
-            <Link to={toolSpotlight.to} className={styles.inlineLink}>
-              进入 SBTI 测试 →
-            </Link>
-          </div>
-          <div className={styles.cardGrid}>
-            <article className={styles.card}>
-              <h3>{toolSpotlight.title}</h3>
-              <p>{toolSpotlight.description}</p>
-              <Link className={styles.inlineLink} to={toolSpotlight.to}>
-                {toolSpotlight.cta} →
-              </Link>
-            </article>
-          </div>
-        </section>
-
-        <section className={styles.section}>
           <h2 className={styles.hanTitle}>你可以从这里开始</h2>
           <div className={styles.cardGrid}>
             {featuredSections.map((item) => {
@@ -208,6 +198,26 @@ function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionTitle}>
+            <h2 className={styles.hanTitle}>站内工具</h2>
+            <Link to="/mbti" className={styles.inlineLink}>
+              进入 MBTI 测试 →
+            </Link>
+          </div>
+          <div className={styles.cardGrid}>
+            {toolSpotlights.map((tool) => (
+              <article key={tool.title} className={styles.card}>
+                <h3>{tool.title}</h3>
+                <p>{tool.description}</p>
+                <Link className={styles.inlineLink} to={tool.to}>
+                  {tool.cta} →
+                </Link>
+              </article>
+            ))}
+          </div>
         </section>
       </main>
     </Layout>
