@@ -4,6 +4,8 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useGlobalData from '@docusaurus/useGlobalData';
+import {useColorMode} from '@docusaurus/theme-common';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 import styles from './styles.module.css';
 import {Poetry} from './诗词表';
 
@@ -93,7 +95,16 @@ function Home() {
         <header className={styles.hero}>
           <div className={styles.heroContent}>
             <p className={styles.badge}>运维 · DevOps · 知识沉淀</p>
-            <h1>{siteConfig.title}</h1>
+            <h1>
+              <BrowserOnly fallback={siteConfig.title}>
+                {() => {
+                  const TypeWriter = require('../components/TypeWriter').default;
+                  const {colorMode} = useColorMode();
+                  if (colorMode !== 'dark') return siteConfig.title;
+                  return <TypeWriter text={siteConfig.title} speed={100} />;
+                }}
+              </BrowserOnly>
+            </h1>
             <p className={styles.subtitle}>
               这是一个面向长期积累的技术站点，强调可检索、可复用、可落地，也保留一点好玩的站内工具。
             </p>

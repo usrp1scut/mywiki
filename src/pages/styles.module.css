@@ -1,3 +1,6 @@
+/* ═══════════════════════════════════════════════════════════════
+   首页布局
+   ═══════════════════════════════════════════════════════════════ */
 .page {
   max-width: 1100px;
   margin: 0 auto;
@@ -5,6 +8,7 @@
   position: relative;
 }
 
+/* 亮色水墨晕染 */
 .inkWash {
   position: absolute;
   inset: 0;
@@ -17,6 +21,34 @@
     radial-gradient(circle at 60% 75%, rgba(112, 92, 66, 0.1), transparent 40%);
 }
 
+/* 暗色 — 星云晕染替代水墨 */
+[data-theme='dark'] .inkWash {
+  opacity: 0.35;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(0, 212, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse at 85% 20%, rgba(138, 43, 226, 0.06), transparent 45%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 100, 200, 0.05), transparent 55%);
+  animation: nebulaShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes nebulaShift {
+  0% {
+    background:
+      radial-gradient(ellipse at 15% 25%, rgba(0, 212, 255, 0.08), transparent 50%),
+      radial-gradient(ellipse at 85% 20%, rgba(138, 43, 226, 0.06), transparent 45%),
+      radial-gradient(ellipse at 50% 80%, rgba(0, 100, 200, 0.05), transparent 55%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse at 25% 30%, rgba(0, 212, 255, 0.1), transparent 55%),
+      radial-gradient(ellipse at 75% 15%, rgba(138, 43, 226, 0.08), transparent 50%),
+      radial-gradient(ellipse at 40% 70%, rgba(30, 144, 255, 0.06), transparent 50%);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Hero 区域
+   ═══════════════════════════════════════════════════════════════ */
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -24,6 +56,7 @@
   align-items: stretch;
 }
 
+/* 卡片通用 — 亮色 */
 .heroContent,
 .poetryCard,
 .card,
@@ -35,25 +68,142 @@
   box-shadow: 0 10px 25px rgba(111, 90, 56, 0.11);
 }
 
+/* 卡片通用 — 暗黑太空 */
 [data-theme='dark'] .heroContent,
 [data-theme='dark'] .poetryCard,
 [data-theme='dark'] .card,
 [data-theme='dark'] .pathList li {
-  background: linear-gradient(135deg, rgba(14, 20, 35, 0.82), rgba(8, 14, 28, 0.82));
-  border-color: rgba(89, 132, 170, 0.45);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(180deg, rgba(15, 24, 50, 0.86), rgba(10, 16, 34, 0.84));
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border-color: rgba(0, 212, 255, 0.24);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(0, 212, 255, 0.08),
+    0 0 18px rgba(0, 212, 255, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  animation: homePanelGlow 6s ease-in-out infinite;
+  transition: border-color 0.35s, box-shadow 0.4s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes homePanelGlow {
+  0%, 100% {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(0, 212, 255, 0.07),
+      0 0 16px rgba(0, 212, 255, 0.045),
+      inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(0, 212, 255, 0.11),
+      0 0 22px rgba(0, 212, 255, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+}
+
+@keyframes homePoetryGlow {
+  0%, 100% {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(168, 85, 247, 0.07),
+      0 0 16px rgba(168, 85, 247, 0.045),
+      inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(168, 85, 247, 0.105),
+      0 0 22px rgba(168, 85, 247, 0.065),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* 卡片顶部光带装饰 */
+[data-theme='dark'] .heroContent::before,
+[data-theme='dark'] .card::before,
+[data-theme='dark'] .pathList li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), rgba(138, 43, 226, 0.2), transparent);
+  opacity: 0.7;
+}
+
+/* 卡片悬浮发光 */
+[data-theme='dark'] .heroContent:hover,
+[data-theme='dark'] .card:hover,
+[data-theme='dark'] .pathList li:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  animation: none;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.14),
+    0 0 24px rgba(0, 212, 255, 0.12),
+    inset 0 0 38px rgba(0, 212, 255, 0.025),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+/* 诗词卡特殊处理 — 更柔和的紫色光晕 */
+[data-theme='dark'] .poetryCard {
+  border-color: rgba(168, 85, 247, 0.28);
+  animation: homePoetryGlow 6s ease-in-out infinite;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(168, 85, 247, 0.075),
+    0 0 18px rgba(168, 85, 247, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+[data-theme='dark'] .poetryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.35), rgba(0, 212, 255, 0.25), transparent);
+  opacity: 0.7;
+}
+
+[data-theme='dark'] .poetryCard:hover {
+  border-color: rgba(168, 85, 247, 0.42);
+  animation: none;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(168, 85, 247, 0.14),
+    0 0 24px rgba(168, 85, 247, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .heroContent {
   padding: 2rem;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   文字样式
+   ═══════════════════════════════════════════════════════════════ */
 .badge {
   margin: 0;
   color: #1f6f8d;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+}
+
+[data-theme='dark'] .badge {
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.35);
+  letter-spacing: 0.12em;
 }
 
 .subtitle {
@@ -66,18 +216,37 @@
 [data-theme='dark'] .card p,
 [data-theme='dark'] .pathList span,
 [data-theme='dark'] .author {
-  color: #c9d6ea;
+  color: #a8bdd4;
 }
 
 [data-theme='dark'] .heroActions :global(.button--secondary) {
-  background: rgba(214, 229, 255, 0.12);
-  color: #dbe8ff;
-  border-color: rgba(171, 205, 255, 0.35);
+  background: rgba(0, 212, 255, 0.08);
+  color: #88ddff;
+  border-color: rgba(0, 212, 255, 0.25);
 }
 
 [data-theme='dark'] .heroActions :global(.button--secondary):hover {
-  background: rgba(214, 229, 255, 0.2);
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.12);
 }
+
+/* Hero 标题 — 暗黑渐变发光 */
+[data-theme='dark'] .heroContent h1 {
+  background: linear-gradient(135deg, #00d4ff 0%, #a78bfa 50%, #00d4ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 5s ease infinite;
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.25));
+}
+
+@keyframes titleGlow {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
 
 .heroActions {
   display: flex;
@@ -86,6 +255,9 @@
   margin-top: 1.5rem;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   诗词卡片
+   ═══════════════════════════════════════════════════════════════ */
 .poetryCard {
   padding: 1.5rem;
   position: relative;
@@ -107,7 +279,19 @@
 
 [data-theme='dark'] .hanTitle::before,
 [data-theme='dark'] .hanTitle::after {
-  color: rgba(126, 186, 224, 0.72);
+  color: rgba(0, 212, 255, 0.6);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+  animation: starTwinkle 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.5; text-shadow: 0 0 4px rgba(0, 212, 255, 0.2); }
+  100% { opacity: 1; text-shadow: 0 0 12px rgba(0, 212, 255, 0.6); }
+}
+
+[data-theme='dark'] .hanTitle {
+  color: #e0f0ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
 }
 
 .poetryTitle {
@@ -132,8 +316,9 @@
 }
 
 [data-theme='dark'] .sealMark {
-  border-color: rgba(232, 109, 109, 0.75);
-  color: rgba(232, 109, 109, 0.85);
+  border-color: rgba(0, 212, 255, 0.45);
+  color: rgba(0, 212, 255, 0.7);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
 }
 
 .poetryHeader {
@@ -179,6 +364,9 @@
   margin-top: 0.75rem;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   Section 区块
+   ═══════════════════════════════════════════════════════════════ */
 .section {
   margin-top: 2rem;
 }
@@ -206,12 +394,24 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   卡片
+   ═══════════════════════════════════════════════════════════════ */
 .card {
   padding: 1.25rem;
 }
 
 .card h3 {
   margin-top: 0;
+}
+
+[data-theme='dark'] .card h3 {
+  color: #e0f0ff;
+  transition: text-shadow 0.3s;
+}
+
+[data-theme='dark'] .card:hover h3 {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .card p {
@@ -223,6 +423,19 @@
   font-weight: 600;
 }
 
+[data-theme='dark'] .inlineLink {
+  color: #00d4ff;
+  text-shadow: 0 0 4px rgba(0, 212, 255, 0.2);
+  transition: text-shadow 0.25s;
+}
+
+[data-theme='dark'] .inlineLink:hover {
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   路径列表
+   ═══════════════════════════════════════════════════════════════ */
 .pathList {
   list-style: none;
   margin: 0;
@@ -238,10 +451,17 @@
   gap: 0.3rem;
 }
 
+[data-theme='dark'] .pathList li strong {
+  color: #e0f0ff;
+}
+
 .pathList span {
   color: var(--ifm-font-color-secondary);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   响应式
+   ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 996px) {
   .hero {
     grid-template-columns: 1fr;
