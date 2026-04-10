@@ -26,16 +26,16 @@ const readingPaths = [
 function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
   const globalData = useGlobalData();
-  const blogPluginData = globalData['docusaurus-plugin-content-blog']?.default;
+  const recentBlogData = globalData['recent-blog-posts']?.default;
 
   const recentPosts = useMemo(() => {
-    const posts = blogPluginData?.blogPosts ?? [];
-    return posts.slice(0, 3).map((post) => ({
-      title: post.metadata.title,
-      summary: post.metadata.description || '点击查看完整文章内容。',
-      to: post.metadata.permalink,
+    const posts = recentBlogData?.recentPosts ?? [];
+    return posts.map((post) => ({
+      title: post.title,
+      summary: post.description || '点击查看完整文章内容。',
+      to: post.permalink,
     }));
-  }, [blogPluginData]);
+  }, [recentBlogData]);
 
   const [poetryIndex, setPoetryIndex] = useState(0);
   const [poetryExpanded, setPoetryExpanded] = useState(false);

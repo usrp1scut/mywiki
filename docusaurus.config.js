@@ -130,6 +130,9 @@ module.exports = {
       ],
     },
   }, 
+  plugins: [
+    require.resolve('./plugins/recent-blog-posts'),
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
