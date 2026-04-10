@@ -96,6 +96,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "/news",
+          label: "资讯",
+          position: "left",
+        },
+        {
           type: "dropdown",
           label: "性格测试",
           position: "left",
