@@ -96,6 +96,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "/sbti",
+          label: "SBTI 测试",
+          position: "left",
+        },
+        {
           to: "blog",
           label: "博客",
           position: "right",

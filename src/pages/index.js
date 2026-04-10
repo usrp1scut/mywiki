@@ -10,34 +10,39 @@ import {Poetry} from './诗词表';
 const featuredSections = [
   {
     title: '运维知识库',
-    description: '系统化整理 Linux、网络与故障排查实践，适合快速检索和复盘。',
+    description: '系统整理 Linux、网络、容器与排障经验，适合快速检索和复盘。',
     to: '/docs',
     cta: '进入知识库',
   },
   {
     title: '技术博客',
-    description: '记录真实场景中的解决方案与踩坑经验，关注可落地的方法。',
+    description: '记录真实场景里的踩坑、实践与回顾，偏向能直接落地的方法。',
     to: '/blog',
     cta: '查看博客列表',
   },
   {
-    title: '联系与交流',
-    description: '欢迎交流运维、DevOps 与自动化实践，也可反馈改进建议。',
+    title: '联系交流',
+    description: '欢迎交流运维、DevOps 与自动化实践，也欢迎反馈站点改进建议。',
     href: 'mailto:jacob@xiebo.fun',
     cta: '邮件联系我',
   },
 ];
 
 const readingPaths = [
-  {label: '新手入门路径', text: '从基础命令到排障方法，建立稳定知识框架。'},
-  {label: '线上故障排查', text: '面向线上问题，强调定位思路与应急流程。'},
-  {label: '效率工具实践', text: '使用自动化、脚本与模板提升日常运维效率。'},
+  {label: '新手入门路径', text: '从基础命令到排障思路，先搭好稳定的知识框架。'},
+  {label: '线上故障排查', text: '面向线上问题，关注定位顺序、观察方法与应急流程。'},
+  {label: '效率工具实践', text: '把脚本、自动化和模板逐步固化成自己的工作流。'},
 ];
 
+const toolSpotlight = {
+  title: 'SBTI 测试',
+  description: '把外部趣味人格测试整合进站内，进入后可以直接在 wiki 里答题和查看结果。',
+  to: '/sbti',
+  cta: '打开测试',
+};
+
 function Home() {
-
   const {siteConfig = {}} = useDocusaurusContext();
-
   const globalData = useGlobalData();
   const blogPluginData = globalData['docusaurus-plugin-content-blog']?.default;
 
@@ -51,6 +56,7 @@ function Home() {
   }, [blogPluginData]);
 
   const [poetryIndex, setPoetryIndex] = useState(0);
+  const [poetryExpanded, setPoetryExpanded] = useState(false);
 
   useEffect(() => {
     if (Poetry.length === 0) return;
@@ -58,7 +64,6 @@ function Home() {
   }, []);
 
   const poetry = useMemo(() => Poetry[poetryIndex], [poetryIndex]);
-  const [poetryExpanded, setPoetryExpanded] = useState(false);
   const isLongPoetry = Boolean(poetry?.content && poetry.content.length > 140);
 
   const switchPoetry = () => {
@@ -82,7 +87,7 @@ function Home() {
             <p className={styles.badge}>运维 · DevOps · 知识沉淀</p>
             <h1>{siteConfig.title}</h1>
             <p className={styles.subtitle}>
-              这是一个面向长期积累的技术博客：强调可检索、可复用、可实践。
+              这是一个面向长期积累的技术站点，强调可检索、可复用、可落地，也保留一点好玩的站内工具。
             </p>
             <div className={styles.heroActions}>
               <Link className="button button--primary button--lg" to="/blog">
@@ -154,6 +159,24 @@ function Home() {
                 </Link>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.sectionTitle}>
+            <h2 className={styles.hanTitle}>站内工具</h2>
+            <Link to={toolSpotlight.to} className={styles.inlineLink}>
+              进入 SBTI 测试 →
+            </Link>
+          </div>
+          <div className={styles.cardGrid}>
+            <article className={styles.card}>
+              <h3>{toolSpotlight.title}</h3>
+              <p>{toolSpotlight.description}</p>
+              <Link className={styles.inlineLink} to={toolSpotlight.to}>
+                {toolSpotlight.cta} →
+              </Link>
+            </article>
           </div>
         </section>
 
