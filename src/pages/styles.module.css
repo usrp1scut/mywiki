@@ -318,6 +318,15 @@
   line-height: 1.85;
 }
 
+[data-theme='dark'] .poetryTitle {
+  color: #e0f0ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.16);
+}
+
+[data-theme='dark'] .content {
+  color: #c8d8ea;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.08);
+}
 .contentWrapper {
   position: relative;
   max-height: 13.5rem;

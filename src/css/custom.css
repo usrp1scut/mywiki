@@ -55,6 +55,17 @@
   --space-border-hover: rgba(0, 212, 255, 0.42);
   --space-text: #d5e8f7;
   --space-heading: #f0f8ff;
+  --space-text-muted: #a8bdd4;
+  --space-text-subtle: rgba(168, 189, 212, 0.72);
+  --ifm-font-color-base: var(--space-text);
+  --ifm-font-color-secondary: var(--space-text-muted);
+  --ifm-heading-color: var(--space-heading);
+  --ifm-color-emphasis-700: var(--space-text-muted);
+  --ifm-color-emphasis-600: rgba(168, 189, 212, 0.82);
+  --ifm-color-emphasis-500: var(--space-text-subtle);
+  --ifm-menu-color: var(--space-text-muted);
+  --ifm-toc-link-color: var(--space-text-muted);
+  --ifm-navbar-link-color: var(--space-text);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -356,6 +367,44 @@ html[data-theme='dark'],
   --blog-surface-thumb-bg: rgba(0, 212, 255, 0.14);
 }
 
+html[data-theme='dark'] body,
+html[data-theme='dark'] .main-wrapper {
+  color: var(--space-text);
+}
+
+html[data-theme='dark'].blog-wrapper .main-wrapper aside {
+  color: var(--space-text-muted);
+}
+
+html[data-theme='dark'].blog-wrapper .main-wrapper aside [class*='sidebarItemTitle'],
+html[data-theme='dark'].blog-wrapper .main-wrapper aside [class*='yearGroupHeading'] {
+  color: var(--space-heading);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.12);
+}
+
+html[data-theme='dark'].blog-wrapper .main-wrapper aside a {
+  color: var(--space-text-muted);
+}
+
+html[data-theme='dark'].blog-wrapper .main-wrapper aside a:hover,
+html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] {
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+[data-theme='dark'] .blog-list-page main .blog-list-card time,
+[data-theme='dark'] .blog-list-page main > article.margin-bottom--xl time,
+[data-theme='dark'] .blog-list-page main .blog-list-card small,
+[data-theme='dark'] .blog-list-page main > article.margin-bottom--xl small,
+[data-theme='dark'] .blog-list-page main .blog-list-card footer,
+[data-theme='dark'] .blog-list-page main > article.margin-bottom--xl footer {
+  color: var(--space-text-muted);
+}
+
+[data-theme='dark'] .blog-list-page main .blog-list-card footer b,
+[data-theme='dark'] .blog-list-page main > article.margin-bottom--xl footer b {
+  color: var(--space-text-muted);
+}
 /* ═══════════════════════════════════════════════════════════════
    博客 — 列表卡片
    ═══════════════════════════════════════════════════════════════ */
@@ -718,10 +767,13 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdo
   color: var(--space-text);
 }
 
-html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > :is(h2, h3) {
-  border-bottom-color: rgba(0, 212, 255, 0.18);
+html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown :is(h1, h2, h3, h4, h5, h6) {
   color: var(--space-heading);
   text-shadow: 0 0 16px rgba(0, 212, 255, 0.12);
+}
+
+html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > :is(h2, h3) {
+  border-bottom-color: rgba(0, 212, 255, 0.18);
 }
 
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown blockquote {
