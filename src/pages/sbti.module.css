@@ -15,6 +15,10 @@
   border: 0;
   background: #fff;
 }
+[data-theme='dark'] .page,
+[data-theme='dark'] .frame {
+  background: #0b1322;
+}
 
 .placeholder {
   display: grid;
