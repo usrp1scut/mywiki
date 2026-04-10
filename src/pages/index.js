@@ -9,46 +9,18 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import styles from './styles.module.css';
 import {Poetry} from './诗词表';
 
-const featuredSections = [
-  {
-    title: '运维知识库',
-    description: '系统整理 Linux、网络、容器与排障经验，适合快速检索和复盘。',
-    to: '/docs',
-    cta: '进入知识库',
-  },
-  {
-    title: '技术博客',
-    description: '记录真实场景里的踩坑、实践与回顾，偏向能直接落地的方法。',
-    to: '/blog',
-    cta: '查看博客列表',
-  },
-  {
-    title: '联系交流',
-    description: '欢迎交流运维、DevOps 与自动化实践，也欢迎反馈站点改进建议。',
-    href: 'mailto:jacob@xiebo.fun',
-    cta: '邮件联系我',
-  },
+const quickNav = [
+  {label: '知识库', icon: '📚', to: '/docs', desc: '运维文档与排障经验'},
+  {label: '博客', icon: '✍️', to: '/blog', desc: '技术实践与回顾'},
+  {label: 'SBTI', icon: '🧪', to: '/sbti', desc: '趣味人格测试'},
+  {label: 'MBTI', icon: '🧠', to: '/mbti', desc: '60题性格测试'},
+  {label: '联系', icon: '✉️', href: 'mailto:jacob@xiebo.fun', desc: '交流与反馈'},
 ];
 
 const readingPaths = [
   {label: '新手入门路径', text: '从基础命令到排障思路，先搭好稳定的知识框架。'},
   {label: '线上故障排查', text: '面向线上问题，关注定位顺序、观察方法与应急流程。'},
   {label: '效率工具实践', text: '把脚本、自动化和模板逐步固化成自己的工作流。'},
-];
-
-const toolSpotlights = [
-  {
-    title: 'SBTI 测试',
-    description: '把外部趣味人格测试整合进站内，进入后可以直接在 wiki 里答题和查看结果。',
-    to: '/sbti',
-    cta: '打开测试',
-  },
-  {
-    title: 'MBTI 测试',
-    description: '集成 qwegogo/mbti-test，60 道题、多语言、纯前端运行，适合直接在站内完成测试。',
-    to: '/mbti',
-    cta: '打开测试',
-  },
 ];
 
 function Home() {
@@ -87,6 +59,9 @@ function Home() {
       return next;
     });
   };
+
+  const featured = recentPosts[0];
+  const rest = recentPosts.slice(1);
 
   return (
     <Layout title={siteConfig.title} description="聚焦运维、DevOps 与知识沉淀">
@@ -161,6 +136,7 @@ function Home() {
           </aside>
         </header>
 
+        {/* 最新文章 — 非对称网格 */}
         <section className={styles.section}>
           <div className={styles.sectionTitle}>
             <h2 className={styles.hanTitle}>最新文章</h2>
@@ -169,66 +145,61 @@ function Home() {
             </Link>
           </div>
           <div className={styles.recentGrid}>
-            {recentPosts.map((post) => (
-              <article key={post.title} className={styles.card}>
-                <h3>{post.title}</h3>
-                <p>{post.summary}</p>
-                <Link className={styles.inlineLink} to={post.to}>
-                  去博客查看 →
+            {featured && (
+              <article className={clsx(styles.card, styles.cardFeatured)}>
+                <h3>{featured.title}</h3>
+                <p>{featured.summary}</p>
+                <Link className={styles.inlineLink} to={featured.to}>
+                  阅读全文 →
                 </Link>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.hanTitle}>你可以从这里开始</h2>
-          <div className={styles.cardGrid}>
-            {featuredSections.map((item) => {
-              const linkProps = item.to ? {to: item.to} : {href: item.href};
-              return (
-                <article key={item.title} className={styles.card}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <Link className={styles.inlineLink} {...linkProps}>
-                    {item.cta} →
+            )}
+            <div className={styles.recentSide}>
+              {rest.map((post) => (
+                <article key={post.title} className={styles.card}>
+                  <h3>{post.title}</h3>
+                  <p>{post.summary}</p>
+                  <Link className={styles.inlineLink} to={post.to}>
+                    去博客查看 →
                   </Link>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 快捷导航 — 合并"从这里开始"和"站内工具" */}
+        <section className={styles.section}>
+          <h2 className={styles.hanTitle}>快捷导航</h2>
+          <nav className={styles.quickNav}>
+            {quickNav.map((item) => {
+              const Wrapper = item.to ? Link : 'a';
+              const linkProps = item.to ? {to: item.to} : {href: item.href};
+              return (
+                <Wrapper key={item.label} className={styles.quickNavItem} {...linkProps}>
+                  <span className={styles.quickNavIcon}>{item.icon}</span>
+                  <strong className={styles.quickNavLabel}>{item.label}</strong>
+                  <span className={styles.quickNavDesc}>{item.desc}</span>
+                </Wrapper>
               );
             })}
-          </div>
+          </nav>
         </section>
 
+        {/* 阅读路径 — 时间线 */}
         <section className={styles.section}>
           <h2 className={styles.hanTitle}>建议阅读路径</h2>
-          <ul className={styles.pathList}>
-            {readingPaths.map((path) => (
-              <li key={path.label}>
-                <strong>{path.label}</strong>
-                <span>{path.text}</span>
+          <ol className={styles.timeline}>
+            {readingPaths.map((path, i) => (
+              <li key={path.label} className={styles.timelineItem}>
+                <span className={styles.timelineStep}>{i + 1}</span>
+                <div className={styles.timelineBody}>
+                  <strong>{path.label}</strong>
+                  <span>{path.text}</span>
+                </div>
               </li>
             ))}
-          </ul>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionTitle}>
-            <h2 className={styles.hanTitle}>站内工具</h2>
-            <Link to="/mbti" className={styles.inlineLink}>
-              进入 MBTI 测试 →
-            </Link>
-          </div>
-          <div className={styles.cardGrid}>
-            {toolSpotlights.map((tool) => (
-              <article key={tool.title} className={styles.card}>
-                <h3>{tool.title}</h3>
-                <p>{tool.description}</p>
-                <Link className={styles.inlineLink} to={tool.to}>
-                  {tool.cta} →
-                </Link>
-              </article>
-            ))}
-          </div>
+          </ol>
         </section>
       </main>
     </Layout>

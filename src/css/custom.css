@@ -1,10 +1,35 @@
 /* ═══════════════════════════════════════════════════════════════
    主题色 — 亮色保留原始风格，暗色切换为星际太空配色
    ═══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
-  --ifm-color-primary: #1fa588;
+  --ifm-color-primary: #5a7a6a;
+  --ifm-color-primary-dark: #4e6c5e;
+  --ifm-color-primary-darker: #486458;
+  --ifm-color-primary-darkest: #3a5248;
+  --ifm-color-primary-light: #688a79;
+  --ifm-color-primary-lighter: #769888;
+  --ifm-color-primary-lightest: #8dab9e;
   --ifm-navbar-height: 60px;
   --ifm-footer-height: 80px;
+  --ifm-font-family-base: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.75;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --ifm-heading-font-family: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --ifm-font-color-base: #2a2a28;
+
+  /* 水墨色板 */
+  --ink-deep: #1a1a1a;
+  --ink-medium: #4a4a48;
+  --ink-light: #8a8a85;
+  --ink-wash: rgba(60, 60, 55, 0.06);
+  --paper-warm: #f5f0e8;
+  --paper-light: #faf7f2;
+  --paper-accent: #eee8dc;
+  --bamboo-green: #5a7a6a;
+  --seal-red: #b5453a;
 }
 
 /* ── 太空色板（仅暗黑模式） ─────────────────────────────── */
@@ -43,10 +68,14 @@ a {
   cursor: url('/img/mouse-link.png'), auto;
 }
 
-/* 亮色模式背景 */
+/* 亮色模式背景 — 宣纸底 */
 body::before {
   content: "";
-  background-color: rgb(245,235,215);
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(180, 160, 130, 0.08), transparent 50%),
+    radial-gradient(ellipse at 75% 85%, rgba(100, 120, 100, 0.06), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(160, 145, 120, 0.04), transparent 60%),
+    var(--paper-warm);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -77,77 +106,57 @@ main {
   z-index: 0;
 }
 
+/* 标题使用宋体/衬线体，增强水墨质感 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  color: var(--ink-deep);
+}
+
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
+  font-family: var(--ifm-font-family-base);
+}
+
 /* ═══════════════════════════════════════════════════════════════
-   暗黑模式 — 扫描线 + 脉冲全局动效
+   暗黑模式 — 辅助动效
    ═══════════════════════════════════════════════════════════════ */
 
-/* 水平扫描线 */
-[data-theme='dark'] body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 212, 255, 0) 20%,
-    rgba(0, 212, 255, 0.5) 50%,
-    rgba(0, 212, 255, 0) 80%,
-    transparent 100%
-  );
-  z-index: 9999;
-  pointer-events: none;
-  animation: scanline 6s ease-in-out infinite;
-}
-
-@keyframes scanline {
-  0%, 100% { top: -2px; opacity: 0; }
-  10% { opacity: 0.6; }
-  50% { opacity: 0.4; }
-  90% { opacity: 0.6; }
-  95% { opacity: 0; }
-  96% { top: 100vh; }
-}
-
-/* 呼吸光晕 keyframes */
 @keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-}
-
-@keyframes breatheGlow {
-  0%, 100% {
-    box-shadow:
-      0 14px 34px rgba(0, 0, 0, 0.34),
-      0 0 0 1px rgba(0, 212, 255, 0.07),
-      0 0 16px rgba(0, 212, 255, 0.045),
-      inset 0 1px 0 rgba(255, 255, 255, 0.055);
-  }
-
-  50% {
-    box-shadow:
-      0 14px 34px rgba(0, 0, 0, 0.34),
-      0 0 0 1px rgba(0, 212, 255, 0.11),
-      0 0 22px rgba(0, 212, 255, 0.07),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  }
-}
-
-@keyframes borderGlow {
-  0%, 100% { border-color: rgba(0, 212, 255, 0.2); }
-  50% { border-color: rgba(0, 212, 255, 0.4); }
 }
 
 /* ═══════════════════════════════════════════════════════════════
    导航栏
    ═══════════════════════════════════════════════════════════════ */
 .navbar {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(60, 60, 55, 0.1);
   transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
   z-index: 1000;
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  color: var(--ink-deep);
+  letter-spacing: 0.05em;
+}
+
+.navbar__link {
+  color: var(--ink-medium);
+  transition: color 0.25s;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ink-deep);
 }
 
 [data-theme='dark'] .navbar {
@@ -156,7 +165,6 @@ main {
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
   border-bottom: 1px solid rgba(0, 212, 255, 0.12);
   box-shadow: 0 1px 30px rgba(0, 212, 255, 0.06), inset 0 -1px 0 rgba(0, 212, 255, 0.08);
-  animation: borderGlow 4s ease-in-out infinite;
 }
 
 [data-theme='dark'] .navbar__title {
@@ -165,7 +173,7 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 4s ease infinite;
+  animation: gradientShift 8s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -188,11 +196,21 @@ main {
    页脚
    ═══════════════════════════════════════════════════════════════ */
 .footer {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
   transition: background 0.3s;
   z-index: 1000;
-  border-top: 1px solid rgba(120, 102, 77, 0.16);
+  border-top: 1px solid rgba(60, 60, 55, 0.1);
+}
+
+.footer a {
+  color: var(--bamboo-green);
+  transition: color 0.25s;
+}
+
+.footer a:hover {
+  color: var(--ink-deep);
 }
 
 [data-theme='dark'] .footer {
@@ -233,19 +251,22 @@ main {
 /* ═══════════════════════════════════════════════════════════════
    暗黑模式 — 全局滚动条
    ═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background: var(--paper-accent);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background: rgba(90, 122, 106, 0.3);
 }
 
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(0, 255, 195, 0.4);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 122, 106, 0.5);
 }
 
 [data-theme='dark']::-webkit-scrollbar {
@@ -295,7 +316,8 @@ main {
 
 code {
   color: var(--ifm-color-primary);
-  font-family: 'Noto Sans';
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9em;
 }
 
 [data-theme='dark'] code {
@@ -306,17 +328,17 @@ code {
    博客 — surface tokens
    ═══════════════════════════════════════════════════════════════ */
 :root {
-  --blog-surface-bg: linear-gradient(135deg, rgba(253, 250, 241, 0.9), rgba(245, 238, 221, 0.8));
-  --blog-surface-border: rgba(181, 156, 120, 0.35);
-  --blog-surface-shadow: 0 10px 24px rgba(111, 90, 56, 0.1);
-  --blog-surface-shadow-hover: 0 14px 28px rgba(111, 90, 56, 0.14);
-  --blog-surface-accent: rgba(146, 93, 35, 0.55);
-  --blog-surface-title: #1e2a36;
-  --blog-surface-text: inherit;
-  --blog-surface-tag-border: rgba(31, 165, 136, 0.35);
-  --blog-surface-tag-color: inherit;
-  --blog-surface-tag-hover-bg: rgba(31, 165, 136, 0.1);
-  --blog-surface-thumb-bg: rgba(193, 173, 146, 0.24);
+  --blog-surface-bg: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
+  --blog-surface-border: rgba(60, 60, 55, 0.12);
+  --blog-surface-shadow: 2px 3px 12px rgba(0, 0, 0, 0.06);
+  --blog-surface-shadow-hover: 2px 4px 18px rgba(0, 0, 0, 0.1);
+  --blog-surface-accent: var(--ink-light);
+  --blog-surface-title: var(--ink-deep);
+  --blog-surface-text: var(--ink-medium);
+  --blog-surface-tag-border: rgba(90, 122, 106, 0.3);
+  --blog-surface-tag-color: var(--bamboo-green);
+  --blog-surface-tag-hover-bg: rgba(90, 122, 106, 0.08);
+  --blog-surface-thumb-bg: rgba(60, 60, 55, 0.06);
 }
 
 html[data-theme='dark'],
@@ -355,7 +377,6 @@ html[data-theme='dark'],
 [data-theme='dark'] .blog-list-page main .blog-list-card,
 [data-theme='dark'] .blog-list-page main > article.margin-bottom--xl {
   backdrop-filter: blur(10px);
-  animation: breatheGlow 5s ease-in-out infinite;
 }
 
 .blog-list-page main .blog-list-card:hover,
@@ -686,7 +707,6 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .docItemContainer
   backdrop-filter: blur(12px);
   border-color: var(--space-border);
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(0, 212, 255, 0.08), 0 0 18px rgba(0, 212, 255, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.055);
-  animation: breatheGlow 6s ease-in-out infinite;
   transition: border-color 0.35s, box-shadow 0.35s;
 }
 

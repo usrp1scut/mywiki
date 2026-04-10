@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Starfield from './Starfield';
 import StarCursor from './StarCursor';
-import Aurora from './Aurora';
+
 
 /**
  * Observes the data-theme attribute on <html> and only renders
@@ -28,7 +28,6 @@ export default function StarfieldLoader() {
   return (
     <>
       <Starfield />
-      <Aurora />
       <StarCursor />
     </>
   );
