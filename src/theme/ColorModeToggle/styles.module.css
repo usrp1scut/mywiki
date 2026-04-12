@@ -5,11 +5,7 @@
   padding: 4px;
   color: var(--ink-medium, #4a4a48);
   --taiji-light: var(--paper-light, #faf7f2);
-  transition: color 0.3s, transform 0.4s ease;
-}
-
-.toggle:active {
-  transform: rotate(180deg);
+  transition: color 0.3s;
 }
 
 .icon {
@@ -27,6 +23,3 @@
   filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
-[data-theme='dark'] .toggle:active {
-  transform: rotate(-180deg);
-}

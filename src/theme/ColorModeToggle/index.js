@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import clsx from 'clsx';
 import {useColorMode} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
@@ -34,15 +34,24 @@ function TaijiIcon({className}) {
 export default function ColorModeToggleWrapper({className, ...props}) {
   const {colorMode, setColorMode} = useColorMode();
   const isDarkMode = colorMode === 'dark';
+  const [rotation, setRotation] = useState(0);
+
+  const handleClick = () => {
+    setRotation((prev) => prev + 180);
+    setColorMode(isDarkMode ? 'light' : 'dark');
+  };
 
   return (
     <button
       className={clsx('clean-btn', styles.toggle, className)}
       type="button"
       title={isDarkMode ? '切换到亮色模式' : '切换到暗色模式'}
-      onClick={() => setColorMode(isDarkMode ? 'light' : 'dark')}
+      onClick={handleClick}
       {...props}>
-      <TaijiIcon className={styles.icon} />
+      <TaijiIcon
+        className={styles.icon}
+        style={{transform: `rotate(${rotation}deg)`}}
+      />
     </button>
   );
 }
