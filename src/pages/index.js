@@ -104,21 +104,20 @@ function Home() {
               </button>
             </div>
             {poetry && (
-              <>
+              <div className={styles.poetryBody}>
+                <div className={styles.poetryInkBg} aria-hidden="true" />
                 <h3 className={styles.poetryTitle}>{poetry.title}</h3>
-                <span className={styles.sealMark}>雅</span>
                 <p className={styles.author}>{poetry.author}</p>
                 <div
                   className={clsx(
                     styles.contentWrapper,
                     poetryExpanded && styles.contentExpanded,
                   )}>
-                  <p
-                    className={styles.content}
-                    dangerouslySetInnerHTML={{
-                      __html: poetry.content.replace(/\n/g, '<br />'),
-                    }}
-                  />
+                  <div className={styles.poetryLines}>
+                    {poetry.content.split('\n').map((line, i) => (
+                      <span key={i} className={styles.poetryLine}>{line}</span>
+                    ))}
+                  </div>
                 </div>
                 {isLongPoetry && (
                   <button
@@ -128,10 +127,11 @@ function Home() {
                       styles.expandButton,
                     )}
                     onClick={() => setPoetryExpanded((current) => !current)}>
-                    {poetryExpanded ? '收起长诗词' : '展开完整诗词'}
+                    {poetryExpanded ? '收起' : '展开全文'}
                   </button>
                 )}
-              </>
+                <span className={styles.sealMark}>雅</span>
+              </div>
             )}
           </aside>
         </header>
