@@ -111,7 +111,7 @@ function Home() {
                 <div
                   className={clsx(
                     styles.contentWrapper,
-                    poetryExpanded && styles.contentExpanded,
+                    isLongPoetry && !poetryExpanded && styles.contentCollapsed,
                   )}>
                   <div className={styles.poetryLines}>
                     {poetry.content.split('\n').map((line, i) => (

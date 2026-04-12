@@ -381,14 +381,12 @@
 /* 长诗词折叠 */
 .contentWrapper {
   position: relative;
-  max-height: 14rem;
-  overflow: hidden;
-  mask-image: linear-gradient(180deg, #000 70%, rgba(0, 0, 0, 0.25) 90%, transparent 100%);
 }
 
-.contentExpanded {
-  max-height: none;
-  mask-image: none;
+.contentCollapsed {
+  max-height: 14rem;
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, #000 65%, rgba(0, 0, 0, 0.2) 90%, transparent 100%);
 }
 
 .expandButton {
