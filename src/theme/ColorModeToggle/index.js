@@ -38,7 +38,10 @@ export default function ColorModeToggleWrapper({className, ...props}) {
 
   const handleClick = () => {
     setRotation((prev) => prev + 180);
-    setColorMode(isDarkMode ? 'light' : 'dark');
+    // 延迟切换主题，让旋转动画先播放
+    setTimeout(() => {
+      setColorMode(isDarkMode ? 'light' : 'dark');
+    }, 300);
   };
 
   return (
