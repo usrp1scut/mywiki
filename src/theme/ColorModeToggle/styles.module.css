@@ -1,17 +1,32 @@
-.icon {
-  font-size: 1.2rem;
+.toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  padding: 4px;
+  color: var(--ink-medium, #4a4a48);
+  --taiji-light: var(--paper-light, #faf7f2);
+  transition: color 0.3s, transform 0.4s ease;
+}
+
+.toggle:hover {
+  transform: rotate(45deg);
+}
+
+.icon {
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+/* 暗色模式 — 反转色 + 太空发光 */
+[data-theme='dark'] .toggle {
+  color: #c8ddf0;
+  --taiji-light: rgba(6, 10, 28, 0.9);
 }
 
 [data-theme='dark'] .icon {
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  transform: rotate(360deg);
-  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.6));
+  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+[data-theme='dark'] .toggle:hover {
+  transform: rotate(-45deg);
 }
