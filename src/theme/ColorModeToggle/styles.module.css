@@ -5,16 +5,25 @@
   padding: 4px;
   color: var(--ink-medium, #4a4a48);
   --taiji-light: var(--paper-light, #faf7f2);
-  transition: color 0.3s, transform 0.4s ease;
-}
-
-.toggle:hover {
-  transform: rotate(45deg);
+  transition: color 0.3s;
 }
 
 .icon {
   display: block;
-  transition: transform 0.5s ease, filter 0.4s ease;
+  transition: filter 0.4s ease;
+}
+
+.spin {
+  animation: taijiSpin 0.4s ease-out forwards;
+}
+
+@keyframes taijiSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 /* 暗色模式 — 反转色 + 太空发光 */
@@ -27,6 +36,3 @@
   filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
 }
 
-[data-theme='dark'] .toggle:hover {
-  transform: rotate(-45deg);
-}
