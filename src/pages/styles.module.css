@@ -284,53 +284,49 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 1;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(90, 80, 60, 0.08), transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(60, 80, 70, 0.06), transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(100, 90, 75, 0.04), transparent 60%);
-  animation: inkDrift 12s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 60% at 20% 15%, rgba(60, 55, 45, 0.18), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 75%, rgba(90, 122, 106, 0.14), transparent),
+    radial-gradient(ellipse 80% 40% at 60% 40%, rgba(80, 70, 55, 0.08), transparent);
+  animation: inkDrift 15s ease-in-out infinite alternate;
 }
 
 @keyframes inkDrift {
   0% {
-    opacity: 0.4;
     background:
-      radial-gradient(ellipse at 30% 20%, rgba(90, 80, 60, 0.08), transparent 50%),
-      radial-gradient(ellipse at 70% 70%, rgba(60, 80, 70, 0.06), transparent 45%),
-      radial-gradient(ellipse at 50% 50%, rgba(100, 90, 75, 0.04), transparent 60%);
+      radial-gradient(ellipse 70% 60% at 20% 15%, rgba(60, 55, 45, 0.18), transparent),
+      radial-gradient(ellipse 50% 50% at 80% 75%, rgba(90, 122, 106, 0.14), transparent),
+      radial-gradient(ellipse 80% 40% at 60% 40%, rgba(80, 70, 55, 0.08), transparent);
   }
   100% {
-    opacity: 0.6;
     background:
-      radial-gradient(ellipse at 40% 30%, rgba(80, 70, 55, 0.1), transparent 55%),
-      radial-gradient(ellipse at 60% 60%, rgba(70, 90, 80, 0.07), transparent 50%),
-      radial-gradient(ellipse at 45% 45%, rgba(90, 85, 70, 0.05), transparent 55%);
+      radial-gradient(ellipse 60% 70% at 35% 25%, rgba(70, 60, 50, 0.2), transparent),
+      radial-gradient(ellipse 55% 45% at 70% 65%, rgba(90, 122, 106, 0.16), transparent),
+      radial-gradient(ellipse 75% 50% at 45% 50%, rgba(85, 75, 60, 0.1), transparent);
   }
 }
 
 [data-theme='dark'] .poetryInkBg {
   background:
-    radial-gradient(ellipse at 25% 25%, rgba(0, 212, 255, 0.06), transparent 50%),
-    radial-gradient(ellipse at 75% 65%, rgba(138, 43, 226, 0.05), transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(0, 150, 255, 0.03), transparent 55%);
-  animation: inkDriftDark 12s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 60% at 20% 20%, rgba(0, 212, 255, 0.12), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(138, 43, 226, 0.1), transparent),
+    radial-gradient(ellipse 80% 40% at 50% 45%, rgba(0, 150, 255, 0.06), transparent);
+  animation: inkDriftDark 15s ease-in-out infinite alternate;
 }
 
 @keyframes inkDriftDark {
   0% {
-    opacity: 0.35;
     background:
-      radial-gradient(ellipse at 25% 25%, rgba(0, 212, 255, 0.06), transparent 50%),
-      radial-gradient(ellipse at 75% 65%, rgba(138, 43, 226, 0.05), transparent 45%),
-      radial-gradient(ellipse at 50% 50%, rgba(0, 150, 255, 0.03), transparent 55%);
+      radial-gradient(ellipse 70% 60% at 20% 20%, rgba(0, 212, 255, 0.12), transparent),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(138, 43, 226, 0.1), transparent),
+      radial-gradient(ellipse 80% 40% at 50% 45%, rgba(0, 150, 255, 0.06), transparent);
   }
   100% {
-    opacity: 0.55;
     background:
-      radial-gradient(ellipse at 35% 30%, rgba(0, 212, 255, 0.08), transparent 55%),
-      radial-gradient(ellipse at 65% 55%, rgba(138, 43, 226, 0.06), transparent 50%),
-      radial-gradient(ellipse at 45% 45%, rgba(30, 144, 255, 0.04), transparent 50%);
+      radial-gradient(ellipse 60% 70% at 30% 30%, rgba(0, 212, 255, 0.15), transparent),
+      radial-gradient(ellipse 55% 45% at 70% 60%, rgba(138, 43, 226, 0.12), transparent),
+      radial-gradient(ellipse 70% 50% at 45% 50%, rgba(30, 144, 255, 0.08), transparent);
   }
 }
 
