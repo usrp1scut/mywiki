@@ -30,6 +30,7 @@
   --paper-accent: #eee8dc;
   --bamboo-green: #5a7a6a;
   --seal-red: #b5453a;
+  --ifm-button-border-radius: 4px;
 }
 
 /* ── 太空色板（仅暗黑模式） ─────────────────────────────── */
@@ -71,14 +72,6 @@
 /* ═══════════════════════════════════════════════════════════════
    全局基础
    ═══════════════════════════════════════════════════════════════ */
-body {
-  cursor: url('/img/mouse.png'), auto;
-}
-
-a {
-  cursor: url('/img/mouse-link.png'), auto;
-}
-
 /* 亮色模式背景 — 宣纸底 */
 body::before {
   content: "";
@@ -416,7 +409,7 @@ html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] 
   align-items: stretch;
   background: var(--blog-surface-bg);
   border: 1px solid var(--blog-surface-border);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 1rem;
   box-shadow: var(--blog-surface-shadow);
   overflow: hidden;
@@ -585,7 +578,7 @@ html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] 
 .blog-post-page main article {
   background: var(--blog-surface-bg);
   border: 1px solid var(--blog-surface-border);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 1.4rem 1.5rem;
   box-shadow: var(--blog-surface-shadow);
 }
@@ -687,7 +680,7 @@ html[data-theme='dark'] .blog-post-page main.col.col--7 > article,
 html.docs-wrapper.plugin-docs.docs-doc-page .docItemContainer_Djhp > article {
   background: linear-gradient(145deg, rgba(253, 250, 241, 0.92), rgba(245, 238, 221, 0.82));
   border: 1px solid rgba(181, 156, 120, 0.34);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 1.35rem 1.45rem;
   box-shadow: 0 10px 24px rgba(111, 90, 56, 0.1);
 }
@@ -899,6 +892,42 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
 
 [data-theme='dark'] a:hover {
   text-shadow: 0 0 8px rgba(0, 212, 255, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   亮色模式按钮 — 水墨风
+   ═══════════════════════════════════════════════════════════════ */
+.button--primary {
+  background: var(--bamboo-green);
+  border-color: var(--bamboo-green);
+  color: var(--paper-light);
+  border-radius: 4px;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+
+.button--primary:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: var(--paper-light);
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+html:not([data-theme='dark']) .button--secondary {
+  background: transparent;
+  border: 1px solid rgba(60, 60, 55, 0.25);
+  color: var(--ink-medium);
+  transition: all 0.25s;
+}
+
+html:not([data-theme='dark']) .button--secondary:hover {
+  background: rgba(60, 60, 55, 0.06);
+  border-color: rgba(60, 60, 55, 0.4);
+  color: var(--ink-deep);
+}
+
+.button--outline {
+  border-radius: 4px;
 }
 
 /* ═══════════════════════════════════════════════════════════════
