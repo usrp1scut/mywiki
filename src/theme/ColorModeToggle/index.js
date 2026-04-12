@@ -13,8 +13,8 @@ function TaijiIcon({className}) {
     <svg
       className={className}
       viewBox="0 0 100 100"
-      width="24"
-      height="24"
+      width="28"
+      height="28"
       aria-hidden="true">
       {/* 外圆 */}
       <circle cx="50" cy="50" r="48" fill="currentColor" />
@@ -24,9 +24,9 @@ function TaijiIcon({className}) {
         fill="var(--taiji-light, #fff)"
       />
       {/* 鱼眼：亮半中的暗点 */}
-      <circle cx="50" cy="26" r="10" fill="currentColor" />
+      <circle cx="50" cy="26" r="14" fill="currentColor" />
       {/* 鱼眼：暗半中的亮点 */}
-      <circle cx="50" cy="74" r="10" fill="var(--taiji-light, #fff)" />
+      <circle cx="50" cy="74" r="14" fill="var(--taiji-light, #fff)" />
     </svg>
   );
 }
