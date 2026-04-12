@@ -146,6 +146,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
 }
 
+/* 移动端侧边栏菜单必须在最上层且全屏展开 */
+.navbar-sidebar {
+  z-index: 1001;
+  height: 100vh;
+  background: var(--paper-light);
+}
+
+.navbar-sidebar__backdrop {
+  z-index: 1001;
+  height: 100vh;
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: rgba(6, 10, 28, 0.95);
+}
+
 .navbar__title {
   font-family: var(--ifm-heading-font-family);
   font-weight: 700;
