@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import clsx from 'clsx';
 import {useColorMode} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
@@ -8,10 +8,10 @@ import styles from './styles.module.css';
  * 亮色模式：黑鱼在右（阳中有阴）
  * 暗色模式：反转色 + 发光
  */
-function TaijiIcon({className}) {
+function TaijiIcon({className, spinning}) {
   return (
     <svg
-      className={className}
+      className={clsx(className, spinning && styles.spin)}
       viewBox="0 0 100 100"
       width="24"
       height="24"
@@ -34,15 +34,18 @@ function TaijiIcon({className}) {
 export default function ColorModeToggleWrapper({className, ...props}) {
   const {colorMode, setColorMode} = useColorMode();
   const isDarkMode = colorMode === 'dark';
-  const [rotation, setRotation] = useState(0);
+  const [spinning, setSpinning] = useState(false);
+  const timerRef = useRef(null);
 
-  const handleClick = () => {
-    setRotation((prev) => prev + 180);
-    // 延迟切换主题，让旋转动画先播放
-    setTimeout(() => {
+  const handleClick = useCallback(() => {
+    setSpinning(true);
+    // 清除上次定时器
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
       setColorMode(isDarkMode ? 'light' : 'dark');
-    }, 300);
-  };
+      setSpinning(false);
+    }, 400);
+  }, [isDarkMode, setColorMode]);
 
   return (
     <button
@@ -51,10 +54,7 @@ export default function ColorModeToggleWrapper({className, ...props}) {
       title={isDarkMode ? '切换到亮色模式' : '切换到暗色模式'}
       onClick={handleClick}
       {...props}>
-      <TaijiIcon
-        className={styles.icon}
-        style={{transform: `rotate(${rotation}deg)`}}
-      />
+      <TaijiIcon className={styles.icon} spinning={spinning} />
     </button>
   );
 }
