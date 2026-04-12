@@ -24,9 +24,9 @@ function TaijiIcon({className}) {
         fill="var(--taiji-light, #fff)"
       />
       {/* 鱼眼：亮半中的暗点 */}
-      <circle cx="50" cy="26" r="10" fill="var(--taiji-light, #fff)" />
+      <circle cx="50" cy="26" r="8" fill="var(--taiji-light, #fff)" />
       {/* 鱼眼：暗半中的亮点 */}
-      <circle cx="50" cy="74" r="10" fill="currentColor" />
+      <circle cx="50" cy="74" r="8" fill="currentColor" />
     </svg>
   );
 }
