@@ -923,21 +923,94 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   搜索框 — 暗黑太空
+   搜索框
    ═══════════════════════════════════════════════════════════════ */
+.navbar__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__search-input {
+  min-width: 14rem;
+  padding-left: 2.1rem !important;
+  padding-right: 4.2rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a8a85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.5-3.5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0.6rem center;
+  background-size: 1rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar__search [class*='searchHintContainer'] {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  gap: 0.2rem;
+  pointer-events: none;
+}
+
+.navbar__search kbd[class*='searchHint'] {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.18rem 0.38rem;
+  border-radius: 5px;
+  border: 1px solid rgba(60, 60, 55, 0.22);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--ink-medium);
+  box-shadow: inset 0 -1px 0 rgba(60, 60, 55, 0.12);
+  min-width: auto;
+}
+
 [data-theme='dark'] .navbar__search-input,
 [data-theme='dark'] [class*='searchBar'] input {
-  background: rgba(8, 12, 30, 0.7);
+  background-color: rgba(8, 12, 30, 0.7);
   border: 1px solid rgba(0, 212, 255, 0.2);
   color: var(--space-text);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a8bdd4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.5-3.5'/></svg>");
 }
 
 [data-theme='dark'] .navbar__search-input:focus,
 [data-theme='dark'] [class*='searchBar'] input:focus {
   border-color: rgba(0, 212, 255, 0.5);
   box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
-  outline: none;
+}
+
+[data-theme='dark'] .navbar__search kbd[class*='searchHint'] {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.28);
+  color: var(--space-text);
+  box-shadow: inset 0 -1px 0 rgba(0, 212, 255, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   全局键盘焦点可见性 — 让 Tab 用户能看见自己在哪
+   ═══════════════════════════════════════════════════════════════ */
+:where(a, button, input, select, textarea, summary, [role='button'], [tabindex]):focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+  transition: outline-color 0.15s ease;
+}
+
+/* 卡片级别容器：让整个卡片可聚焦时也有清晰提示 */
+:where(.blog-list-card, .quickNavItem, article.margin-bottom--xl):focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] :where(a, button, input, select, textarea, summary, [role='button'], [tabindex]):focus-visible {
+  outline-color: #66e5ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.18);
+}
+
+/* 输入框仍用原有发光效果，关闭默认 outline 以免叠加 */
+input:focus-visible,
+textarea:focus-visible {
+  outline-offset: 0;
 }
 
 /* ═══════════════════════════════════════════════════════════════
