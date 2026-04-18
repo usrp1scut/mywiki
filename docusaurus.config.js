@@ -132,6 +132,7 @@ module.exports = {
   }, 
   plugins: [
     require.resolve('./plugins/recent-blog-posts'),
+    require.resolve('./plugins/blog-thumbnails'),
   ],
   presets: [
     [

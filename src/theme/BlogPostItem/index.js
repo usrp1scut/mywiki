@@ -1,34 +1,35 @@
-﻿import React, {useEffect, useRef, useState} from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
+import {usePluginData} from '@docusaurus/useGlobalData';
 import BlogPostItemContainer from '@theme/BlogPostItem/Container';
 import BlogPostItemHeader from '@theme/BlogPostItem/Header';
 import BlogPostItemContent from '@theme/BlogPostItem/Content';
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer';
 
+const FALLBACK_THUMBNAIL = '/img/sunrise.jpeg';
+
+// metadata.source looks like "@site/blog/2025-8-2.md" — pick the filename.
+function sourceToFilename(source) {
+  if (!source) return null;
+  const parts = source.split(/[\\/]/);
+  return parts[parts.length - 1] || null;
+}
+
 export default function BlogPostItem({children, className}) {
   const {isBlogPostPage, assets, frontMatter, metadata} = useBlogPost();
   const containerClassName = !isBlogPostPage ? 'margin-bottom--xl' : undefined;
 
-  const bodyRef = useRef(null);
-  const [detectedThumbnail, setDetectedThumbnail] = useState(undefined);
+  const thumbnailsData = usePluginData('blog-thumbnails') || {};
+  const thumbnailMap = thumbnailsData.thumbnails || {};
 
   const explicitThumbnail = assets?.image || frontMatter?.image;
-  const fallbackThumbnail = '/img/sunrise.jpeg';
+  const filename = sourceToFilename(metadata?.source);
+  const firstImageThumbnail = filename ? thumbnailMap[filename] : undefined;
 
-  useEffect(() => {
-    if (isBlogPostPage || explicitThumbnail) {
-      setDetectedThumbnail(undefined);
-      return;
-    }
-
-    const firstImage = bodyRef.current?.querySelector('.markdown img');
-    const src = firstImage?.getAttribute('src')?.trim();
-    setDetectedThumbnail(src || undefined);
-  }, [isBlogPostPage, explicitThumbnail, metadata?.permalink]);
-
-  const thumbnail = explicitThumbnail || detectedThumbnail || fallbackThumbnail;
+  const thumbnail =
+    explicitThumbnail || firstImageThumbnail || FALLBACK_THUMBNAIL;
   const thumbnailTitle = frontMatter?.title || metadata?.title || 'Blog thumbnail';
 
   if (isBlogPostPage) {
@@ -53,7 +54,7 @@ export default function BlogPostItem({children, className}) {
         </Link>
       )}
 
-      <div ref={bodyRef} className="blog-list-card__body">
+      <div className="blog-list-card__body">
         <BlogPostItemHeader />
         <BlogPostItemContent>{children}</BlogPostItemContent>
         <BlogPostItemFooter />
