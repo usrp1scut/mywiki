@@ -628,6 +628,7 @@ details.alert:hover {
 }
 
 details.alert > summary {
+  display: block; /* 覆盖浏览器默认的 list-item，彻底屏蔽原生 disclosure 三角 */
   list-style: none;
   cursor: pointer;
   padding: 0.6rem 0.85rem 0.6rem 2.1rem;
@@ -645,27 +646,29 @@ details.alert > summary {
 
 details.alert > summary::-webkit-details-marker,
 details.alert > summary::marker {
-  display: none;
-  content: '';
+  display: none !important;
+  content: '' !important;
 }
 
-/* 自定义 chevron —— 未展开状态 */
+/* 自定义 chevron —— 关闭时指向右，打开后顺时针转 90° 指向下（GitHub / VSCode 约定） */
 details.alert > summary::before {
   content: '';
   position: absolute;
-  left: 0.75rem;
+  left: 0.8rem;
   top: 50%;
-  width: 0.7rem;
-  height: 0.7rem;
-  transform: translateY(-50%) rotate(-90deg);
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: -0.375rem; /* 用负 margin 做竖直居中，避免 transform 和 translateY 叠加冲突 */
+  transform: rotate(0deg);
+  transform-origin: center;
   background-color: var(--details-chevron-color);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9 6l6 6-6 6' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9 6l6 6-6 6' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
   transition: transform 0.22s ease;
 }
 
 details.alert[open] > summary::before {
-  transform: translateY(-50%) rotate(0deg);
+  transform: rotate(90deg);
 }
 
 details.alert > summary:hover {
