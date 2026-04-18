@@ -297,34 +297,37 @@
 }
 
 .poetryInkBg::before {
-  width: 120px;
-  height: 90px;
-  top: -10%;
-  left: -5%;
-  background: rgba(90, 80, 60, 0.2);
+  width: 140px;
+  height: 105px;
+  top: -12%;
+  left: -6%;
+  /* 靛青水墨，与宣纸底形成对比 */
+  background: rgba(36, 58, 96, 0.28);
 }
 
 .poetryInkBg::after {
-  width: 100px;
-  height: 80px;
-  bottom: -5%;
+  width: 115px;
+  height: 92px;
+  bottom: -6%;
   right: -5%;
-  background: rgba(90, 122, 106, 0.18);
+  /* 朱砂印泥，照应封底印章 */
+  background: rgba(181, 69, 58, 0.22);
   animation-delay: -7s;
 }
 
 @keyframes inkFloat {
-  0%   { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50%  { transform: translate(15px, 10px) scale(1.15); opacity: 0.9; }
-  100% { transform: translate(-5px, 5px) scale(1.05); opacity: 0.7; }
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.65; }
+  50%  { transform: translate(16px, 12px) scale(1.18); opacity: 0.95; }
+  100% { transform: translate(-6px, 6px) scale(1.06); opacity: 0.75; }
 }
 
+/* 暗模式：用更饱和的星云色，和太空背景自然融合 */
 [data-theme='dark'] .poetryInkBg::before {
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(0, 212, 255, 0.28);
 }
 
 [data-theme='dark'] .poetryInkBg::after {
-  background: rgba(138, 43, 226, 0.1);
+  background: rgba(168, 85, 247, 0.22);
 }
 
 /* 标题 & 作者 */

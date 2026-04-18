@@ -1,0 +1,126 @@
+/*
+ * Design Tokens —— 所有 CSS 自定义属性的唯一来源
+ *
+ * 组织顺序：
+ *   1. :root     ——  亮色模式 / 基础 token
+ *   2. [dark]    ——  暗色模式覆盖
+ *
+ * 编辑前请先搜索变量名，避免定义重复或冲突。
+ */
+
+:root {
+  /* ── 字体 ──────────────────────────────────────────── */
+  --ifm-font-family-base: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --ifm-heading-font-family: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.75;
+  --ifm-font-color-base: #2a2a28;
+
+  /* ── 主色盘（亮色 / 竹绿 水墨）─────────────────────── */
+  --ifm-color-primary: #5a7a6a;
+  --ifm-color-primary-dark: #4e6c5e;
+  --ifm-color-primary-darker: #486458;
+  --ifm-color-primary-darkest: #3a5248;
+  --ifm-color-primary-light: #688a79;
+  --ifm-color-primary-lighter: #769888;
+  --ifm-color-primary-lightest: #8dab9e;
+
+  /* ── 布局尺寸 ─────────────────────────────────────── */
+  --ifm-navbar-height: 60px;
+  --ifm-footer-height: 80px;
+  --ifm-button-border-radius: 4px;
+
+  /* 宽屏适配 */
+  --content-shell-wide-max: 1560px;
+  --content-rail-wide-max: 320px;
+  --docs-prose-wide-max: 1040px;
+
+  /* ── 水墨色板 ─────────────────────────────────────── */
+  --ink-deep: #1a1a1a;
+  --ink-medium: #4a4a48;
+  --ink-light: #8a8a85;
+  --ink-wash: rgba(60, 60, 55, 0.06);
+  --paper-warm: #f5f0e8;
+  --paper-light: #faf7f2;
+  --paper-accent: #eee8dc;
+  --bamboo-green: #5a7a6a;
+  --seal-red: #b5453a;
+
+  /* ── 博客卡片 surface（亮色）──────────────────────── */
+  --blog-surface-bg: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
+  --blog-surface-border: rgba(60, 60, 55, 0.12);
+  --blog-surface-shadow: 2px 3px 12px rgba(0, 0, 0, 0.06);
+  --blog-surface-shadow-hover: 2px 4px 18px rgba(0, 0, 0, 0.1);
+  --blog-surface-accent: var(--ink-light);
+  --blog-surface-title: var(--ink-deep);
+  --blog-surface-text: var(--ink-medium);
+  --blog-surface-tag-border: rgba(90, 122, 106, 0.3);
+  --blog-surface-tag-color: var(--bamboo-green);
+  --blog-surface-tag-hover-bg: rgba(90, 122, 106, 0.08);
+  --blog-surface-thumb-bg: rgba(60, 60, 55, 0.06);
+}
+
+/* ═════════════════════════════════════════════════════
+   暗色模式 —— 太空主题
+   ═════════════════════════════════════════════════════ */
+[data-theme='dark'] {
+  /* 主色盘覆盖 —— 青色霓虹 */
+  --ifm-color-primary: #00d4ff;
+  --ifm-color-primary-dark: #00b8de;
+  --ifm-color-primary-darker: #00a3c7;
+  --ifm-color-primary-darkest: #0086a3;
+  --ifm-color-primary-light: #33ddff;
+  --ifm-color-primary-lighter: #66e5ff;
+  --ifm-color-primary-lightest: #99eeff;
+
+  /* 去掉默认背景 —— 交给全局动画层绘制 */
+  --ifm-background-color: transparent;
+  --ifm-navbar-background-color: transparent;
+  --ifm-footer-background-color: transparent;
+
+  /* 太空色板 */
+  --space-glow-cyan: rgba(0, 212, 255, 0.5);
+  --space-glow-purple: rgba(138, 43, 226, 0.35);
+  --space-glow-blue: rgba(30, 144, 255, 0.3);
+  --space-surface: linear-gradient(180deg, rgba(15, 24, 50, 0.88), rgba(10, 16, 34, 0.86));
+  --space-surface-hover: linear-gradient(180deg, rgba(18, 30, 62, 0.92), rgba(12, 20, 42, 0.9));
+  --space-border: rgba(0, 212, 255, 0.24);
+  --space-border-hover: rgba(0, 212, 255, 0.42);
+  --space-text: #d5e8f7;
+  --space-heading: #f0f8ff;
+  --space-text-muted: #a8bdd4;
+  --space-text-subtle: rgba(168, 189, 212, 0.72);
+
+  /* IFM 语义色映射到太空色 */
+  --ifm-font-color-base: var(--space-text);
+  --ifm-font-color-secondary: var(--space-text-muted);
+  --ifm-heading-color: var(--space-heading);
+  --ifm-color-emphasis-700: var(--space-text-muted);
+  --ifm-color-emphasis-600: rgba(168, 189, 212, 0.82);
+  --ifm-color-emphasis-500: var(--space-text-subtle);
+  --ifm-menu-color: var(--space-text-muted);
+  --ifm-toc-link-color: var(--space-text-muted);
+  --ifm-navbar-link-color: var(--space-text);
+
+  /* 博客卡片 surface（暗色） */
+  --blog-surface-bg: linear-gradient(180deg, rgba(15, 24, 50, 0.88), rgba(10, 16, 34, 0.86));
+  --blog-surface-border: rgba(0, 212, 255, 0.24);
+  --blog-surface-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(0, 212, 255, 0.08),
+    0 0 18px rgba(0, 212, 255, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  --blog-surface-shadow-hover:
+    0 18px 42px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 212, 255, 0.14),
+    0 0 24px rgba(0, 212, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --blog-surface-accent: rgba(0, 212, 255, 0.6);
+  --blog-surface-title: var(--space-heading);
+  --blog-surface-text: var(--space-text);
+  --blog-surface-tag-border: rgba(0, 212, 255, 0.3);
+  --blog-surface-tag-color: #88ddff;
+  --blog-surface-tag-hover-bg: rgba(0, 212, 255, 0.12);
+  --blog-surface-thumb-bg: rgba(0, 212, 255, 0.14);
+}
