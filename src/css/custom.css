@@ -432,6 +432,21 @@ html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] 
   transition: transform 0.25s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
+/* 卡片正文：纵向布局，让 footer 钉在底部 */
+.blog-list-page main .blog-list-card__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.blog-list-page main .blog-list-card__body > .markdown {
+  flex: 1 0 auto;
+}
+
+.blog-list-page main .blog-list-card__body > footer.row {
+  margin-top: auto;
+}
+
 [data-theme='dark'] .blog-list-page main .blog-list-card,
 [data-theme='dark'] .blog-list-page main > article.margin-bottom--xl {
   backdrop-filter: blur(10px);
@@ -479,15 +494,69 @@ html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] 
   transform: scale(1.03);
 }
 
-.blog-list-page main .blog-list-card__body {
-  min-width: 0;
-}
-
 .blog-list-page main .blog-list-card h2,
 .blog-list-page main .blog-list-card h3,
 .blog-list-page main > article.margin-bottom--xl h2,
 .blog-list-page main > article.margin-bottom--xl h3 {
+  font-size: 1.55rem;
+  line-height: 1.35;
   margin-bottom: 0.35rem;
+}
+
+/* 合并日期 + 作者为一行紧凑 meta */
+.blog-list-page main .blog-list-card header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0.65rem;
+}
+
+.blog-list-page main .blog-list-card header > div[class*='container_'],
+.blog-list-page main .blog-list-card header > .margin-vert--md,
+.blog-list-page main .blog-list-card header > .margin-top--md {
+  margin: 0 !important;
+}
+
+.blog-list-page main .blog-list-card header time {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.82rem;
+}
+
+.blog-list-page main .blog-list-card header .row {
+  margin: 0;
+  align-items: center;
+}
+
+.blog-list-page main .blog-list-card header .row > .col {
+  padding: 0;
+}
+
+.blog-list-page main .blog-list-card header .avatar {
+  margin-bottom: 0 !important;
+  align-items: center;
+  gap: 0.45rem;
+  display: inline-flex;
+}
+
+.blog-list-page main .blog-list-card header .avatar__photo {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.blog-list-page main .blog-list-card header .avatar__intro {
+  margin-left: 0;
+}
+
+.blog-list-page main .blog-list-card header .avatar__name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.blog-list-page main .blog-list-card header .avatar__subtitle,
+.blog-list-page main .blog-list-card header [class*='authorTitle'],
+.blog-list-page main .blog-list-card header [class*='authorSocials'] {
+  display: none;
 }
 
 .blog-list-page main .blog-list-card h2 a,
