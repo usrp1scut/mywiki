@@ -47,6 +47,15 @@
   --bamboo-green: #5a7a6a;
   --seal-red: #b5453a;
 
+  /* ── 折叠块（details）──────────────────────────── */
+  --details-bg: rgba(245, 240, 232, 0.6);
+  --details-border: rgba(60, 60, 55, 0.16);
+  --details-border-hover: rgba(90, 122, 106, 0.5);
+  --details-summary-bg: rgba(250, 247, 242, 0.7);
+  --details-summary-bg-open: rgba(60, 60, 55, 0.05);
+  --details-summary-color: var(--ink-medium);
+  --details-chevron-color: rgba(60, 60, 55, 0.6);
+
   /* ── 博客卡片 surface（亮色）──────────────────────── */
   --blog-surface-bg: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
   --blog-surface-border: rgba(60, 60, 55, 0.12);
@@ -102,6 +111,15 @@
   --ifm-menu-color: var(--space-text-muted);
   --ifm-toc-link-color: var(--space-text-muted);
   --ifm-navbar-link-color: var(--space-text);
+
+  /* 折叠块（暗色） */
+  --details-bg: rgba(10, 18, 42, 0.55);
+  --details-border: rgba(0, 212, 255, 0.22);
+  --details-border-hover: rgba(0, 212, 255, 0.45);
+  --details-summary-bg: rgba(15, 24, 50, 0.7);
+  --details-summary-bg-open: rgba(0, 212, 255, 0.06);
+  --details-summary-color: var(--space-text);
+  --details-chevron-color: rgba(168, 189, 212, 0.75);
 
   /* 博客卡片 surface（暗色） */
   --blog-surface-bg: linear-gradient(180deg, rgba(15, 24, 50, 0.88), rgba(10, 16, 34, 0.86));

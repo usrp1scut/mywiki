@@ -603,6 +603,127 @@ html[data-theme='dark'].blog-wrapper .main-wrapper aside a[aria-current='page'] 
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   <details> 折叠块 —— 中性化去除默认 info-alert 蓝色外观
+   Docusaurus 渲染：<details class="details_XXX alert alert--info">
+   ═══════════════════════════════════════════════════════════════ */
+details.alert {
+  --ifm-alert-background-color: transparent;
+  --ifm-alert-background-color-highlight: transparent;
+  --ifm-alert-foreground-color: inherit;
+  --ifm-alert-border-color: var(--details-border);
+
+  margin: 1.25rem 0;
+  padding: 0;
+  border: 1px solid var(--details-border);
+  border-radius: 6px;
+  background: var(--details-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+details.alert:hover {
+  border-color: var(--details-border-hover);
+}
+
+details.alert > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.6rem 0.85rem 0.6rem 2.1rem;
+  margin: 0;
+  position: relative;
+  background: var(--details-summary-bg);
+  color: var(--details-summary-color);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+details.alert > summary::-webkit-details-marker,
+details.alert > summary::marker {
+  display: none;
+  content: '';
+}
+
+/* 自定义 chevron —— 未展开状态 */
+details.alert > summary::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  transform: translateY(-50%) rotate(-90deg);
+  background-color: var(--details-chevron-color);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
+  transition: transform 0.22s ease;
+}
+
+details.alert[open] > summary::before {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+details.alert > summary:hover {
+  background: var(--details-summary-bg-open);
+  color: var(--ifm-color-primary);
+}
+
+details.alert[open] > summary {
+  background: var(--details-summary-bg-open);
+  border-bottom-color: var(--details-border);
+}
+
+/* 折叠块内部容器 —— 去掉 Docusaurus 注入的分割线和冗余 padding */
+details.alert > div {
+  border-top: none !important;
+  padding: 0.85rem 0.95rem !important;
+  margin: 0 !important;
+}
+
+/* 代码块贴合容器边缘 */
+details.alert > div > pre,
+details.alert > div > .theme-code-block {
+  margin: 0 !important;
+}
+
+details.alert > div > pre {
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+/* 单行内容时给点呼吸感 */
+details.alert > div > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 暗色模式微调 —— 给展开的 summary 加一点霓虹高亮 */
+[data-theme='dark'] details.alert {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 212, 255, 0.04);
+}
+
+[data-theme='dark'] details.alert:hover {
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(0, 212, 255, 0.08),
+    0 0 14px rgba(0, 212, 255, 0.06);
+}
+
+[data-theme='dark'] details.alert > summary:hover {
+  color: var(--ifm-color-primary-light);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+[data-theme='dark'] details.alert[open] > summary {
+  border-bottom-color: rgba(0, 212, 255, 0.18);
+}
+
 .blog-post-page .pagination-nav__link {
   border-radius: 14px;
   border: 1px solid rgba(181, 156, 120, 0.35);
