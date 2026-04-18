@@ -123,6 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme='dark'] h5,
 [data-theme='dark'] h6 {
   font-family: var(--ifm-font-family-base);
+  color: var(--space-heading);
 }
 
 /* ═══════════════════════════════════════════════════════════════
