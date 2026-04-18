@@ -628,16 +628,19 @@ details.alert:hover {
 }
 
 details.alert > summary {
-  display: block; /* 覆盖浏览器默认的 list-item，彻底屏蔽原生 disclosure 三角 */
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   list-style: none;
   cursor: pointer;
-  padding: 0.6rem 0.85rem 0.6rem 2.1rem;
+  padding: 0.6rem 0.9rem;
   margin: 0;
   position: relative;
   background: var(--details-summary-bg);
   color: var(--details-summary-color);
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.88rem;
+  line-height: 1.35;
   letter-spacing: 0.02em;
   font-weight: 500;
   transition: background 0.2s, color 0.2s;
@@ -653,22 +656,24 @@ details.alert > summary::marker {
 /* 自定义 chevron —— 关闭时指向右，打开后顺时针转 90° 指向下（GitHub / VSCode 约定） */
 details.alert > summary::before {
   content: '';
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  width: 0.75rem;
-  height: 0.75rem;
-  margin-top: -0.375rem; /* 用负 margin 做竖直居中，避免 transform 和 translateY 叠加冲突 */
-  transform: rotate(0deg);
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 auto;
+  position: static;
+  margin: 0;
+  width: 0.68em;
+  height: 0.68em;
+  border: 0;
+  border-right: 0.16em solid var(--details-chevron-color);
+  border-bottom: 0.16em solid var(--details-chevron-color);
+  transform: translateY(-0.03em) rotate(-45deg);
   transform-origin: center;
-  background-color: var(--details-chevron-color);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9 6l6 6-6 6' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M9 6l6 6-6 6' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>") center / contain no-repeat;
-  transition: transform 0.22s ease;
+  transition: transform 0.22s ease, border-color 0.2s ease;
 }
 
-details.alert[open] > summary::before {
-  transform: rotate(90deg);
+details.alert[open] > summary::before,
+details.alert.alert[data-collapsed='false'] > summary::before {
+  transform: translateY(-0.08em) rotate(45deg);
 }
 
 details.alert > summary:hover {
@@ -703,7 +708,6 @@ details.alert > div > pre {
 details.alert > div > :last-child {
   margin-bottom: 0 !important;
 }
-
 /* 暗色模式微调 —— 给展开的 summary 加一点霓虹高亮 */
 [data-theme='dark'] details.alert {
   box-shadow:
