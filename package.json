@@ -20,6 +20,7 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@docusaurus/theme-common": "3.9.2",
     "@docusaurus/theme-live-codeblock": "3.9.2",
+    "@docusaurus/theme-mermaid": "^3.9.2",
     "@docusaurus/types": "3.9.2",
     "@easyops-cn/docusaurus-search-local": "0.44.4",
     "@fortawesome/react-fontawesome": "^0.2.0",

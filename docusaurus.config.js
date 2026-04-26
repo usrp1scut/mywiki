@@ -10,6 +10,7 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: "warn",
     },
@@ -22,6 +23,7 @@ module.exports = {
     locales: ["zh-CN"],
   },
   themes: [
+    '@docusaurus/theme-mermaid',
     // ... Your other themes.
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
