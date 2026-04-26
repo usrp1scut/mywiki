@@ -51,6 +51,9 @@
       "last 1 safari version"
     ]
   },
+  "resolutions": {
+    "mermaid": "11.6.0"
+  },
   "description": "notebook",
   "main": "docusaurus.config.js",
   "repository": "https://github.com/usrp1scut/mywiki.git",
