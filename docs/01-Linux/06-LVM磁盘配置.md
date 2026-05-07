@@ -20,18 +20,38 @@ LE(logical extent)：逻辑区域是逻辑卷中可用于分配的最小存储�
 
 添加用于 LVM 的物理存储器。这些通常是标准分区，但也可以是已创建的 Linux Software RAID 卷。利用fdisk命令，将sdb、sdc等磁盘进行分区创建为sdb1、sdc1等， 通过fdisk的t指令指定分区为8e类型(Linux LVM) 。
 
-如无法识别新加硬盘，使用以下命令：
+如无法识别新加硬盘，可以执行下面脚本扫描所有 SCSI Host，并在扫描前后对比块设备信息：
 
 ```bash
-fdisk -l
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "=== 当前磁盘信息：fdisk -l ==="
+sudo fdisk -l || true
+
+echo
+echo "=== 当前块设备：lsblk ==="
 lsblk
+
+echo
+echo "=== 当前 SCSI Host 列表 ==="
 ls /sys/class/scsi_host/
 
-echo "- - -" > /sys/class/scsi_host/host0/scan
-echo "- - -" > /sys/class/scsi_host/host1/scan
-echo "- - -" > /sys/class/scsi_host/host2/scan
-....
-echo "- - -" > /sys/class/scsi_host/host9/scan
+echo
+echo "=== 开始扫描所有 SCSI Host ==="
+
+for scan_file in /sys/class/scsi_host/host*/scan; do
+  if [ -w "$scan_file" ]; then
+    echo "- - -" | sudo tee "$scan_file" >/dev/null
+    echo "已扫描: $scan_file"
+  else
+    echo "跳过，不可写: $scan_file"
+  fi
+done
+
+echo
+echo "=== 扫描完成，重新查看块设备 ==="
+lsblk
 ```
 
 ### 2.2.创建物理卷PV
