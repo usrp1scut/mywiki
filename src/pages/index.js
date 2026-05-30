@@ -7,7 +7,7 @@ import useGlobalData from '@docusaurus/useGlobalData';
 import {useColorMode} from '@docusaurus/theme-common';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import styles from './styles.module.css';
-import {Poetry} from './诗词表';
+import {Quotes} from './语录表';
 
 const quickNav = [
   {label: '知识库', icon: '📚', to: '/docs', desc: '运维文档与排障经验'},
@@ -37,24 +37,24 @@ function Home() {
     }));
   }, [recentBlogData]);
 
-  const [poetryIndex, setPoetryIndex] = useState(0);
-  const [poetryExpanded, setPoetryExpanded] = useState(false);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+  const [quoteExpanded, setQuoteExpanded] = useState(false);
 
   useEffect(() => {
-    if (Poetry.length === 0) return;
-    setPoetryIndex(Math.floor(Math.random() * Poetry.length));
+    if (Quotes.length === 0) return;
+    setQuoteIndex(Math.floor(Math.random() * Quotes.length));
   }, []);
 
-  const poetry = useMemo(() => Poetry[poetryIndex], [poetryIndex]);
-  const isLongPoetry = Boolean(poetry?.content && poetry.content.length > 140);
+  const quote = useMemo(() => Quotes[quoteIndex], [quoteIndex]);
+  const isLongQuote = Boolean(quote?.content && quote.content.length > 140);
 
-  const switchPoetry = () => {
-    setPoetryExpanded(false);
-    setPoetryIndex((current) => {
-      if (Poetry.length <= 1) return current;
+  const switchQuote = () => {
+    setQuoteExpanded(false);
+    setQuoteIndex((current) => {
+      if (Quotes.length <= 1) return current;
       let next = current;
       while (next === current) {
-        next = Math.floor(Math.random() * Poetry.length);
+        next = Math.floor(Math.random() * Quotes.length);
       }
       return next;
     });
@@ -93,41 +93,41 @@ function Home() {
             </div>
           </div>
 
-          <aside className={styles.poetryCard} aria-label="今日诗词卡片">
+          <aside className={styles.poetryCard} aria-label="今日语录卡片">
             <div className={styles.poetryHeader}>
-              <h2 className={styles.hanTitle}>今日诗词</h2>
+              <h2 className={styles.hanTitle}>读毛选不内耗</h2>
               <button
                 type="button"
                 className={clsx('button button--sm button--outline button--primary', styles.switchButton)}
-                onClick={switchPoetry}>
-                换一首
+                onClick={switchQuote}>
+                换一句
               </button>
             </div>
-            {poetry && (
+            {quote && (
               <div className={styles.poetryBody}>
                 <div className={styles.poetryInkBg} aria-hidden="true" />
-                <h3 className={styles.poetryTitle}>{poetry.title}</h3>
-                <p className={styles.author}>{poetry.author}</p>
+                <h3 className={styles.poetryTitle}>{quote.title}</h3>
+                <p className={styles.author}>{quote.author}</p>
                 <div
                   className={clsx(
                     styles.contentWrapper,
-                    isLongPoetry && !poetryExpanded && styles.contentCollapsed,
+                    isLongQuote && !quoteExpanded && styles.contentCollapsed,
                   )}>
                   <div className={styles.poetryLines}>
-                    {poetry.content.split('\n').map((line, i) => (
+                    {quote.content.split('\n').map((line, i) => (
                       <span key={i} className={styles.poetryLine}>{line}</span>
                     ))}
                   </div>
                 </div>
-                {isLongPoetry && (
+                {isLongQuote && (
                   <button
                     type="button"
                     className={clsx(
                       'button button--sm button--outline button--secondary',
                       styles.expandButton,
                     )}
-                    onClick={() => setPoetryExpanded((current) => !current)}>
-                    {poetryExpanded ? '收起' : '展开全文'}
+                    onClick={() => setQuoteExpanded((current) => !current)}>
+                    {quoteExpanded ? '收起' : '展开全文'}
                   </button>
                 )}
                 <span className={styles.sealMark}>雅</span>
