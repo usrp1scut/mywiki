@@ -108,7 +108,7 @@ function Home() {
               <div className={styles.poetryBody}>
                 <div className={styles.poetryInkBg} aria-hidden="true" />
                 <h3 className={styles.poetryTitle}>{poetry.title}</h3>
-                <p className={styles.author}>{poetry.author} · {poetry.theme}</p>
+                <p className={styles.author}>{poetry.author}</p>
                 <div
                   className={clsx(
                     styles.contentWrapper,
