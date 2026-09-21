@@ -235,7 +235,3 @@ MTBF：两次故障间隔多久
 ```
 
 > **SRE 的核心不是单纯追求 100% 稳定，而是用 SLI、SLO 和错误预算量化可靠性，再用 RTO、RPO 和事件指标指导架构与运营决策。**
-
-## 整理来源
-
-- [ChatGPT 分享：科普 SRE 核心指标](https://chatgpt.com/share/6ab0cbce-e2a8-83ec-89c8-bed02db35198)
