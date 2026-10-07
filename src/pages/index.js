@@ -1,31 +1,39 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useGlobalData from '@docusaurus/useGlobalData';
-import {useColorMode} from '@docusaurus/theme-common';
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import {Poetry} from './精选诗词表';
 
 const quickNav = [
-  {label: '知识库', icon: '📚', to: '/docs', desc: '运维文档与排障经验'},
-  {label: '博客', icon: '✍️', to: '/blog', desc: '技术实践与回顾'},
-  {label: 'SBTI', icon: '🧪', to: '/sbti', desc: '趣味人格测试'},
-  {label: 'MBTI', icon: '🧠', to: '/mbti', desc: '60题性格测试'},
-  {label: '联系', icon: '✉️', href: 'mailto:jacob@xiebo.fun', desc: '交流与反馈'},
+  {label: '知识库', to: '/docs', desc: '运维文档与排障经验'},
+  {label: '博客', to: '/blog', desc: '技术实践与回顾'},
+  {label: 'SBTI', to: '/sbti', desc: '趣味人格测试'},
+  {label: 'MBTI', to: '/mbti', desc: '60题性格测试'},
+  {label: '联系', href: 'mailto:jacob@xiebo.fun', desc: '交流与反馈'},
 ];
 
-const readingPaths = [
-  {label: '新手入门路径', text: '从基础命令到排障思路，先搭好稳定的知识框架。'},
-  {label: '线上故障排查', text: '面向线上问题，关注定位顺序、观察方法与应急流程。'},
-  {label: '效率工具实践', text: '把脚本、自动化和模板逐步固化成自己的工作流。'},
+const noteLinks = [
+  {label: 'Linux', anchor: 'linux'},
+  {label: 'Windows', anchor: 'windows'},
+  {label: '网络', anchor: '网络'},
+  {label: 'Kubernetes', anchor: '容器-kubernetes'},
+  {label: 'Nginx', anchor: 'nginx'},
+  {label: 'MySQL', anchor: '数据库-mysql'},
+  {label: 'Oracle', anchor: '数据库-oracle'},
+  {label: 'Ceph', anchor: 'ceph'},
 ];
 
 function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
   const globalData = useGlobalData();
+  const docsUrl = useBaseUrl('/docs/');
+  const markUrl = useBaseUrl('/img/wiki-mark.svg');
+  const darkMarkUrl = useBaseUrl('/img/wiki-mark-dark.svg');
   const recentBlogData = globalData['recent-blog-posts']?.default;
 
   const recentPosts = useMemo(() => {
@@ -46,7 +54,7 @@ function Home() {
   }, []);
 
   const poetry = useMemo(() => Poetry[poetryIndex], [poetryIndex]);
-  const isLongPoetry = Boolean(poetry?.content && poetry.content.length > 140);
+  const isLongPoetry = Boolean(poetry?.content && (poetry.content.length > 110 || poetry.content.split('\n').length > 5));
 
   const switchPoetry = () => {
     setPoetryExpanded(false);
@@ -60,36 +68,31 @@ function Home() {
     });
   };
 
-  const featured = recentPosts[0];
-  const rest = recentPosts.slice(1);
-
   return (
     <Layout title={siteConfig.title} description="聚焦运维、DevOps 与知识沉淀">
       <main className={styles.page}>
-        <div className={styles.inkWash} aria-hidden="true" />
         <header className={styles.hero}>
           <div className={styles.heroContent}>
-            <p className={styles.badge}>运维 · DevOps · 知识沉淀</p>
-            <h1>
-              <BrowserOnly fallback={siteConfig.title}>
-                {() => {
-                  const TypeWriter = require('../components/TypeWriter').default;
-                  const {colorMode} = useColorMode();
-                  if (colorMode !== 'dark') return siteConfig.title;
-                  return <TypeWriter text={siteConfig.title} speed={100} />;
-                }}
-              </BrowserOnly>
-            </h1>
+            <h1>{siteConfig.title}</h1>
             <p className={styles.subtitle}>
-              这是一个面向长期积累的技术站点，强调可检索、可复用、可落地，也保留一点好玩的站内工具。
+              这是我的运维笔记本。为了避免遗忘，便于查阅。
             </p>
+            <form className={styles.noteSearch} action={docsUrl} method="get" role="search" aria-label="按标题查找笔记">
+              <label htmlFor="home-note-query">找一篇笔记</label>
+              <div className={styles.searchField}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+                <input id="home-note-query" name="q" type="search" placeholder="标题或分类，例如 k8s 内存" />
+                <button type="submit">查笔记</button>
+              </div>
+            </form>
+            <nav className={styles.noteLinks} aria-label="笔记直达">
+              {noteLinks.map(({label, anchor}) => (
+                <Link key={anchor} to={`/docs/#notes-${anchor}`}>{label}</Link>
+              ))}
+            </nav>
             <div className={styles.heroActions}>
-              <Link className="button button--primary button--lg" to="/blog">
-                先看最新文章
-              </Link>
-              <Link className="button button--secondary button--lg" to="/docs">
-                浏览知识库
-              </Link>
+              <Link to="/docs">浏览全部笔记 <span aria-hidden="true">→</span></Link>
+              <Link to="/blog">看博客 <span aria-hidden="true">→</span></Link>
             </div>
           </div>
 
@@ -106,12 +109,10 @@ function Home() {
             </div>
             {poetry && (
               <div className={styles.poetryBody}>
-                <div className={styles.poetryInkBg} aria-hidden="true" />
                 <h3 className={styles.poetryTitle}>{poetry.title}</h3>
-                <p className={styles.author}>{poetry.author}</p>
                 <div
+                  id="daily-poetry-content"
                   className={clsx(
-                    styles.contentWrapper,
                     isLongPoetry && !poetryExpanded && styles.contentCollapsed,
                   )}>
                   <div className={styles.poetryLines}>
@@ -127,17 +128,21 @@ function Home() {
                       'button button--sm button--outline button--secondary',
                       styles.expandButton,
                     )}
+                    aria-expanded={poetryExpanded}
+                    aria-controls="daily-poetry-content"
                     onClick={() => setPoetryExpanded((current) => !current)}>
                     {poetryExpanded ? '收起' : '展开全文'}
                   </button>
                 )}
-                <span className={styles.sealMark}>雅</span>
+                <div className={styles.poetryFooter}>
+                  <p className={styles.author}>{poetry.author}</p>
+                  <ThemedImage className={styles.brandMark} sources={{light: markUrl, dark: darkMarkUrl}} width="30" height="30" alt="" />
+                </div>
               </div>
             )}
           </aside>
         </header>
 
-        {/* 最新文章 — 非对称网格 */}
         <section className={styles.section}>
           <div className={styles.sectionTitle}>
             <h2 className={styles.hanTitle}>最新文章</h2>
@@ -145,40 +150,25 @@ function Home() {
               查看全部 →
             </Link>
           </div>
-          <div className={styles.recentGrid}>
-            {featured && (
-              <article className={clsx(styles.card, styles.cardFeatured)}>
-                <h3>{featured.title}</h3>
-                <p>{featured.summary}</p>
-                <Link className={styles.inlineLink} to={featured.to}>
-                  阅读全文 →
-                </Link>
+          <div>
+            {recentPosts.map((post) => (
+              <article key={post.to} className={styles.recentPost}>
+                <h3><Link to={post.to}>{post.title}</Link></h3>
+                <p>{post.summary}</p>
               </article>
-            )}
-            <div className={styles.recentSide}>
-              {rest.map((post) => (
-                <article key={post.title} className={styles.card}>
-                  <h3>{post.title}</h3>
-                  <p>{post.summary}</p>
-                  <Link className={styles.inlineLink} to={post.to}>
-                    去博客查看 →
-                  </Link>
-                </article>
-              ))}
-            </div>
+            ))}
           </div>
         </section>
 
         {/* 快捷导航 — 合并"从这里开始"和"站内工具" */}
         <section className={styles.section}>
           <h2 className={styles.hanTitle}>快捷导航</h2>
-          <nav className={styles.quickNav}>
+          <nav className={styles.quickNav} aria-label="快捷导航">
             {quickNav.map((item) => {
               const Wrapper = item.to ? Link : 'a';
               const linkProps = item.to ? {to: item.to} : {href: item.href};
               return (
                 <Wrapper key={item.label} className={styles.quickNavItem} {...linkProps}>
-                  <span className={styles.quickNavIcon}>{item.icon}</span>
                   <strong className={styles.quickNavLabel}>{item.label}</strong>
                   <span className={styles.quickNavDesc}>{item.desc}</span>
                 </Wrapper>
@@ -187,21 +177,6 @@ function Home() {
           </nav>
         </section>
 
-        {/* 阅读路径 — 时间线 */}
-        <section className={styles.section}>
-          <h2 className={styles.hanTitle}>建议阅读路径</h2>
-          <ol className={styles.timeline}>
-            {readingPaths.map((path, i) => (
-              <li key={path.label} className={styles.timelineItem}>
-                <span className={styles.timelineStep}>{i + 1}</span>
-                <div className={styles.timelineBody}>
-                  <strong>{path.label}</strong>
-                  <span>{path.text}</span>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
       </main>
     </Layout>
   );

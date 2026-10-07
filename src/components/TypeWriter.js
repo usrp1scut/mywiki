@@ -19,6 +19,12 @@ export default function TypeWriter({text, speed = 90, className}) {
     setDisplayed('');
     setDone(false);
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayed(text);
+      setDone(true);
+      return;
+    }
+
     const timer = setInterval(() => {
       idx.current += 1;
       if (idx.current >= text.length) {

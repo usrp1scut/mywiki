@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 /**
  * SVG 太极图标，所有平台显示一致，不依赖系统字体/emoji。
  * 亮色模式：黑鱼在右（阳中有阴）
- * 暗色模式：反转色 + 发光
+ * 暗色模式：反转色
  */
 function TaijiIcon({className, spinning}) {
   return (

@@ -15,7 +15,7 @@ module.exports = {
       onBrokenMarkdownLinks: "warn",
     },
   },
-  favicon: "img/logo.png",
+  favicon: "img/favicon.svg",
   //organizationName: "linyuxuanlin", // Usually your GitHub org/user name.
   //projectName: "Wiki_Docusaurus", // Usually your repo name.
   i18n: {
@@ -51,7 +51,7 @@ module.exports = {
     docs: {
       sidebar: {
         hideable: true,
-        autoCollapseCategories: true,
+        autoCollapseCategories: false,
       },
     },
 
@@ -60,8 +60,28 @@ module.exports = {
     },
     
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: {
+        ...prismThemes.github,
+        plain: {color: '#30433e', backgroundColor: 'var(--surface-code)'},
+        styles: [
+          ...prismThemes.github.styles,
+          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#61786f', fontStyle: 'normal'}},
+          {types: ['string', 'attr-value'], style: {color: '#806247'}},
+          {types: ['number', 'boolean', 'variable', 'constant', 'property', 'symbol', 'regex', 'inserted'], style: {color: '#326c70'}},
+          {types: ['keyword', 'atrule', 'attr-name', 'selector'], style: {color: '#326c70'}},
+        ],
+      },
+      darkTheme: {
+        ...prismThemes.vsDark,
+        plain: {color: '#d0e7e1', backgroundColor: 'var(--surface-code)'},
+        styles: [
+          ...prismThemes.vsDark.styles,
+          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#9ebeb7'}},
+          {types: ['constant', 'string', 'attr-value'], style: {color: '#d8c28c'}},
+          {types: ['variable', 'attr-name'], style: {color: '#b3dfd3'}},
+          {types: ['keyword', 'builtin', 'changed'], style: {color: '#71deb7'}},
+        ],
+      },
       defaultLanguage: "bash",
       additionalLanguages: ['git','nginx','python','sql','yaml','go','powershell','batch','bash'],
     },
@@ -86,9 +106,11 @@ module.exports = {
       //style: 'primary',
 
       logo: {
-        alt: "Jacob",
-        src:
-          "img/logo.png",
+        alt: "Jacob 折页 J",
+        src: "img/wiki-mark.svg",
+        srcDark: "img/wiki-mark-dark.svg",
+        width: 32,
+        height: 32,
       },
 
       items: [

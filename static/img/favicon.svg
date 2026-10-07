@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Jacob's wiki</title>
+  <style>.ink{fill:#326c70}.fold{fill:#7caba5}@media(prefers-color-scheme:dark){.ink{fill:#85cfb6}.fold{fill:#c0e8da}}</style>
+  <path class="ink" d="M9 13L35 8L32 20H48L44 42C42 54 33 61 22 58C12 56 6 48 8 40L19 35C16 43 20 50 27 49C33 48 35 43 36 37L39 25H10Z"/>
+  <path class="fold" d="M40 8L53 17H38Z"/>
+</svg>

@@ -39,7 +39,7 @@ export default function StarCursor() {
           r: Math.random() * 2 + 0.5,
           life: 1,
           decay: 0.015 + Math.random() * 0.02,
-          hue: Math.random() < 0.6 ? 190 + Math.random() * 30 : 270 + Math.random() * 30,
+          hue: 150 + Math.random() * 30,
         });
       }
     };

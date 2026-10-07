@@ -1,799 +1,162 @@
-/* ═══════════════════════════════════════════════════════════════
-   首页布局
-   ═══════════════════════════════════════════════════════════════ */
+/* 首页：笔记入口与诗笺并置，阅读内容使用开放布局。 */
 .page {
-  max-width: 1100px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 2rem 1rem 4rem;
-  position: relative;
+  padding: 3rem 2rem 4rem;
 }
 
-/* 亮色水墨晕染 */
-.inkWash {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.4;
-  background:
-    radial-gradient(ellipse at 10% 15%, rgba(80, 80, 70, 0.07), transparent 40%),
-    radial-gradient(ellipse at 85% 10%, rgba(90, 122, 106, 0.06), transparent 35%),
-    radial-gradient(ellipse at 50% 85%, rgba(60, 60, 55, 0.05), transparent 45%),
-    radial-gradient(ellipse at 70% 50%, rgba(120, 100, 80, 0.03), transparent 50%);
-}
-
-/* 暗色 — 星云晕染替代水墨 */
-[data-theme='dark'] .inkWash {
-  opacity: 0.35;
-  background:
-    radial-gradient(ellipse at 15% 25%, rgba(0, 212, 255, 0.08), transparent 50%),
-    radial-gradient(ellipse at 85% 20%, rgba(138, 43, 226, 0.06), transparent 45%),
-    radial-gradient(ellipse at 50% 80%, rgba(0, 100, 200, 0.05), transparent 55%);
-  animation: nebulaShift 20s ease-in-out infinite alternate;
-}
-
-@keyframes nebulaShift {
-  0% {
-    background:
-      radial-gradient(ellipse at 15% 25%, rgba(0, 212, 255, 0.08), transparent 50%),
-      radial-gradient(ellipse at 85% 20%, rgba(138, 43, 226, 0.06), transparent 45%),
-      radial-gradient(ellipse at 50% 80%, rgba(0, 100, 200, 0.05), transparent 55%);
-  }
-  100% {
-    background:
-      radial-gradient(ellipse at 25% 30%, rgba(0, 212, 255, 0.1), transparent 55%),
-      radial-gradient(ellipse at 75% 15%, rgba(138, 43, 226, 0.08), transparent 50%),
-      radial-gradient(ellipse at 40% 70%, rgba(30, 144, 255, 0.06), transparent 50%);
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Hero 区域
-   ═══════════════════════════════════════════════════════════════ */
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 1.25rem;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
 }
 
-/* 卡片通用 — 亮色水墨宣纸 */
-.heroContent,
-.poetryCard,
-.card {
-  background: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
-  border: 1px solid rgba(60, 60, 55, 0.12);
-  border-radius: 4px;
-  backdrop-filter: blur(6px);
-  box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.heroContent:hover,
-.card:hover {
-  box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-/* 卡片通用 — 暗黑太空 */
-[data-theme='dark'] .heroContent,
-[data-theme='dark'] .poetryCard,
-[data-theme='dark'] .card {
-  background: linear-gradient(180deg, rgba(15, 24, 50, 0.86), rgba(10, 16, 34, 0.84));
-  backdrop-filter: blur(14px) saturate(1.3);
-  -webkit-backdrop-filter: blur(14px) saturate(1.3);
-  border-color: rgba(0, 212, 255, 0.24);
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(0, 212, 255, 0.08),
-    0 0 18px rgba(0, 212, 255, 0.055),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-  transition: border-color 0.35s, box-shadow 0.4s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* 卡片顶部光带装饰 */
-[data-theme='dark'] .heroContent::before,
-[data-theme='dark'] .card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), rgba(138, 43, 226, 0.2), transparent);
-  opacity: 0.7;
-}
-
-/* 卡片悬浮发光 */
-[data-theme='dark'] .heroContent:hover,
-[data-theme='dark'] .card:hover {
-  border-color: rgba(0, 212, 255, 0.35);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 212, 255, 0.14),
-    0 0 24px rgba(0, 212, 255, 0.12),
-    inset 0 0 38px rgba(0, 212, 255, 0.025),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
-  transform: translateY(-2px);
-}
-
-/* 诗词卡特殊处理 — 更柔和的紫色光晕 */
-[data-theme='dark'] .poetryCard {
-  border-color: rgba(168, 85, 247, 0.28);
-  box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(168, 85, 247, 0.075),
-    0 0 18px rgba(168, 85, 247, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-}
-
-[data-theme='dark'] .poetryCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.35), rgba(0, 212, 255, 0.25), transparent);
-  opacity: 0.7;
-}
-
-[data-theme='dark'] .poetryCard:hover {
-  border-color: rgba(168, 85, 247, 0.42);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(168, 85, 247, 0.14),
-    0 0 24px rgba(168, 85, 247, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
-}
-
-.heroContent {
-  padding: 2rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   文字样式
-   ═══════════════════════════════════════════════════════════════ */
-.badge {
+.heroContent { min-width: 0; padding-block: 1rem; }
+.heroContent h1 {
   margin: 0;
-  color: var(--ink-light);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  font-family: var(--ifm-heading-font-family);
-}
-
-[data-theme='dark'] .badge {
-  color: #00d4ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.35);
-  letter-spacing: 0.12em;
+  font-family: var(--font-literary);
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .subtitle {
-  margin: 1rem 0 0;
+  margin: 1.2rem 0 0;
   color: var(--ifm-font-color-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-[data-theme='dark'] .subtitle,
-[data-theme='dark'] .card p,
-[data-theme='dark'] .pathList span,
-[data-theme='dark'] .author {
-  color: #a8bdd4;
+.noteSearch { margin-top: 2rem; }
+.noteSearch label {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
-
-[data-theme='dark'] .heroActions :global(.button--secondary) {
-  background: rgba(0, 212, 255, 0.08);
-  color: #88ddff;
-  border-color: rgba(0, 212, 255, 0.25);
-}
-
-[data-theme='dark'] .heroActions :global(.button--secondary):hover {
-  background: rgba(0, 212, 255, 0.15);
-  border-color: rgba(0, 212, 255, 0.45);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.12);
-}
-
-/* Hero 标题 — 暗黑渐变发光 */
-[data-theme='dark'] .heroContent h1 {
-  background: linear-gradient(135deg, #00d4ff 0%, #a78bfa 50%, #00d4ff 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: titleGlow 10s ease infinite;
-  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.25));
-}
-
-@keyframes titleGlow {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-}
-
-
-.heroActions {
+.searchField {
   display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   诗词卡片
-   ═══════════════════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════════════════════
-   诗词卡片 — 居中排版 + 水墨晕染
-   ═══════════════════════════════════════════════════════════════ */
-.poetryCard {
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.poetryHeader {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  gap: 0.7rem;
+  padding: 5px 5px 5px 0.9rem;
+  background: var(--surface-reading);
+  border: 1px solid var(--control-border);
+  border-radius: 5px;
 }
+.searchField:focus-within { border-color: var(--ifm-color-primary); }
+.searchField svg { flex-shrink: 0; color: var(--ifm-font-color-secondary); }
+.searchField input {
+  min-width: 0;
+  width: 100%;
+  padding: 0.4rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 1rem;
+}
+.searchField input::placeholder { color: var(--ifm-font-color-secondary); opacity: 1; }
+.searchField input:focus-visible { outline: none; box-shadow: none; }
+.searchField:has(input:focus-visible) { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
+.searchField button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 3px;
+  color: var(--on-primary);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+.searchField button:hover { background: var(--ifm-color-primary-dark); }
+.heroActions { display: flex; gap: 1.5rem; margin-top: 1.1rem; font-size: 0.9rem; }
+.heroActions a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 36px; }
+.noteLinks { display: flex; flex-wrap: wrap; gap: 0.1rem 1.1rem; margin-top: 1rem; }
+.noteLinks a { color: var(--ifm-font-color-secondary); padding-block: 0.3rem; font-size: 0.875rem; }
+.noteLinks a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
 
+/* 诗词保留独立纸面；所有文字区域均为清晰的实色。 */
+.poetryCard {
+  min-width: 0;
+  padding: 1.4rem 1.7rem;
+  background: var(--surface-reading);
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+}
+.poetryHeader { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .hanTitle {
   margin: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--ifm-heading-font-family);
-  font-size: 1.1rem;
-}
-
-.hanTitle::before,
-.hanTitle::after {
-  content: '◆';
-  font-size: 0.45rem;
-  color: rgba(90, 122, 106, 0.45);
-}
-
-[data-theme='dark'] .hanTitle {
-  color: #e0f0ff;
-  text-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
-}
-
-[data-theme='dark'] .hanTitle::before,
-[data-theme='dark'] .hanTitle::after {
-  color: rgba(0, 212, 255, 0.5);
-}
-
-.switchButton {
-  white-space: nowrap;
-}
-
-/* 诗词主体 — 居中 + 水墨背景 */
-.poetryBody {
-  position: relative;
-  text-align: center;
-  padding: 1.5rem 1rem 2rem;
-}
-
-/* 水墨晕染背景层 — 用 box-shadow 模拟墨渍 */
-.poetryInkBg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.poetryInkBg::before,
-.poetryInkBg::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(30px);
-  animation: inkFloat 14s ease-in-out infinite alternate;
-}
-
-.poetryInkBg::before {
-  width: 140px;
-  height: 105px;
-  top: -12%;
-  left: -6%;
-  /* 靛青水墨，与宣纸底形成对比 */
-  background: rgba(36, 58, 96, 0.28);
-}
-
-.poetryInkBg::after {
-  width: 115px;
-  height: 92px;
-  bottom: -6%;
-  right: -5%;
-  /* 朱砂印泥，照应封底印章 */
-  background: rgba(181, 69, 58, 0.22);
-  animation-delay: -7s;
-}
-
-@keyframes inkFloat {
-  0%   { transform: translate(0, 0) scale(1); opacity: 0.65; }
-  50%  { transform: translate(16px, 12px) scale(1.18); opacity: 0.95; }
-  100% { transform: translate(-6px, 6px) scale(1.06); opacity: 0.75; }
-}
-
-/* 暗模式：用更饱和的星云色，和太空背景自然融合 */
-[data-theme='dark'] .poetryInkBg::before {
-  background: rgba(0, 212, 255, 0.28);
-}
-
-[data-theme='dark'] .poetryInkBg::after {
-  background: rgba(168, 85, 247, 0.22);
-}
-
-/* 标题 & 作者 */
-.poetryTitle {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 0.25rem;
+  font-family: var(--font-literary);
   font-size: 1.15rem;
-  font-family: var(--ifm-heading-font-family);
-  letter-spacing: 0.08em;
-}
-
-[data-theme='dark'] .poetryTitle {
-  color: #e0f0ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.16);
-}
-
-.author {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 1rem;
-  font-size: 0.85rem;
-  color: var(--ifm-color-emphasis-600);
-  letter-spacing: 0.1em;
-}
-
-[data-theme='dark'] .author {
-  color: rgba(200, 220, 240, 0.65);
-}
-
-/* 诗句居中逐行 */
-.poetryLines {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.poetryLine {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.8;
-  letter-spacing: 0.15em;
-  color: var(--ifm-font-color-base);
-}
-
-[data-theme='dark'] .poetryLine {
-  color: #c8d8ea;
-  text-shadow: 0 0 6px rgba(0, 212, 255, 0.06);
-}
-
-/* 长诗词折叠 */
-.contentWrapper {
-  position: relative;
-}
-
-.contentCollapsed {
-  max-height: 14rem;
-  overflow: hidden;
-  mask-image: linear-gradient(180deg, #000 65%, rgba(0, 0, 0, 0.2) 90%, transparent 100%);
-}
-
-.expandButton {
-  position: relative;
-  z-index: 1;
-  margin-top: 0.75rem;
-}
-
-/* 印章 */
-.sealMark {
-  position: absolute;
-  right: 1.2rem;
-  bottom: 1rem;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid var(--seal-red, #b5453a);
-  color: var(--seal-red, #b5453a);
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: var(--ifm-heading-font-family);
-  opacity: 0.6;
-  z-index: 1;
-}
-
-[data-theme='dark'] .sealMark {
-  border-color: rgba(0, 212, 255, 0.4);
-  color: rgba(0, 212, 255, 0.6);
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.12);
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Section 区块
-   ═══════════════════════════════════════════════════════════════ */
-.section {
-  margin-top: 3rem;
-}
-
-.section + .section {
-  margin-top: 2.5rem;
-}
-
-/* Hero 与内容之间的分隔线 — 水墨横线 */
-.hero + .section {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: none;
-  position: relative;
-}
-
-.hero + .section::before {
-  content: '— ◇ —';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--paper-warm);
-  padding: 0 1.5rem;
-  color: rgba(60, 60, 55, 0.3);
-  font-size: 0.85rem;
-  letter-spacing: 0.5em;
-}
-
-.hero + .section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(60, 60, 55, 0.15) 20%, rgba(60, 60, 55, 0.15) 80%, transparent);
-}
-
-[data-theme='dark'] .hero + .section::before {
-  background: transparent;
-  color: rgba(0, 212, 255, 0.25);
-}
-
-[data-theme='dark'] .hero + .section::after {
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.12) 20%, rgba(0, 212, 255, 0.12) 80%, transparent);
-}
-
-.sectionTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.sectionTitle h2 {
-  margin: 0;
-}
-
-.section h2 {
-  margin-bottom: 1rem;
-}
-
-/* 最新文章 — 非对称网格：左大右小 */
-.recentGrid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1.4fr 1fr;
-  align-items: stretch;
-}
-
-.cardFeatured {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.cardFeatured h3 {
-  font-size: 1.3rem;
-}
-
-.cardFeatured p {
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.recentSide {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.recentSide .card {
-  flex: 1;
-}
-
-.recentSide .card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.35rem;
-}
-
-.recentSide .card p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   快捷导航
-   ═══════════════════════════════════════════════════════════════ */
-.quickNav {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.quickNavItem {
-  flex: 1;
-  min-width: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 1.25rem 0.75rem;
-  background: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
-  border: 1px solid rgba(60, 60, 55, 0.1);
-  border-radius: 4px;
-  text-decoration: none !important;
-  color: inherit;
-  transition: box-shadow 0.3s, transform 0.25s, border-color 0.3s;
-  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.04);
-}
-
-.quickNavItem:hover {
-  transform: translateY(-2px);
-  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.09);
-  border-color: rgba(90, 122, 106, 0.3);
-  color: inherit;
-}
-
-.quickNavIcon {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-.quickNavLabel {
-  font-size: 0.95rem;
-  font-family: var(--ifm-heading-font-family);
-  color: var(--ink-deep, #1a1a1a);
-}
-
-.quickNavDesc {
-  font-size: 0.78rem;
-  color: var(--ink-light, #8a8a85);
-  text-align: center;
-  line-height: 1.4;
-}
-
-/* 快捷导航 — 暗黑模式 */
-[data-theme='dark'] .quickNavItem {
-  background: linear-gradient(180deg, rgba(15, 24, 50, 0.86), rgba(10, 16, 34, 0.84));
-  border-color: rgba(0, 212, 255, 0.18);
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(0, 212, 255, 0.06);
-}
-
-[data-theme='dark'] .quickNavItem:hover {
-  border-color: rgba(0, 212, 255, 0.35);
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 212, 255, 0.12),
-    0 0 16px rgba(0, 212, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-[data-theme='dark'] .quickNavLabel {
-  color: #e0f0ff;
-}
-
-[data-theme='dark'] .quickNavDesc {
-  color: #a8bdd4;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   卡片
-   ═══════════════════════════════════════════════════════════════ */
-.card {
-  padding: 1.25rem;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-[data-theme='dark'] .card h3 {
-  color: #e0f0ff;
-  transition: text-shadow 0.3s;
-}
-
-[data-theme='dark'] .card:hover h3 {
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-}
-
-.card p {
-  color: var(--ifm-font-color-secondary);
-  margin-bottom: 0.75rem;
-}
-
-.inlineLink {
   font-weight: 600;
-  color: var(--bamboo-green);
+  letter-spacing: 0.025em;
 }
-
-.inlineLink:hover {
-  color: var(--ink-deep);
+.switchButton {
+  min-height: 36px;
+  padding: 0.3rem 0.65rem;
+  border-color: transparent !important;
+  white-space: nowrap;
+  font-weight: 400;
 }
-
-[data-theme='dark'] .inlineLink {
-  color: #00d4ff;
-  text-shadow: 0 0 4px rgba(0, 212, 255, 0.2);
-  transition: text-shadow 0.25s;
+.poetryBody { text-align: center; padding-top: 1.7rem; }
+.poetryCard .poetryTitle {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-literary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
 }
+.poetryLines { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; font-family: var(--font-literary); }
+.poetryLine { display: block; color: var(--ifm-font-color-base); font-size: 1.05rem; line-height: 2; letter-spacing: 0.03em; overflow-wrap: anywhere; }
+.contentCollapsed .poetryLines { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.expandButton { margin-top: 0.9rem; min-height: 36px; }
+.poetryFooter { display: flex; align-items: center; justify-content: flex-end; gap: 0.8rem; margin-top: 1.5rem; }
+.author { margin: 0; font-family: var(--font-literary); font-size: 0.85rem; color: var(--ifm-font-color-secondary); }
+.brandMark { display: block; flex-shrink: 0; }
 
-[data-theme='dark'] .inlineLink:hover {
-  text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
-}
+.section { margin-top: 3.5rem; }
+.sectionTitle { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+.inlineLink { display: inline-flex; align-items: center; min-height: 36px; font-size: 0.9rem; }
+.recentPost { padding-block: 1.3rem; border-bottom: 1px solid var(--surface-rule); }
+.recentPost h3 { margin: 0 0 0.65rem; font-family: var(--ifm-font-family-base); font-size: 1.075rem; font-weight: 600; line-height: 1.65; }
+.recentPost h3 a { color: var(--ifm-font-color-base); text-decoration-thickness: 1px; }
+.recentPost h3 a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
+.recentPost p { margin: 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; line-height: 1.8; max-width: 78ch; }
+.quickNav { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 1.3rem; }
+.quickNavItem { flex: 1 1 150px; display: flex; flex-direction: column; gap: 0.25rem; padding-block: 0.25rem; text-decoration: none; }
+.quickNavLabel { color: var(--ifm-font-color-base); font-size: 0.95rem; font-weight: 600; }
+.quickNavDesc { color: var(--ifm-font-color-secondary); font-size: 0.8rem; line-height: 1.5; }
+.quickNavItem:hover .quickNavLabel { color: var(--ifm-color-primary); text-decoration: underline; }
 
-/* ═══════════════════════════════════════════════════════════════
-   阅读路径 — 时间线样式
-   ═══════════════════════════════════════════════════════════════ */
-.timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1.5rem;
-  position: relative;
-}
-
-/* 水平连接线 — 水墨笔触 */
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 22px;
-  left: 22px;
-  right: 22px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(60, 60, 55, 0.2) 15%, rgba(60, 60, 55, 0.15) 85%, transparent);
-  z-index: 0;
-}
-
-[data-theme='dark'] .timeline::before {
-  background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.3), rgba(138, 43, 226, 0.2), rgba(0, 212, 255, 0.1));
-}
-
-.timelineItem {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
-  position: relative;
-  z-index: 1;
-}
-
-.timelineStep {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  font-family: var(--ifm-heading-font-family);
-  background: var(--paper-light);
-  border: 1px solid rgba(60, 60, 55, 0.2);
-  color: var(--ink-medium);
-  flex-shrink: 0;
-}
-
-[data-theme='dark'] .timelineStep {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(138, 43, 226, 0.08));
-  border-color: rgba(0, 212, 255, 0.4);
-  color: #00d4ff;
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
-}
-
-.timelineBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
-  background: rgba(250, 247, 242, 0.6);
-  border: 1px solid rgba(60, 60, 55, 0.1);
-}
-
-[data-theme='dark'] .timelineBody {
-  background: linear-gradient(180deg, rgba(15, 24, 50, 0.6), rgba(10, 16, 34, 0.5));
-  border-color: rgba(0, 212, 255, 0.15);
-}
-
-[data-theme='dark'] .timelineBody strong {
-  color: #e0f0ff;
-}
-
-.timelineBody span {
-  color: var(--ifm-font-color-secondary);
-  font-size: 0.9rem;
-}
-
-[data-theme='dark'] .timelineBody span {
-  color: #a8bdd4;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   响应式
-   ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 996px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .recentGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .heroContent,
-  .poetryCard {
-    padding: 1.25rem;
-  }
-
-  .quickNav {
-    gap: 0.5rem;
-  }
-
-  .quickNavItem {
-    min-width: calc(50% - 0.5rem);
-    flex: 0 0 calc(50% - 0.25rem);
-    padding: 1rem 0.5rem;
-  }
-
-  /* 移动端时间线改为垂直 */
-  .timeline {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .timeline::before {
-    top: 0;
-    bottom: 0;
-    left: 21px;
-    right: auto;
-    width: 2px;
-    height: auto;
-  }
-
-  .timelineItem {
-    flex-direction: row;
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .timelineBody {
-    flex: 1;
-  }
+  .page { padding: 2.5rem 1.5rem 3rem; }
+  .hero { gap: 2rem; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .heroContent h1 { font-size: 2.5rem; }
+  .poetryCard { padding: 1.2rem; }
+  .searchField { gap: 0.5rem; }
+  .searchField svg { display: none; }
+}
+@media (max-width: 700px) {
+  .page { padding: 1.75rem 1.25rem 3rem; }
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .heroContent { padding: 0; }
+  .heroContent h1 { font-size: 2.5rem; }
+  .subtitle { font-size: 0.95rem; margin-top: 0.8rem; }
+  .noteSearch { margin-top: 1.5rem; }
+  .heroActions a, .noteLinks a { min-height: 44px; align-content: center; }
+  .noteLinks { gap: 0 1.15rem; margin-top: 0.6rem; }
+  .heroActions { margin-top: 0.5rem; }
+  .poetryCard { padding: 1rem 1.1rem; }
+  .poetryLine { font-size: 1rem; }
+  .switchButton, .expandButton { min-height: 44px; }
+  .section { margin-top: 2.5rem; }
+  .quickNav { gap: 1rem; }
+  .quickNavItem { flex-basis: calc(50% - 1rem); }
 }

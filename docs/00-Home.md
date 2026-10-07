@@ -1,9 +1,15 @@
 ---
 id: Home
-title: 关于HomeLab
-sidebar_label: Home
+title: 笔记目录
+sidebar_label: 笔记目录
 slug: /
+description: 按原有技术分类查找笔记，也可以输入标题关键词快速定位。
+hide_table_of_contents: true
 ---
+
+import NotebookIndex from '@site/src/components/NotebookIndex';
+
+<NotebookIndex />
 
 ## 实用开源项目
 

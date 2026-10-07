@@ -26,13 +26,8 @@
   }
 }
 
-/* 暗色模式 — 反转色 + 太空发光 */
+/* 暗色模式 — 清晰的反转色 */
 [data-theme='dark'] .toggle {
-  color: #c8ddf0;
-  --taiji-light: rgba(6, 10, 28, 0.9);
+  color: var(--space-text);
+  --taiji-light: var(--surface-nav);
 }
-
-[data-theme='dark'] .icon {
-  filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
-}
-

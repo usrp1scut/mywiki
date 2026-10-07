@@ -1,0 +1,36 @@
+.index { margin-bottom: 3rem; }
+.label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+.searchRow { display: flex; gap: 0.6rem; }
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  background: var(--surface-code);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-size: 1rem;
+}
+.input::placeholder { color: var(--ifm-font-color-secondary); opacity: 1; }
+.clear { flex-shrink: 0; padding: 0.4rem 0.8rem; min-height: 44px; border: 1px solid var(--control-border); border-radius: 4px; color: var(--ifm-font-color-base); background: transparent; font: inherit; cursor: pointer; }
+.clear:hover { background: var(--surface-hover); }
+.index .hint, .index .count { margin: 0.6rem 0 1.25rem; color: var(--ifm-font-color-secondary); font-size: 0.85rem; }
+.jumpLinks { display: flex; flex-wrap: wrap; gap: 0.1rem 1.25rem; padding-block: 0.75rem; border-block: 1px solid var(--surface-rule); }
+.jumpLinks a { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 36px; font-size: 0.9rem; color: var(--ifm-font-color-base); }
+.jumpLinks a:hover { color: var(--ifm-color-primary); }
+.jumpLinks span { color: var(--ifm-font-color-secondary); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.groups { columns: 2 20rem; column-gap: 2.5rem; }
+.group { break-inside: avoid; padding-top: 0.6rem; margin-bottom: 1.8rem; }
+.group h2 { display: flex; align-items: baseline; gap: 0.75rem; margin: 0 0 0.6rem; padding-bottom: 0.55rem; border-bottom: 1px solid var(--surface-rule); font-size: 1.1rem; scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem); }
+.groupCount { margin-left: auto; flex-shrink: 0; color: var(--ifm-font-color-secondary); font-family: var(--ifm-font-family-base); font-size: 0.75rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.group ul { list-style: none; margin: 0; padding: 0; }
+.group li { margin: 0; }
+.group li a { display: block; padding: 0.4rem 0; color: var(--ifm-font-color-base); font-size: 0.95rem; line-height: 1.65; overflow-wrap: anywhere; text-underline-offset: 0.2em; }
+.group li a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
+.empty { padding-block: 1rem 2rem; }
+.empty p { margin-bottom: 0.6rem; }
+@media (max-width: 700px) {
+  .jumpLinks a, .group li a { min-height: 44px; }
+  .groups { columns: 1; }
+}

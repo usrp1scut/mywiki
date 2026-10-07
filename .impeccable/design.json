@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T23:10:57.488398+00:00",
+  "title": "Design System: Jacob's wiki",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "青瓷深青",
+        "tonalRamp": [
+          "#1e4548",
+          "#26565a",
+          "#2b5e61",
+          "#326c70",
+          "#3b7d81",
+          "#428c90",
+          "#53a2a5",
+          "oklch(95% 0.0607 201.41)"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "primary-dark",
+        "tonalRamp": [
+          "#1e4548",
+          "#26565a",
+          "#2b5e61",
+          "#326c70",
+          "#3b7d81",
+          "#428c90",
+          "#53a2a5",
+          "oklch(95% 0.0607 201.41)"
+        ]
+      },
+      "primary-light": {
+        "role": "primary",
+        "displayName": "primary-light",
+        "tonalRamp": [
+          "#1e4548",
+          "#26565a",
+          "#2b5e61",
+          "#326c70",
+          "#3b7d81",
+          "#428c90",
+          "#53a2a5",
+          "oklch(95% 0.0607 201.41)"
+        ]
+      },
+      "ink-deep": {
+        "role": "neutral",
+        "displayName": "深墨",
+        "tonalRamp": [
+          "oklch(15% 0.0341 168.63)",
+          "oklch(26% 0.0341 168.63)",
+          "oklch(38% 0.0341 168.63)",
+          "oklch(49% 0.0341 168.63)",
+          "oklch(61% 0.0341 168.63)",
+          "oklch(72% 0.0341 168.63)",
+          "oklch(84% 0.0341 168.63)",
+          "oklch(95% 0.0341 168.63)"
+        ]
+      },
+      "ink-medium": {
+        "role": "neutral",
+        "displayName": "正文墨绿",
+        "tonalRamp": [
+          "oklch(15% 0.0242 171.25)",
+          "oklch(26% 0.0242 171.25)",
+          "oklch(38% 0.0242 171.25)",
+          "oklch(49% 0.0242 171.25)",
+          "oklch(61% 0.0242 171.25)",
+          "oklch(72% 0.0242 171.25)",
+          "oklch(84% 0.0242 171.25)",
+          "oklch(95% 0.0242 171.25)"
+        ]
+      },
+      "ink-light": {
+        "role": "neutral",
+        "displayName": "次要灰绿",
+        "tonalRamp": [
+          "oklch(15% 0.0305 165.84)",
+          "oklch(26% 0.0305 165.84)",
+          "oklch(38% 0.0305 165.84)",
+          "oklch(49% 0.0305 165.84)",
+          "oklch(61% 0.0305 165.84)",
+          "oklch(72% 0.0305 165.84)",
+          "oklch(84% 0.0305 165.84)",
+          "oklch(95% 0.0305 165.84)"
+        ]
+      },
+      "surface-page": {
+        "role": "neutral",
+        "displayName": "青瓷底纸",
+        "tonalRamp": [
+          "oklch(15% 0.0069 124.45)",
+          "oklch(26% 0.0069 124.45)",
+          "oklch(38% 0.0069 124.45)",
+          "oklch(49% 0.0069 124.45)",
+          "oklch(61% 0.0069 124.45)",
+          "oklch(72% 0.0069 124.45)",
+          "oklch(84% 0.0069 124.45)",
+          "oklch(95% 0.0069 124.45)"
+        ]
+      },
+      "surface-reading": {
+        "role": "neutral",
+        "displayName": "明净纸面",
+        "tonalRamp": [
+          "oklch(15% 0.0054 117.92)",
+          "oklch(26% 0.0054 117.92)",
+          "oklch(38% 0.0054 117.92)",
+          "oklch(49% 0.0054 117.92)",
+          "oklch(61% 0.0054 117.92)",
+          "oklch(72% 0.0054 117.92)",
+          "oklch(84% 0.0054 117.92)",
+          "oklch(95% 0.0054 117.92)"
+        ]
+      },
+      "surface-sidebar": {
+        "role": "neutral",
+        "displayName": "侧栏灰绿",
+        "tonalRamp": [
+          "oklch(15% 0.0107 136.56)",
+          "oklch(26% 0.0107 136.56)",
+          "oklch(38% 0.0107 136.56)",
+          "oklch(49% 0.0107 136.56)",
+          "oklch(61% 0.0107 136.56)",
+          "oklch(72% 0.0107 136.56)",
+          "oklch(84% 0.0107 136.56)",
+          "oklch(95% 0.0107 136.56)"
+        ]
+      },
+      "surface-code": {
+        "role": "neutral",
+        "displayName": "代码浅纸",
+        "tonalRamp": [
+          "oklch(15% 0.0114 128.59)",
+          "oklch(26% 0.0114 128.59)",
+          "oklch(38% 0.0114 128.59)",
+          "oklch(49% 0.0114 128.59)",
+          "oklch(61% 0.0114 128.59)",
+          "oklch(72% 0.0114 128.59)",
+          "oklch(84% 0.0114 128.59)",
+          "oklch(95% 0.0114 128.59)"
+        ]
+      },
+      "surface-selected": {
+        "role": "neutral",
+        "displayName": "选中浅翠",
+        "tonalRamp": [
+          "oklch(15% 0.0194 167.91)",
+          "oklch(26% 0.0194 167.91)",
+          "oklch(38% 0.0194 167.91)",
+          "oklch(49% 0.0194 167.91)",
+          "oklch(61% 0.0194 167.91)",
+          "oklch(72% 0.0194 167.91)",
+          "oklch(84% 0.0194 167.91)",
+          "oklch(95% 0.0194 167.91)"
+        ]
+      },
+      "surface-border": {
+        "role": "neutral",
+        "displayName": "surface-border",
+        "tonalRamp": [
+          "oklch(15% 0.0173 145.43)",
+          "oklch(26% 0.0173 145.43)",
+          "oklch(38% 0.0173 145.43)",
+          "oklch(49% 0.0173 145.43)",
+          "oklch(61% 0.0173 145.43)",
+          "oklch(72% 0.0173 145.43)",
+          "oklch(84% 0.0173 145.43)",
+          "oklch(95% 0.0173 145.43)"
+        ]
+      },
+      "surface-rule": {
+        "role": "neutral",
+        "displayName": "surface-rule",
+        "tonalRamp": [
+          "oklch(15% 0.0154 136.08)",
+          "oklch(26% 0.0154 136.08)",
+          "oklch(38% 0.0154 136.08)",
+          "oklch(49% 0.0154 136.08)",
+          "oklch(61% 0.0154 136.08)",
+          "oklch(72% 0.0154 136.08)",
+          "oklch(84% 0.0154 136.08)",
+          "oklch(95% 0.0154 136.08)"
+        ]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "control-border",
+        "tonalRamp": [
+          "oklch(15% 0.0277 157.88)",
+          "oklch(26% 0.0277 157.88)",
+          "oklch(38% 0.0277 157.88)",
+          "oklch(49% 0.0277 157.88)",
+          "oklch(61% 0.0277 157.88)",
+          "oklch(72% 0.0277 157.88)",
+          "oklch(84% 0.0277 157.88)",
+          "oklch(95% 0.0277 157.88)"
+        ]
+      },
+      "on-primary": {
+        "role": "neutral",
+        "displayName": "on-primary",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "dark-primary": {
+        "role": "primary",
+        "displayName": "柔翠",
+        "tonalRamp": [
+          "oklch(15% 0.0825 170.78)",
+          "#509880",
+          "#65b397",
+          "#72bea4",
+          "#85cfb6",
+          "#9cdbc6",
+          "#b0e3d2",
+          "#c7ecdf"
+        ]
+      },
+      "dark-primary-dark": {
+        "role": "primary",
+        "displayName": "dark-primary-dark",
+        "tonalRamp": [
+          "oklch(15% 0.0825 170.78)",
+          "#509880",
+          "#65b397",
+          "#72bea4",
+          "#85cfb6",
+          "#9cdbc6",
+          "#b0e3d2",
+          "#c7ecdf"
+        ]
+      },
+      "dark-primary-light": {
+        "role": "primary",
+        "displayName": "dark-primary-light",
+        "tonalRamp": [
+          "oklch(15% 0.0825 170.78)",
+          "#509880",
+          "#65b397",
+          "#72bea4",
+          "#85cfb6",
+          "#9cdbc6",
+          "#b0e3d2",
+          "#c7ecdf"
+        ]
+      },
+      "dark-surface-page": {
+        "role": "neutral",
+        "displayName": "深墨底",
+        "tonalRamp": [
+          "oklch(15% 0.0198 219.15)",
+          "oklch(26% 0.0198 219.15)",
+          "oklch(38% 0.0198 219.15)",
+          "oklch(49% 0.0198 219.15)",
+          "oklch(61% 0.0198 219.15)",
+          "oklch(72% 0.0198 219.15)",
+          "oklch(84% 0.0198 219.15)",
+          "oklch(95% 0.0198 219.15)"
+        ]
+      },
+      "dark-surface-nav": {
+        "role": "neutral",
+        "displayName": "导航深墨",
+        "tonalRamp": [
+          "oklch(15% 0.0246 218.55)",
+          "oklch(26% 0.0246 218.55)",
+          "oklch(38% 0.0246 218.55)",
+          "oklch(49% 0.0246 218.55)",
+          "oklch(61% 0.0246 218.55)",
+          "oklch(72% 0.0246 218.55)",
+          "oklch(84% 0.0246 218.55)",
+          "oklch(95% 0.0246 218.55)"
+        ]
+      },
+      "dark-surface-reading": {
+        "role": "neutral",
+        "displayName": "阅读深墨",
+        "tonalRamp": [
+          "oklch(15% 0.0274 215.43)",
+          "oklch(26% 0.0274 215.43)",
+          "oklch(38% 0.0274 215.43)",
+          "oklch(49% 0.0274 215.43)",
+          "oklch(61% 0.0274 215.43)",
+          "oklch(72% 0.0274 215.43)",
+          "oklch(84% 0.0274 215.43)",
+          "oklch(95% 0.0274 215.43)"
+        ]
+      },
+      "dark-surface-code": {
+        "role": "neutral",
+        "displayName": "代码深墨",
+        "tonalRamp": [
+          "oklch(15% 0.0246 218.66)",
+          "oklch(26% 0.0246 218.66)",
+          "oklch(38% 0.0246 218.66)",
+          "oklch(49% 0.0246 218.66)",
+          "oklch(61% 0.0246 218.66)",
+          "oklch(72% 0.0246 218.66)",
+          "oklch(84% 0.0246 218.66)",
+          "oklch(95% 0.0246 218.66)"
+        ]
+      },
+      "dark-surface-selected": {
+        "role": "neutral",
+        "displayName": "dark-surface-selected",
+        "tonalRamp": [
+          "oklch(15% 0.0413 174.02)",
+          "oklch(26% 0.0413 174.02)",
+          "oklch(38% 0.0413 174.02)",
+          "oklch(49% 0.0413 174.02)",
+          "oklch(61% 0.0413 174.02)",
+          "oklch(72% 0.0413 174.02)",
+          "oklch(84% 0.0413 174.02)",
+          "oklch(95% 0.0413 174.02)"
+        ]
+      },
+      "dark-surface-border": {
+        "role": "neutral",
+        "displayName": "dark-surface-border",
+        "tonalRamp": [
+          "oklch(15% 0.0282 210.02)",
+          "oklch(26% 0.0282 210.02)",
+          "oklch(38% 0.0282 210.02)",
+          "oklch(49% 0.0282 210.02)",
+          "oklch(61% 0.0282 210.02)",
+          "oklch(72% 0.0282 210.02)",
+          "oklch(84% 0.0282 210.02)",
+          "oklch(95% 0.0282 210.02)"
+        ]
+      },
+      "dark-surface-rule": {
+        "role": "neutral",
+        "displayName": "dark-surface-rule",
+        "tonalRamp": [
+          "oklch(15% 0.0263 211.36)",
+          "oklch(26% 0.0263 211.36)",
+          "oklch(38% 0.0263 211.36)",
+          "oklch(49% 0.0263 211.36)",
+          "oklch(61% 0.0263 211.36)",
+          "oklch(72% 0.0263 211.36)",
+          "oklch(84% 0.0263 211.36)",
+          "oklch(95% 0.0263 211.36)"
+        ]
+      },
+      "dark-control-border": {
+        "role": "neutral",
+        "displayName": "dark-control-border",
+        "tonalRamp": [
+          "oklch(15% 0.0352 173.36)",
+          "oklch(26% 0.0352 173.36)",
+          "oklch(38% 0.0352 173.36)",
+          "oklch(49% 0.0352 173.36)",
+          "oklch(61% 0.0352 173.36)",
+          "oklch(72% 0.0352 173.36)",
+          "oklch(84% 0.0352 173.36)",
+          "oklch(95% 0.0352 173.36)"
+        ]
+      },
+      "dark-text": {
+        "role": "neutral",
+        "displayName": "灰绿正文",
+        "tonalRamp": [
+          "oklch(15% 0.0120 170.25)",
+          "oklch(26% 0.0120 170.25)",
+          "oklch(38% 0.0120 170.25)",
+          "oklch(49% 0.0120 170.25)",
+          "oklch(61% 0.0120 170.25)",
+          "oklch(72% 0.0120 170.25)",
+          "oklch(84% 0.0120 170.25)",
+          "oklch(95% 0.0120 170.25)"
+        ]
+      },
+      "dark-heading": {
+        "role": "neutral",
+        "displayName": "明亮题名",
+        "tonalRamp": [
+          "oklch(15% 0.0058 153.78)",
+          "oklch(26% 0.0058 153.78)",
+          "oklch(38% 0.0058 153.78)",
+          "oklch(49% 0.0058 153.78)",
+          "oklch(61% 0.0058 153.78)",
+          "oklch(72% 0.0058 153.78)",
+          "oklch(84% 0.0058 153.78)",
+          "oklch(95% 0.0058 153.78)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "次要灰翠",
+        "tonalRamp": [
+          "oklch(15% 0.0273 169.05)",
+          "oklch(26% 0.0273 169.05)",
+          "oklch(38% 0.0273 169.05)",
+          "oklch(49% 0.0273 169.05)",
+          "oklch(61% 0.0273 169.05)",
+          "oklch(72% 0.0273 169.05)",
+          "oklch(84% 0.0273 169.05)",
+          "oklch(95% 0.0273 169.05)"
+        ]
+      },
+      "dark-on-primary": {
+        "role": "neutral",
+        "displayName": "dark-on-primary",
+        "tonalRamp": [
+          "oklch(15% 0.0332 175.04)",
+          "oklch(26% 0.0332 175.04)",
+          "oklch(38% 0.0332 175.04)",
+          "oklch(49% 0.0332 175.04)",
+          "oklch(61% 0.0332 175.04)",
+          "oklch(72% 0.0332 175.04)",
+          "oklch(84% 0.0332 175.04)",
+          "oklch(95% 0.0332 175.04)"
+        ]
+      },
+      "mark-fold": {
+        "role": "secondary",
+        "displayName": "浅色折页"
+      },
+      "dark-mark-fold": {
+        "role": "secondary",
+        "displayName": "深色折页"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "首页站点题名。"
+      },
+      "headline": {
+        "displayName": "headline",
+        "purpose": "浅色文档一级标题。"
+      },
+      "section-title": {
+        "displayName": "section-title",
+        "purpose": "首页区段与诗笺标题。"
+      },
+      "article-title": {
+        "displayName": "article-title",
+        "purpose": "首页最近文章标题。"
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "通用正文与控件。"
+      },
+      "reading": {
+        "displayName": "reading",
+        "purpose": "文档长文正文。"
+      },
+      "label": {
+        "displayName": "label",
+        "purpose": "查找操作标签。"
+      },
+      "poem": {
+        "displayName": "poem",
+        "purpose": "诗词正文。"
+      },
+      "mono": {
+        "displayName": "mono",
+        "purpose": "代码与命令。"
+      },
+      "disclosure-label": {
+        "displayName": "disclosure-label",
+        "purpose": "技术折叠块摘要。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "search-modal",
+        "value": "0 0 0 1px var(--surface-border), 0 8px 24px rgba(0, 0, 0, 0.12)",
+        "purpose": "搜索浮层与下层阅读面分离。"
+      },
+      {
+        "name": "selected-edge",
+        "value": "inset 1px 0 0 var(--ifm-color-primary)",
+        "purpose": "深色侧栏与搜索选中项的左侧指示。"
+      },
+      {
+        "name": "dark-focus-ring",
+        "value": "0 0 0 3px rgba(var(--accent-rgb), 0.18)",
+        "purpose": "配合深色键盘焦点轮廓。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "search-button-hover",
+        "value": "background-color 160ms ease",
+        "purpose": "首页提交按钮的颜色反馈。"
+      },
+      {
+        "name": "focus-outline",
+        "value": "outline-color 0.15s ease",
+        "purpose": "全局可见焦点状态。"
+      },
+      {
+        "name": "disclosure-chevron",
+        "value": "transform 0.22s ease, border-color 0.2s ease",
+        "purpose": "折叠状态变化。"
+      },
+      {
+        "name": "reduced-motion-duration",
+        "value": "0.01ms",
+        "purpose": "减少动态偏好下的动画与过渡时长；只保留一次动画并取消平滑滚动。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-navbar",
+        "value": "576px"
+      },
+      {
+        "name": "home-and-index-stack",
+        "value": "700px"
+      },
+      {
+        "name": "blog-and-table-mobile",
+        "value": "768px"
+      },
+      {
+        "name": "reading-and-home-medium",
+        "value": "996px"
+      },
+      {
+        "name": "wide-reading",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "查笔记按钮",
+      "kind": "button",
+      "refersTo": "search-button",
+      "description": "首页标题或分类查找的提交操作。",
+      "html": "<button class=\"ds-search-button\" type=\"button\">查笔记</button>",
+      "css": ".ds-search-button{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;font-size:1rem;font-weight:600;min-height:44px;padding:0.5rem 1rem;background:var(--ifm-color-primary,#326c70);color:var(--on-primary,#ffffff);border:1px solid var(--ifm-color-primary,#326c70);border-radius:3px;cursor:pointer;transition:background-color 160ms ease;}.ds-search-button:hover{background:var(--ifm-color-primary-dark,#2b5e61);}.ds-search-button:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(prefers-reduced-motion:reduce){.ds-search-button{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "清空按钮",
+      "kind": "button",
+      "refersTo": "clear-button",
+      "description": "目录筛选有内容时出现的次要操作。",
+      "html": "<button class=\"ds-clear-button\" type=\"button\">清空</button>",
+      "css": ".ds-clear-button{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;font-size:1rem;min-height:44px;padding:0.4rem 0.8rem;background:transparent;color:var(--ifm-font-color-base,#30413b);border:1px solid var(--control-border,#8b9e92);border-radius:4px;cursor:pointer;}.ds-clear-button:hover{background:var(--surface-hover,rgba(50,108,112,0.06));}.ds-clear-button:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(prefers-reduced-motion:reduce){.ds-clear-button{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "换一首按钮",
+      "kind": "button",
+      "refersTo": "poetry-button",
+      "description": "诗笺中的轻量切换操作；片段展示浅色主题。",
+      "html": "<button class=\"ds-poetry-button\" type=\"button\">换一首</button>",
+      "css": ".ds-poetry-button{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;font-size:0.875rem;font-weight:400;min-height:36px;padding:0.3rem 0.65rem;background:transparent;color:var(--bamboo-green,#326c70);border:1px solid transparent;border-radius:4px;cursor:pointer;transition:background 0.25s,box-shadow 0.25s,transform 0.2s;}.ds-poetry-button:hover{background:var(--surface-hover,rgba(50,108,112,0.06));}.ds-poetry-button:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(max-width:700px){.ds-poetry-button{min-height:44px;}}@media(prefers-reduced-motion:reduce){.ds-poetry-button{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "目录筛选",
+      "kind": "input",
+      "refersTo": "notebook-input",
+      "description": "带明确标签与范围提示的标题或分类筛选。",
+      "html": "<label class=\"ds-filter-label\" for=\"ds-note-filter\">按标题或分类找笔记</label><input class=\"ds-filter-input\" id=\"ds-note-filter\" type=\"search\" placeholder=\"例如：端口、权限、k8s 内存\" aria-describedby=\"ds-filter-help\"><p class=\"ds-filter-help\" id=\"ds-filter-help\">这里只筛选目录；查正文里的命令和报错，可以用顶部的站内搜索。</p>",
+      "css": ".ds-filter-label{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;display:block;font-size:0.95rem;font-weight:600;margin-bottom:0.5rem;color:var(--ifm-font-color-base,#30413b);}.ds-filter-input{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;font-size:1rem;max-width:100%;padding:0.7rem 0.85rem;background:var(--surface-code,#edf1e9);color:var(--ifm-font-color-base,#30413b);border:1px solid var(--control-border,#8b9e92);border-radius:4px;caret-color:var(--ifm-color-primary,#326c70);}.ds-filter-input::placeholder{color:var(--ifm-font-color-secondary,#596f65);opacity:1;}.ds-filter-input:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;outline-offset:0;}.ds-filter-help{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;font-size:0.85rem;line-height:1.75;margin:0.6rem 0 1.25rem;color:var(--ifm-font-color-secondary,#596f65);}@media(prefers-reduced-motion:reduce){.ds-filter-help,.ds-filter-input,.ds-filter-label{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "分类跳转",
+      "kind": "nav",
+      "refersTo": "topic-navigation",
+      "description": "目录中的文字链接与分类数量。",
+      "html": "<nav class=\"ds-topic-nav\" aria-label=\"跳到笔记分类\"><a class=\"ds-topic-link\" href=\"#ds-linux\">Linux<span class=\"ds-topic-count\">12</span></a><a class=\"ds-topic-link\" href=\"#ds-network\">网络<span class=\"ds-topic-count\">8</span></a></nav>",
+      "css": ".ds-topic-nav{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;display:flex;flex-wrap:wrap;gap:0.1rem 1.25rem;padding:0.75rem 0;border-block:1px solid var(--surface-rule,#dce3d9);}.ds-topic-link{display:inline-flex;align-items:center;gap:0.4rem;min-height:36px;font-size:0.9rem;color:var(--ifm-font-color-base,#30413b);text-decoration:none;text-underline-offset:0.2em;}.ds-topic-link:hover{color:var(--ifm-color-primary,#326c70);}.ds-topic-link:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}.ds-topic-count{font-size:0.75rem;font-variant-numeric:tabular-nums;color:var(--ifm-font-color-secondary,#596f65);}@media(max-width:700px){.ds-topic-link{min-height:44px;}}@media(prefers-reduced-motion:reduce){.ds-topic-count,.ds-topic-link,.ds-topic-nav{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "博客标签",
+      "kind": "chip",
+      "refersTo": "blog-tag",
+      "description": "既有博客标签的浅色表现，不扩展旧深色光晕。",
+      "html": "<a class=\"ds-blog-tag\" href=\"#ds-kubernetes\">Kubernetes</a>",
+      "css": ".ds-blog-tag{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;display:inline-block;border-radius:999px;border:1px solid var(--blog-surface-tag-border,rgba(50,108,112,0.3));color:var(--blog-surface-tag-color,#326c70);padding:0.12rem 0.55rem;margin-right:0.3rem;text-decoration:none;transition:all 0.25s ease;}.ds-blog-tag:hover{background:var(--blog-surface-tag-hover-bg,rgba(50,108,112,0.08));}.ds-blog-tag:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(prefers-reduced-motion:reduce){.ds-blog-tag{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "诗笺与折页 J",
+      "kind": "card",
+      "refersTo": "poetry-card",
+      "description": "独立实色诗面与小幅主题折页 J 标记。",
+      "html": "<aside class=\"ds-poem-card\"><h2 class=\"ds-poem-heading\">今日诗词</h2><div class=\"ds-poem-lines\"><span class=\"ds-poem-line\">行到水穷处，坐看云起时。</span></div><footer class=\"ds-poem-footer\"><span class=\"ds-poem-author\">王维</span><svg class=\"ds-mark\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"30\" height=\"30\" aria-hidden=\"true\"><path fill=\"var(--ifm-color-primary,#326c70)\" d=\"M9 13L35 8L32 20H48L44 42C42 54 33 61 22 58C12 56 6 48 8 40L19 35C16 43 20 50 27 49C33 48 35 43 36 37L39 25H10Z\"/><path fill=\"var(--mark-fold,#7caba5)\" d=\"M40 8L53 17H38Z\"/></svg></footer></aside>",
+      "css": ".ds-poem-card{padding:1.4rem 1.7rem;background:var(--surface-reading,#fafbf7);color:var(--ifm-font-color-base,#30413b);border:1px solid var(--surface-border,#d1dbd1);border-radius:4px;}.ds-poem-heading{font-family:var(--font-literary,'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif);font-size:1.15rem;font-weight:600;letter-spacing:0.025em;margin:0;}.ds-poem-lines{display:flex;flex-direction:column;align-items:center;gap:0.55rem;padding-top:1.7rem;}.ds-poem-line{font-family:var(--font-literary,'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif);font-size:1.05rem;line-height:2;letter-spacing:0.03em;overflow-wrap:anywhere;text-align:center;}.ds-poem-footer{display:flex;justify-content:flex-end;align-items:center;gap:0.8rem;margin-top:1.5rem;}.ds-poem-author{font-family:var(--font-literary,'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif);font-size:0.85rem;color:var(--ifm-font-color-secondary,#596f65);}.ds-mark{display:block;flex-shrink:0;}@media(max-width:700px){.ds-poem-card{padding:1rem 1.1rem;}.ds-poem-line{font-size:1rem;}}@media(prefers-reduced-motion:reduce){.ds-poem-author,.ds-poem-card,.ds-poem-footer,.ds-poem-heading,.ds-poem-line,.ds-poem-lines,.ds-mark{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}.ds-mark{--mark-fold:#7caba5}[data-theme=\"dark\"] .ds-mark{--mark-fold:#c0e8da}"
+    },
+    {
+      "name": "最近文章行",
+      "kind": "custom",
+      "refersTo": "recent-article",
+      "description": "首页连续文章行；标题与摘要示意排版，内容由博客数据生成。",
+      "html": "<article class=\"ds-recent-row\"><h3 class=\"ds-recent-title\"><a class=\"ds-recent-link\" href=\"#ds-note\">Kubernetes 排障笔记</a></h3><p class=\"ds-recent-summary\">记录问题、命令与处理过程，供下次查阅。</p></article>",
+      "css": ".ds-recent-row{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;padding:1.3rem 0;border-bottom:1px solid var(--surface-rule,#dce3d9);}.ds-recent-title{margin:0 0 0.65rem;font-size:1.075rem;font-weight:600;line-height:1.65;}.ds-recent-link{color:var(--ifm-font-color-base,#30413b);text-decoration:none;text-decoration-thickness:1px;text-underline-offset:0.2em;}.ds-recent-link:hover{color:var(--ifm-color-primary,#326c70);text-decoration:underline;}.ds-recent-link:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}.ds-recent-summary{margin:0;max-width:78ch;color:var(--ifm-font-color-secondary,#596f65);font-size:0.9rem;line-height:1.8;}@media(prefers-reduced-motion:reduce){.ds-recent-link,.ds-recent-row,.ds-recent-summary,.ds-recent-title{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "目录分类组",
+      "kind": "custom",
+      "refersTo": "notebook-group",
+      "description": "沿用原侧栏分类的链接组与篇数；片段数量为展示示意。",
+      "html": "<section class=\"ds-note-group\"><h2 class=\"ds-group-title\">Linux<span class=\"ds-group-count\">2 篇</span></h2><ul class=\"ds-group-list\"><li><a class=\"ds-group-link\" href=\"#ds-permissions\">权限管理</a></li><li><a class=\"ds-group-link\" href=\"#ds-ports\">查看端口</a></li></ul></section>",
+      "css": ".ds-note-group{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;break-inside:avoid;padding-top:0.6rem;margin-bottom:1.8rem;}.ds-group-title{display:flex;align-items:baseline;gap:0.75rem;margin:0 0 0.6rem;padding-bottom:0.55rem;border-bottom:1px solid var(--surface-rule,#dce3d9);font-size:1.1rem;color:var(--ifm-font-color-base,#30413b);}.ds-group-count{margin-left:auto;flex-shrink:0;font-size:0.75rem;font-weight:400;color:var(--ifm-font-color-secondary,#596f65);font-variant-numeric:tabular-nums;}.ds-group-list{list-style:none;margin:0;padding:0;}.ds-group-link{display:block;padding:0.4rem 0;font-size:0.95rem;line-height:1.65;color:var(--ifm-font-color-base,#30413b);text-decoration:none;text-underline-offset:0.2em;overflow-wrap:anywhere;}.ds-group-link:hover{color:var(--ifm-color-primary,#326c70);text-decoration:underline;}.ds-group-link:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(max-width:700px){.ds-group-link{min-height:44px;}}@media(prefers-reduced-motion:reduce){.ds-group-count,.ds-group-link,.ds-group-list,.ds-group-title,.ds-note-group{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "命令折叠块",
+      "kind": "custom",
+      "refersTo": "disclosure",
+      "description": "有独立摘要状态的技术细节容器。",
+      "html": "<details class=\"ds-disclosure\"><summary class=\"ds-disclosure-summary\">查看命令</summary><div class=\"ds-disclosure-body\"><code class=\"ds-disclosure-code\">kubectl get pods</code></div></details>",
+      "css": ".ds-disclosure{margin:1.25rem 0;border:1px solid var(--details-border,#d1dbd1);border-radius:6px;background:var(--details-bg,#fafbf7);overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s;}.ds-disclosure:hover{border-color:var(--details-border-hover,rgba(50,108,112,0.5));}.ds-disclosure-summary{display:flex;align-items:center;gap:0.55rem;list-style:none;cursor:pointer;padding:0.6rem 0.9rem;background:var(--details-summary-bg,#edf1e9);color:var(--details-summary-color,#30413b);font-family:var(--ifm-font-family-monospace,'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace);font-size:0.88rem;line-height:1.35;letter-spacing:0.02em;font-weight:500;border-bottom:1px solid transparent;transition:background 0.2s,color 0.2s;}.ds-disclosure-summary::-webkit-details-marker{display:none;}.ds-disclosure-summary::before{content:\"\";width:0.68em;height:0.68em;border-right:0.16em solid var(--details-chevron-color,#596f65);border-bottom:0.16em solid var(--details-chevron-color,#596f65);transform:rotate(-45deg);transition:transform 0.22s ease,border-color 0.2s ease;}.ds-disclosure[open]>.ds-disclosure-summary::before{transform:rotate(45deg);}.ds-disclosure-summary:hover,.ds-disclosure[open]>.ds-disclosure-summary{background:var(--details-summary-bg-open,#dcece5);}.ds-disclosure-summary:hover{color:var(--ifm-color-primary,#326c70);}.ds-disclosure[open]>.ds-disclosure-summary{border-bottom-color:var(--details-border,#d1dbd1);}.ds-disclosure-summary:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}.ds-disclosure-body{padding:0.85rem 0.95rem;}.ds-disclosure-code{font-family:var(--ifm-font-family-monospace,'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace);color:var(--code-ink,#326c70);font-size:0.9em;}@media(prefers-reduced-motion:reduce){.ds-disclosure,.ds-disclosure-body,.ds-disclosure-code,.ds-disclosure-summary{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "折页 J · 中式个人书斋",
+    "overview": "这是一间供自己查找、重读运维笔记的个人书斋。浅色如青瓷纸面，文字带墨绿；深色落在深墨底上，用柔和翠绿标记可操作内容。折页 J承担识别，诗词保留书卷气，技术内容保持清楚、稳定、可扫描。\n\n本次系统记录的是现有网站的渐进整理。宋体用于站点题名、诗词和浅色阅读页的重要标题，无衬线体承载正文与控件。空间主要由留白、细线与实色表面划分；不把每条内容包进卡片，也不以模糊玻璃、发光文字或营销式眉题建立层次。",
+    "keyCharacteristics": [
+      "青瓷浅纸与深墨翠绿，共用语义化表面。",
+      "折页 J 矢量标记是固定身份标记，诗词是书斋内容。",
+      "正文与目录优先可读、可检索，沿用原有技术分类。",
+      "开放的文章行、轻边界控件与清晰键盘焦点。"
+    ],
+    "rules": [
+      {
+        "name": "The Paper Rule",
+        "body": "承载文字的阅读区、导航和搜索浮层使用不透明表面；背景效果不得穿过文字区域。",
+        "section": "colors"
+      },
+      {
+        "name": "The Mark Rule",
+        "body": "折页 J 以两个实色形状构成：斜切上横、分离折角与粗细变化的回钩形成签名感；不增加外框、纹理或图案，随主题切换配色。",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "书卷字体承担题名与诗词；检索、正文、命令和操作说明维持清楚的功能字体。",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Surface Rule",
+        "body": "首页文章行、目录与文档正文依靠留白、细线和底色建立层次；浮层阴影只说明叠放关系。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 使用语义化表面和文字变量，让浅色、深色主题同步变化。",
+      "Do 保留原有技术分类的顺序与名称，以目录和真实内容提供查找入口。",
+      "Do 用宋体题名、诗词与小幅折页 J表达个人书斋气质。",
+      "Do 保留键盘焦点、表格横向滚动和移动端足够的操作高度。",
+      "Do 使用独立文章行展示首页最近文章；诗笺与浮层可以有自身边界。"
+    ],
+    "donts": [
+      "Don't 在阅读、导航或搜索浮层加入模糊背景或透明叠字。",
+      "Don't 为装饰添加营销眉题、发光标题或与内容无关的图标。",
+      "Don't 给折页 J 叠加边框、图景或发光效果。",
+      "Don't 把首页的两列构图、诗笺容器或局部博客旧样式强制推广到所有页面。",
+      "Don't 为视觉整齐重排技术分类、删去首页诗词，或把每条链接改成卡片。"
+    ]
+  }
+}

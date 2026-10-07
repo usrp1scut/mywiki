@@ -10,21 +10,23 @@
 
 :root {
   /* ── 字体 ──────────────────────────────────────────── */
-  --ifm-font-family-base: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-  --ifm-heading-font-family: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --font-literary: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --ifm-heading-font-family: var(--font-literary);
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.75;
-  --ifm-font-color-base: #2a2a28;
+  --ifm-font-color-base: #30413b;
+  --ifm-font-color-secondary: #596f65;
 
-  /* ── 主色盘（亮色 / 竹绿 水墨）─────────────────────── */
-  --ifm-color-primary: #5a7a6a;
-  --ifm-color-primary-dark: #4e6c5e;
-  --ifm-color-primary-darker: #486458;
-  --ifm-color-primary-darkest: #3a5248;
-  --ifm-color-primary-light: #688a79;
-  --ifm-color-primary-lighter: #769888;
-  --ifm-color-primary-lightest: #8dab9e;
+  /* ── 主色盘（亮色 / 青瓷 水墨）─────────────────────── */
+  --ifm-color-primary: #326c70;
+  --ifm-color-primary-dark: #2b5e61;
+  --ifm-color-primary-darker: #26565a;
+  --ifm-color-primary-darkest: #1e4548;
+  --ifm-color-primary-light: #3b7d81;
+  --ifm-color-primary-lighter: #428c90;
+  --ifm-color-primary-lightest: #53a2a5;
 
   /* ── 布局尺寸 ─────────────────────────────────────── */
   --ifm-navbar-height: 60px;
@@ -37,108 +39,152 @@
   --docs-prose-wide-max: 1040px;
 
   /* ── 水墨色板 ─────────────────────────────────────── */
-  --ink-deep: #1a1a1a;
-  --ink-medium: #4a4a48;
-  --ink-light: #8a8a85;
-  --ink-wash: rgba(60, 60, 55, 0.06);
-  --paper-warm: #f5f0e8;
-  --paper-light: #faf7f2;
-  --paper-accent: #eee8dc;
-  --bamboo-green: #5a7a6a;
-  --seal-red: #b5453a;
+  --ink-deep: #243c33;
+  --ink-medium: #30413b;
+  --ink-light: #596f65;
+  --ink-wash: rgba(30, 55, 51, 0.06);
+  --paper-warm: #f3f5f0;
+  --paper-light: #fafbf7;
+  --paper-accent: #e9eee7;
+  --bamboo-green: #326c70;
+  --seal-red: #98584c;
+
+  --accent-rgb: 50, 108, 112;
+  --on-primary: #ffffff;
+  --control-border: #8b9e92;
+  --surface-page: #f3f5f0;
+  --surface-nav: #fafbf7;
+  --surface-sidebar: #e9eee7;
+  --surface-selected: #dcece5;
+  --seal-mark: var(--seal-red);
+
+  /* 两套主题共用的阅读表面 */
+  --surface-reading: var(--paper-light);
+  --surface-raised: #edf1e9;
+  --surface-code: #edf1e9;
+  --surface-border: #d1dbd1;
+  --surface-rule: #dce3d9;
+  --surface-hover: rgba(var(--accent-rgb), 0.06);
+  --code-ink: #326c70;
+  --ifm-table-border-color: var(--surface-border);
+  --ifm-table-stripe-background: var(--surface-hover);
+  --ifm-code-background: var(--surface-code);
+  --search-local-modal-background: var(--surface-reading);
+  --search-local-modal-shadow: 0 0 0 1px var(--surface-border), 0 8px 24px rgba(0, 0, 0, 0.12);
+  --search-local-hit-background: var(--surface-raised);
+  --search-local-hit-shadow: none;
+  --search-local-hit-color: var(--ifm-font-color-base);
+  --search-local-muted-color: var(--ifm-font-color-secondary);
+  --search-local-hit-active-color: var(--ifm-font-color-base);
+  --search-local-hit-active-background: var(--surface-selected);
 
   /* ── 折叠块（details）──────────────────────────── */
-  --details-bg: rgba(245, 240, 232, 0.6);
-  --details-border: rgba(60, 60, 55, 0.16);
-  --details-border-hover: rgba(90, 122, 106, 0.5);
-  --details-summary-bg: rgba(250, 247, 242, 0.7);
-  --details-summary-bg-open: rgba(60, 60, 55, 0.05);
+  --details-bg: var(--surface-reading);
+  --details-border: var(--surface-border);
+  --details-border-hover: rgba(var(--accent-rgb), 0.5);
+  --details-summary-bg: var(--surface-raised);
+  --details-summary-bg-open: var(--surface-selected);
   --details-summary-color: var(--ink-medium);
-  --details-chevron-color: rgba(60, 60, 55, 0.6);
+  --details-chevron-color: var(--ifm-font-color-secondary);
 
   /* ── 博客卡片 surface（亮色）──────────────────────── */
-  --blog-surface-bg: linear-gradient(135deg, rgba(250, 247, 242, 0.92), rgba(245, 240, 232, 0.85));
-  --blog-surface-border: rgba(60, 60, 55, 0.12);
-  --blog-surface-shadow: 2px 3px 12px rgba(0, 0, 0, 0.06);
-  --blog-surface-shadow-hover: 2px 4px 18px rgba(0, 0, 0, 0.1);
+  --blog-surface-bg: var(--surface-reading);
+  --blog-surface-border: var(--surface-border);
+  --blog-surface-shadow: none;
+  --blog-surface-shadow-hover: none;
   --blog-surface-accent: var(--ink-light);
   --blog-surface-title: var(--ink-deep);
   --blog-surface-text: var(--ink-medium);
-  --blog-surface-tag-border: rgba(90, 122, 106, 0.3);
+  --blog-surface-tag-border: rgba(var(--accent-rgb), 0.3);
   --blog-surface-tag-color: var(--bamboo-green);
-  --blog-surface-tag-hover-bg: rgba(90, 122, 106, 0.08);
-  --blog-surface-thumb-bg: rgba(60, 60, 55, 0.06);
+  --blog-surface-tag-hover-bg: rgba(var(--accent-rgb), 0.08);
+  --blog-surface-thumb-bg: var(--surface-code);
 }
 
 /* ═════════════════════════════════════════════════════
-   暗色模式 —— 太空主题
+   暗色模式 —— 翠绿 深空
    ═════════════════════════════════════════════════════ */
-[data-theme='dark'] {
-  /* 主色盘覆盖 —— 青色霓虹 */
-  --ifm-color-primary: #00d4ff;
-  --ifm-color-primary-dark: #00b8de;
-  --ifm-color-primary-darker: #00a3c7;
-  --ifm-color-primary-darkest: #0086a3;
-  --ifm-color-primary-light: #33ddff;
-  --ifm-color-primary-lighter: #66e5ff;
-  --ifm-color-primary-lightest: #99eeff;
+html[data-theme='dark'] {
+  --accent-rgb: 133, 207, 182;
+  --on-primary: #09221c;
+  --control-border: #617d74;
+  --surface-page: #101d21;
+  --surface-nav: #122328;
+  --surface-sidebar: #122328;
+  --surface-selected: #28483f;
+  --seal-mark: #8dc3b4;
+
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --search-local-highlight-color: var(--ifm-color-primary);
+  --search-local-hit-active-color: var(--space-heading);
+  --search-local-hit-active-background: var(--surface-selected);
+  /* 主色盘覆盖 —— 翠绿 */
+  --ifm-color-primary: #85cfb6;
+  --ifm-color-primary-dark: #72bea4;
+  --ifm-color-primary-darker: #65b397;
+  --ifm-color-primary-darkest: #509880;
+  --ifm-color-primary-light: #9cdbc6;
+  --ifm-color-primary-lighter: #b0e3d2;
+  --ifm-color-primary-lightest: #c7ecdf;
 
   /* 去掉默认背景 —— 交给全局动画层绘制 */
   --ifm-background-color: transparent;
   --ifm-navbar-background-color: transparent;
   --ifm-footer-background-color: transparent;
 
-  /* 太空色板 */
-  --space-glow-cyan: rgba(0, 212, 255, 0.5);
-  --space-glow-purple: rgba(138, 43, 226, 0.35);
-  --space-glow-blue: rgba(30, 144, 255, 0.3);
-  --space-surface: linear-gradient(180deg, rgba(15, 24, 50, 0.88), rgba(10, 16, 34, 0.86));
-  --space-surface-hover: linear-gradient(180deg, rgba(18, 30, 62, 0.92), rgba(12, 20, 42, 0.9));
-  --space-border: rgba(0, 212, 255, 0.24);
-  --space-border-hover: rgba(0, 212, 255, 0.42);
-  --space-text: #d5e8f7;
-  --space-heading: #f0f8ff;
-  --space-text-muted: #a8bdd4;
-  --space-text-subtle: rgba(168, 189, 212, 0.72);
+  /* 深空色板 */
+  --space-glow-cyan: rgba(var(--accent-rgb), 0.25);
+  --space-glow-purple: rgba(94, 151, 139, 0.12);
+  --space-glow-blue: rgba(68, 143, 150, 0.15);
+  --space-surface: #172b30;
+  --space-surface-hover: #1e363a;
+  --space-border: #30464a;
+  --space-border-hover: #456967;
+  --space-text: #dce6e2;
+  --space-heading: #f1f5f2;
+  --space-text-muted: #a4bab1;
+  --space-text-subtle: rgba(158, 190, 183, 0.82);
+  --surface-reading: #172b30;
+  --surface-raised: #102126;
+  --surface-code: #102126;
+  --surface-border: #30464a;
+  --surface-rule: #2a3e42;
+  --surface-hover: rgba(var(--accent-rgb), 0.06);
+  --code-ink: #dce6e2;
+  --ifm-code-background: var(--surface-code);
+  --ifm-table-border-color: var(--surface-border);
+  --ifm-table-stripe-background: var(--surface-hover);
 
   /* IFM 语义色映射到太空色 */
   --ifm-font-color-base: var(--space-text);
   --ifm-font-color-secondary: var(--space-text-muted);
   --ifm-heading-color: var(--space-heading);
   --ifm-color-emphasis-700: var(--space-text-muted);
-  --ifm-color-emphasis-600: rgba(168, 189, 212, 0.82);
+  --ifm-color-emphasis-600: var(--space-text-muted);
   --ifm-color-emphasis-500: var(--space-text-subtle);
   --ifm-menu-color: var(--space-text-muted);
   --ifm-toc-link-color: var(--space-text-muted);
   --ifm-navbar-link-color: var(--space-text);
 
   /* 折叠块（暗色） */
-  --details-bg: rgba(10, 18, 42, 0.55);
-  --details-border: rgba(0, 212, 255, 0.22);
-  --details-border-hover: rgba(0, 212, 255, 0.45);
-  --details-summary-bg: rgba(15, 24, 50, 0.7);
-  --details-summary-bg-open: rgba(0, 212, 255, 0.06);
+  --details-bg: var(--surface-reading);
+  --details-border: var(--surface-border);
+  --details-border-hover: rgba(var(--accent-rgb), 0.45);
+  --details-summary-bg: var(--surface-raised);
+  --details-summary-bg-open: var(--surface-selected);
   --details-summary-color: var(--space-text);
-  --details-chevron-color: rgba(168, 189, 212, 0.75);
+  --details-chevron-color: var(--space-text-muted);
 
   /* 博客卡片 surface（暗色） */
-  --blog-surface-bg: linear-gradient(180deg, rgba(15, 24, 50, 0.88), rgba(10, 16, 34, 0.86));
-  --blog-surface-border: rgba(0, 212, 255, 0.24);
-  --blog-surface-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.34),
-    0 0 0 1px rgba(0, 212, 255, 0.08),
-    0 0 18px rgba(0, 212, 255, 0.055),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-  --blog-surface-shadow-hover:
-    0 18px 42px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 212, 255, 0.14),
-    0 0 24px rgba(0, 212, 255, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
-  --blog-surface-accent: rgba(0, 212, 255, 0.6);
+  --blog-surface-bg: var(--space-surface);
+  --blog-surface-border: var(--space-border);
+  --blog-surface-shadow: none;
+  --blog-surface-shadow-hover: none;
+  --blog-surface-accent: var(--ifm-color-primary);
   --blog-surface-title: var(--space-heading);
   --blog-surface-text: var(--space-text);
-  --blog-surface-tag-border: rgba(0, 212, 255, 0.3);
-  --blog-surface-tag-color: #88ddff;
-  --blog-surface-tag-hover-bg: rgba(0, 212, 255, 0.12);
-  --blog-surface-thumb-bg: rgba(0, 212, 255, 0.14);
+  --blog-surface-tag-border: rgba(var(--accent-rgb), 0.3);
+  --blog-surface-tag-color: var(--ifm-color-primary-light);
+  --blog-surface-tag-hover-bg: rgba(var(--accent-rgb), 0.12);
+  --blog-surface-thumb-bg: var(--surface-selected);
 }

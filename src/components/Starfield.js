@@ -151,7 +151,8 @@ export default function Starfield() {
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: -2,
+        zIndex: -1,
+        opacity: 0.3,
         pointerEvents: 'none',
         width: '100%',
         height: '100%',
