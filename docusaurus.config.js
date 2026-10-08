@@ -155,6 +155,7 @@ module.exports = {
     },
   }, 
   plugins: [
+    require.resolve('./plugins/unicode-ssr'),
     require.resolve('./plugins/recent-blog-posts'),
     require.resolve('./plugins/blog-thumbnails'),
   ],
