@@ -181,14 +181,13 @@ module.exports = {
           rehypePlugins: [katex],
         },
         blog: {
-          blogTitle: 'Jacob\'s blog!',
-          blogDescription: 'A docusaurus powered blog!',
+          blogTitle: '博客',
+          blogDescription: '技术实践、开源周报与日常随笔。',
           blogSidebarCount: 8,
-          blogSidebarTitle: "文章",
+          blogSidebarTitle: "最近文章",
           postsPerPage: 8,
           showReadingTime: false,
           path: 'blog',
-          blogSidebarTitle: 'Recent',
           //sidebarPath: require.resolve("./sidebars.js"),
           editUrl: 'https://github.com/usrp1scut/mywiki/tree/main',
 

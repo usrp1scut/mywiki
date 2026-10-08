@@ -12,10 +12,11 @@ import Starfield from './Starfield';
 export default function StarfieldLoader() {
   const {pathname} = useLocation();
   const docsPath = useBaseUrl('/docs');
-  const blogPath = useBaseUrl('/blog/');
+  const blogPath = useBaseUrl('/blog');
   const reading = pathname === docsPath
     || pathname.startsWith(`${docsPath}/`)
-    || pathname.startsWith(blogPath);
+    || pathname === blogPath
+    || pathname.startsWith(`${blogPath}/`);
   const [dark, setDark] = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark',
   );

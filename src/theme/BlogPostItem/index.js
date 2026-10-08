@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import {useBlogPost} from '@docusaurus/plugin-content-blog/client';
@@ -7,76 +7,45 @@ import BlogPostItemContainer from '@theme/BlogPostItem/Container';
 import BlogPostItemHeader from '@theme/BlogPostItem/Header';
 import BlogPostItemContent from '@theme/BlogPostItem/Content';
 import BlogPostItemFooter from '@theme/BlogPostItem/Footer';
+import TOCItems from '@theme/TOCItems';
 
-// metadata.source looks like "@site/blog/2025-8-2.md" — pick the filename.
-function sourceToFilename(source) {
-  if (!source) return null;
-  const parts = source.split(/[\\/]/);
-  return parts[parts.length - 1] || null;
+function PostThumbnail({src}) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return <img className="blog-entry__image" src={src} alt="" width="160" height="120"
+    loading="lazy" decoding="async" onError={() => setFailed(true)} />;
 }
 
-// djb2-style hash so thumbnail color stays stable across renders.
-function hashString(input) {
-  let h = 5381;
-  for (let i = 0; i < input.length; i++) {
-    h = ((h << 5) + h + input.charCodeAt(i)) >>> 0;
-  }
-  return h;
-}
-
-// Derive a deterministic gradient thumbnail from the post title so posts
-// without inline images do not all share the same fallback picture.
-function generateTitleThumbnail(title) {
-  const safeTitle = (title || '·').trim();
-  const hash = hashString(safeTitle);
-  const hue = hash % 360;
-  const hue2 = (hue + 48) % 360;
-  const firstChar = Array.from(safeTitle)[0] || '·';
-  const escapeXml = (s) =>
-    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' preserveAspectRatio='xMidYMid slice'>
-<defs>
-<linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
-<stop offset='0%' stop-color='hsl(${hue}, 45%, 48%)'/>
-<stop offset='100%' stop-color='hsl(${hue2}, 55%, 28%)'/>
-</linearGradient>
-<radialGradient id='r' cx='30%' cy='25%' r='65%'>
-<stop offset='0%' stop-color='rgba(255,255,255,0.18)'/>
-<stop offset='100%' stop-color='rgba(255,255,255,0)'/>
-</radialGradient>
-</defs>
-<rect width='400' height='300' fill='url(#g)'/>
-<rect width='400' height='300' fill='url(#r)'/>
-<text x='50%' y='58%' text-anchor='middle' font-family='Georgia, serif' font-size='160' font-weight='700' fill='rgba(255,255,255,0.9)'>${escapeXml(firstChar)}</text>
-</svg>`;
-  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+function excerpt(text) {
+  const chars = Array.from(text.trim().replace(/\s+/g, ' '));
+  if (chars.length <= 120) return chars.join('');
+  const opening = chars.slice(0, 120).join('');
+  const sentenceEnd = Math.max(...['。', '！', '？', '；'].map(mark => opening.lastIndexOf(mark)));
+  if (sentenceEnd >= 50) return opening.slice(0, sentenceEnd + 1);
+  const pause = Math.max(opening.lastIndexOf('，'), opening.lastIndexOf('、'));
+  return `${(pause >= 60 ? opening.slice(0, pause) : opening.replace(/[A-Za-z0-9_-]+$/, '')).trimEnd()}…`;
 }
 
 export default function BlogPostItem({children, className}) {
-  const {isBlogPostPage, assets, frontMatter, metadata} = useBlogPost();
-  const containerClassName = !isBlogPostPage ? 'margin-bottom--xl' : undefined;
-
-  const thumbnailsData = usePluginData('blog-thumbnails') || {};
-  const thumbnailMap = thumbnailsData.thumbnails || {};
-
-  const explicitThumbnail = assets?.image || frontMatter?.image;
-  const filename = sourceToFilename(metadata?.source);
-  const firstImageThumbnail = filename ? thumbnailMap[filename] : undefined;
-
-  const fallbackThumbnail = useMemo(
-    () => generateTitleThumbnail(frontMatter?.title || metadata?.title || filename || ''),
-    [frontMatter?.title, metadata?.title, filename],
-  );
-
-  const thumbnail =
-    explicitThumbnail || firstImageThumbnail || fallbackThumbnail;
-  const thumbnailTitle = frontMatter?.title || metadata?.title || 'Blog thumbnail';
+  const {isBlogPostPage, assets, frontMatter, metadata, toc} = useBlogPost();
+  const {thumbnails = {}, summaries = {}} = usePluginData('blog-thumbnails') || {};
+  const filename = metadata.source?.split(/[\\/]/).pop();
+  const thumbnail = assets?.image || frontMatter.image || thumbnails[filename];
+  const description = metadata.description?.trim();
+  const summary = description && !/^(none|null)$/i.test(description)
+    ? description : summaries[filename] || '';
 
   if (isBlogPostPage) {
     return (
-      <BlogPostItemContainer className={clsx(containerClassName, className)}>
+      <BlogPostItemContainer className={clsx('blog-article', className)}>
         <BlogPostItemHeader />
+        {!frontMatter.hide_table_of_contents && toc.length > 0 && (
+          <details className="blog-article__mobile-toc">
+            <summary>本文目录</summary>
+            <TOCItems toc={toc} minHeadingLevel={frontMatter.toc_min_heading_level}
+              maxHeadingLevel={frontMatter.toc_max_heading_level} />
+          </details>
+        )}
         <BlogPostItemContent>{children}</BlogPostItemContent>
         <BlogPostItemFooter />
       </BlogPostItemContainer>
@@ -84,22 +53,20 @@ export default function BlogPostItem({children, className}) {
   }
 
   return (
-    <BlogPostItemContainer
-      className={clsx(containerClassName, className, 'blog-list-card', {
-        'blog-list-card--with-thumb': Boolean(thumbnail),
-        'blog-list-card--no-thumb': !thumbnail,
-      })}>
-      {thumbnail && (
-        <Link className="blog-list-card__thumb" to={metadata.permalink}>
-          <img src={thumbnail} alt={thumbnailTitle} loading="lazy" decoding="async" />
-        </Link>
-      )}
-
-      <div className="blog-list-card__body">
+    <BlogPostItemContainer className={clsx('blog-entry', className)}>
+      <div className="blog-entry__content">
         <BlogPostItemHeader />
-        <BlogPostItemContent>{children}</BlogPostItemContent>
-        <BlogPostItemFooter />
+        {summary && <p className="blog-entry__summary">{excerpt(summary)}</p>}
+        <footer className="blog-entry__footer">
+          {metadata.tags.length > 0 && <ul className="blog-entry__tags" aria-label="文章标签">
+            {metadata.tags.map(tag => <li key={tag.permalink}><Link to={tag.permalink}>{tag.label}</Link></li>)}
+          </ul>}
+          <Link className="blog-entry__read" to={metadata.permalink} aria-label={`阅读全文：${metadata.title}`}>
+            阅读全文 <span aria-hidden="true">→</span>
+          </Link>
+        </footer>
       </div>
+      {thumbnail && <PostThumbnail key={thumbnail} src={thumbnail} />}
     </BlogPostItemContainer>
   );
 }

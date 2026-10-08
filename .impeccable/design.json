@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T23:10:57.488398+00:00",
+  "generatedAt": "2026-10-08T04:18:21.982128+00:00",
   "title": "Design System: Jacob's wiki",
   "extensions": {
     "colorMeta": {
@@ -473,6 +473,38 @@
       "disclosure-label": {
         "displayName": "disclosure-label",
         "purpose": "技术折叠块摘要。"
+      },
+      "blog-entry-title": {
+        "displayName": "blog-entry-title",
+        "purpose": "博客列表标题。 浅色标题沿用书卷字体，深色使用功能字体。"
+      },
+      "blog-summary": {
+        "displayName": "blog-summary",
+        "purpose": "博客摘要与索引链接。"
+      },
+      "blog-section-title": {
+        "displayName": "blog-section-title",
+        "purpose": "博客正文二级标题。 浅色标题沿用书卷字体，深色使用功能字体。"
+      },
+      "blog-subsection-title": {
+        "displayName": "blog-subsection-title",
+        "purpose": "博客三级标题与手机列表标题。 浅色标题沿用书卷字体，深色使用功能字体。"
+      },
+      "blog-rail-label": {
+        "displayName": "blog-rail-label",
+        "purpose": "桌面文章目录与手机代码。"
+      },
+      "blog-index-title-mobile": {
+        "displayName": "blog-index-title-mobile",
+        "purpose": "手机博客索引标题。 浅色标题沿用书卷字体，深色使用功能字体。"
+      },
+      "blog-article-title-mobile": {
+        "displayName": "blog-article-title-mobile",
+        "purpose": "手机长文章标题。 浅色标题沿用书卷字体，深色使用功能字体。"
+      },
+      "blog-section-title-mobile": {
+        "displayName": "blog-section-title-mobile",
+        "purpose": "手机博客正文二级标题。 浅色标题沿用书卷字体，深色使用功能字体。"
       }
     },
     "shadows": [
@@ -582,9 +614,9 @@
       "name": "博客标签",
       "kind": "chip",
       "refersTo": "blog-tag",
-      "description": "既有博客标签的浅色表现，不扩展旧深色光晕。",
+      "description": "正文末尾标签使用轻边框与主题色，列表中使用普通文字标签。",
       "html": "<a class=\"ds-blog-tag\" href=\"#ds-kubernetes\">Kubernetes</a>",
-      "css": ".ds-blog-tag{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;display:inline-block;border-radius:999px;border:1px solid var(--blog-surface-tag-border,rgba(50,108,112,0.3));color:var(--blog-surface-tag-color,#326c70);padding:0.12rem 0.55rem;margin-right:0.3rem;text-decoration:none;transition:all 0.25s ease;}.ds-blog-tag:hover{background:var(--blog-surface-tag-hover-bg,rgba(50,108,112,0.08));}.ds-blog-tag:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(prefers-reduced-motion:reduce){.ds-blog-tag{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
+      "css": ".ds-blog-tag{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;display:inline-block;border-radius:4px;border:1px solid var(--blog-surface-tag-border,rgba(50,108,112,0.3));color:var(--blog-surface-tag-color,#326c70);padding:0.12rem 0.55rem;margin-right:0.3rem;text-decoration:none;transition:background-color 160ms ease,color 160ms ease;}.ds-blog-tag:hover{background:var(--blog-surface-tag-hover-bg,rgba(50,108,112,0.08));}.ds-blog-tag:focus-visible{outline:2px solid var(--ifm-color-primary,#326c70);outline-offset:2px;}@media(prefers-reduced-motion:reduce){.ds-blog-tag{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}"
     },
     {
       "name": "诗笺与折页 J",
@@ -626,7 +658,8 @@
       "青瓷浅纸与深墨翠绿，共用语义化表面。",
       "折页 J 矢量标记是固定身份标记，诗词是书斋内容。",
       "正文与目录优先可读、可检索，沿用原有技术分类。",
-      "开放的文章行、轻边界控件与清晰键盘焦点。"
+      "开放的文章行、轻边界控件与清晰键盘焦点。",
+      "博客采用开放文章行、文字署名、实色正文、按年归档与主题标签索引。"
     ],
     "rules": [
       {
@@ -646,7 +679,7 @@
       },
       {
         "name": "The Quiet Surface Rule",
-        "body": "首页文章行、目录与文档正文依靠留白、细线和底色建立层次；浮层阴影只说明叠放关系。",
+        "body": "首页与博客文章行、目录和正文依靠留白、细线和底色建立层次；浮层阴影只说明叠放关系。",
         "section": "elevation"
       }
     ],
