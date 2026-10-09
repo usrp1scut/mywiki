@@ -2,8 +2,13 @@
    Design tokens：所有 CSS 变量定义的单一入口
    具体 token 见 src/css/design-tokens.css
    ═══════════════════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import './fonts.css';
 @import './design-tokens.css';
+
+/* 中英文按字形分工；代码关闭连字，保留命令符号的独立形状。 */
+code, pre, kbd {
+  font-variant-ligatures: none;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    全局基础
@@ -551,6 +556,7 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
 
 .navbar__search-input {
   min-width: 14rem;
+  font-family: var(--ifm-font-family-base);
   background-color: var(--surface-reading);
   border: 1px solid var(--surface-border);
   border-radius: 4px;
@@ -571,6 +577,14 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
   display: inline-flex;
   gap: 0.2rem;
   pointer-events: none;
+}
+
+/* autocomplete 用这个隐藏元素测量文字；移到屏外，避免手机收起搜索后撑宽页面。 */
+.navbar__search pre[aria-hidden='true'] {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
 }
 
 .navbar__search kbd[class*='searchHint'] {

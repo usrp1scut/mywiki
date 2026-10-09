@@ -1,0 +1,16 @@
+.form { margin-bottom: 1.25rem; }
+.form label { display: block; margin-bottom: 0.65rem; font-size: 0.9rem; font-weight: 600; }
+.field { display: flex; align-items: center; gap: 0.7rem; padding: 5px 5px 5px 0.9rem; background: var(--surface-reading); border: 1px solid var(--control-border); border-radius: 5px; }
+.field:focus-within { border-color: var(--ifm-color-primary); }
+.field svg { flex-shrink: 0; color: var(--ifm-font-color-secondary); }
+.field input { min-width: 0; width: 100%; padding: 0.4rem 0; border: 0; border-radius: 0; background: transparent; color: var(--ifm-font-color-base); font: inherit; font-size: 1rem; }
+.field input::placeholder { color: var(--ifm-font-color-secondary); opacity: 1; }
+.field input:focus-visible { outline: none; box-shadow: none; }
+.field:has(input:focus-visible) { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
+.field button { flex-shrink: 0; min-height: 44px; padding: 0.5rem 1rem; background: var(--ifm-color-primary); border: 1px solid var(--ifm-color-primary); border-radius: 3px; color: var(--on-primary); font: inherit; font-weight: 600; cursor: pointer; transition: background-color 160ms ease; }
+.field button:hover { background: var(--ifm-color-primary-dark); }
+.form .hint { margin: 0.6rem 0 0; color: var(--ifm-font-color-secondary); font-size: 0.8rem; line-height: 1.65; }
+@media (max-width: 996px) {
+  .field { gap: 0.5rem; }
+  .field svg { display: none; }
+}

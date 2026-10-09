@@ -1,0 +1,20 @@
+.page { width: 100%; max-width: 880px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+.page h1 { margin-bottom: 1.75rem; font-size: 2rem; }
+.status { margin: 1.25rem 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; }
+.result { padding: 1.25rem 0; border-bottom: 1px solid var(--surface-rule); }
+.result h2 { margin: 0; font-family: var(--ifm-font-family-base); font-size: 1.15rem; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }
+.result h2 a { color: var(--ifm-font-color-base); text-decoration-thickness: 1px; }
+.result h2 a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
+.path { margin: 0.35rem 0 0; color: var(--ifm-font-color-secondary); font-size: 0.8rem; overflow-wrap: anywhere; }
+.summary { margin: 0.55rem 0 0; font-size: 1rem; line-height: 1.8; overflow-wrap: anywhere; }
+.result mark { background: var(--surface-selected); color: var(--ifm-font-color-base); font-weight: 600; }
+.retry { min-height: 44px; padding: 0.4rem 0.8rem; border: 1px solid var(--control-border); border-radius: 4px; background: var(--surface-reading); color: var(--ifm-font-color-base); font: inherit; cursor: pointer; }
+.retry:hover { background: var(--surface-selected); }
+.loading { padding-block: 1.25rem; }
+.loading span { display: block; height: 1rem; margin-bottom: 1rem; width: 70%; background: var(--surface-border); border-radius: 2px; }
+.loading span:first-child { width: 45%; }
+.loading span:last-child { width: 60%; }
+@media (max-width: 700px) {
+  .page { padding: 1.75rem 1.25rem 3rem; }
+  .page h1 { font-size: 1.75rem; }
+}

@@ -31,51 +31,6 @@
 }
 
 .noteSearch { margin-top: 2rem; }
-.noteSearch label {
-  display: block;
-  margin-bottom: 0.65rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.searchField {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 5px 5px 5px 0.9rem;
-  background: var(--surface-reading);
-  border: 1px solid var(--control-border);
-  border-radius: 5px;
-}
-.searchField:focus-within { border-color: var(--ifm-color-primary); }
-.searchField svg { flex-shrink: 0; color: var(--ifm-font-color-secondary); }
-.searchField input {
-  min-width: 0;
-  width: 100%;
-  padding: 0.4rem 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--ifm-font-color-base);
-  font: inherit;
-  font-size: 1rem;
-}
-.searchField input::placeholder { color: var(--ifm-font-color-secondary); opacity: 1; }
-.searchField input:focus-visible { outline: none; box-shadow: none; }
-.searchField:has(input:focus-visible) { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
-.searchField button {
-  flex-shrink: 0;
-  min-height: 44px;
-  padding: 0.5rem 1rem;
-  background: var(--ifm-color-primary);
-  border: 1px solid var(--ifm-color-primary);
-  border-radius: 3px;
-  color: var(--on-primary);
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 160ms ease;
-}
-.searchField button:hover { background: var(--ifm-color-primary-dark); }
 .heroActions { display: flex; gap: 1.5rem; margin-top: 1.1rem; font-size: 0.9rem; }
 .heroActions a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 36px; }
 .noteLinks { display: flex; flex-wrap: wrap; gap: 0.1rem 1.1rem; margin-top: 1rem; }
@@ -140,8 +95,6 @@
   .hero { gap: 2rem; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .heroContent h1 { font-size: 2.5rem; }
   .poetryCard { padding: 1.2rem; }
-  .searchField { gap: 0.5rem; }
-  .searchField svg { display: none; }
 }
 @media (max-width: 700px) {
   .page { padding: 1.75rem 1.25rem 3rem; }

@@ -10,8 +10,9 @@
 
 :root {
   /* ── 字体 ──────────────────────────────────────────── */
-  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  /* CSS alias keeps cssnano from discarding the numbered Source Sans 3 family. */
+  --ifm-font-family-base: 'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Noto Sans SC', 'Cascadia Code', monospace;
   --font-literary: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
   --ifm-heading-font-family: var(--font-literary);
   --ifm-font-size-base: 16px;

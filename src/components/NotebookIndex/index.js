@@ -1,14 +1,11 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import Link from '@docusaurus/Link';
 import {useHistory, useLocation} from '@docusaurus/router';
 import Heading from '@theme/Heading';
-import useIsBrowser from '@docusaurus/useIsBrowser';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import SiteSearchForm from '../SiteSearchForm';
 import {useDocsSidebar, useDoc} from '@docusaurus/plugin-content-docs/client';
 import styles from './styles.module.css';
-
-function normalize(text) {
-  return text.toLocaleLowerCase().replace(/k8s/g, 'kubernetes');
-}
 
 // Use the rendered sidebar as the source of truth for order, labels and URLs.
 function collectGroups(items, currentDocId) {
@@ -41,60 +38,29 @@ export default function NotebookIndex() {
   const {metadata} = useDoc();
   const location = useLocation();
   const history = useHistory();
-  const isBrowser = useIsBrowser();
-  // Static HTML and the first client render must agree before reading the URL.
-  const query = isBrowser ? new URLSearchParams(location.search).get('q') ?? '' : '';
-  function setQuery(value) {
-    const params = new URLSearchParams(location.search);
-    if (value) params.set('q', value);
-    else params.delete('q');
-    const search = params.toString();
-    history.replace({...location, search: search ? `?${search}` : '', hash: ''});
-  }
+  const searchUrl = useBaseUrl('/search');
+  // Keep bookmarks made with the old directory filter useful.
+  useEffect(() => {
+    const query = new URLSearchParams(location.search).get('q')?.trim();
+    if (query) history.replace(`${searchUrl}?${new URLSearchParams({q: query})}`);
+  }, [location.search, history, searchUrl]);
   const groups = useMemo(
     () => collectGroups(sidebar?.items ?? [], metadata.id),
     [sidebar, metadata.id],
   );
-  const terms = normalize(query).trim().split(/\s+/).filter(Boolean);
-  const matches = groups.map((group) => ({
-    ...group,
-    docs: group.docs.filter((doc) => {
-      const text = normalize(`${group.name} ${doc.label}`);
-      return terms.every((term) => text.includes(term));
-    }),
-  })).filter((group) => group.docs.length);
-  const count = matches.reduce((sum, group) => sum + group.docs.length, 0);
+  const count = groups.reduce((sum, group) => sum + group.docs.length, 0);
 
   return (
-    <div className={styles.index}>
-      <label className={styles.label} htmlFor="notebook-filter">按标题或分类找笔记</label>
-      <div className={styles.searchRow}>
-        <input
-          id="notebook-filter"
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="例如：端口、权限、k8s 内存"
-          aria-describedby="notebook-filter-help"
-          className={styles.input}
-        />
-        {query && <button type="button" onClick={() => setQuery('')} className={styles.clear}>清空</button>}
-      </div>
-      <p id="notebook-filter-help" className={styles.hint}>
-        这里只筛选目录；查正文里的命令和报错，可以用顶部的站内搜索。
-      </p>
+    <div className={styles.index} data-search-exclude>
+      <SiteSearchForm id="notebook-search" />
       {count > 0 && <nav aria-label="跳到笔记分类" className={styles.jumpLinks}>
-        {matches.map((group) => <a key={group.id} href={`#${group.id}`}>{group.name}<span aria-hidden="true">{group.docs.length}</span></a>)}
+        {groups.map((group) => <a key={group.id} href={`#${group.id}`}>{group.name}<span aria-hidden="true">{group.docs.length}</span></a>)}
       </nav>}
       <p role="status" className={styles.count}>
-        {terms.length ? `找到 ${count} 篇笔记` : `共 ${count} 篇，按侧栏原有分类排列`}
+        共 {count} 篇，按侧栏原有分类排列
       </p>
-      {count === 0 && <div className={styles.empty}>
-        <p>没有匹配的标题，试试更短的关键词。</p>
-        <Link to={`/search?q=${encodeURIComponent(query)}`}>在全文中搜索“{query}” →</Link>
-      </div>}
       <div className={styles.groups}>
-        {matches.map((group) => (
+        {groups.map((group) => (
           <section key={group.id} aria-labelledby={group.id} className={styles.group}>
             <Heading as="h2" id={group.id}>{group.name}<span className={styles.groupCount}>{group.docs.length} 篇</span></Heading>
             <ul>

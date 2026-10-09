@@ -8,6 +8,7 @@ import useGlobalData from '@docusaurus/useGlobalData';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import {Poetry} from './精选诗词表';
+import SiteSearchForm from '@site/src/components/SiteSearchForm';
 
 const quickNav = [
   {label: '知识库', to: '/docs', desc: '运维文档与排障经验'},
@@ -31,7 +32,6 @@ const noteLinks = [
 function Home() {
   const {siteConfig = {}} = useDocusaurusContext();
   const globalData = useGlobalData();
-  const docsUrl = useBaseUrl('/docs/');
   const markUrl = useBaseUrl('/img/wiki-mark.svg');
   const darkMarkUrl = useBaseUrl('/img/wiki-mark-dark.svg');
   const recentBlogData = globalData['recent-blog-posts']?.default;
@@ -77,14 +77,7 @@ function Home() {
             <p className={styles.subtitle}>
               这是我的运维笔记本。为了避免遗忘，便于查阅。
             </p>
-            <form className={styles.noteSearch} action={docsUrl} method="get" role="search" aria-label="按标题查找笔记">
-              <label htmlFor="home-note-query">找一篇笔记</label>
-              <div className={styles.searchField}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
-                <input id="home-note-query" name="q" type="search" placeholder="标题或分类，例如 k8s 内存" />
-                <button type="submit">查笔记</button>
-              </div>
-            </form>
+            <SiteSearchForm id="home-note-query" className={styles.noteSearch} />
             <nav className={styles.noteLinks} aria-label="笔记直达">
               {noteLinks.map(({label, anchor}) => (
                 <Link key={anchor} to={`/docs/#notes-${anchor}`}>{label}</Link>

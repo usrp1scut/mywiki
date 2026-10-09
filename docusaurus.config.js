@@ -34,6 +34,12 @@ module.exports = {
         // For Docs using Chinese, The `language` is recommended to set to:
         // ```
         language: ["en", "zh"],
+        indexDocs: true,
+        indexBlog: true,
+        explicitSearchResultPath: true,
+        searchResultContextMaxLength: 100,
+        highlightSearchTermsOnTargetPage: true,
+        ignoreCssSelectors: ['[data-search-exclude]'],
         // ```
       },
     ],

@@ -1,0 +1,30 @@
+{
+  "source-sans-3": {
+    "version": "5.3.0",
+    "url": "https://registry.npmjs.org/@fontsource-variable/source-sans-3/-/source-sans-3-5.3.0.tgz",
+    "integrity": "sha512-dpi0GZk7EQe2tYpg6Q0Fx0OmUgnuGu+0rHPgtXqtKhglYmJuP7jZ12Mu1uN+NfRaJRY1Emn8AQJEWzmoZ4wa9g==",
+    "files": 14,
+    "bytes": 305976
+  },
+  "noto-sans-sc": {
+    "version": "5.3.0",
+    "url": "https://registry.npmjs.org/@fontsource-variable/noto-sans-sc/-/noto-sans-sc-5.3.0.tgz",
+    "integrity": "sha512-lNar1dF7Ik/lHNPo/7JWG0TolXY29LtsqYgMvEysooZ5bsO9uH4shJmRrwyJ3PjyTPljhpMJEK0jDuLSU4vJ1w==",
+    "files": 101,
+    "bytes": 4516508
+  },
+  "noto-serif-sc": {
+    "version": "5.3.0",
+    "url": "https://registry.npmjs.org/@fontsource-variable/noto-serif-sc/-/noto-serif-sc-5.3.0.tgz",
+    "integrity": "sha512-7LcN2NEf4HDjoSkGWc79WqDDyMK8JvSPdA/gsHjJpZ8l9A9mcK/GQTazp3klmkBwJooy0eqeNvlmaZFXPupHrA==",
+    "files": 101,
+    "bytes": 6027992
+  },
+  "jetbrains-mono": {
+    "version": "5.3.0",
+    "url": "https://registry.npmjs.org/@fontsource-variable/jetbrains-mono/-/jetbrains-mono-5.3.0.tgz",
+    "integrity": "sha512-F32xpS2NsGYoQi2ADSkKTgpJj7ozajsGgDJ8woTnqjmIB+dxDIqImjl4pXZVEExu8UFZ2ndhmX18EBS/hdz3Lw==",
+    "files": 12,
+    "bytes": 178864
+  }
+}

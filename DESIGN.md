@@ -53,20 +53,20 @@ typography:
     fontWeight: 600
     letterSpacing: "0.025em"
   article-title:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+    fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
     fontSize: "1.075rem"
     fontWeight: 600
     lineHeight: 1.65
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+    fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
     fontSize: "16px"
     lineHeight: 1.75
   reading:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+    fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
     fontSize: "1.03rem"
     lineHeight: 1.9
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+    fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
     fontSize: "0.9rem"
     fontWeight: 600
   poem:
@@ -75,10 +75,10 @@ typography:
     lineHeight: 2
     letterSpacing: "0.03em"
   mono:
-    fontFamily: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace"
+    fontFamily: "'JetBrains Mono', 'Noto Sans SC', 'Cascadia Code', monospace"
     fontSize: "0.9em"
   disclosure-label:
-    fontFamily: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace"
+    fontFamily: "'JetBrains Mono', 'Noto Sans SC', 'Cascadia Code', monospace"
     fontSize: "0.88rem"
     fontWeight: 500
     lineHeight: 1.35
@@ -208,9 +208,11 @@ components:
 
 **Display Font:** Noto Serif SC，依次回退到 Songti SC、STSong、SimSun 与 serif。首页题名、诗词、站点标题使用这一书卷字体。
 
-**Body Font:** 平台无衬线字体，带 PingFang SC、Microsoft YaHei、Noto Sans SC 回退；用于正文、目录、输入、按钮及文章行标题。
+**Body Font:** 英文与数字使用 Source Sans 3，中文使用 Noto Sans SC；后接系统字体回退。用于正文、目录、输入、按钮及文章行标题。
 
-**Label/Mono Font:** JetBrains Mono，回退 Fira Code、Cascadia Code 与 monospace；用于代码、快捷键提示和折叠块摘要。
+**Label/Mono Font:** JetBrains Mono，中文回退 Noto Sans SC，其余回退 Cascadia Code 与 monospace；用于代码、快捷键提示和折叠块摘要。
+
+四套字体均以 WOFF2 托管在站内，保留原始许可、可变字重和 unicode-range 字符分片，使用 font-display: swap。字体来源见 `src/fonts/README.md`；命令关闭连字。
 
 **Character:** 宋体提供书卷感，功能文字保持克制。字体角色比装饰性字号差异更重要，中文说明按自然句子书写。
 
@@ -230,7 +232,7 @@ components:
 
 首页是已存在的两列关系：左侧查找与主题入口，右侧诗笺。页面采用完整可用宽度（100%）、包含内边距的盒模型与居中上限（1160px），外侧内边距（3rem 2rem 4rem）。列宽比例（1.2fr / 1fr），间距（3.5rem）；中屏（≤996px）收为比例（1.1fr / 1fr）、间距（2rem）与页边距（2.5rem 1.5rem 3rem）；手机（≤700px）纵向排列，页边距（1.75rem 1.25rem 3rem）。这是首页构图，不是所有页面的模板。
 
-目录索引沿用实际侧栏分类与链接顺序。分类组采用多栏流（2 栏、理想栏宽 20rem、栏距 2.5rem），组内不拆栏；在手机断点改为一栏。搜索结果计数和空状态与目录相邻，不改变分类结构。
+目录索引沿用实际侧栏分类与链接顺序。分类组采用多栏流（2 栏、理想栏宽 20rem、栏距 2.5rem），组内不拆栏；在手机断点改为一栏。目录保留篇数与分类跳转，全文搜索结果集中在 `/search`，不改变分类结构。
 
 文档在阅读纸面上展开，最终样式取消外层文章边框与圆角。桌面文章内边距（1.75rem 2rem）；中窄屏取消多层框边占位，文章内边距为（0.5rem 0）。导航高度（60px）用于目录锚点偏移。宽屏（≥1440px）内容壳最大宽度（1560px），旁栏最大宽度（320px），正文容器最大宽度（1040px）；直接正文段落仍保持独立行长限制。
 
@@ -260,7 +262,7 @@ components:
 
 ### Buttons
 
-查找按钮是最明确的填充操作。使用 `search-button` 与其主题、悬停变体，最小高度（44px），颜色过渡（160ms ease）。清空按钮保持透明底、可见边框与正文色，悬停使用轻底色。诗词切换为轻量文字按钮，边框透明；展开全文沿用次级描边按钮。所有交互保留键盘可见焦点。
+查找按钮是最明确的填充操作。使用 `search-button` 与其主题、悬停变体，最小高度（44px），颜色过渡（160ms ease）。搜索结果页的刷新重试按钮使用实色底、可见边框与正文色。诗词切换为轻量文字按钮，边框透明；展开全文沿用次级描边按钮。所有交互保留键盘可见焦点。
 
 ### Chips
 
@@ -272,9 +274,9 @@ components:
 
 ### Inputs / Fields
 
-首页组合搜索框有图形搜索标记、明文标签与提交按钮，读取标题或分类；在中窄屏隐藏图形标记以让出输入空间。目录筛选使用 `notebook-input`，由 URL 的 q 参数保存内容，旁边按需出现清空按钮。提示文字明确区分目录筛选与顶部全文搜索。
+首页、笔记目录和搜索页复用 `SiteSearchForm`，与顶部建议共用本地全文索引，检索笔记和博客的标题、正文。提交进入 `/search?q=...`，旧 `/docs/?q=...` 链接自动转到同一结果页。组合框有明文标签与提交按钮；在中窄屏隐藏图形标记以让出输入空间。
 
-输入表面实色，占位文字使用次要文字色而不额外降低透明度。全站 caret 使用操作主色。首页输入键盘焦点由组合框描边；目录输入保留全局焦点。现有实现未定义专用错误或禁用样式，不从常规态推测。
+输入表面实色，占位文字使用次要文字色而不额外降低透明度。全站 caret 使用操作主色。输入键盘焦点由组合框描边。结果页展示所属路径、命中片段和高亮；空状态提供目录入口，索引加载失败显示刷新重试，加载时显示静态占位。结果页关闭星空，维持清楚的文字阅读面。
 
 ### Navigation
 
