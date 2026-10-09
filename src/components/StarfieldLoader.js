@@ -6,20 +6,15 @@ import Starfield from './Starfield';
 
 /**
  * Observes the data-theme attribute on <html> and only renders
- * dark-mode-exclusive effects outside reading and search pages.
+ * dark-mode-exclusive effects on explicitly selected non-reading pages.
  * This component must only be rendered on the client (via BrowserOnly).
  */
 export default function StarfieldLoader() {
   const {pathname} = useLocation();
-  const docsPath = useBaseUrl('/docs');
-  const blogPath = useBaseUrl('/blog');
-  const searchPath = useBaseUrl('/search');
-  const reading = pathname === docsPath
-    || pathname.startsWith(`${docsPath}/`)
-    || pathname === blogPath
-    || pathname.startsWith(`${blogPath}/`)
-    || pathname === searchPath
-    || pathname === `${searchPath}/`;
+  const baseUrl = useBaseUrl('/');
+  const localPath = pathname.slice(baseUrl.length).replace(/\/$/, '');
+  // Unknown routes (404) stay quiet, just like documents and search results.
+  const showBackground = ['', 'news', 'mbti', 'sbti'].includes(localPath);
   const [dark, setDark] = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark',
   );
@@ -45,7 +40,7 @@ export default function StarfieldLoader() {
     return () => observer.disconnect();
   }, []);
 
-  if (!dark || reading || reducedMotion) return null;
+  if (!dark || !showBackground || reducedMotion) return null;
   return (
     <>
       <Starfield />

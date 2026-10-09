@@ -31,14 +31,14 @@ import NotebookIndex from '@site/src/components/NotebookIndex';
 
 ## Who am I
 
-- <font color="#d9d919" >CKS Kubernetes 认证安全专家 </font>
-- <font color="#d9d919" >CKA Kubernetes 认证管理员 </font>
-- <font color="#d9d919" >RHCE 红帽认证工程师  </font>
+- CKS Kubernetes 认证安全专家
+- CKA Kubernetes 认证管理员
+- RHCE 红帽认证工程师
 
 <figure>
-<img src="https://xiebo.fun/img/CKS.png" width="280" height="210"/>
-<img src="https://xiebo.fun/img/CKA.png" width="280" height="210"/>
-<img src="https://xiebo.fun/img/RHCE.png" width="280" height="210"/>
+<img alt="CKS 认证证书" loading="lazy" src="https://xiebo.fun/img/CKS.png" width="280" height="210"/>
+<img alt="CKA 认证证书" loading="lazy" src="https://xiebo.fun/img/CKA.png" width="280" height="210"/>
+<img alt="RHCE 认证证书" loading="lazy" src="https://xiebo.fun/img/RHCE.png" width="280" height="210"/>
 </figure>
 
 这是我的运维笔记本

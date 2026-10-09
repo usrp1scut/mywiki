@@ -3,6 +3,7 @@
    具体 token 见 src/css/design-tokens.css
    ═══════════════════════════════════════════════════════════════ */
 @import './fonts.css';
+@import './fonts-home.css';
 @import './design-tokens.css';
 
 /* 中英文按字形分工；代码关闭连字，保留命令符号的独立形状。 */
@@ -144,6 +145,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
   color: var(--bamboo-green);
   transition: color 0.25s;
 }
@@ -546,141 +549,6 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   搜索框
-   ═══════════════════════════════════════════════════════════════ */
-.navbar__search {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.navbar__search-input {
-  min-width: 14rem;
-  font-family: var(--ifm-font-family-base);
-  background-color: var(--surface-reading);
-  border: 1px solid var(--surface-border);
-  border-radius: 4px;
-  padding-left: 2.1rem !important;
-  padding-right: 4.2rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a8a85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.5-3.5'/></svg>");
-  background-repeat: no-repeat;
-  background-position: 0.6rem center;
-  background-size: 1rem 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar__search [class*='searchHintContainer'] {
-  position: absolute;
-  right: 0.45rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  gap: 0.2rem;
-  pointer-events: none;
-}
-
-/* autocomplete 用这个隐藏元素测量文字；移到屏外，避免手机收起搜索后撑宽页面。 */
-.navbar__search pre[aria-hidden='true'] {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-}
-
-.navbar__search kbd[class*='searchHint'] {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.7rem;
-  line-height: 1;
-  padding: 0.18rem 0.38rem;
-  border-radius: 5px;
-  border: 1px solid rgba(60, 60, 55, 0.22);
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--ink-medium);
-  box-shadow: inset 0 -1px 0 rgba(60, 60, 55, 0.12);
-  min-width: auto;
-}
-
-/* 手机收起搜索框时只保留放大镜，展开输入时让出站点标题的位置。 */
-@media (max-width: 576px) {
-  .navbar__search .navbar__search-input {
-    min-width: 0;
-    padding-right: 2rem;
-    font-size: 16px;
-  }
-
-  .navbar__search .navbar__search-input:not(:focus) {
-    width: 2.5rem;
-    padding-right: 0;
-    color: transparent;
-  }
-
-  .navbar__search .navbar__search-input:focus {
-    width: min(16rem, calc(100vw - 5.5rem));
-  }
-
-  .navbar__search .navbar__search-input:not(:focus)::placeholder {
-    color: transparent;
-  }
-
-  .navbar__search [class*='searchHintContainer'] {
-    display: none;
-  }
-
-  .navbar:has(.navbar__search-input:focus) .navbar__brand {
-    visibility: hidden;
-  }
-}
-
-[data-theme='dark'] .navbar__search-input,
-[data-theme='dark'] [class*='searchBar'] input {
-  background-color: var(--surface-code);
-  border: 1px solid var(--surface-border);
-  color: var(--space-text);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ebeb7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.5-3.5'/></svg>");
-}
-
-[data-theme='dark'] .navbar__search-input:focus,
-[data-theme='dark'] [class*='searchBar'] input:focus {
-  border-color: rgba(var(--accent-rgb), 0.5);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.12);
-}
-
-[data-theme='dark'] .navbar__search kbd[class*='searchHint'] {
-  background: rgba(var(--accent-rgb), 0.08);
-  border-color: rgba(var(--accent-rgb), 0.28);
-  color: var(--space-text);
-  box-shadow: inset 0 -1px 0 rgba(var(--accent-rgb), 0.15);
-}
-
-/* 本地搜索浮层必须遮住正文，避免两层文字叠加。 */
-.navbar__search [role='listbox'] {
-  background: var(--surface-reading) !important;
-  border: 1px solid var(--surface-border);
-  border-radius: 4px;
-  backdrop-filter: none;
-}
-
-.navbar__search [role='listbox'] [role='option'][aria-selected='true'] {
-  background-color: var(--search-local-hit-active-background) !important;
-  box-shadow: inset 1px 0 0 var(--ifm-color-primary);
-}
-
-.navbar__search [class*='hitTitle'] {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.navbar__search [class*='hitPath'] {
-  font-size: 0.82rem;
-  line-height: 1.5;
-}
-
-.navbar__search [role='option'] mark {
-  background: transparent !important;
-  font-weight: 600;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    全局键盘焦点可见性 — 让 Tab 用户能看见自己在哪
    ═══════════════════════════════════════════════════════════════ */
 :where(a, button, input, select, textarea, summary, [role='button'], [tabindex]):focus-visible {
@@ -853,80 +721,11 @@ html:not([data-theme='dark']) .button--outline.button--primary:hover {
   box-shadow: none;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   暗色模式 — 搜索结果下拉
-   ═══════════════════════════════════════════════════════════════ */
-[data-theme='dark'] .search-result-match {
+/* 搜索关键词沿用当前主题操作色。 */
+[data-theme='dark'] mark {
   color: var(--ifm-color-primary);
   background: rgba(var(--accent-rgb), 0.12);
-}
-
-[data-theme='dark'] [class*='searchResultsColumn'],
-[data-theme='dark'] .search-results,
-[data-theme='dark'] .DocSearch-Modal,
-[data-theme='dark'] [class*='searchBarContainer'] ul,
-[data-theme='dark'] .aa-Panel {
-  background: var(--space-surface) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border: 1px solid rgba(var(--accent-rgb), 0.24) !important;
-  border-radius: 4px !important;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25) !important;
-}
-
-/* 搜索结果项 */
-[data-theme='dark'] [class*='searchResultItem'],
-[data-theme='dark'] .DocSearch-Hit,
-[data-theme='dark'] .aa-Item {
-  border-bottom: 1px solid rgba(var(--accent-rgb), 0.06) !important;
-  transition: background 0.2s, box-shadow 0.2s !important;
-}
-
-[data-theme='dark'] [class*='searchResultItem']:hover,
-[data-theme='dark'] .DocSearch-Hit:hover,
-[data-theme='dark'] .aa-Item:hover,
-[data-theme='dark'] [class*='searchResultItem'][aria-selected='true'],
-[data-theme='dark'] .DocSearch-Hit[aria-selected='true'] {
-  background: rgba(var(--accent-rgb), 0.06) !important;
-  box-shadow: inset 2px 0 0 rgba(var(--accent-rgb), 0.5) !important;
-}
-
-/* 搜索结果标题 */
-[data-theme='dark'] [class*='searchResultItemHeading'],
-[data-theme='dark'] .DocSearch-Hit-title {
-  color: var(--space-heading) !important;
-}
-
-[data-theme='dark'] [class*='searchResultItemHeading']:hover,
-[data-theme='dark'] .DocSearch-Hit-title:hover {
   text-shadow: none;
-}
-
-/* 搜索结果路径 */
-[data-theme='dark'] [class*='searchResultItemPath'],
-[data-theme='dark'] .DocSearch-Hit-path {
-  color: var(--space-text-muted) !important;
-}
-
-/* 搜索高亮词 */
-[data-theme='dark'] mark,
-[data-theme='dark'] .DocSearch-Hit-title mark {
-  color: var(--ifm-color-primary) !important;
-  background: rgba(var(--accent-rgb), 0.12) !important;
-  text-shadow: none;
-}
-
-/* local search plugin 特有样式 */
-[data-theme='dark'] .search-result-match {
-  padding: 0.6rem 0.85rem;
-}
-
-[data-theme='dark'] [class*='searchBarContainer'] {
-  position: relative;
-}
-
-[data-theme='dark'] [class*='searchBarContainer'] input::placeholder {
-  color: var(--space-text-muted);
 }
 
 /* 长文阅读：保留站点配色，正文使用清楚、稳定的排版。 */
@@ -1049,5 +848,11 @@ a { text-underline-offset: 0.2em; }
   html.docs-wrapper.plugin-docs.docs-doc-page main article { padding: 0.5rem 0; }
   html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown { font-size: 1rem; }
   html.docs-doc-page .theme-doc-markdown h1 { font-size: 1.75rem; }
-  .navbar__toggle { min-width: 44px; min-height: 44px; }
+  .navbar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
 }

@@ -71,7 +71,7 @@ module.exports = {
         plain: {color: '#30433e', backgroundColor: 'var(--surface-code)'},
         styles: [
           ...prismThemes.github.styles,
-          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#61786f', fontStyle: 'normal'}},
+          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#526c61', fontStyle: 'normal'}},
           {types: ['string', 'attr-value'], style: {color: '#806247'}},
           {types: ['number', 'boolean', 'variable', 'constant', 'property', 'symbol', 'regex', 'inserted'], style: {color: '#326c70'}},
           {types: ['keyword', 'atrule', 'attr-name', 'selector'], style: {color: '#326c70'}},
@@ -161,6 +161,7 @@ module.exports = {
     },
   }, 
   plugins: [
+    require.resolve('./plugins/font-assets'),
     require.resolve('./plugins/unicode-ssr'),
     require.resolve('./plugins/recent-blog-posts'),
     require.resolve('./plugins/blog-thumbnails'),

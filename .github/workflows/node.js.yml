@@ -23,6 +23,7 @@ jobs:
     - name: Install dependencies
       run: yarn
     # - run: yarn add @node-rs/jieba-linux-x64-musl
+    - run: yarn test:search
     - run: yarn build
     - run: sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
     - run: |
