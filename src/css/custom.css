@@ -834,8 +834,8 @@ html.docs-doc-page body { background: var(--surface-reading); }
 html.docs-doc-page body::before { background: var(--surface-reading); }
 html.docs-doc-page .main-wrapper { background: var(--surface-reading); }
 html.docs-wrapper.plugin-docs.docs-doc-page main article { border: 0; border-radius: 0; }
+/* 行长由阅读容器统一控制，避免中文段落在标题和代码块之前提前折行。 */
 html.docs-doc-page .theme-doc-markdown { margin-inline: auto; }
-html.docs-doc-page .theme-doc-markdown > p { max-width: 70ch; }
 html.docs-doc-page .theme-doc-markdown h1 { margin-bottom: 1.5rem; text-wrap: balance; }
 html.docs-doc-page .theme-doc-breadcrumbs { margin-bottom: 1.5rem; }
 html.docs-doc-page .theme-doc-sidebar-menu .menu__link { line-height: 1.5; padding-block: 0.55rem; font-size: 0.9rem; }
