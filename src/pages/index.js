@@ -47,6 +47,7 @@ function Home() {
 
   const [poetryIndex, setPoetryIndex] = useState(0);
   const [poetryExpanded, setPoetryExpanded] = useState(false);
+  const [poetryTurn, setPoetryTurn] = useState(0);
 
   useEffect(() => {
     if (Poetry.length === 0) return;
@@ -58,6 +59,7 @@ function Home() {
 
   const switchPoetry = () => {
     setPoetryExpanded(false);
+    setPoetryTurn((turn) => turn + 1);
     setPoetryIndex((current) => {
       if (Poetry.length <= 1) return current;
       let next = current;
@@ -94,14 +96,17 @@ function Home() {
               <h2 className={styles.hanTitle}>今日诗词</h2>
               <button
                 type="button"
-                className={clsx('button button--sm button--outline button--primary', styles.switchButton)}
+                className={styles.switchButton}
                 onClick={switchPoetry}
                 aria-label="随机切换一首诗词">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" style={{transform: `rotate(${poetryTurn * 180}deg)`}}>
+                  <path d="M20 8a8 8 0 0 0-14-2L3 9m0-6v6h6M4 16a8 8 0 0 0 14 2l3-3m0 6v-6h-6" />
+                </svg>
                 换一首
               </button>
             </div>
             {poetry && (
-              <div className={styles.poetryBody}>
+              <div key={poetryTurn} className={clsx(styles.poetryBody, poetryTurn > 0 && styles.poetryTurning)}>
                 <h3 className={styles.poetryTitle}>{poetry.title}</h3>
                 <div
                   id="daily-poetry-content"
@@ -129,10 +134,11 @@ function Home() {
                 )}
                 <div className={styles.poetryFooter}>
                   <p className={styles.author}>{poetry.author}</p>
-                  <ThemedImage className={styles.brandMark} sources={{light: markUrl, dark: darkMarkUrl}} width="30" height="30" alt="" />
+                  <ThemedImage className={styles.brandMark} sources={{light: markUrl, dark: darkMarkUrl}} width="42" height="42" alt="" />
                 </div>
               </div>
             )}
+            <span className={styles.poetryStatus} role="status">{poetryTurn > 0 && `已切换为《${poetry?.title}》`}</span>
           </aside>
         </header>
 

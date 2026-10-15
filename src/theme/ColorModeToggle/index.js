@@ -1,4 +1,5 @@
-import React, {useState, useCallback, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
+import {flushSync} from 'react-dom';
 import clsx from 'clsx';
 import {useColorMode} from '@docusaurus/theme-common';
 import styles from './styles.module.css';
@@ -8,10 +9,10 @@ import styles from './styles.module.css';
  * 亮色模式：黑鱼在右（阳中有阴）
  * 暗色模式：反转色
  */
-function TaijiIcon({className, spinning}) {
+function TaijiIcon({className}) {
   return (
     <svg
-      className={clsx(className, spinning && styles.spin)}
+      className={className}
       viewBox="0 0 100 100"
       width="24"
       height="24"
@@ -34,27 +35,48 @@ function TaijiIcon({className, spinning}) {
 export default function ColorModeToggleWrapper({className, ...props}) {
   const {colorMode, setColorMode} = useColorMode();
   const isDarkMode = colorMode === 'dark';
-  const [spinning, setSpinning] = useState(false);
-  const timerRef = useRef(null);
+  const transitionRef = useRef(null);
 
-  const handleClick = useCallback(() => {
-    setSpinning(true);
-    // 清除上次定时器
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setColorMode(isDarkMode ? 'light' : 'dark');
-      setSpinning(false);
-    }, 400);
-  }, [isDarkMode, setColorMode]);
+  useEffect(() => () => transitionRef.current?.skipTransition(), []);
+
+  const handleClick = (event) => {
+    const nextMode = isDarkMode ? 'light' : 'dark';
+    transitionRef.current?.skipTransition();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition || reduceMotion) {
+      setColorMode(nextMode);
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.x + rect.width / 2;
+    const y = rect.y + rect.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setColorMode(nextMode));
+    });
+    transitionRef.current = transition;
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`]},
+        {duration: 480, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', pseudoElement: '::view-transition-new(root)'},
+      );
+    }).catch(() => {}); // A second toggle can intentionally skip the current transition.
+    transition.finished.catch(() => {}).finally(() => {
+      if (transitionRef.current === transition) transitionRef.current = null;
+    });
+  };
 
   return (
     <button
       className={clsx('clean-btn', styles.toggle, className)}
       type="button"
       title={isDarkMode ? '切换到亮色模式' : '切换到暗色模式'}
+      aria-label={isDarkMode ? '切换到亮色模式' : '切换到暗色模式'}
+      data-dark={isDarkMode}
       onClick={handleClick}
       {...props}>
-      <TaijiIcon className={styles.icon} spinning={spinning} />
+      <TaijiIcon className={styles.icon} />
     </button>
   );
 }

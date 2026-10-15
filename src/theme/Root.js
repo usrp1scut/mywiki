@@ -12,7 +12,8 @@ export default function Root({children}) {
         {() => {
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const StarfieldLoader = require('../components/StarfieldLoader').default;
-          return <StarfieldLoader />;
+          const ReadingProgress = require('../components/ReadingProgress').default;
+          return <><StarfieldLoader /><ReadingProgress /></>;
         }}
       </BrowserOnly>
       {children}

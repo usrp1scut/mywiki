@@ -1,43 +1,51 @@
 ---
 name: "Jacob's wiki"
-description: "青瓷与翠绿之间，以折页 J 为记的个人运维书斋。"
+description: "纸白与墨色的个人运维书斋，暗色以炭灰和冷蓝定位，以折页 J 为记。"
 colors:
   primary: "#326c70"
   primary-dark: "#2b5e61"
   primary-light: "#3b7d81"
-  ink-deep: "#243c33"
-  ink-medium: "#30413b"
-  ink-light: "#596f65"
-  surface-page: "#f3f5f0"
-  surface-reading: "#fafbf7"
-  surface-sidebar: "#e9eee7"
-  surface-code: "#edf1e9"
-  surface-selected: "#dcece5"
-  surface-border: "#d1dbd1"
-  surface-rule: "#dce3d9"
-  control-border: "#8b9e92"
+  ink-deep: "#171717"
+  ink-medium: "#242424"
+  ink-light: "#595959"
+  surface-page: "#f5f5f5"
+  surface-reading: "#fcfcfc"
+  surface-sidebar: "#f0f0f0"
+  surface-code: "#f2f2f2"
+  surface-selected: "#e9e9e9"
+  surface-border: "#cccccc"
+  surface-rule: "#dedede"
+  control-border: "#858585"
   on-primary: "#ffffff"
-  dark-primary: "#85cfb6"
-  dark-primary-dark: "#72bea4"
-  dark-primary-light: "#9cdbc6"
-  dark-surface-page: "#101d21"
-  dark-surface-nav: "#122328"
-  dark-surface-reading: "#172b30"
-  dark-surface-code: "#102126"
-  dark-surface-selected: "#28483f"
-  dark-surface-border: "#30464a"
-  dark-surface-rule: "#2a3e42"
-  dark-control-border: "#617d74"
-  dark-text: "#dce6e2"
-  dark-heading: "#f1f5f2"
-  dark-muted: "#a4bab1"
-  dark-on-primary: "#09221c"
+  action-fill: "#303030"
+  action-fill-hover: "#171717"
+  dark-primary: "#96b9e5"
+  dark-primary-dark: "#80a7d8"
+  dark-primary-light: "#afcbef"
+  dark-surface-page: "#141414"
+  dark-surface-nav: "#1b1b1b"
+  dark-surface-reading: "#202020"
+  dark-surface-code: "#161616"
+  dark-surface-selected: "#303030"
+  dark-surface-border: "#454545"
+  dark-surface-rule: "#383838"
+  dark-control-border: "#808080"
+  dark-text: "#e6e6e6"
+  dark-heading: "#f5f5f5"
+  dark-muted: "#b5b5b5"
+  dark-on-primary: "#141414"
+  mark-ink: "#326c70"
+  dark-mark-ink: "#96b9e5"
   mark-fold: "#7caba5"
-  dark-mark-fold: "#c0e8da"
+  dark-mark-fold: "#d9e7f8"
+  poetry-header: "#292929"
+  poetry-fold: "#858585"
+  dark-poetry-header: "#151515"
+  dark-poetry-fold: "#686868"
 typography:
   display:
     fontFamily: "'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif"
-    fontSize: "3rem"
+    fontSize: "clamp(2.5rem, 4vw, 3.5rem)"
     fontWeight: 600
     lineHeight: 1.2
     letterSpacing: "-0.025em"
@@ -63,7 +71,7 @@ typography:
     lineHeight: 1.75
   reading:
     fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
-    fontSize: "1.03rem"
+    fontSize: "1.0625rem"
     lineHeight: 1.9
   label:
     fontFamily: "'SourceSans3', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif"
@@ -113,17 +121,17 @@ spacing:
   section-gap: "3.5rem"
 components:
   search-button:
-    backgroundColor: "{colors.primary}"
+    backgroundColor: "{colors.action-fill}"
     textColor: "{colors.on-primary}"
     rounded: "{rounded.compact}"
     padding: "0.5rem 1rem"
   search-button-hover:
-    backgroundColor: "{colors.primary-dark}"
+    backgroundColor: "{colors.action-fill-hover}"
   search-button-dark:
     backgroundColor: "{colors.dark-primary}"
     textColor: "{colors.dark-on-primary}"
   search-button-dark-hover:
-    backgroundColor: "{colors.dark-primary-dark}"
+    backgroundColor: "{colors.dark-primary-light}"
   clear-button:
     backgroundColor: "transparent"
     textColor: "{colors.ink-medium}"
@@ -167,12 +175,12 @@ components:
 
 **Creative North Star: "折页 J · 中式个人书斋"**
 
-这是一间供自己查找、重读运维笔记的个人书斋。浅色如青瓷纸面，文字带墨绿；深色落在深墨底上，用柔和翠绿标记可操作内容。折页 J承担识别，诗词保留书卷气，技术内容保持清楚、稳定、可扫描。
+这是一间供自己查找、重读运维笔记的个人书斋。浅色使用中性纸白、深灰正文和墨色诗笺书口，深色使用炭灰与浅灰正文，以冷蓝标记操作和当前位置；青瓷只保留在折页 J 与浅色少量链接、焦点上。折页 J 承担识别，诗词保留书卷气，技术内容保持清楚、稳定、可扫描。
 
 本次系统记录的是现有网站的渐进整理。宋体用于站点题名、诗词和浅色阅读页的重要标题，无衬线体承载正文与控件。空间主要由留白、细线与实色表面划分；不把每条内容包进卡片，也不以模糊玻璃、发光文字或营销式眉题建立层次。
 
 **Key Characteristics:**
-- 青瓷浅纸与深墨翠绿，共用语义化表面。
+- 中性纸白、墨色与炭灰表面；浅色少量青瓷链接，暗色冷蓝交互强调。
 - 折页 J 矢量标记是固定身份标记，诗词是书斋内容。
 - 正文与目录优先可读、可检索，沿用原有技术分类。
 - 开放的文章行、轻边界控件与清晰键盘焦点。
@@ -181,26 +189,28 @@ components:
 
 ## Colors
 
-青瓷色表面和墨绿色文字构成浅色阅读环境；深色模式保持同一语义关系，以深墨、灰绿正文与翠绿操作色减轻刺激。
+浅色使用中性纸白（#fcfcfc）、深灰正文（#242424）、浅灰侧栏与代码底色；深色使用炭灰阅读底（#202020）与浅灰正文（#e6e6e6）。诗笺书口、折角、分割线、滚动条和选中背景都使用中性色，避免零散色块共同形成偏绿印象。浅色 Logo 与少量链接使用青瓷，暗色 Logo 与操作使用冷蓝。
 
 ### Primary
 
-- **青瓷深青 / primary：** 链接、查找按钮、输入焦点与选中指示。悬停和焦点使用相邻的深浅色；不用于大面积无意义填充。
-- **柔翠 / dark-primary：** 深色模式对应的操作色。填充按钮使用独立深色字色 `dark-on-primary`，保持可读性。
+- **青瓷深青 / primary：** 浅色的小面积链接与输入焦点；填充操作另用墨色 `action-fill`，不沿用链接色铺背景。
+- **冷蓝 / dark-primary：** 深色的链接、焦点、定位细线与操作色；选中行保持中性灰底、浅灰字。填充按钮使用独立深色字色 `dark-on-primary`，保持可读性。
 
 ### Secondary
 
-- **折页 J：** 标记主体沿用 `primary` / `dark-primary`；折角分别使用 `mark-fold` / `dark-mark-fold`。浅色墨青、深色柔翠，几何形状一致。
+- **折页 J：** 标记主体独立使用 `mark-ink` / `dark-mark-ink`；折角分别使用 `mark-fold` / `dark-mark-fold`。浅色墨青，深色冷蓝与冰蓝折角，几何形状一致。暗色主体与交互强调同色，不向阅读底色或诗笺折角扩散。导航、首页落款和 favicon 的暗色版本同步使用这组颜色；favicon 跟随系统明暗偏好。
 
 ### Neutral
 
 - **纸面：** `surface-page` 为首页底色，`surface-reading` 为阅读与诗笺表面，导航也使用这一浅纸色；`surface-sidebar` 划分侧栏，`surface-code` 同时供代码区和轻层次表面使用。
 - **墨色：** `ink-deep` 强调题名，`ink-medium` 承载正文，`ink-light` 承载说明与元信息。浅色正文映射到 `ink-medium`。
 - **界线与状态：** `surface-border` 分隔容器，`surface-rule` 分隔内容行，`control-border` 让可输入区域有更清楚的轮廓，`surface-selected` 表示选中与文本选择。
-- **深墨纸面：** 深色的 page、nav、reading、code 分别有独立底色；sidebar 与 nav 共用底色，raised 与 code 共用底色。正文、标题、次要信息分别使用 `dark-text`、`dark-heading`、`dark-muted`。
-- **低强度悬停：** 代码使用当前主题的 accent RGB 与透明度组合生成悬停、边线和焦点状态。这些是叠加状态，不是可替代实色阅读区的背景。
+- **深墨纸面：** 深色的 page、nav、reading、code 分别有独立底色；sidebar 比 nav 略深，raised 比 reading 略亮，代码使用更深的独立底色。正文、标题、次要信息分别使用 `dark-text`、`dark-heading`、`dark-muted`。
+- **低强度悬停：** 普通行与控件使用当前主题的中性 `surface-hover`；accent RGB 只用于小面积焦点、关键词高亮等状态，不用于长边线或整片阅读背景。
 
 **The Paper Rule.** 承载文字的阅读区、导航和搜索浮层使用不透明表面；背景效果不得穿过文字区域。
+
+**The Neutral Reading Rule.** 阅读底色、正文、目录文字、边线、选中背景、滚动条及代码普通文本使用中性色。不能只检查正文底色，还需检查书口、按钮、选中条和长分割线的累计色彩面积。青绿收缩到浅色 Logo 与少量链接；暗色 Logo 和操作统一用冷蓝，语法色承担代码分类。先验收静态阅读的舒适度，再验收动效；对比度达标不能替代实际视觉判断。
 
 **The Mark Rule.** 折页 J 以两个实色形状构成：斜切上横、分离折角与粗细变化的回钩形成签名感；不增加外框、纹理或图案，随主题切换配色。
 
@@ -270,7 +280,7 @@ components:
 
 ### Cards / Containers
 
-诗笺是有边界的独立阅读面，使用 `poetry-card`，无阴影；标题与换诗操作同排，正文居中，作者与折页 J落在底部。长诗可收起为五行并展开，保留真实诗文。首页和博客文章列表使用开放行；博客正文与页面共享阅读底色，不增加外层卡片。
+诗笺是有边界的独立阅读面，使用 `poetry-card`，无阴影；墨色书口承载标题与换诗操作，灰色右上折角呼应折页 J 的形状，正文居中，作者与放大的折页 J 落在底部。长诗可收起为五行并展开，保留真实诗文。首页和博客文章列表使用开放行；博客正文与页面共享阅读底色，不增加外层卡片。
 
 ### Inputs / Fields
 
@@ -304,9 +314,9 @@ components:
 
 ### Disclosures / Technical Content
 
-折叠块使用实色阅读底、轻边框与等宽摘要，打开时摘要底色转为选中色；CSS 绘制的折角指示展开状态。技术表格以表头底色和细横线建立层次，代码保持等宽字体与独立底色。Prism 的语法色由现有配置管理，不把某类语法颜色升级为界面操作色。
+折叠块使用实色阅读底、轻边框与等宽摘要，打开时摘要底色转为选中色；CSS 绘制的折角指示展开状态。技术表格以表头底色和细横线建立层次，代码保持等宽字体与独立底色。Prism 在明暗模式共用语义化 `syntax-*` 变量，避免主题切换时背景与文字颜色不同步。关键字、函数、字符串与数字分色，普通文本、变量、标点与注释保持中性且清晰，不把语法颜色升级为界面操作色。
 
-常规交互使用短颜色过渡。系统检测减少动态偏好时，将动画与过渡时长收至（0.01ms），停止持续循环，并取消平滑滚动。
+首页以诗笺展开（700ms）、折角落定（850ms）及换诗翻页（420ms）作为主要动效，正文不做入场动画。太极按钮即时切换，支持 View Transitions 的浏览器从按钮位置展开新主题（480ms），不支持时直接切换。导航下划线、快捷入口和箭头在交互时反馈；阅读页顶部 2px 进度线表示文章位置，锚点落点短暂着色。所有监听与动画在卸载时清理，星空在页面隐藏时暂停。系统检测减少动态偏好时取消翻页、折角与主题扩散，并保留直接的颜色、选中及进度反馈。
 
 ## Do's and Don'ts
 

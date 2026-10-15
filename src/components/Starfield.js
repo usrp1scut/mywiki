@@ -65,6 +65,7 @@ export default function Starfield() {
 
     /* ---- draw loop ---- */
     const draw = () => {
+      if (document.hidden) return;
       ctx.clearRect(0, 0, W, H);
 
       /* nebula */
@@ -133,10 +134,16 @@ export default function Starfield() {
       raf = requestAnimationFrame(draw);
     };
 
-    raf = requestAnimationFrame(draw);
+    const resume = () => {
+      cancelAnimationFrame(raf);
+      if (!document.hidden) raf = requestAnimationFrame(draw);
+    };
+    document.addEventListener('visibilitychange', resume);
+    resume();
 
     return () => {
       cancelAnimationFrame(raf);
+      document.removeEventListener('visibilitychange', resume);
       window.removeEventListener('resize', resize);
     };
   }, []);

@@ -18,10 +18,19 @@
 .heroContent h1 {
   margin: 0;
   font-family: var(--font-literary);
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.2;
+}
+.heroContent h1::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 5px;
+  margin-top: 1.35rem;
+  background: var(--ifm-heading-color);
+  clip-path: polygon(0 30%, 100% 0, 93% 100%, 0 100%);
 }
 
 .subtitle {
@@ -33,19 +42,49 @@
 .noteSearch { margin-top: 2rem; }
 .heroActions { display: flex; gap: 1.5rem; margin-top: 1.1rem; font-size: 0.9rem; }
 .heroActions a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 36px; }
+.heroActions a span { transition: transform 220ms var(--motion-ease); }
+.heroActions a:is(:hover, :focus-visible) span { transform: translateX(4px); }
 .noteLinks { display: flex; flex-wrap: wrap; gap: 0.1rem 1.1rem; margin-top: 1rem; }
 .noteLinks a { color: var(--ifm-font-color-secondary); padding-block: 0.3rem; font-size: 0.875rem; }
 .noteLinks a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
 
 /* 诗词保留独立纸面；所有文字区域均为清晰的实色。 */
 .poetryCard {
+  position: relative;
   min-width: 0;
-  padding: 1.4rem 1.7rem;
+  padding: 0 1.7rem 1.5rem;
   background: var(--surface-reading);
   border: 1px solid var(--surface-border);
-  border-radius: 4px;
+  border-radius: 4px 0 4px 4px;
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);
+  perspective: 1000px;
+  transform-origin: left center;
 }
-.poetryHeader { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.poetryCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--poetry-fold);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  transform-origin: left bottom;
+  transition: transform 400ms var(--motion-ease);
+  pointer-events: none;
+}
+.poetryCard:focus-within::after, .poetryCard:hover::after { transform: rotateY(-30deg); }
+.poetryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: -1.7rem;
+  padding: 1rem 2.4rem 1rem 1.7rem;
+  background: var(--poetry-header);
+  color: var(--poetry-header-ink);
+}
+.poetryHeader .hanTitle { color: inherit; }
 .hanTitle {
   margin: 0;
   font-family: var(--font-literary);
@@ -54,13 +93,36 @@
   letter-spacing: 0.025em;
 }
 .switchButton {
-  min-height: 36px;
-  padding: 0.3rem 0.65rem;
-  border-color: transparent !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.875rem;
   white-space: nowrap;
-  font-weight: 400;
+  cursor: pointer;
+  transition: border-color 180ms;
 }
-.poetryBody { text-align: center; padding-top: 1.7rem; }
+.switchButton:hover { border-color: currentColor; }
+.switchButton:focus-visible { outline-color: var(--poetry-header-ink); }
+.switchButton svg { transition: transform 480ms var(--motion-ease); }
+.poetryBody { text-align: center; padding-top: 1.8rem; transform-origin: left center; }
+.poetryStatus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 .poetryCard .poetryTitle {
   margin: 0 0 1.1rem;
   font-family: var(--font-literary);
@@ -72,20 +134,23 @@
 .poetryLine { display: block; color: var(--ifm-font-color-base); font-size: 1.05rem; line-height: 2; letter-spacing: 0.03em; overflow-wrap: anywhere; }
 .contentCollapsed .poetryLines { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
 .expandButton { margin-top: 0.9rem; min-height: 36px; }
-.poetryFooter { display: flex; align-items: center; justify-content: flex-end; gap: 0.8rem; margin-top: 1.5rem; }
+.poetryFooter { display: flex; align-items: center; justify-content: flex-end; gap: 0.8rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--surface-rule); }
 .author { margin: 0; font-family: var(--font-literary); font-size: 0.85rem; color: var(--ifm-font-color-secondary); }
-.brandMark { display: block; flex-shrink: 0; }
+.brandMark { display: block; flex-shrink: 0; transform: rotate(-6deg); }
 
 .section { margin-top: 3.5rem; }
-.sectionTitle { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+.sectionTitle { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--surface-border); }
 .inlineLink { display: inline-flex; align-items: center; min-height: 36px; font-size: 0.9rem; }
-.recentPost { padding-block: 1.3rem; border-bottom: 1px solid var(--surface-rule); }
+.recentPost { padding-block: 1.3rem; border-bottom: 1px solid var(--surface-rule); transition: border-color 180ms; }
+.recentPost:focus-within, .recentPost:hover { border-color: var(--control-border); }
 .recentPost h3 { margin: 0 0 0.65rem; font-family: var(--ifm-font-family-base); font-size: 1.075rem; font-weight: 600; line-height: 1.65; }
 .recentPost h3 a { color: var(--ifm-font-color-base); text-decoration-thickness: 1px; }
 .recentPost h3 a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
 .recentPost p { margin: 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; line-height: 1.8; max-width: 78ch; }
 .quickNav { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 1.3rem; }
-.quickNavItem { flex: 1 1 150px; display: flex; flex-direction: column; gap: 0.25rem; padding-block: 0.25rem; text-decoration: none; }
+.quickNavItem { position: relative; flex: 1 1 150px; display: flex; flex-direction: column; gap: 0.25rem; padding-block: 0.75rem; border-bottom: 1px solid var(--surface-border); text-decoration: none; }
+.quickNavItem::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--ifm-color-primary); transform: scaleX(0); transform-origin: left; transition: transform 240ms var(--motion-ease); }
+.quickNavItem:is(:hover, :focus-visible)::after { transform: scaleX(1); }
 .quickNavLabel { color: var(--ifm-font-color-base); font-size: 0.95rem; font-weight: 600; }
 .quickNavDesc { color: var(--ifm-font-color-secondary); font-size: 0.8rem; line-height: 1.5; }
 .quickNavItem:hover .quickNavLabel { color: var(--ifm-color-primary); text-decoration: underline; }
@@ -94,7 +159,8 @@
   .page { padding: 2.5rem 1.5rem 3rem; }
   .hero { gap: 2rem; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .heroContent h1 { font-size: 2.5rem; }
-  .poetryCard { padding: 1.2rem; }
+  .poetryCard { padding: 0 1.2rem 1.2rem; }
+  .poetryHeader { margin-inline: -1.2rem; padding-left: 1.2rem; }
 }
 @media (max-width: 700px) {
   .page { padding: 1.75rem 1.25rem 3rem; }
@@ -106,10 +172,32 @@
   .heroActions a, .noteLinks a { min-height: 44px; align-content: center; }
   .noteLinks { gap: 0 1.15rem; margin-top: 0.6rem; }
   .heroActions { margin-top: 0.5rem; }
-  .poetryCard { padding: 1rem 1.1rem; }
+  .poetryCard { padding: 0 1.1rem 1.1rem; }
+  .poetryHeader { margin-inline: -1.1rem; padding: 0.7rem 2rem 0.7rem 1.1rem; }
   .poetryLine { font-size: 1rem; }
   .switchButton, .expandButton { min-height: 44px; }
   .section { margin-top: 2.5rem; }
   .quickNav { gap: 1rem; }
   .quickNavItem { flex-basis: calc(50% - 1rem); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .poetryCard { animation: openNotebook 700ms var(--motion-ease) both; }
+  .poetryCard::after { animation: settleFold 850ms var(--motion-ease); }
+  .poetryTurning { animation: turnPoem 420ms var(--motion-ease); }
+}
+@keyframes openNotebook {
+  from { transform: perspective(1000px) rotateY(-8deg); }
+  to { transform: perspective(1000px) rotateY(0); }
+}
+@keyframes settleFold {
+  from { transform: rotateY(-100deg); }
+  to { transform: rotateY(0); }
+}
+@keyframes turnPoem {
+  from { transform: rotateY(-12deg); opacity: 0.35; clip-path: inset(0 30% 0 0); }
+  to { transform: rotateY(0); opacity: 1; clip-path: inset(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poetryCard::after, .heroActions a span { transform: none !important; }
 }

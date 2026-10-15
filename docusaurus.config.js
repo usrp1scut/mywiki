@@ -1,6 +1,21 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-const math = require('remark-math');
-const katex = require('rehype-katex');
+import math from 'remark-math';
+import katex from 'rehype-katex';
+
+// Both modes use semantic tokens, so syntax colors follow the surface immediately.
+const readingPrismTheme = {
+  plain: {color: 'var(--syntax-text)', backgroundColor: 'var(--surface-code)'},
+  styles: [
+    {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: 'var(--syntax-comment)', fontStyle: 'normal'}},
+    {types: ['punctuation', 'operator'], style: {color: 'var(--syntax-punctuation)'}},
+    {types: ['keyword', 'atrule', 'attr-name', 'selector', 'tag'], style: {color: 'var(--syntax-keyword)'}},
+    {types: ['function', 'class-name', 'builtin', 'deleted'], style: {color: 'var(--syntax-function)'}},
+    {types: ['string', 'char', 'attr-value', 'regex', 'inserted'], style: {color: 'var(--syntax-string)'}},
+    {types: ['number', 'boolean', 'constant', 'symbol'], style: {color: 'var(--syntax-number)'}},
+    {types: ['variable', 'property', 'parameter'], style: {color: 'var(--syntax-variable)'}},
+    {types: ['important', 'bold'], style: {fontWeight: 'bold'}},
+    {types: ['italic'], style: {fontStyle: 'italic'}},
+  ],
+};
 
 module.exports = {
   title: "Jacob's wiki",
@@ -68,28 +83,8 @@ module.exports = {
     },
     
     prism: {
-      theme: {
-        ...prismThemes.github,
-        plain: {color: '#30433e', backgroundColor: 'var(--surface-code)'},
-        styles: [
-          ...prismThemes.github.styles,
-          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#526c61', fontStyle: 'normal'}},
-          {types: ['string', 'attr-value'], style: {color: '#806247'}},
-          {types: ['number', 'boolean', 'variable', 'constant', 'property', 'symbol', 'regex', 'inserted'], style: {color: '#326c70'}},
-          {types: ['keyword', 'atrule', 'attr-name', 'selector'], style: {color: '#326c70'}},
-        ],
-      },
-      darkTheme: {
-        ...prismThemes.vsDark,
-        plain: {color: '#d0e7e1', backgroundColor: 'var(--surface-code)'},
-        styles: [
-          ...prismThemes.vsDark.styles,
-          {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#9ebeb7'}},
-          {types: ['constant', 'string', 'attr-value'], style: {color: '#d8c28c'}},
-          {types: ['variable', 'attr-name'], style: {color: '#b3dfd3'}},
-          {types: ['keyword', 'builtin', 'changed'], style: {color: '#71deb7'}},
-        ],
-      },
+      theme: readingPrismTheme,
+      darkTheme: readingPrismTheme,
       defaultLanguage: "bash",
       additionalLanguages: ['git','nginx','python','sql','yaml','go','powershell','batch','bash'],
     },

@@ -17,10 +17,16 @@
   --ifm-heading-font-family: var(--font-literary);
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.75;
-  --ifm-font-color-base: #30413b;
-  --ifm-font-color-secondary: #596f65;
+  --ifm-font-color-base: #242424;
+  --ifm-font-color-secondary: #595959;
+  --ifm-heading-color: #171717;
+  --ifm-menu-color: #454545;
+  --ifm-menu-color-active: var(--ifm-heading-color);
+  --ifm-toc-link-color: #595959;
+  --ifm-color-emphasis-600: #595959;
+  --ifm-color-emphasis-700: #454545;
 
-  /* ── 主色盘（亮色 / 青瓷 水墨）─────────────────────── */
+  /* ── 亮色链接与焦点：青瓷只作小面积强调 ──────────── */
   --ifm-color-primary: #326c70;
   --ifm-color-primary-dark: #2b5e61;
   --ifm-color-primary-darker: #26565a;
@@ -39,34 +45,48 @@
   --content-rail-wide-max: 320px;
   --docs-prose-wide-max: 1040px;
 
-  /* ── 水墨色板 ─────────────────────────────────────── */
-  --ink-deep: #243c33;
-  --ink-medium: #30413b;
-  --ink-light: #596f65;
-  --ink-wash: rgba(30, 55, 51, 0.06);
-  --paper-warm: #f3f5f0;
-  --paper-light: #fafbf7;
-  --paper-accent: #e9eee7;
+  /* 阅读、选中表面及装饰线保持中性；品牌与操作色单独定义。 */
+  --ink-deep: #171717;
+  --ink-medium: #242424;
+  --ink-light: #595959;
+  --ink-wash: rgba(0, 0, 0, 0.04);
+  --paper-warm: #f5f5f5;
+  --paper-light: #fcfcfc;
+  --paper-accent: #f0f0f0;
   --bamboo-green: #326c70;
   --seal-red: #98584c;
 
   --accent-rgb: 50, 108, 112;
   --on-primary: #ffffff;
-  --control-border: #8b9e92;
-  --surface-page: #f3f5f0;
-  --surface-nav: #fafbf7;
-  --surface-sidebar: #e9eee7;
-  --surface-selected: #dcece5;
+  --action-fill: #303030;
+  --action-fill-hover: #171717;
+  --control-border: #858585;
+  --surface-page: #f5f5f5;
+  --surface-nav: #fcfcfc;
+  --surface-sidebar: #f0f0f0;
+  --surface-selected: #e9e9e9;
   --seal-mark: var(--seal-red);
 
   /* 两套主题共用的阅读表面 */
   --surface-reading: var(--paper-light);
-  --surface-raised: #edf1e9;
-  --surface-code: #edf1e9;
-  --surface-border: #d1dbd1;
-  --surface-rule: #dce3d9;
-  --surface-hover: rgba(var(--accent-rgb), 0.06);
-  --code-ink: #326c70;
+  --surface-raised: #ebebeb;
+  --surface-code: #f2f2f2;
+  --surface-border: #cccccc;
+  --surface-rule: #dedede;
+  --surface-hover: rgba(0, 0, 0, 0.035);
+  --code-ink: #303030;
+  --syntax-text: #262626;
+  --syntax-comment: #626262;
+  --syntax-keyword: #235e8a;
+  --syntax-function: #9c3145;
+  --syntax-string: #78501f;
+  --syntax-number: #7b3f88;
+  --syntax-variable: #404040;
+  --syntax-punctuation: #4d4d4d;
+  --poetry-header: #292929;
+  --poetry-header-ink: #fcfcfc;
+  --poetry-fold: #858585;
+  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ifm-table-border-color: var(--surface-border);
   --ifm-table-stripe-background: var(--surface-hover);
   --ifm-code-background: var(--surface-code);
@@ -103,30 +123,32 @@
 }
 
 /* ═════════════════════════════════════════════════════
-   暗色模式 —— 翠绿 深空
+   暗色模式 —— 炭灰与冷蓝
    ═════════════════════════════════════════════════════ */
 html[data-theme='dark'] {
-  --accent-rgb: 133, 207, 182;
-  --on-primary: #09221c;
-  --control-border: #617d74;
-  --surface-page: #101d21;
-  --surface-nav: #122328;
-  --surface-sidebar: #122328;
-  --surface-selected: #28483f;
-  --seal-mark: #8dc3b4;
+  --accent-rgb: 150, 185, 229;
+  --on-primary: #141414;
+  --action-fill: var(--ifm-color-primary);
+  --action-fill-hover: var(--ifm-color-primary-light);
+  --control-border: #808080;
+  --surface-page: #141414;
+  --surface-nav: #1b1b1b;
+  --surface-sidebar: #181818;
+  --surface-selected: #303030;
+  --seal-mark: #96b9e5;
 
   --ifm-heading-font-family: var(--ifm-font-family-base);
   --search-local-highlight-color: var(--ifm-color-primary);
   --search-local-hit-active-color: var(--space-heading);
   --search-local-hit-active-background: var(--surface-selected);
-  /* 主色盘覆盖 —— 翠绿 */
-  --ifm-color-primary: #85cfb6;
-  --ifm-color-primary-dark: #72bea4;
-  --ifm-color-primary-darker: #65b397;
-  --ifm-color-primary-darkest: #509880;
-  --ifm-color-primary-light: #9cdbc6;
-  --ifm-color-primary-lighter: #b0e3d2;
-  --ifm-color-primary-lightest: #c7ecdf;
+  /* 冷蓝用于操作与定位，不染色阅读和选中背景。 */
+  --ifm-color-primary: #96b9e5;
+  --ifm-color-primary-dark: #80a7d8;
+  --ifm-color-primary-darker: #729bcd;
+  --ifm-color-primary-darkest: #6088ba;
+  --ifm-color-primary-light: #afcbef;
+  --ifm-color-primary-lighter: #c3d9f3;
+  --ifm-color-primary-lightest: #d9e7f8;
 
   /* 去掉默认背景 —— 交给全局动画层绘制 */
   --ifm-background-color: transparent;
@@ -135,23 +157,34 @@ html[data-theme='dark'] {
 
   /* 深空色板 */
   --space-glow-cyan: rgba(var(--accent-rgb), 0.25);
-  --space-glow-purple: rgba(94, 151, 139, 0.12);
-  --space-glow-blue: rgba(68, 143, 150, 0.15);
-  --space-surface: #172b30;
-  --space-surface-hover: #1e363a;
-  --space-border: #30464a;
-  --space-border-hover: #456967;
-  --space-text: #dce6e2;
-  --space-heading: #f1f5f2;
-  --space-text-muted: #a4bab1;
-  --space-text-subtle: rgba(158, 190, 183, 0.82);
-  --surface-reading: #172b30;
-  --surface-raised: #102126;
-  --surface-code: #102126;
-  --surface-border: #30464a;
-  --surface-rule: #2a3e42;
-  --surface-hover: rgba(var(--accent-rgb), 0.06);
-  --code-ink: #dce6e2;
+  --space-glow-purple: rgba(139, 146, 192, 0.12);
+  --space-glow-blue: rgba(var(--accent-rgb), 0.15);
+  --space-surface: #202020;
+  --space-surface-hover: #2b2b2b;
+  --space-border: #454545;
+  --space-border-hover: #666666;
+  --space-text: #e6e6e6;
+  --space-heading: #f5f5f5;
+  --space-text-muted: #b5b5b5;
+  --space-text-subtle: rgba(180, 180, 180, 0.82);
+  --surface-reading: #202020;
+  --surface-raised: #292929;
+  --surface-code: #161616;
+  --surface-border: #454545;
+  --surface-rule: #383838;
+  --surface-hover: rgba(255, 255, 255, 0.045);
+  --code-ink: #e1e1e1;
+  --syntax-text: #e4e4e4;
+  --syntax-comment: #aaaaaa;
+  --syntax-keyword: #8db9ed;
+  --syntax-function: #eab8a1;
+  --syntax-string: #e6cc91;
+  --syntax-number: #ceb9ef;
+  --syntax-variable: #d0d0d0;
+  --syntax-punctuation: #c2c2c2;
+  --poetry-header: #151515;
+  --poetry-header-ink: #f5f5f5;
+  --poetry-fold: #686868;
   --ifm-code-background: var(--surface-code);
   --ifm-table-border-color: var(--surface-border);
   --ifm-table-stripe-background: var(--surface-hover);
@@ -164,6 +197,7 @@ html[data-theme='dark'] {
   --ifm-color-emphasis-600: var(--space-text-muted);
   --ifm-color-emphasis-500: var(--space-text-subtle);
   --ifm-menu-color: var(--space-text-muted);
+  --ifm-menu-color-active: var(--space-heading);
   --ifm-toc-link-color: var(--space-text-muted);
   --ifm-navbar-link-color: var(--space-text);
 
