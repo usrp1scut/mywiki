@@ -36,6 +36,8 @@ module.exports = {
         language: ["en", "zh"],
         indexDocs: true,
         indexBlog: true,
+        docsRouteBasePath: ["docs", "life"],
+        docsDir: ["docs", "life"],
         explicitSearchResultPath: true,
         searchResultContextMaxLength: 100,
         highlightSearchTermsOnTargetPage: true,
@@ -126,6 +128,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "/life",
+          label: "生活指南",
+          position: "left",
+        },
+        {
           to: "/news",
           label: "资讯",
           position: "left",
@@ -161,6 +168,19 @@ module.exports = {
     },
   }, 
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'life',
+        path: 'life',
+        routeBasePath: 'life',
+        sidebarPath: false,
+        breadcrumbs: false,
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+        editUrl: 'https://github.com/usrp1scut/mywiki/tree/main',
+      },
+    ],
     require.resolve('./plugins/font-assets'),
     require.resolve('./plugins/unicode-ssr'),
     require.resolve('./plugins/recent-blog-posts'),
