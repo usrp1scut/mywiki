@@ -2,7 +2,8 @@
 module.exports = {
   lifeSidebar: [
     'overview',
-    ...Array.from({length: 34}, (_, i) => `chapters/chapter-${String(i + 1).padStart(2, '0')}`),
+    ...require('./life/_meta/import-report.json').chapters.map(({source}) =>
+      `chapters/chapter-${source.split('/').pop().slice(0, 2)}`),
     'import-notes',
   ],
 };

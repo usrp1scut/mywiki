@@ -394,5 +394,5 @@
   "total_chapters": 34,
   "total_entries": 765,
   "total_linked_references": 1044,
-  "ads_policy": "Only book/*.md imported; no advertising blocks found in these 34 sources. README promotions, ads/, code, skills and downloads excluded."
+  "ads_policy": "Only book/*.md imported; advertising sections are rejected. README promotions, ads/, code, skills and downloads excluded."
 }

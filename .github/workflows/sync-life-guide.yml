@@ -1,0 +1,72 @@
+name: Sync life guide
+
+on:
+  schedule:
+    # 07:23 Asia/Shanghai; avoid the busiest minute of the hour.
+    - cron: '23 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: life-guide-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.upstream.outputs.changed }}
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Test synchronization safeguards
+        run: python3 -m unittest discover -s tests -p 'test_life_sync.py'
+      - name: Check upstream and prepare content
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/sync-life-guide.py --source-dir "$RUNNER_TEMP/life-source"
+      - uses: actions/setup-node@v6
+        if: steps.upstream.outputs.changed == 'true'
+        with:
+          node-version: '20.x'
+      - name: Validate the complete updated site
+        if: steps.upstream.outputs.changed == 'true'
+        run: |
+          python3 scripts/import-life-guide.py --source-dir "$RUNNER_TEMP/life-source" --check
+          yarn install --frozen-lockfile
+          yarn test:search
+          yarn build
+          node scripts/check-life-guide.mjs
+      - name: Commit verified content to main
+        if: steps.upstream.outputs.changed == 'true'
+        id: commit
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.upstream_sha }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- life static/life/LICENSE-CC-BY-4.0.txt
+          git -c core.whitespace=-blank-at-eof diff --cached --check
+          git commit -m "docs: sync life guide from ${UPSTREAM_SHA:0:7}"
+          # A concurrent main update rejects this normal push; never force or rebase untested content.
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  # GITHUB_TOKEN pushes do not trigger the ordinary push workflow.
+  # Call the existing build/deployment workflow explicitly for this exact commit.
+  deploy:
+    needs: sync
+    if: needs.sync.outputs.changed == 'true'
+    uses: ./.github/workflows/node.js.yml
+    with:
+      ref: ${{ needs.sync.outputs.commit }}
+    secrets: inherit

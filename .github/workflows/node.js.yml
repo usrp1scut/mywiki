@@ -8,30 +8,66 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: Verified commit to build and publish
+        required: true
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    timeout-minutes: 25
+    concurrency:
+      group: site-build-${{ github.ref }}
+      cancel-in-progress: false
 
     steps:
     - uses: actions/checkout@v6
+      with:
+        ref: ${{ inputs.ref || github.sha }}
     - name: Use Node.js
       uses: actions/setup-node@v6
       with:
         node-version: '20.x'
     - name: Install dependencies
-      run: yarn
+      run: yarn install --frozen-lockfile
     # - run: yarn add @node-rs/jieba-linux-x64-musl
     - run: yarn test:search
+    - run: python3 -m unittest discover -s tests -p 'test_life_sync.py'
     - run: yarn build
-    - run: sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
-    - run: |
-            cat <<EOF > ~/.ossutilconfig
-            [Credentials]
-            language=EN
-            endpoint=${{ secrets.END_POINT }}
-            accessKeyID=${{ secrets.ACCESS_KEY_ID }}
-            accessKeySecret=${{ secrets.ACCESS_KEY_SECRET }}
-            EOF            
-    - run: ossutil64 cp -r -u build/ oss://xiebo-pro/
+    - run: node scripts/check-life-guide.mjs
+    - name: Check main before publishing
+      id: publish
+      if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+      run: |
+        remote_sha=$(git ls-remote origin refs/heads/main | cut -f1)
+        if [ "$remote_sha" = "$(git rev-parse HEAD)" ]; then
+          echo 'current=true' >> "$GITHUB_OUTPUT"
+        else
+          echo 'Skip an outdated build; a newer main commit will publish.'
+        fi
+    - name: Install OSS CLI
+      if: steps.publish.outputs.current == 'true'
+      run: curl -fsSL https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+    - name: Configure OSS
+      if: steps.publish.outputs.current == 'true'
+      env:
+        OSS_ENDPOINT: ${{ secrets.END_POINT }}
+        OSS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+        OSS_ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+      run: |
+        umask 077
+        printf '[Credentials]\nlanguage=EN\nendpoint=%s\naccessKeyID=%s\naccessKeySecret=%s\n' \
+          "$OSS_ENDPOINT" "$OSS_ACCESS_KEY_ID" "$OSS_ACCESS_KEY_SECRET" > ~/.ossutilconfig
+    - name: Publish site
+      if: steps.publish.outputs.current == 'true'
+      run: ossutil64 cp -r -u build/ oss://xiebo-pro/
+    - name: Remove temporary OSS credentials
+      if: always()
+      run: rm -f ~/.ossutilconfig

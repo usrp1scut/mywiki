@@ -7,8 +7,8 @@ import path from 'node:path';
 const output = path.resolve(process.argv[2] || 'build');
 const origin = 'https://xiebo.fun';
 const manifest = JSON.parse(await readFile('life/_meta/import-report.json', 'utf8'));
-assert.equal(manifest.total_chapters, 34);
-assert.equal(manifest.total_entries, 765);
+assert.equal(manifest.total_chapters, manifest.chapters.length);
+assert.ok(manifest.total_chapters > 0 && manifest.total_entries > 0);
 
 function unescape(value) {
   return value.replace(/&(?:amp|quot|apos|lt|gt|#\d+|#x[\da-f]+);/gi, (entity) => {
@@ -40,7 +40,7 @@ async function readRoute(route) {
   return cache.get(file);
 }
 
-const chapterRoutes = Array.from({length: 34}, (_, i) => `/life/${String(i + 1).padStart(2, '0')}`);
+const chapterRoutes = manifest.chapters.map(({source}) => `/life/${path.basename(source).slice(0, 2)}`);
 const routes = ['/life/', ...chapterRoutes, '/life/about'];
 let checkedInternalLinks = 0;
 let checkedEntryAnchors = 0;
@@ -95,9 +95,9 @@ const searchContent = JSON.stringify(indexes);
 for (const route of chapterRoutes) {
   assert.ok(searchContent.includes(`"u":"${route}`), `${route}: missing search entry`);
 }
-assert.equal(checkedEntryAnchors, 765);
+assert.equal(checkedEntryAnchors, manifest.total_entries);
 assert.equal(await readFile(path.join(output, 'life/LICENSE-CC-BY-4.0.txt'), 'utf8'),
   await readFile('static/life/LICENSE-CC-BY-4.0.txt', 'utf8'));
-console.log(JSON.stringify({pages: routes.length, chapters: 34, entries: checkedEntryAnchors,
+console.log(JSON.stringify({pages: routes.length, chapters: manifest.total_chapters, entries: checkedEntryAnchors,
   checkedInternalLinks, preservedExternalUrls: externalUrls.size,
   navigation: 'passed', search: 'passed', license: 'passed'}, null, 2));
