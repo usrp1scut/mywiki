@@ -3,13 +3,17 @@ id: Home
 title: 笔记目录
 sidebar_label: 笔记目录
 slug: /
-description: 按原有技术分类查找笔记，也可以输入标题关键词快速定位。
+description: 按技术与生活资源分类查找笔记，也可以输入标题关键词快速定位。
 hide_table_of_contents: true
 ---
 
 import NotebookIndex from '@site/src/components/NotebookIndex';
 
 <NotebookIndex />
+
+## 生活与资源
+
+- [高性价比人生指南（站内导读）](./11-生活与资源/01-高性价比人生指南.md)：了解阅读方法，按主题查找全部 34 章的上游外链；本站未导入章节全文。
 
 ## 实用开源项目
 
