@@ -1,0 +1,234 @@
+{
+  "repository": "https://github.com/eternity4719/HowToLiveBetter",
+  "commit": "3f59f98be11305902681a8f20ed073c4c4588eee",
+  "upstream_committed_at": "2026-10-15T00:53:25Z",
+  "imported_on": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "author": "eternity4719 及项目贡献者",
+  "content_license": "CC-BY-4.0",
+  "code_license": "MIT (no code imported)",
+  "sources": [
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "da6ab6cc8f333d7e89a99812866df8f24374d47c",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "path": "LICENSE-CODE",
+      "git_blob_sha": "949d610ab809da6a016a07a4cb97ce3dce59e32a",
+      "bytes": 1069,
+      "sha256": "b5637b996d72e74dac01e8799701ff6440b5a979cd15a29ac120e7ae57963c67"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "57d8ec57b75f9a749967fadb9302132109530832",
+      "bytes": 52127,
+      "sha256": "4185ca599c8621195d1f42019626ea0035881a293554fa998ccd669bf8e049c1"
+    },
+    {
+      "path": "book/01-不要早死.md",
+      "git_blob_sha": "d8d1d0973e941f2fa05740dfe16d049f48691dac",
+      "bytes": 159522,
+      "sha256": "ba8343ceae88c251c1bbc66e91378869d75b4de2ec1d3312ff3f1c42297c1311"
+    },
+    {
+      "path": "book/02-不要慢慢死.md",
+      "git_blob_sha": "17a4ade8465bbbfda70515aa5fb3a9bf3172db7d",
+      "bytes": 138831,
+      "sha256": "930f23962a6ea7502840c4811c92d09c446087a489acb0a7681d925d7c70faca"
+    },
+    {
+      "path": "book/03-不要浪费精力.md",
+      "git_blob_sha": "f8caf59818463db75199fa8675b99b13a43e0e6c",
+      "bytes": 67581,
+      "sha256": "c27a0980ff0c187d2a9250232dc5a5bdc74cb55a8117e515d68c939ef5a15140"
+    },
+    {
+      "path": "book/04-不要浪费时间.md",
+      "git_blob_sha": "231e6ade139476bbb70bf7b09526eed909dc0ecc",
+      "bytes": 29429,
+      "sha256": "994c692778a36f5794acc09da73bd46fdc31b722a475d9e36fef097d79f7e98d"
+    },
+    {
+      "path": "book/05-不要浪费钱.md",
+      "git_blob_sha": "70cbd1763b0b142f6cee9f484316de6c4bbebfe0",
+      "bytes": 144421,
+      "sha256": "b2a7d06e0c23f29286a2ca8be34dfe8512937d6c53e057dfd3a4b8ee57cec958"
+    },
+    {
+      "path": "book/06-反面清单.md",
+      "git_blob_sha": "11a55c203ee5f4d56637a53036ae1cf07db6ea34",
+      "bytes": 131040,
+      "sha256": "886ee94fb74f4beb0c2d2fb5c62db868464109e8d1ba568df8662a8d08b2522a"
+    },
+    {
+      "path": "book/07-没钱的时候怎么活.md",
+      "git_blob_sha": "e0a8205974828a38378782c504564ae8e53eaee4",
+      "bytes": 75412,
+      "sha256": "f1cee662f97da183bac7aa0c6eaa3eacbdbf8ff4c7c5f47eb21932e436135679"
+    },
+    {
+      "path": "book/08-别把自己搭进去.md",
+      "git_blob_sha": "fe67e032d0eace471688828aae829ffe09ed6753",
+      "bytes": 152805,
+      "sha256": "ec71c0a41ab3213eb5d44bc22c95cd9489f0eea0a43615de8546f136686acc0e"
+    },
+    {
+      "path": "book/09-普通人容易踩的法律红线.md",
+      "git_blob_sha": "6aa5d11d2eec2b82b7673fd822ec5c4dff7c3bc9",
+      "bytes": 111286,
+      "sha256": "91e653956c2394ad8dbc0776f591011708dba8c19840ffc270cdcb94c6086407"
+    },
+    {
+      "path": "book/10-恋爱和结婚划不划算.md",
+      "git_blob_sha": "b75ea56f473571601ef94a6a52ca2de4717445fe",
+      "bytes": 63058,
+      "sha256": "0d764a7b05adc4c6ae8b08dc131b56276cce2d9eb42b4a253103b2cc6617aecc"
+    },
+    {
+      "path": "book/11-程序员和技术人容易踩的红线.md",
+      "git_blob_sha": "076754e8349e9e69258fe5bb99958c63f8594472",
+      "bytes": 65932,
+      "sha256": "7ee198707c2bcae88e8c393cd56aa126a140d38bba82db28d9496502a3ce26fa"
+    },
+    {
+      "path": "book/12-创业与做生意.md",
+      "git_blob_sha": "aaa659620265adc8791f5667b41d826272b19210",
+      "bytes": 92064,
+      "sha256": "6c6559a9730a1e2335bb9f2f11ed468e49540bb68ecf69f3effd3d612626e8f6"
+    },
+    {
+      "path": "book/13-紧急情况.md",
+      "git_blob_sha": "17582e4f7e75ff4474775ab2ba2787cc37a5de87",
+      "bytes": 161497,
+      "sha256": "93668acf29f123efae4a0d3ab1a707b8ced97762597fa1d8aa3530858f0f655b"
+    },
+    {
+      "path": "book/14-账号与信息安全.md",
+      "git_blob_sha": "b107022b788067943173ff477a212dd3d62bca08",
+      "bytes": 29706,
+      "sha256": "cc519d91942dbbbbc5ae0c8f82bf9ee04ce1518ed67688abcbaee5754570b459"
+    },
+    {
+      "path": "book/15-租房与买房.md",
+      "git_blob_sha": "6f2295660bb89330f36b6dcfc004b65893da8513",
+      "bytes": 46894,
+      "sha256": "c5071bc96e35b353a1775bc5c58e46a0fd4447ecbb2d107833f7fc41d665f468"
+    },
+    {
+      "path": "book/16-得了慢性病之后怎么活.md",
+      "git_blob_sha": "5475a34d13507a7d43ab3fc42ec1bde3dce8e095",
+      "bytes": 49358,
+      "sha256": "5ff9b3c7d81ed866df82279b78655d8e25b14ea14ee2883b79cea21be85be703"
+    },
+    {
+      "path": "book/17-家里有老人.md",
+      "git_blob_sha": "da52a94d5a24b2fde73163b4499dc41453ca531e",
+      "bytes": 45207,
+      "sha256": "ab0893664e50b328dd31e8a9e5f401b63a663675becc6083208eda2591eecce3"
+    },
+    {
+      "path": "book/18-养孩子划不划算.md",
+      "git_blob_sha": "8cfdb817f5e6724119f5a3cf5a86b0fe1b891261",
+      "bytes": 18104,
+      "sha256": "04fb9acbadf2f4368f4063295229c0fe63136e2c5f35999df3ff7f248b615af5"
+    },
+    {
+      "path": "book/19-在职离职和工伤.md",
+      "git_blob_sha": "34aaa8777eec23034f2eb77e58b9a326728cebf6",
+      "bytes": 74619,
+      "sha256": "b0a3afdf9c0d99291a364c1aec28e79288b8f9982fae1337657b7d4abea2651e"
+    },
+    {
+      "path": "book/20-刚出生的孩子怎么带.md",
+      "git_blob_sha": "ebe7f5229656590b8f6e25a1bd121a40fc40f027",
+      "bytes": 52335,
+      "sha256": "7252159852f6f8917d547ad2f15a6b04e166a4f93fb689a0bc5be2728d70ffc8"
+    },
+    {
+      "path": "book/21-出国旅行与境外安全.md",
+      "git_blob_sha": "0911ba9388a2d09e3abadbfd47b62b30f72b3900",
+      "bytes": 35916,
+      "sha256": "912b20c1ffa8f23e496d89ee76aa5141f0ca0d5e98e73320f284ada19d73ca6e"
+    },
+    {
+      "path": "book/22-怎么放松.md",
+      "git_blob_sha": "d5d4f63ab5621e9f5f3ea4eba56663869863a4de",
+      "bytes": 28137,
+      "sha256": "53b2b3d00a80652db08ee456eeb8cdd22c0540b886e4a48eb4d280faa6de2c83"
+    },
+    {
+      "path": "book/23-学什么技能划算.md",
+      "git_blob_sha": "b09e3a3cc0a5dbfd61d51deba0e1667d9edec8ae",
+      "bytes": 66804,
+      "sha256": "49f8fabc2de6c6de1bb078fe6ba7b7af69b258c7061cfbe7dba6796aa47f4667"
+    },
+    {
+      "path": "book/24-看病.md",
+      "git_blob_sha": "31179e835f9496c084809b1f2e9f990f4b475feb",
+      "bytes": 48105,
+      "sha256": "cb4e42bcd92ed7ae976ba6c59d06df54e124197209f5ccdf6fa63054df90099d"
+    },
+    {
+      "path": "book/25-人走了以后要办什么.md",
+      "git_blob_sha": "9604210f112d3be440883f79f9dff5eee527b878",
+      "bytes": 34171,
+      "sha256": "d155bacd4a9d1aa47514f8904c0f445d9f854fc8edf8d0b33dc74cacba52c83b"
+    },
+    {
+      "path": "book/26-做一个网站或平台.md",
+      "git_blob_sha": "adde2a5603263683629b51a85dc1f1fee6e04fb0",
+      "bytes": 41712,
+      "sha256": "9b1f769a62e52fa3feda4bd5c4864265d979b07d6a2bb8f38943c06a5a3923bc"
+    },
+    {
+      "path": "book/27-怀孕和生产.md",
+      "git_blob_sha": "e6994fd42f84ce761cf65ffced11f763de4209af",
+      "bytes": 51689,
+      "sha256": "7f8e32562c6e65abf3ee4185c8a0324c0dc245692f0b1260e2a7b0962b79c28d"
+    },
+    {
+      "path": "book/28-别为了外形把身体搞坏.md",
+      "git_blob_sha": "5b4053ad4e5cb18f9b140fb6e93c52ad9bdc6531",
+      "bytes": 32845,
+      "sha256": "8b1cf1b50200f4a73c9e4a094d16deaccf1c7141cf599d0e20adb8f9bedf5c78"
+    },
+    {
+      "path": "book/29-遭遇重大打击之后.md",
+      "git_blob_sha": "11f3c18a93cc9a4e8fad685af08a260cae2ac203",
+      "bytes": 42529,
+      "sha256": "5bc44e52e2d56f597e5d6eb7981807bde976878c8599a7f089ec8ca05ee09269"
+    },
+    {
+      "path": "book/30-上学以后的孩子.md",
+      "git_blob_sha": "bcf9eef9355d3524e0cd2b5f19eec636e53c3f0f",
+      "bytes": 69947,
+      "sha256": "d48096557795ba99bcaa91027ac639f36b4b9d4850dec9745fe9af8a885641da"
+    },
+    {
+      "path": "book/31-十八岁之后有哪几条路.md",
+      "git_blob_sha": "daf37595ead0a703e5970c2889c660a2be9d71d1",
+      "bytes": 77124,
+      "sha256": "1152486e02e8ce0e6f41985369e7724552f6a00604471dc713b1647803fbb552"
+    },
+    {
+      "path": "book/32-出国留学.md",
+      "git_blob_sha": "5a1f89515897331827c07fe90e08433a134f72fd",
+      "bytes": 26020,
+      "sha256": "1a7521d3c5304599ad5fc3bf7fcdfcaccafa54213b8df19cb3161b711eb023e8"
+    },
+    {
+      "path": "book/33-残疾之后怎么活.md",
+      "git_blob_sha": "260caac98a75a09fc722e8da0549a1253e089245",
+      "bytes": 64613,
+      "sha256": "2ed0aca03111d2a59b8cf76ca2ebff94e68104220cb0de26382a3883ac84ec69"
+    },
+    {
+      "path": "book/34-家里的常备药别吃出事.md",
+      "git_blob_sha": "f65a169c725312dbb776db157e55452320e03dae",
+      "bytes": 34995,
+      "sha256": "6353a8d62a3c4823a6928cd57578ebb3575896639bdabb1f8f73384323963f4c"
+    }
+  ]
+}

@@ -174,7 +174,7 @@ module.exports = {
         id: 'life',
         path: 'life',
         routeBasePath: 'life',
-        sidebarPath: false,
+        sidebarPath: require.resolve('./sidebars.life.js'),
         breadcrumbs: false,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
