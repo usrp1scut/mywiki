@@ -104,3 +104,7 @@ find / -perm -4000 -type f 2>/dev/null   # 列出系统所有 SUID 程序
 - SUID/SGID 生效时会改变 effective UID/GID，程序需要自行约束获得的权限。
 
 校核依据：[Linux wait(2)](https://man7.org/linux/man-pages/man2/wait.2.html)、[execve(2)](https://man7.org/linux/man-pages/man2/execve.2.html)、[_exit(2)](https://man7.org/linux/man-pages/man2/_exit.2.html)。
+
+## 相关笔记
+
+- [Linux 进程调度与系统状态](./22-Linux进程调度与系统状态.md)：多道技术、进程三态、`ps` 状态码、管道，以及 `free` 和 `top` 的解读。
