@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "3f59f98be11305902681a8f20ed073c4c4588eee",
-  "upstream_committed_at": "2026-10-15T00:53:25Z",
-  "imported_on": "2026-10-15",
+  "commit": "5f210ca953b7b538c042ad8515d5c355b766a194",
+  "upstream_committed_at": "2026-10-15T09:37:50Z",
+  "imported_on": "2026-10-16",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -22,9 +22,9 @@
     },
     {
       "path": "README.md",
-      "git_blob_sha": "57d8ec57b75f9a749967fadb9302132109530832",
-      "bytes": 52127,
-      "sha256": "4185ca599c8621195d1f42019626ea0035881a293554fa998ccd669bf8e049c1"
+      "git_blob_sha": "a05794e6a2fe58297df1a05bb9464451b9a6314b",
+      "bytes": 52472,
+      "sha256": "06083923990326752076856278368df8248d9e6214b2c66189723f5dfce03680"
     },
     {
       "path": "book/01-不要早死.md",
