@@ -39,7 +39,7 @@ jobs:
       run: yarn install --frozen-lockfile
     # - run: yarn add @node-rs/jieba-linux-x64-musl
     - run: yarn test:search
-    - run: python3 -m unittest discover -s tests -p 'test_life_sync.py'
+    - run: python3 -m unittest discover -s tests -p 'test_*.py'
     - run: yarn build
     - run: node scripts/check-life-guide.mjs
     - name: Check main before publishing
