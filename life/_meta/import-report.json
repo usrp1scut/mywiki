@@ -1,16 +1,16 @@
 {
-  "commit": "5f210ca953b7b538c042ad8515d5c355b766a194",
-  "imported_on": "2026-10-16",
+  "commit": "e2605d3e2242bd6216c9255192b8a8957a08c55a",
+  "imported_on": "2026-10-22",
   "chapters": [
     {
       "source": "book/01-不要早死.md",
       "destination": "life/chapters/01-不要早死.md",
-      "source_sha256": "ba8343ceae88c251c1bbc66e91378869d75b4de2ec1d3312ff3f1c42297c1311",
-      "transformed_body_sha256": "4263bdb9cdd1f088f519c6efd4b2c31b4953485ea5865d740e782793367f4925",
+      "source_sha256": "93c19fe7041e1bca7b90d546b7279d2db11c7b139b9e6080745d280a0ffcf9fb",
+      "transformed_body_sha256": "d564d0401339046026e0f1a36879f362f44d2c58af09beef46ccdea8dc0929a0",
       "chapter_entries": 48,
       "linked_references": 80,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/家庭应急装备清单.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/家庭应急装备清单.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -19,11 +19,11 @@
       "source": "book/02-不要慢慢死.md",
       "destination": "life/chapters/02-不要慢慢死.md",
       "source_sha256": "930f23962a6ea7502840c4811c92d09c446087a489acb0a7681d925d7c70faca",
-      "transformed_body_sha256": "2157e6134676ad9236d3bec140bd26ce3d579cba8bf9dc99a07224401f48f9cb",
+      "transformed_body_sha256": "7bf669f06a0dbb3d53fc72cae31406501f3cf6e798d4794e4dcd91c9cb8aaccd",
       "chapter_entries": 47,
       "linked_references": 47,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/生物钟和夜班.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/生物钟和夜班.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -53,10 +53,10 @@
     {
       "source": "book/05-不要浪费钱.md",
       "destination": "life/chapters/05-不要浪费钱.md",
-      "source_sha256": "b2a7d06e0c23f29286a2ca8be34dfe8512937d6c53e057dfd3a4b8ee57cec958",
-      "transformed_body_sha256": "f7becec172f88f098be6bf9d21ccceaa3b0a155d98481a711d02002d55925034",
-      "chapter_entries": 50,
-      "linked_references": 66,
+      "source_sha256": "5c01104902e6c8e9c56f2bb068a287a2a3f516483fc2245122bc28e76384da20",
+      "transformed_body_sha256": "c94130b60fb77e4446a7bf87ec207944ef3bd743ac11259eb3502affd5281097",
+      "chapter_entries": 51,
+      "linked_references": 71,
       "externalized_links": [],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -64,8 +64,8 @@
     {
       "source": "book/06-反面清单.md",
       "destination": "life/chapters/06-反面清单.md",
-      "source_sha256": "886ee94fb74f4beb0c2d2fb5c62db868464109e8d1ba568df8662a8d08b2522a",
-      "transformed_body_sha256": "c34ade2bc1bba6d6eb6ddb7d9ce931092c3905f086d4cc841cb4fe0d76cb8635",
+      "source_sha256": "1380f1838f8fc1df5a9e029cd126d3b6d579ed9219487f2bc56cf336c0c40780",
+      "transformed_body_sha256": "65ada77be77d9e0583abf2668d56f2ed390b0aa1a30c940aeae322a5b0a2b6ed",
       "chapter_entries": 35,
       "linked_references": 83,
       "externalized_links": [],
@@ -75,8 +75,8 @@
     {
       "source": "book/07-没钱的时候怎么活.md",
       "destination": "life/chapters/07-没钱的时候怎么活.md",
-      "source_sha256": "f1cee662f97da183bac7aa0c6eaa3eacbdbf8ff4c7c5f47eb21932e436135679",
-      "transformed_body_sha256": "60bfb44a81f297ac5f0067db71926b1d53442efb5a690f7ac4c95be90aedbaa0",
+      "source_sha256": "34d7dcce457efb1cea4576d4afcadb5cb45ad5fe2f756352eec893e35682ce00",
+      "transformed_body_sha256": "55f0f309607659df6bd9241a7c315be48d2dc7067e5edbdf7b81635ca3610a1f",
       "chapter_entries": 23,
       "linked_references": 28,
       "externalized_links": [],
@@ -86,12 +86,12 @@
     {
       "source": "book/08-别把自己搭进去.md",
       "destination": "life/chapters/08-别把自己搭进去.md",
-      "source_sha256": "ec71c0a41ab3213eb5d44bc22c95cd9489f0eea0a43615de8546f136686acc0e",
-      "transformed_body_sha256": "3f6b97af748a0834c944cc72256996f14b84ddb7acd5446028e5117aa34de5d7",
+      "source_sha256": "b3d5f749a02aba08333ac969a83cc1ec270ba472ea34db46b571760e1ce7cd5b",
+      "transformed_body_sha256": "9ca56b3b0f0cfa3007d9d9633ff4190486e6eb48d23c831b4e65e92ce3018c02",
       "chapter_entries": 46,
       "linked_references": 85,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/遇到陌生人出事该不该停.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/遇到陌生人出事该不该停.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -110,13 +110,13 @@
     {
       "source": "book/10-恋爱和结婚划不划算.md",
       "destination": "life/chapters/10-恋爱和结婚划不划算.md",
-      "source_sha256": "0d764a7b05adc4c6ae8b08dc131b56276cce2d9eb42b4a253103b2cc6617aecc",
-      "transformed_body_sha256": "f8b4c6c8d3fd966343f8456d103cb08eec5e1a87e63842983840353264a365ce",
+      "source_sha256": "d72968d188bd351c734f42912ffb1280a8feada1881019fe893c74133a54d236",
+      "transformed_body_sha256": "5b0a4ad64622803b29a212b9425ffd7cdb5e6ccace64f92a561fd70fdee8b817",
       "chapter_entries": 23,
       "linked_references": 23,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/结婚划不划算.md",
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/结婚划不划算.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/结婚划不划算.md",
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/结婚划不划算.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -124,8 +124,8 @@
     {
       "source": "book/11-程序员和技术人容易踩的红线.md",
       "destination": "life/chapters/11-程序员和技术人容易踩的红线.md",
-      "source_sha256": "7ee198707c2bcae88e8c393cd56aa126a140d38bba82db28d9496502a3ce26fa",
-      "transformed_body_sha256": "ee063e4cabad148933b597e48c3482ae01f6c9c3b94b124f03818f3149572b26",
+      "source_sha256": "b714586a48253575dbb0bdeaaf722a030827092402eb4680e7ce120bbe823b46",
+      "transformed_body_sha256": "8c440641f4d6e287e0b7510ed0ced01aff26fd748c819d5f90b051d7bb6e2011",
       "chapter_entries": 21,
       "linked_references": 17,
       "externalized_links": [],
@@ -135,10 +135,10 @@
     {
       "source": "book/12-创业与做生意.md",
       "destination": "life/chapters/12-创业与做生意.md",
-      "source_sha256": "6c6559a9730a1e2335bb9f2f11ed468e49540bb68ecf69f3effd3d612626e8f6",
-      "transformed_body_sha256": "ba1a18bb27e7e99e82fd7ef9bb386458a7a1de116b9e6f878ae101c76ee0f72e",
+      "source_sha256": "61b3e1076dbafae136dfa987b30274705a45052156a88e18698444467bed243e",
+      "transformed_body_sha256": "862646153c5187d16843054785eb47c8b56a276fba15d70fe2e3e59b774bdb38",
       "chapter_entries": 28,
-      "linked_references": 32,
+      "linked_references": 33,
       "externalized_links": [],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -146,12 +146,12 @@
     {
       "source": "book/13-紧急情况.md",
       "destination": "life/chapters/13-紧急情况.md",
-      "source_sha256": "93668acf29f123efae4a0d3ab1a707b8ced97762597fa1d8aa3530858f0f655b",
-      "transformed_body_sha256": "a3240809de5de839af35e5a1e27d7a4b50411f9924f729407852aa6440177b11",
+      "source_sha256": "7cdd1f8ce7a2630b9909918efc4921796c671095153be1e1e20802c5aabe9493",
+      "transformed_body_sha256": "aebcec524684a5c7ef0db53f8b225261556452539948f35b5f09823500333952",
       "chapter_entries": 48,
-      "linked_references": 66,
+      "linked_references": 69,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/遇到陌生人出事该不该停.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/遇到陌生人出事该不该停.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -170,8 +170,8 @@
     {
       "source": "book/15-租房与买房.md",
       "destination": "life/chapters/15-租房与买房.md",
-      "source_sha256": "c5071bc96e35b353a1775bc5c58e46a0fd4447ecbb2d107833f7fc41d665f468",
-      "transformed_body_sha256": "ef7d3e85f62c4cf2c2487c1f6cab7d0e89847b95177fe3ecf6f7ec2c64f72fd7",
+      "source_sha256": "cee53cc83031b6571094b9308d947c30f3d4a1c0c687aa871a1d7e5e523d161e",
+      "transformed_body_sha256": "0803c1a270fe4a6407a506dc71bdd441fe711efac20efe45bb01a7adea0adba4",
       "chapter_entries": 18,
       "linked_references": 15,
       "externalized_links": [],
@@ -192,8 +192,8 @@
     {
       "source": "book/17-家里有老人.md",
       "destination": "life/chapters/17-家里有老人.md",
-      "source_sha256": "ab0893664e50b328dd31e8a9e5f401b63a663675becc6083208eda2591eecce3",
-      "transformed_body_sha256": "f3782b45f3e722f8bdb32d26758f217f7726bac6ed201d111a87657df14e5070",
+      "source_sha256": "c3b3d235bec679c2fa86988eb4e4b5c2ea7bbe5192986295e08f7e0b3ac62b63",
+      "transformed_body_sha256": "a453a130bfc3c06ff9fbd47d1efaff8229d78a6d1b580c39eb8bda6a6042d659",
       "chapter_entries": 13,
       "linked_references": 26,
       "externalized_links": [],
@@ -214,8 +214,8 @@
     {
       "source": "book/19-在职离职和工伤.md",
       "destination": "life/chapters/19-在职离职和工伤.md",
-      "source_sha256": "b0a3afdf9c0d99291a364c1aec28e79288b8f9982fae1337657b7d4abea2651e",
-      "transformed_body_sha256": "d49778ea32f230b5162da8bae88b24541ec5419c642cf2c835b6e7aba4799ad2",
+      "source_sha256": "3908c66940dae220d000456104a07dd13c8d56fe6bf746603e01b321a21d932b",
+      "transformed_body_sha256": "2da5ad668e99e4feb366901749ae8c04fb374fcfa63f98f5c3d0820d17cb21c7",
       "chapter_entries": 24,
       "linked_references": 33,
       "externalized_links": [],
@@ -225,8 +225,8 @@
     {
       "source": "book/20-刚出生的孩子怎么带.md",
       "destination": "life/chapters/20-刚出生的孩子怎么带.md",
-      "source_sha256": "7252159852f6f8917d547ad2f15a6b04e166a4f93fb689a0bc5be2728d70ffc8",
-      "transformed_body_sha256": "4e72daea0f8194c38e5cad3cc82f9d2b668e7bb13c1813e1d8b0c7eba8ceebf3",
+      "source_sha256": "1caa74ac8c347d9441e6e3be1a2b84402d52bc4bce53ea7b4f2525e70402f71e",
+      "transformed_body_sha256": "febb2370b738f02586624e6923d137724f7c371a3b4bd2a0c4e1ddfe84bb19b8",
       "chapter_entries": 17,
       "linked_references": 23,
       "externalized_links": [],
@@ -269,8 +269,8 @@
     {
       "source": "book/24-看病.md",
       "destination": "life/chapters/24-看病.md",
-      "source_sha256": "cb4e42bcd92ed7ae976ba6c59d06df54e124197209f5ccdf6fa63054df90099d",
-      "transformed_body_sha256": "4dcd4d93947d5ffe16b0ca82df6942ea2007ead0d2a64fec0626f930c259cd0d",
+      "source_sha256": "2785b324c5936c407d05cf731b946ca0ff2e1775aaf13628f115624933a6e225",
+      "transformed_body_sha256": "ed68681e449f1f9c256e0b4580c4a794eeaa1d00a8175e8d71adeaa1f90b2f4a",
       "chapter_entries": 15,
       "linked_references": 22,
       "externalized_links": [],
@@ -280,8 +280,8 @@
     {
       "source": "book/25-人走了以后要办什么.md",
       "destination": "life/chapters/25-人走了以后要办什么.md",
-      "source_sha256": "d155bacd4a9d1aa47514f8904c0f445d9f854fc8edf8d0b33dc74cacba52c83b",
-      "transformed_body_sha256": "261425f74b3d13942bb497aaff8d487cff992dfccab4765f658b25f0cfa3fab4",
+      "source_sha256": "cd134c1913847a91813a098c9f71668cf6564dae1abfcd67edb157fa27150e72",
+      "transformed_body_sha256": "7d7cb6fc8ac80e69f41af1258e48b9ad879a8c7bd82e72311c7ed2615bd4639d",
       "chapter_entries": 12,
       "linked_references": 17,
       "externalized_links": [],
@@ -292,12 +292,12 @@
       "source": "book/26-做一个网站或平台.md",
       "destination": "life/chapters/26-做一个网站或平台.md",
       "source_sha256": "9b1f769a62e52fa3feda4bd5c4864265d979b07d6a2bb8f38943c06a5a3923bc",
-      "transformed_body_sha256": "f0a0df94c6a339c426af8090db8ff58901493e736b7a127e78fec434ce8c3cc3",
+      "transformed_body_sha256": "b58acdccb5713a093e7c86a66f097b9e8f050783103380cc2f66fddb6f1c80c1",
       "chapter_entries": 13,
       "linked_references": 6,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/docs/做平台要办哪些证.md",
-        "https://github.com/eternity4719/HowToLiveBetter/blob/5f210ca953b7b538c042ad8515d5c355b766a194/LICENSE-CODE"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/docs/做平台要办哪些证.md",
+        "https://github.com/eternity4719/HowToLiveBetter/blob/e2605d3e2242bd6216c9255192b8a8957a08c55a/LICENSE-CODE"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -305,8 +305,8 @@
     {
       "source": "book/27-怀孕和生产.md",
       "destination": "life/chapters/27-怀孕和生产.md",
-      "source_sha256": "7f8e32562c6e65abf3ee4185c8a0324c0dc245692f0b1260e2a7b0962b79c28d",
-      "transformed_body_sha256": "7b5d2a6d50f7f706c2235b23c3457119cbf6b2a5d49d987f873ebce285b5a65f",
+      "source_sha256": "023998fb3353a694bbb9d8f69442dc20e2c92117521cc905b69692bedb56a1a2",
+      "transformed_body_sha256": "d7b3949389e837326f42aa1eed16456044309cfb57ae74243db05dd7642c1e68",
       "chapter_entries": 20,
       "linked_references": 15,
       "externalized_links": [],
@@ -349,8 +349,8 @@
     {
       "source": "book/31-十八岁之后有哪几条路.md",
       "destination": "life/chapters/31-十八岁之后有哪几条路.md",
-      "source_sha256": "1152486e02e8ce0e6f41985369e7724552f6a00604471dc713b1647803fbb552",
-      "transformed_body_sha256": "9ff6695f4109ce16c7bc7e27a216fc65314d027bdd3e36223e3a90988d41e1dc",
+      "source_sha256": "accccdd315e9653e1de8d29b6da72c59d430f845c7820996a9ff14c693d2fade",
+      "transformed_body_sha256": "d1b54eb1582c95b68723793d6cb95fd898f3c13d9c8e43a08134ea0630ff85bf",
       "chapter_entries": 17,
       "linked_references": 31,
       "externalized_links": [],
@@ -360,10 +360,10 @@
     {
       "source": "book/32-出国留学.md",
       "destination": "life/chapters/32-出国留学.md",
-      "source_sha256": "1a7521d3c5304599ad5fc3bf7fcdfcaccafa54213b8df19cb3161b711eb023e8",
-      "transformed_body_sha256": "0ed03b4c38454c4e8b582dd42e3f90ff9a2c319b144c90ff1d8268e4b42279e9",
+      "source_sha256": "b2550d774c77d66adbd3b079012a5a6b4010c4d2ee6d21446df2322b20e5045c",
+      "transformed_body_sha256": "95e09416de9a9d7860c865afd1d840a3742a0416ba3711f592011e9d7ff88d87",
       "chapter_entries": 12,
-      "linked_references": 6,
+      "linked_references": 7,
       "externalized_links": [],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -371,8 +371,8 @@
     {
       "source": "book/33-残疾之后怎么活.md",
       "destination": "life/chapters/33-残疾之后怎么活.md",
-      "source_sha256": "2ed0aca03111d2a59b8cf76ca2ebff94e68104220cb0de26382a3883ac84ec69",
-      "transformed_body_sha256": "b8e0a5762258aaf4aa6d8c8380e38036c7d8cfcf438b1c879dc9c600b3d63415",
+      "source_sha256": "410bc923e894cd8f70d407aef2ec16b04ab8976acfaa227827446fed12fd8226",
+      "transformed_body_sha256": "47118a890ac83cf35f98216c5397d16feff425277c20fbed8d9118ef21fe3cc8",
       "chapter_entries": 21,
       "linked_references": 37,
       "externalized_links": [],
@@ -382,9 +382,9 @@
     {
       "source": "book/34-家里的常备药别吃出事.md",
       "destination": "life/chapters/34-家里的常备药别吃出事.md",
-      "source_sha256": "6353a8d62a3c4823a6928cd57578ebb3575896639bdabb1f8f73384323963f4c",
-      "transformed_body_sha256": "3e203fdba66645ab47631621be713ce49cc04a645892a626dc53db014df95f4c",
-      "chapter_entries": 12,
+      "source_sha256": "c5e62c669d73444be0647e53f2e6f5f4ed1e2e1eafabd40c0470e939a4b917df",
+      "transformed_body_sha256": "22b1b855a194614c2ea5ae9f7c50bb3cf1160d011e514fa9c76e3c66a389c8a8",
+      "chapter_entries": 13,
       "linked_references": 15,
       "externalized_links": [],
       "unresolved_references": [],
@@ -392,7 +392,7 @@
     }
   ],
   "total_chapters": 34,
-  "total_entries": 765,
-  "total_linked_references": 1044,
+  "total_entries": 767,
+  "total_linked_references": 1054,
   "ads_policy": "Only book/*.md imported; advertising sections are rejected. README promotions, ads/, code, skills and downloads excluded."
 }
