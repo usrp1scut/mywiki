@@ -1,12 +1,20 @@
 # Jacob's Wiki
 
-### Need 
+### 环境要求
 
-`node.js >=18.X`
+Node.js 24 LTS（当前固定为 `24.22.1`，见 `.nvmrc`）和 Yarn Classic 1.x。
+本地与 GitHub Actions 使用同一份 `.nvmrc`；`package.json` 限定 Node.js 为 `^24.22.1`。
+
+已安装 nvm 时，在项目目录执行：
+
+```bash
+nvm install
+nvm use
+```
 
 ### init
 
- `yarn`
+ `yarn install --frozen-lockfile`
 
  ### debug
 

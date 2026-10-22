@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
+const matter = require('@11ty/gray-matter');
 
 // Match markdown image: ![alt](url)  — also tolerates surrounding whitespace.
 const MD_IMAGE_RE = /!\[[^\]]*\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/;

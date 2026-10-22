@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v6
         if: steps.upstream.outputs.changed == 'true'
         with:
-          node-version: '20.x'
+          node-version-file: '.nvmrc'
       - name: Validate the complete updated site
         if: steps.upstream.outputs.changed == 'true'
         run: |

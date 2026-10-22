@@ -4,7 +4,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
+const matter = require('@11ty/gray-matter');
 
 module.exports = function recentBlogPostsPlugin(context) {
   const blogDir = path.resolve(context.siteDir, 'blog');
