@@ -93,15 +93,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar__title {
-  font-family: var(--ifm-heading-font-family);
+  font-family: var(--font-literary);
   font-weight: 700;
+  line-height: 1.5;
   color: var(--ink-deep);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.01em;
 }
 
 .navbar__link {
+  /* 中文菜单用自身的字体度量排版，避免拉丁字体行框将字形抬高。 */
+  font-family: 'Noto Sans SC', var(--ifm-font-family-base);
   color: var(--ink-medium);
   transition: color 0.25s;
+}
+
+@media (min-width: 997px) {
+  .navbar__items > .dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__items > .navbar__link,
+  .navbar__items > .dropdown > .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  .navbar__items > .dropdown > .navbar__link::after {
+    /* 箭头由 flex 居中，不再叠加 Infima 的行内基线偏移。 */
+    top: auto;
+    transform: none;
+  }
 }
 
 .navbar__items > a.navbar__link {
@@ -121,7 +144,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__items > a.navbar__link:is(:hover, :focus-visible, .navbar__link--active)::after {
   transform: scaleX(1);
 }
-.navbar__logo { transition: transform 260ms var(--motion-ease); }
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  transition: transform 260ms var(--motion-ease);
+}
 .navbar__brand:is(:hover, :focus-visible) .navbar__logo { transform: rotate(-6deg); }
 
 .navbar__link:hover,
@@ -888,8 +917,6 @@ html.docs-doc-page .pagination-nav__link:hover {
 }
 
 /* 阅读页：让纸面承载内容，窄屏释放原本由嵌套边框占用的空间。 */
-.navbar__logo { width: 32px; height: 32px; }
-.navbar__title { font-family: var(--font-literary); letter-spacing: -0.01em; }
 html.docs-doc-page body { background: var(--surface-reading); }
 html.docs-doc-page body::before { background: var(--surface-reading); }
 html.docs-doc-page .main-wrapper { background: var(--surface-reading); }
