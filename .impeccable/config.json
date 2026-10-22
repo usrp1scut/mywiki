@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "plugins/blog-thumbnails.js"
+        ],
+        "createdAt": "2026-10-22T07:04:26.622Z",
+        "reason": "Agent: line 13 is the HTML_IMG_RE parser regex, not rendered markup; this plugin extracts existing image URLs and emits no img tags."
+      }
+    ]
+  }
+}
