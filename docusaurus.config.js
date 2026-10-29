@@ -179,6 +179,7 @@ module.exports = {
     require.resolve('./plugins/font-assets'),
     require.resolve('./plugins/unicode-ssr'),
     require.resolve('./plugins/recent-blog-posts'),
+    require.resolve('./plugins/skill-tree'),
     require.resolve('./plugins/blog-thumbnails'),
   ],
   presets: [

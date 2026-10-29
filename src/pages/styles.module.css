@@ -40,7 +40,7 @@
 }
 
 .noteSearch { margin-top: 2rem; }
-.heroActions { display: flex; gap: 1.5rem; margin-top: 1.1rem; font-size: 0.9rem; }
+.heroActions { display: flex; flex-wrap: wrap; gap: 0.2rem 1.5rem; margin-top: 1.1rem; font-size: 0.9rem; }
 .heroActions a { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 36px; }
 .heroActions a span { transition: transform 220ms var(--motion-ease); }
 .heroActions a:is(:hover, :focus-visible) span { transform: translateX(4px); }

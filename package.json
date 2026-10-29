@@ -10,6 +10,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build && node scripts/compress-search.mjs",
     "test:search": "node --test tests/search.test.mjs",
+    "test:skills": "node --test tests/skill-tree.test.cjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",

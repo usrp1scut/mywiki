@@ -1,0 +1,99 @@
+.section { margin-top: 3.5rem; scroll-margin-top: 5rem; }
+.heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.75rem 2rem; margin-bottom: 1.5rem; }
+.heading h2 { margin: 0; font: 600 1.5rem/1.5 var(--font-literary); }
+.heading p { margin: 0.4rem 0 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; }
+.heading .totals { font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.totals span { padding: 0 0.45rem; color: var(--control-border); }
+.tree { padding: 1.7rem 1.35rem 1rem; border: 1px solid var(--surface-border); background: var(--surface-reading); border-radius: 4px; }
+.rootRow { position: relative; display: flex; justify-content: center; padding-bottom: 1.8rem; }
+.rootRow::after { content: ''; position: absolute; width: 1px; height: 1.8rem; background: var(--ifm-color-primary); bottom: 0; left: 50%; }
+.root { display: flex; gap: 0.8rem; align-items: center; }
+.rootMark { display: grid; place-items: center; width: 48px; height: 48px; color: var(--ifm-color-primary); }
+.root strong { display: block; font: 600 1.35rem/1.4 var(--font-literary); }
+.root div > span { color: var(--ifm-font-color-secondary); font-size: 0.8rem; }
+.certifications { position: absolute; right: 0; top: 0.8rem; display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; min-height: 44px; color: var(--ifm-font-color-secondary); }
+.certifications:hover { color: var(--ifm-color-primary); }
+.branchPicker { display: none; }
+.branches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.branch { position: relative; padding: 1.5rem 0.4rem 0; }
+.branch::before { content: ''; position: absolute; top: 0; width: 100%; left: 0; border-top: 1px solid var(--surface-border); }
+.branch:first-child::before { left: 50%; width: 50%; }
+.branch:last-child::before { width: 50%; }
+.branchHeading { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin: 0 0 1.2rem; font: 600 0.9rem/1.5 var(--ifm-font-family-base); }
+.branchHeading::before { content: ''; position: absolute; top: -1.5rem; height: 1.5rem; width: 1px; background: var(--surface-border); }
+.branchHeading::after { content: ''; position: absolute; bottom: -0.6rem; height: 0.6rem; width: 1px; background: var(--surface-border); }
+.branchIcon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--control-border); color: var(--ifm-font-color-secondary); border-radius: 4px; transform: rotate(45deg); }
+.branchIcon svg { transform: rotate(-45deg); }
+.activeBranch .branchIcon { color: var(--ifm-color-primary); border-color: currentColor; background: var(--surface-code); }
+.activeBranch .branchHeading::before { background: var(--ifm-color-primary); }
+.nodes { position: relative; list-style: none; padding: 0; margin: 0; }
+.nodes::before { content: ''; position: absolute; top: -0.6rem; left: 14px; width: calc(50% - 14px); height: 0.6rem; border-top: 1px solid var(--surface-border); border-left: 1px solid var(--surface-border); }
+.nodeItem { position: relative; padding-bottom: 0.65rem; }
+.nodeItem:not(:last-child)::after { content: ''; position: absolute; left: 14px; bottom: 0; height: 0.65rem; width: 1px; background: var(--surface-border); }
+.node { position: relative; display: flex; align-items: center; gap: 0.45rem; width: 100%; min-height: 62px; padding: 0.5rem 0.45rem; color: var(--ifm-font-color-base); background: var(--surface-reading); border: 1px solid var(--surface-border); border-radius: 4px; font: inherit; text-align: left; cursor: pointer; transition: background 180ms, border-color 180ms; }
+.node:hover { background: var(--surface-hover); border-color: var(--control-border); }
+.node:focus-visible, .showMore:focus-visible, .treeFooter a:focus-visible, .detail:focus-visible, .certifications:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 4px; }
+.nodeDot { display: inline-block; flex-shrink: 0; width: 6px; height: 6px; border: 1px solid var(--control-border); transform: rotate(45deg); }
+.litDot { border-color: var(--ifm-color-primary); background: var(--ifm-color-primary); }
+.nodeCopy { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 0.15rem; }
+.nodeCopy strong { font-size: 0.875rem; font-weight: 600; overflow-wrap: anywhere; }
+.nodeCopy > span { font-size: 0.75rem; color: var(--ifm-font-color-secondary); }
+.noteCount { align-self: flex-start; margin-top: 0.2rem; font-size: 0.75rem; color: var(--ifm-font-color-secondary); font-variant-numeric: tabular-nums; }
+.selectedNode, .selectedNode:hover { background: var(--surface-selected); border-color: var(--ifm-color-primary); }
+.selectedNode .nodeCopy strong, .selectedNode .noteCount { color: var(--ifm-color-primary); }
+.selectedNode .nodeDot { outline: 1px solid var(--ifm-color-primary); outline-offset: 3px; }
+.treeFooter { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem 1rem; margin-top: 0.5rem; padding-top: 0.65rem; border-top: 1px solid var(--surface-rule); font-size: 0.75rem; color: var(--ifm-font-color-secondary); }
+.treeFooter > span { display: inline-flex; align-items: center; gap: 0.6rem; }
+.treeFooter a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+.detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); gap: 3rem; padding: 1.7rem 0; border-bottom: 1px solid var(--surface-border); background: var(--surface-page); scroll-margin-top: 5rem; }
+.selectionStatus { margin-bottom: 0.7rem; font-size: 0.75rem; color: var(--ifm-font-color-secondary); }
+.detailIntro h3 { font: 600 1.45rem/1.5 var(--ifm-font-family-base); margin: 0 0 0.35rem; }
+.detailIntro p { color: var(--ifm-font-color-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.85; }
+.detailCount { color: var(--ifm-color-primary); font-size: 0.8rem; }
+.noteList { min-width: 0; }
+.noteList ul { list-style: none; margin: 0; padding: 0; }
+.noteList li { border-bottom: 1px solid var(--surface-rule); }
+.noteList a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; padding: 0.65rem 0; color: var(--ifm-font-color-base); font-size: 0.875rem; }
+.noteList a:hover { color: var(--ifm-color-primary); }
+.noteList a > span:first-child { overflow-wrap: anywhere; }
+.noteList a > span:last-child { color: var(--ifm-color-primary); flex-shrink: 0; }
+.showMore { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 44px; padding: 0.65rem 0; background: transparent; border: 0; color: var(--ifm-color-primary); font: inherit; font-size: 0.8rem; cursor: pointer; }
+.showMore:hover { text-decoration: underline; }
+.empty { font-size: 0.875rem; color: var(--ifm-font-color-secondary); }
+@media (max-width: 1100px) {
+  .branches { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .branch:nth-child(3)::before { width: 50%; }
+  .branch:nth-child(4)::before { left: 50%; width: 50%; }
+  .nodeCopy strong { font-size: 0.875rem; }
+  .nodeCopy > span, .noteCount { font-size: 0.75rem; }
+  .node { padding-inline: 0.75rem; gap: 0.7rem; }
+  .nodeItem:not(:last-child)::after { left: 16px; }
+}
+@media (max-width: 700px) {
+  .section { margin-top: 2.5rem; }
+  .heading { gap: 0.2rem; margin-bottom: 1.1rem; }
+  .heading h2 { font-size: 1.35rem; }
+  .tree { padding: 1.3rem 0.7rem 0.7rem; }
+  .rootRow { flex-direction: column; align-items: center; padding-bottom: 1.5rem; gap: 0.2rem; }
+  .rootRow::after { height: 1.5rem; }
+  .certifications { position: static; margin-bottom: 0.35rem; }
+  .branchPicker { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.4rem; }
+  .branchPicker button { min-height: 44px; padding: 0.4rem 0.2rem; border: 1px solid var(--surface-border); border-radius: 4px; background: var(--surface-reading); color: var(--ifm-font-color-secondary); font: inherit; font-size: 0.75rem; cursor: pointer; }
+  .branchPicker button[aria-pressed='true'] { color: var(--ifm-color-primary); border-color: currentColor; background: var(--surface-selected); }
+  .branchPicker button:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
+  .branches { display: block; }
+  .branch { display: none; padding-inline: 0.3rem; }
+  .branch.activeBranch { display: block; }
+  .branch:nth-child(n)::before { display: none; }
+  .branchHeading { font-size: 0.875rem; }
+  .node { padding-inline: 0.8rem; gap: 0.8rem; }
+  .nodeCopy strong { font-size: 0.9rem; }
+  .nodeCopy > span, .noteCount { font-size: 0.75rem; }
+  .nodeItem:not(:last-child)::after { left: 16px; }
+  .treeFooter { padding: 0.8rem 0.3rem 0; font-size: 0.7rem; }
+  .detail { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 0; }
+  .detailIntro p { margin-bottom: 0.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .node { transition: none; }
+}

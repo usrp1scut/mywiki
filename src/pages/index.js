@@ -9,6 +9,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import {Poetry} from './精选诗词表';
 import SiteSearchForm from '@site/src/components/SiteSearchForm';
+import SkillTree from '@site/src/components/SkillTree';
 
 const quickNav = [
   {label: '知识库', to: '/docs', desc: '运维文档与排障经验'},
@@ -87,6 +88,7 @@ function Home() {
             </nav>
             <div className={styles.heroActions}>
               <Link to="/docs">浏览全部笔记 <span aria-hidden="true">→</span></Link>
+              <a href="#skill-tree">探索技能树 <span aria-hidden="true">↓</span></a>
               <Link to="/blog">看博客 <span aria-hidden="true">→</span></Link>
             </div>
           </div>
@@ -141,6 +143,8 @@ function Home() {
             <span className={styles.poetryStatus} role="status">{poetryTurn > 0 && `已切换为《${poetry?.title}》`}</span>
           </aside>
         </header>
+
+        <SkillTree />
 
         <section className={styles.section}>
           <div className={styles.sectionTitle}>
