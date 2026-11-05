@@ -14,6 +14,7 @@ import SkillTree from '@site/src/components/SkillTree';
 const quickNav = [
   {label: '知识库', to: '/docs', desc: '运维文档与排障经验'},
   {label: '博客', to: '/blog', desc: '技术实践与回顾'},
+  {label: '工具箱', to: '/tools', desc: '开发与运维实用工具'},
   {label: 'SBTI', to: '/sbti', desc: '趣味人格测试'},
   {label: 'MBTI', to: '/mbti', desc: '60题性格测试'},
   {label: '联系', href: 'mailto:jacob@xiebo.fun', desc: '交流与反馈'},

@@ -38,6 +38,27 @@ npm run test:skills
 npm run build
 ```
 
+### 原生工具箱
+
+导航和首页的「工具箱」进入 `/tools`。首批提供 10 类工具：JSON 格式化 / 压缩 / 校验、
+Base64、URL 编解码、时间戳转换、Cron 解析、文本哈希、UUID v4、密码生成、正则测试与 IPv4 子网计算。
+`/tools#cron` 等链接可以直接打开指定工具，输入内容不进入网址或浏览器存储，切换工具时在当前页面内保留输入。
+刷新或离开页面后清空。全部计算在浏览器中完成，支持明暗主题和手机布局。
+
+实现位于 `src/components/Toolbox`：`catalog.js` 管理工具名称、分组与关键词，`panels/` 按需加载界面，
+`logic.mjs` 保存可独立测试的转换与计算逻辑。JSON 格式化保留数字原文，避免大整数精度丢失；
+正则在 Web Worker 中运行，超时会终止；密码和 UUID 使用安全随机数。
+Cron 使用 `cron-parser`，哈希使用 `hash-wasm`，版本锁定在 Yarn 锁文件中。
+
+工具箱是本仓库的 React 源码，不再嵌入 IT-Tools，也不再从上游拉取或打包静态应用。
+GitHub Actions 运行工具测试后，随 wiki 一次构建并通过原有流程发布 OSS，无需后端或额外 Secrets。
+
+```bash
+yarn test:tools
+yarn build
+yarn serve
+```
+
 ### 生活指南自动更新
 
 `.github/workflows/sync-life-guide.yml` 每天北京时间 07:23 检查

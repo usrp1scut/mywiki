@@ -14,7 +14,8 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "test:tools": "node --test tests/toolbox.test.mjs"
   },
   "dependencies": {
     "@11ty/gray-matter": "^1.0.0",
@@ -34,6 +35,8 @@
     "@mdx-js/react": "^3.0.1",
     "@types/react": "^18.3.3",
     "clsx": "^1.2.1",
+    "cron-parser": "5.10.0",
+    "hash-wasm": "4.12.0",
     "mermaid": "11.6.0",
     "node-gyp": "^10.2.0",
     "prism-react-renderer": "^2.1.0",

@@ -133,6 +133,11 @@ module.exports = {
           position: "left",
         },
         {
+          to: "/tools",
+          label: "工具箱",
+          position: "left",
+        },
+        {
           type: "dropdown",
           label: "性格测试",
           position: "left",
