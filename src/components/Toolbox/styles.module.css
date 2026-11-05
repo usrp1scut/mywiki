@@ -1,28 +1,49 @@
 .page {
   min-height: calc(100vh - var(--ifm-navbar-height));
-  background: var(--surface-page);
+  background: var(--surface-reading);
   color: var(--ifm-font-color-base);
 }
 
-.shell {
-  max-width: 1380px;
+.workspace {
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: var(--doc-sidebar-width, 300px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "sidebar heading" "sidebar panel";
+  align-items: start;
+}
+
+.pageHeader, .panel {
+  width: 100%;
+  max-width: var(--ifm-container-width);
   margin-inline: auto;
-  padding: 2.5rem 2rem 4rem;
+  padding-inline: 2rem;
 }
 
 .pageHeader {
+  grid-area: heading;
   display: flex;
   align-items: baseline;
   gap: 1.25rem;
-  margin-bottom: 2rem;
+  margin-block: 2rem 1.5rem;
   flex-wrap: wrap;
 }
 
 .pageHeader h1 { margin: 0; font-size: 2rem; line-height: 1.4; }
 .pageHeader p { margin: 0; color: var(--ifm-font-color-secondary); font-size: 0.95rem; }
 .localNote { margin-left: auto; color: var(--ifm-font-color-secondary); font-size: 0.8rem; }
-.workspace { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 2.5rem; align-items: start; }
-.sidebar { position: sticky; top: calc(var(--ifm-navbar-height) + 1.5rem); min-width: 0; max-height: calc(100vh - var(--ifm-navbar-height) - 3rem); overflow-y: auto; padding: 3px; scrollbar-color: var(--control-border) var(--surface-page); }
+.sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  height: calc(100vh - var(--ifm-navbar-height));
+  min-width: 0;
+  overflow-y: auto;
+  padding: 1rem 0.75rem 1.5rem;
+  border-inline-end: 1px solid var(--ifm-toc-border-color);
+  background: var(--surface-sidebar);
+  scrollbar-color: var(--control-border) var(--surface-sidebar);
+}
 .searchLabel { display: block; margin-bottom: 0.45rem; font-size: 0.85rem; font-weight: 600; }
 .searchField { display: flex; align-items: center; gap: 0.5rem; padding-inline: 0.65rem; background: var(--surface-reading); border: 1px solid var(--control-border); border-radius: 4px; }
 .searchField svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--ifm-font-color-secondary); }
@@ -35,11 +56,11 @@
 .toolNav li { margin: 0; }
 .toolNav a { display: block; min-height: 44px; padding: 0.55rem 0.7rem; color: inherit; font-size: 0.92rem; border-radius: 4px; text-decoration: none; }
 .toolNav a:hover { background: var(--surface-hover); color: var(--ifm-color-primary); }
-.toolNav a[aria-current] { color: var(--ifm-heading-color); background: var(--surface-selected); font-weight: 600; }
+.toolNav a[aria-current] { color: var(--ifm-heading-color); background: var(--surface-selected); box-shadow: inset 1px 0 0 var(--control-border); font-weight: 600; }
 .sidebarNote { margin: 1.5rem 0 0 0.7rem; color: var(--ifm-font-color-secondary); font-size: 0.78rem; line-height: 1.8; }
 .noTools { margin: 1rem 0; color: var(--ifm-font-color-secondary); font-size: 0.85rem; }
 .mobileSelect { display: none; }
-.panel { min-width: 0; min-height: 620px; padding: 1.8rem 2rem 2rem; background: var(--surface-reading); border: 1px solid var(--surface-border); border-radius: 4px; }
+.panel { grid-area: panel; min-width: 0; padding-bottom: 4rem; }
 .panelHeader { padding-bottom: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--surface-rule); }
 .panelHeader h2 { margin: 0 0 0.4rem; font: 600 1.375rem/1.5 var(--ifm-font-family-base); }
 .panelHeader p { margin: 0; max-width: 70ch; color: var(--ifm-font-color-secondary); font-size: 0.9rem; }
@@ -165,22 +186,23 @@
 .relatedDocs a { text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 1100px) {
-  .workspace { grid-template-columns: 190px minmax(0, 1fr); gap: 1.5rem; }
-  .panel { padding: 1.5rem; }
   .localNote { flex-basis: 100%; margin-left: 0; }
   .pageHeader { gap: 0.5rem 1rem; }
 }
+@media (max-width: 996px) {
+  .workspace { display: block; padding: 1.5rem 2rem 3rem; }
+  .pageHeader, .panel { padding: 0; }
+  .pageHeader { margin-block: 0 1.5rem; }
+  .sidebar { position: static; height: auto; overflow: visible; padding: 0; margin-bottom: 1.5rem; border: 0; background: transparent; }
+  .toolNav, .sidebarNote { display: none; }
+  .mobileSelect { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.75rem; }
+}
 @media (max-width: 760px) {
-  .shell { padding: 1.5rem 1rem 2.5rem; }
-  .pageHeader { display: block; margin-bottom: 1.5rem; }
+  .workspace { padding: 1.5rem 1.25rem 2.5rem; }
+  .pageHeader { display: block; }
   .pageHeader h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
   .pageHeader p { font-size: 0.85rem; }
   .localNote { display: block; margin-top: 0.5rem; }
-  .workspace { display: block; }
-  .sidebar { position: static; display: grid; grid-template-columns: 1fr; margin-bottom: 1.25rem; max-height: none; overflow: visible; padding: 0; }
-  .toolNav, .sidebarNote { display: none; }
-  .mobileSelect { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.75rem; }
-  .panel { padding: 1.25rem 1rem; min-height: 0; }
   .panelHeader h2 { font-size: 1.2rem; }
   .editors, .formRow { grid-template-columns: 1fr; }
   .editors { gap: 1rem; }
