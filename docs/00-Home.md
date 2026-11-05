@@ -11,6 +11,8 @@ import NotebookIndex from '@site/src/components/NotebookIndex';
 
 <NotebookIndex />
 
+常用命令和快捷键可从 [开发运维速查目录](./00-开发运维速查.md)进入，涵盖 Git、Linux、容器、数据查询与正则等主题。
+
 ## 实用开源项目
 
 - [talebook电子书库](https://github.com/talebook/talebook)

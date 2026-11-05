@@ -1,5 +1,7 @@
 # Nginx 常用配置速查
 
+服务检查、重载、代理 URI 和排错入口见 [Nginx 命令与配置速查](./08-Nginx命令与配置速查.md)。
+
 :::tip 相关工具
 
 [本地证书解析](/tools#certificate) · [配置差异对比](/tools#diff)

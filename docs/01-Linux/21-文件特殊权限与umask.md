@@ -10,6 +10,8 @@ description: SUID、SGID、Sticky 三种特殊权限的作用范围与数字代�
 
 [chmod / umask 计算器](/tools#chmod)
 
+[chmod 命令速查](./24-chmod权限速查.md)补充符号权限、目录访问与递归修改示例。
+
 :::
 
 
