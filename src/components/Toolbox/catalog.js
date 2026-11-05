@@ -21,6 +21,12 @@ export const tools = [
   {id: 'public-ip', title: '公网 IP 查询', group: '网络', description: '通过 ipify 查看当前网络的 IPv4 或 IPv6 出口地址。', keywords: 'public ip ipv4 ipv6 公网 出口 代理', online: true},
 ];
 
+export const protocolExplorer = {
+  id: 'protocols', to: '/protocols', title: '网络协议演示', group: '网络',
+  description: '逐步查看 14 种协议的网络图、时序图和报文。',
+  keywords: 'protocol explorer tcp udp ip icmp dns dhcp http https tls ssl ssh ftp smtp pop3 imap 握手 解析',
+};
+
 export const relatedDocs = {
   docker: [{title: 'Docker 常用配置', to: '/docs/容器/docker常用配置'}],
   yaml: [{title: 'Kubernetes Pod 基础', to: '/docs/容器/Kubernetes/pod基础'}],
@@ -37,5 +43,5 @@ export function sanitizeFavorites(value) {
 
 export function searchTools(query) {
   const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-  return tools.filter(tool => terms.every(term => `${tool.title} ${tool.description} ${tool.keywords}`.toLowerCase().includes(term)));
+  return [...tools, protocolExplorer].filter(tool => terms.every(term => `${tool.title} ${tool.description} ${tool.keywords}`.toLowerCase().includes(term)));
 }

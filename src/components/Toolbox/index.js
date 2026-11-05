@@ -2,7 +2,9 @@ import React, {lazy, Suspense, useEffect, useMemo, useState} from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import Link from '@docusaurus/Link';
-import {tools, searchTools, relatedDocs, sanitizeFavorites} from './catalog';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import {useHistory} from '@docusaurus/router';
+import {tools, searchTools, relatedDocs, sanitizeFavorites, protocolExplorer} from './catalog';
 import {Button, Checkbox, DraftContext, styles} from './shared';
 
 const panels = {
@@ -39,6 +41,8 @@ class ToolBoundary extends React.Component {
 function Loading() { return <p className={styles.empty} role="status">正在加载工具…</p>; }
 
 export default function Toolbox() {
+  const history = useHistory();
+  const protocolUrl = useBaseUrl(protocolExplorer.to);
   const brokenLinks = useBrokenLinks();
   tools.forEach(tool => brokenLinks.collectAnchor(tool.id));
   const [active, setActive] = useState('json');
@@ -69,6 +73,14 @@ export default function Toolbox() {
   const tool = tools.find(item => item.id === active);
   const Panel = panels[active];
   const context = useMemo(() => ({drafts, setDrafts}), [drafts]);
+  function selectTool(id) {
+    if (id === protocolExplorer.id) {
+      history.push(protocolUrl);
+      return;
+    }
+    setActive(id);
+    window.location.hash = id;
+  }
 
   return <main className={styles.page} data-search-exclude>
     {tools.map(item => <span key={item.id} id={item.id} hidden aria-hidden="true" />)}
@@ -82,10 +94,13 @@ export default function Toolbox() {
         </div>
         <Checkbox label={'只看收藏（' + favorites.length + '）'} checked={onlyFavorites} onChange={setOnlyFavorites} />
         <nav className={styles.toolNav} aria-label="工具分类">
-          {groups.map(group => <section key={group}><h2>{group}</h2><ul>{visible.filter(item => item.group === group).map(item => <li key={item.id}><a href={`#${item.id}`} onClick={() => setActive(item.id)} aria-current={active === item.id ? 'page' : undefined}>{item.title}</a></li>)}</ul></section>)}
+          {groups.map(group => <section key={group}><h2>{group}</h2><ul>{visible.filter(item => item.group === group).map(item =>
+            <li key={item.id}>{item.to ? <Link to={item.to}>{item.title}</Link> :
+              <a href={`#${item.id}`} onClick={() => setActive(item.id)} aria-current={active === item.id ? 'page' : undefined}>{item.title}</a>}
+            </li>)}</ul></section>)}
           {!visible.length && <p className={styles.noTools} role="status">{onlyFavorites ? '还没有匹配的收藏，可取消筛选或收藏当前工具。' : '没有找到工具，试试「编码」「时间」或「IP」。'}</p>}
         </nav>
-        <div className={styles.mobileSelect}><label htmlFor="tool-select">选择工具</label><select id="tool-select" value={active} onChange={event => { setActive(event.target.value); window.location.hash = event.target.value; }}>
+        <div className={styles.mobileSelect}><label htmlFor="tool-select">选择工具</label><select id="tool-select" value={active} onChange={event => selectTool(event.target.value)}>
           {!visible.some(item => item.id === active) && <option value={active}>{tool.title}（当前）</option>}
           {groups.map(group => <optgroup key={group} label={group}>{visible.filter(item => item.group === group).map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</optgroup>)}
         </select>{(query || onlyFavorites) && <p role="status" className={styles.hint}>{visible.length ? `找到 ${visible.length} 个工具` : '没有找到工具，请调整关键词或取消收藏筛选。'}</p>}</div>

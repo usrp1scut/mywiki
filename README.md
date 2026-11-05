@@ -48,6 +48,8 @@ npm run build
 - 运维配置：Docker run → Compose、chmod / umask。
 - 网络：IPv4 子网、IPv4 / IPv6 范围与 CIDR、DNS 查询、公网 IP 查询。
 
+网络分类还可进入独立的协议学习页 `/protocols`。14 种协议各有中文报文示例，网络图和时序图共用播放进度。可用 `/protocols#dns` 等链接直达协议，学习标记保存在本机浏览器。交互参考 [Protocol Explorer](https://protocol-explorer-alpha.vercel.app/)，各课程附对应 RFC。
+
 `/tools#cron` 等链接可以直接打开指定工具，输入内容不进入网址或浏览器存储，切换工具时在当前页面内保留输入。
 刷新或离开页面后清空。收藏仅保存工具 ID（`wiki-tool-favorites`）；禁用存储时降级为本页收藏。
 文本输入支持导入 UTF-8 文件（最多 2 MB），结果支持复制与下载。文件哈希在 Worker 中分块计算并支持取消。
