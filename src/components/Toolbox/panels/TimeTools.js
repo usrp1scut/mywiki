@@ -1,6 +1,7 @@
 import React from 'react';
 import {dateDetails, nextCronRuns, parseDate, timestampToDate} from '../logic.mjs';
 import {Button, Details, Feedback, Field, Output, useDraft, useResult, styles} from '../shared';
+import CronBuilder from './CronBuilder';
 
 const zones = ['Asia/Shanghai', 'UTC', 'Asia/Tokyo', 'America/New_York', 'Europe/London'];
 function Zone({value, onChange}) {
@@ -38,6 +39,7 @@ export function CronTool() {
   const labels = fields.length === 6 ? ['秒', '分', '时', '日', '月', '星期'] : ['分', '时', '日', '月', '星期'];
   return <>
     <Field label="Cron 表达式" hint="支持标准 5 段，或前置秒字段的 6 段；日与星期同时指定时按「或」匹配。"><input className={styles.mono} value={form.expression} onChange={e => update({expression: e.target.value})} spellCheck={false} /></Field>
+    <CronBuilder onApply={expression => update({expression})} />
     <div className={styles.presets}>{[['每 5 分钟', '*/5 * * * *'], ['每天 02:00', '0 2 * * *'], ['工作日 09:00', '0 9 * * 1-5']].map(([label, expression]) => <Button key={label} onClick={() => update({expression})}>{label}</Button>)}</div>
     <div className={styles.cronFields} aria-label="Cron 字段对照">{labels.map((label, index) => <div key={label}><span>{label}</span><code>{fields[index] || '—'}</code></div>)}</div>
     <div className={styles.formRow}>

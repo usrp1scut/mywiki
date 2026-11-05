@@ -40,15 +40,29 @@ npm run build
 
 ### 原生工具箱
 
-导航和首页的「工具箱」进入 `/tools`。首批提供 10 类工具：JSON 格式化 / 压缩 / 校验、
-Base64、URL 编解码、时间戳转换、Cron 解析、文本哈希、UUID v4、密码生成、正则测试与 IPv4 子网计算。
+导航和首页的「工具箱」进入 `/tools`，目前提供 20 个工具入口：
+
+- 格式与编码：JSON、Base64、URL、YAML / JSON、文本 / JSON 对比、二维码生成与图片识别。
+- 时间与计划：时间戳、Cron 解析与周期生成。
+- 生成与校验：文本与文件哈希、UUID、密码、正则、JWT 解码、PEM / DER 证书解析。
+- 运维配置：Docker run → Compose、chmod / umask。
+- 网络：IPv4 子网、IPv4 / IPv6 范围与 CIDR、DNS 查询、公网 IP 查询。
+
 `/tools#cron` 等链接可以直接打开指定工具，输入内容不进入网址或浏览器存储，切换工具时在当前页面内保留输入。
-刷新或离开页面后清空。全部计算在浏览器中完成，支持明暗主题和手机布局。
+刷新或离开页面后清空。收藏仅保存工具 ID（`wiki-tool-favorites`）；禁用存储时降级为本页收藏。
+文本输入支持导入 UTF-8 文件（最多 2 MB），结果支持复制与下载。文件哈希在 Worker 中分块计算并支持取消。
+支持明暗主题和手机布局；Docker、Kubernetes、Linux 权限、DNS、Nginx、子网笔记提供相关工具入口。
+
+除 DNS / 公网 IP 查询外，处理都在浏览器本地完成。联网工具不会自动发送请求：
+DNS 由用户选择 [Cloudflare](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/dns-json/) 或
+[Google Public DNS](https://developers.google.com/speed/public-dns/docs/doh/json)，出口 IP 使用 [ipify](https://www.ipify.org/)。
+这些公开 API 无需密钥，受网络与服务限流影响；失败会显示提示，DNS 可切换服务。
+JWT 只解码、不验证签名；证书只解析本地内容、不验证信任链或吊销状态；Docker 只生成配置，不执行命令，遇到不支持的参数会报错。
 
 实现位于 `src/components/Toolbox`：`catalog.js` 管理工具名称、分组与关键词，`panels/` 按需加载界面，
 `logic.mjs` 保存可独立测试的转换与计算逻辑。JSON 格式化保留数字原文，避免大整数精度丢失；
 正则在 Web Worker 中运行，超时会终止；密码和 UUID 使用安全随机数。
-Cron 使用 `cron-parser`，哈希使用 `hash-wasm`，版本锁定在 Yarn 锁文件中。
+Cron 使用 `cron-parser`，哈希使用 `hash-wasm`；YAML、diff、X.509、IP 与二维码依赖均在 Yarn 锁文件中固定版本。
 
 工具箱是本仓库的 React 源码，不再嵌入 IT-Tools，也不再从上游拉取或打包静态应用。
 GitHub Actions 运行工具测试后，随 wiki 一次构建并通过原有流程发布 OSS，无需后端或额外 Secrets。

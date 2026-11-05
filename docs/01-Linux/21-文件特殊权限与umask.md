@@ -6,6 +6,13 @@ description: SUID、SGID、Sticky 三种特殊权限的作用范围与数字代�
 
 # 文件特殊权限（SUID/SGID/Sticky）与 umask
 
+:::tip 相关工具
+
+[chmod / umask 计算器](/tools#chmod)
+
+:::
+
+
 Linux 权限除了读（4）、写（2）、执行（1）这 9 个位，还有三位"特殊权限"，以及一个决定新建文件默认权限的 `umask`。前者控制"以谁的身份执行""属组如何继承"，后者控制"默认给多少权限"。
 
 ## 一、SUID（Set User ID，数字代号 4）

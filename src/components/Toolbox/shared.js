@@ -11,23 +11,26 @@ export function useDraft(key, initial) {
 
 export function useResult(dependencies) {
   const sequence = useRef(0);
-  const [state, setState] = useState({value: null, error: '', busy: false});
+  const [state, setState] = useState({value: null, error: '', busy: false, dependencies: [...dependencies]});
   useEffect(() => {
     sequence.current++;
-    setState({value: null, error: '', busy: false});
+    setState({value: null, error: '', busy: false, dependencies: [...dependencies]});
     return () => { sequence.current++; };
   }, dependencies);
   async function run(operation) {
     const current = ++sequence.current;
-    setState({value: null, error: '', busy: true});
+    const inputs = [...dependencies];
+    setState({value: null, error: '', busy: true, dependencies: inputs});
     try {
       const value = await operation();
-      if (current === sequence.current) setState({value, error: '', busy: false});
+      if (current === sequence.current) setState({value, error: '', busy: false, dependencies: inputs});
     } catch (error) {
-      if (current === sequence.current) setState({value: null, error: error.message || '操作失败，请重试。', busy: false});
+      if (current === sequence.current) setState({value: null, error: error.message || '操作失败，请重试。', busy: false, dependencies: inputs});
     }
   }
-  return [state, run];
+  // Hide a previous mode's differently shaped result in the render before effects run.
+  const matches = state.dependencies.length === dependencies.length && dependencies.every((value, i) => Object.is(value, state.dependencies[i]));
+  return [matches ? state : {value: null, error: '', busy: false}, run];
 }
 
 export function Field({label, hint, children}) {
@@ -40,7 +43,24 @@ export function Field({label, hint, children}) {
 }
 
 export function TextInput({value, onChange, ...props}) {
-  return <textarea spellCheck={false} autoCapitalize="off" autoCorrect="off" value={value} onChange={event => onChange(event.target.value)} {...props} />;
+  const sequence = useRef(0);
+  const [error, setError] = useState('');
+  useEffect(() => { sequence.current++; }, [value]);
+  useEffect(() => () => { sequence.current++; }, []);
+  return <>
+    <textarea spellCheck={false} autoCapitalize="off" autoCorrect="off" value={value} onChange={event => { sequence.current++; setError(''); onChange(event.target.value); }} {...props} />
+    <label className={styles.fileImport}>导入文本文件<input type="file" accept=".txt,.json,.yaml,.yml,.pem,.crt,.csv,.log,.conf,.sh,.jwt,text/*" onChange={async event => {
+      const file = event.target.files?.[0]; event.target.value = '';
+      const current = ++sequence.current;
+      if (!file) return;
+      try {
+        if (file.size > 2 * 1024 * 1024) throw new Error('文件超过 2 MB，请缩小后再导入。');
+        const text = new TextDecoder('utf-8', {fatal: true}).decode(await file.arrayBuffer());
+        if (current === sequence.current) { onChange(text); setError(''); }
+      } catch (e) { if (current === sequence.current) setError(e instanceof TypeError ? '请使用 UTF-8 编码的文本文件。' : e.message); }
+    }} /></label>
+    {error && <p className={styles.error} role="alert">{error}</p>}
+  </>;
 }
 
 export function Button({primary, children, ...props}) {
@@ -53,7 +73,14 @@ export function Feedback({state}) {
   </div>;
 }
 
-export function Output({value, label = '结果', placeholder = '结果会显示在这里。', rows = 9}) {
+export function downloadFile(value, filename = 'result.txt', type = 'text/plain;charset=utf-8') {
+  const url = URL.createObjectURL(new Blob([value], {type}));
+  const anchor = document.createElement('a');
+  anchor.href = url; anchor.download = filename; anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export function Output({value, label = '结果', placeholder = '结果会显示在这里。', rows = 9, filename = 'result.txt'}) {
   const id = useId();
   const ref = useRef(null);
   const [copied, setCopied] = useState('');
@@ -71,7 +98,7 @@ export function Output({value, label = '结果', placeholder = '结果会显示�
   return <div className={styles.output}>
     <div className={styles.outputHead}>
       <label htmlFor={id}>{label}</label>
-      <Button onClick={copy} disabled={value === null || value === ''}>复制结果</Button>
+      <div className={styles.outputButtons}><Button onClick={copy} disabled={value === null || value === ''}>复制结果</Button><Button onClick={() => downloadFile(value, filename)} disabled={value === null || value === ''}>下载</Button></div>
     </div>
     <textarea ref={ref} id={id} readOnly value={value ?? ''} rows={rows} placeholder={placeholder} spellCheck={false} />
     <span className={styles.copyStatus} role="status">{copied}</span>

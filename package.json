@@ -15,7 +15,7 @@
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "test:tools": "node --test tests/toolbox.test.mjs"
+    "test:tools": "node --test tests/toolbox*.test.mjs"
   },
   "dependencies": {
     "@11ty/gray-matter": "^1.0.0",
@@ -33,20 +33,28 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@material-ui/core": "^4.12.4",
     "@mdx-js/react": "^3.0.1",
+    "@peculiar/asn1-schema": "3.0.0",
+    "@peculiar/x509": "3.1.0",
     "@types/react": "^18.3.3",
     "clsx": "^1.2.1",
     "cron-parser": "5.10.0",
+    "diff": "9.0.0",
     "hash-wasm": "4.12.0",
+    "ipaddr.js": "2.5.0",
+    "jsqr": "1.4.0",
     "mermaid": "11.6.0",
     "node-gyp": "^10.2.0",
     "prism-react-renderer": "^2.1.0",
+    "qrcode": "1.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-fontawesome": "^1.7.1",
     "react-loadable": "*",
+    "reflect-metadata": "0.2.2",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "yaml": "2.9.1"
   },
   "browserslist": {
     "production": [

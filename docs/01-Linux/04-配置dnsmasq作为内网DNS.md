@@ -1,3 +1,10 @@
+
+:::tip 相关工具
+
+[公共 DNS 记录查询](/tools#dns)（查询公开服务，不代表内网 DNS 结果）
+
+:::
+
 ### 1. 安装
 
 centos:`yum install -y dnsmasq`

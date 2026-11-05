@@ -1,20 +1,23 @@
 import React from 'react';
 import {generatePasswords, generateUuids, hashText} from '../logic.mjs';
 import {Button, Checkbox, Feedback, Field, Output, TextInput, useDraft, useResult, styles} from '../shared';
+import FileHash from './FileHash';
 
 export function HashTool() {
-  const [form, update] = useDraft('hash', {text: '', algorithm: 'sha256'});
-  const [state, run] = useResult([form.text, form.algorithm]);
+  const [form, update] = useDraft('hash', {text: '', algorithm: 'sha256', mode: 'text'});
+  const [state, run] = useResult([form.text, form.algorithm, form.mode]);
   return <>
     <div className={styles.toolbar}>
+      <Field label="摘要来源"><select value={form.mode} onChange={e => update({mode: e.target.value})}><option value="text">文本</option><option value="file">本地文件</option></select></Field>
       <Field label="摘要算法"><select value={form.algorithm} onChange={e => update({algorithm: e.target.value})}><option value="sha256">SHA-256</option><option value="sha512">SHA-512</option><option value="sha1">SHA-1</option><option value="md5">MD5</option></select></Field>
-      <Button onClick={() => update({text: 'hello wiki'})}>载入示例</Button>
-      <Button onClick={() => update({text: ''})} disabled={!form.text}>清空</Button>
+      {form.mode === 'text' && <><Button onClick={() => update({text: 'hello wiki'})}>载入示例</Button><Button onClick={() => update({text: ''})} disabled={!form.text}>清空</Button></>}
     </div>
+    {form.mode === 'file' ? <FileHash algorithm={form.algorithm} /> : <>
     <Field label="输入文本" hint="按 UTF-8 计算，空格和换行也会参与计算；留空可以计算空字符串的摘要。"><TextInput value={form.text} onChange={text => update({text})} rows={7} placeholder="输入需要校验的文本" /></Field>
     <div className={styles.actions}><Button primary disabled={state.busy} onClick={() => run(() => hashText(form.text, form.algorithm))}>计算摘要</Button></div>
     <Feedback state={state} />
     <Output value={state.value} label="十六进制摘要" rows={3} />
+    </>}
     {['md5', 'sha1'].includes(form.algorithm) && <p className={styles.hint}>MD5 / SHA-1 用于兼容已有校验值，不适合密码存储或安全签名。</p>}
   </>;
 }
