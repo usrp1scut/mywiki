@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "e2605d3e2242bd6216c9255192b8a8957a08c55a",
-  "upstream_committed_at": "2026-10-21T07:18:00Z",
-  "imported_on": "2026-10-22",
+  "commit": "d2de3fc8da8c109f082b3551d4d26e0fbb01641d",
+  "upstream_committed_at": "2026-11-04T06:29:23Z",
+  "imported_on": "2026-11-05",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -22,213 +22,213 @@
     },
     {
       "path": "README.md",
-      "git_blob_sha": "7d6554068a49d0e1835f73e956ca377e4d20c8d4",
-      "bytes": 52924,
-      "sha256": "96253c8cf2c82aaee3ba2c542afe99810ac24ab2b324bd9ce3c8589ba641e8ee"
+      "git_blob_sha": "44e9accf5de258cba0786f1f29e06ad17a8b6ff8",
+      "bytes": 52697,
+      "sha256": "6f4d7fde97158cedd18d43134503062c40480b1515387ae83168efcb59c594b7"
     },
     {
       "path": "book/01-不要早死.md",
-      "git_blob_sha": "ce994b9176a18847f0ec3f3eaf35a81ff52afc04",
-      "bytes": 161137,
-      "sha256": "93c19fe7041e1bca7b90d546b7279d2db11c7b139b9e6080745d280a0ffcf9fb"
+      "git_blob_sha": "d1ba6797509e53d4a9109e1d1de24af820053048",
+      "bytes": 168970,
+      "sha256": "146ce3385a348b893f2899bb44ebc5641bc7065cfa25583fb141272eb930ce9b"
     },
     {
       "path": "book/02-不要慢慢死.md",
-      "git_blob_sha": "17a4ade8465bbbfda70515aa5fb3a9bf3172db7d",
-      "bytes": 138831,
-      "sha256": "930f23962a6ea7502840c4811c92d09c446087a489acb0a7681d925d7c70faca"
+      "git_blob_sha": "9faf3108599a3d125c5fb9c8f8101f30dcd4e7f6",
+      "bytes": 139049,
+      "sha256": "cf08bdad5e9f29e9e823972143fde756c321c4964b4a1c171b5a2583cd109918"
     },
     {
       "path": "book/03-不要浪费精力.md",
-      "git_blob_sha": "f8caf59818463db75199fa8675b99b13a43e0e6c",
-      "bytes": 67581,
-      "sha256": "c27a0980ff0c187d2a9250232dc5a5bdc74cb55a8117e515d68c939ef5a15140"
+      "git_blob_sha": "960922e52f570d402c68a46def96d54ebc9bf71c",
+      "bytes": 67863,
+      "sha256": "0f314b37339d01c2262c5b87fb0059645e7d11729ef3927e61139755e0e19192"
     },
     {
       "path": "book/04-不要浪费时间.md",
-      "git_blob_sha": "231e6ade139476bbb70bf7b09526eed909dc0ecc",
-      "bytes": 29429,
-      "sha256": "994c692778a36f5794acc09da73bd46fdc31b722a475d9e36fef097d79f7e98d"
+      "git_blob_sha": "79fcf1f3f1004cc278d87779f5dc27c8d992cc3f",
+      "bytes": 30566,
+      "sha256": "0ce41e57732cdadef83b5ba19f1ba4fae1c23c9463bec5537fd07bbb3df9c3ab"
     },
     {
       "path": "book/05-不要浪费钱.md",
-      "git_blob_sha": "716e03c7825b3868c242cef18f0907dc770815cc",
-      "bytes": 151227,
-      "sha256": "5c01104902e6c8e9c56f2bb068a287a2a3f516483fc2245122bc28e76384da20"
+      "git_blob_sha": "8f428ac045ad90899fd3d48f7eb2a14ef18d0ee4",
+      "bytes": 151473,
+      "sha256": "113207155cf8f85ef40b9f865f17843a672a63835d41801acfc9727d16dfbe61"
     },
     {
       "path": "book/06-反面清单.md",
-      "git_blob_sha": "d3abe3294a594ce1845e818ea31bb90e6269a657",
-      "bytes": 131027,
-      "sha256": "1380f1838f8fc1df5a9e029cd126d3b6d579ed9219487f2bc56cf336c0c40780"
+      "git_blob_sha": "7b19da7b709d852b1d1096cf8abd1f915a5dfba0",
+      "bytes": 131355,
+      "sha256": "3da1e702b927dc1d30d833883bd3c48f0015149b86eb5161b222190f85214e17"
     },
     {
       "path": "book/07-没钱的时候怎么活.md",
-      "git_blob_sha": "7c80fefd9d804f51cb81fd2d9adb5716c788c3df",
-      "bytes": 75472,
-      "sha256": "34d7dcce457efb1cea4576d4afcadb5cb45ad5fe2f756352eec893e35682ce00"
+      "git_blob_sha": "a04f9a78526723a58a281b5da5ff0c2d86b0a44e",
+      "bytes": 76644,
+      "sha256": "2de7075caa075f9e07abeb463f59446c4ca8f0d6ccb60c8809eaf571f1c07195"
     },
     {
       "path": "book/08-别把自己搭进去.md",
-      "git_blob_sha": "e4c0c4055d7d837a190a11fe095738bf6ce22a09",
-      "bytes": 153456,
-      "sha256": "b3d5f749a02aba08333ac969a83cc1ec270ba472ea34db46b571760e1ce7cd5b"
+      "git_blob_sha": "68345478473db2834727ed9208ec806a281ac459",
+      "bytes": 155141,
+      "sha256": "591402af0208e646ff7ab551b653e00861c01f4778f801ac04a5e2b1fb31be23"
     },
     {
       "path": "book/09-普通人容易踩的法律红线.md",
-      "git_blob_sha": "6aa5d11d2eec2b82b7673fd822ec5c4dff7c3bc9",
-      "bytes": 111286,
-      "sha256": "91e653956c2394ad8dbc0776f591011708dba8c19840ffc270cdcb94c6086407"
+      "git_blob_sha": "ecb3735922b0912c1f2e250d039c56631ec71c38",
+      "bytes": 113040,
+      "sha256": "7aeb5313df434bc0a612cd17c09f6d5b1d69aa479d3121c5fb07b5970ab56a35"
     },
     {
       "path": "book/10-恋爱和结婚划不划算.md",
-      "git_blob_sha": "7700f1bef82ee9ce68a87120a3ecd2710ef99bb5",
-      "bytes": 63148,
-      "sha256": "d72968d188bd351c734f42912ffb1280a8feada1881019fe893c74133a54d236"
+      "git_blob_sha": "ec1d60118710730933d4d8841a8b6d7937ba82ee",
+      "bytes": 63999,
+      "sha256": "399a6afaeb8572d2c18424c670924f3013cd731d5219a239a560cdb5b972f94e"
     },
     {
       "path": "book/11-程序员和技术人容易踩的红线.md",
-      "git_blob_sha": "bd1828bd5e371c9265cd9989b9d0682443b3a503",
-      "bytes": 65992,
-      "sha256": "b714586a48253575dbb0bdeaaf722a030827092402eb4680e7ce120bbe823b46"
+      "git_blob_sha": "14b7a7859c5061044db7f433ec7c13b97ff9d9df",
+      "bytes": 67219,
+      "sha256": "508c7f178992c7fe6edef732d09072e9dc151fc8bed91f993806063e91043a0f"
     },
     {
       "path": "book/12-创业与做生意.md",
-      "git_blob_sha": "fbe10bf3c49341b0cfa307660a8faee475c37278",
-      "bytes": 94182,
-      "sha256": "61b3e1076dbafae136dfa987b30274705a45052156a88e18698444467bed243e"
+      "git_blob_sha": "c889575c075bda36c888a3aa7a89b886a4a6dfeb",
+      "bytes": 94438,
+      "sha256": "3352602c7e265c6c4f722f8953a387e1f173ac483539fb58314822f1705252ae"
     },
     {
       "path": "book/13-紧急情况.md",
-      "git_blob_sha": "c8b6ead51e2202125098c7c7b08e8bde56abe67e",
-      "bytes": 164858,
-      "sha256": "7cdd1f8ce7a2630b9909918efc4921796c671095153be1e1e20802c5aabe9493"
+      "git_blob_sha": "fc9767ba7303c56ebc1f65b21a49c645d4257969",
+      "bytes": 178960,
+      "sha256": "54d94a685802c6a7f417b548f2d61f70ed68d628bbd875350a385c99985125e1"
     },
     {
       "path": "book/14-账号与信息安全.md",
-      "git_blob_sha": "b107022b788067943173ff477a212dd3d62bca08",
+      "git_blob_sha": "b797a9d88ef79031157f4b47179297960a0a6fbf",
       "bytes": 29706,
-      "sha256": "cc519d91942dbbbbc5ae0c8f82bf9ee04ce1518ed67688abcbaee5754570b459"
+      "sha256": "3424a8a840d4c95aa1b1158ccc5442c0fd48b54b1e2398cf620929cc81a020bc"
     },
     {
       "path": "book/15-租房与买房.md",
-      "git_blob_sha": "ed65b039561eb17203596019f697732281386de1",
-      "bytes": 47119,
-      "sha256": "cee53cc83031b6571094b9308d947c30f3d4a1c0c687aa871a1d7e5e523d161e"
+      "git_blob_sha": "84a773bacb15c954912993a479474cc0f3e16f52",
+      "bytes": 47755,
+      "sha256": "a4aeb24e87cbf6a658b23e2c7a75463d01b5eb59053d63441cf53dc91b0a08f1"
     },
     {
       "path": "book/16-得了慢性病之后怎么活.md",
-      "git_blob_sha": "5475a34d13507a7d43ab3fc42ec1bde3dce8e095",
-      "bytes": 49358,
-      "sha256": "5ff9b3c7d81ed866df82279b78655d8e25b14ea14ee2883b79cea21be85be703"
+      "git_blob_sha": "32d616ed26ecc467284102a86498851345bdf477",
+      "bytes": 49782,
+      "sha256": "3ccb8d90a9ccf030258be8a2b9bdc8bf9fa19f88f9d01acd3a4b7da102a98472"
     },
     {
       "path": "book/17-家里有老人.md",
-      "git_blob_sha": "3920c75e0e92d10ae555fdd79cc8effe3a5883bc",
-      "bytes": 45237,
-      "sha256": "c3b3d235bec679c2fa86988eb4e4b5c2ea7bbe5192986295e08f7e0b3ac62b63"
+      "git_blob_sha": "b2d90a7a0ef323acdd07378a96456d5b45e9357e",
+      "bytes": 45807,
+      "sha256": "27ecc277bfe676d82d697c83f896fa9a42255944ed5a917ace81d26d4fc13257"
     },
     {
       "path": "book/18-养孩子划不划算.md",
-      "git_blob_sha": "8cfdb817f5e6724119f5a3cf5a86b0fe1b891261",
-      "bytes": 18104,
-      "sha256": "04fb9acbadf2f4368f4063295229c0fe63136e2c5f35999df3ff7f248b615af5"
+      "git_blob_sha": "66bfb98b3740b8a0535d7422992abef7edb91dcb",
+      "bytes": 18077,
+      "sha256": "00c50a53ebc837b02d93d1399fb1ab2cba8704b13ce02cd5029d62c6defbea7f"
     },
     {
       "path": "book/19-在职离职和工伤.md",
-      "git_blob_sha": "9388a0a8a7c6633e5a5585b12403d58792355725",
-      "bytes": 74829,
-      "sha256": "3908c66940dae220d000456104a07dd13c8d56fe6bf746603e01b321a21d932b"
+      "git_blob_sha": "de2f164bf66515135426ef053df1c441a86beb6e",
+      "bytes": 81155,
+      "sha256": "a0c698df02d89fa272af26c60aea22e00e01e431d4cf3329c3add34c661a7fe2"
     },
     {
       "path": "book/20-刚出生的孩子怎么带.md",
-      "git_blob_sha": "fa2ee78d594a5360bd6483409daf6e52ddbf6713",
-      "bytes": 52304,
-      "sha256": "1caa74ac8c347d9441e6e3be1a2b84402d52bc4bce53ea7b4f2525e70402f71e"
+      "git_blob_sha": "5de3b45aba6a8d0e66c5b7fb68368d37052e586c",
+      "bytes": 52750,
+      "sha256": "7582988a3ffd3ec4ffde8f386e536a7e20f0202446e4d780ff1491608a3385ac"
     },
     {
       "path": "book/21-出国旅行与境外安全.md",
-      "git_blob_sha": "0911ba9388a2d09e3abadbfd47b62b30f72b3900",
-      "bytes": 35916,
-      "sha256": "912b20c1ffa8f23e496d89ee76aa5141f0ca0d5e98e73320f284ada19d73ca6e"
+      "git_blob_sha": "472b78f42e1102bd7ee3e50f660d7c22fd713373",
+      "bytes": 36097,
+      "sha256": "7326b49cab0e623e30cf74d4e5675020447fd382a16d018d1b286cfa7e5a4369"
     },
     {
       "path": "book/22-怎么放松.md",
-      "git_blob_sha": "d5d4f63ab5621e9f5f3ea4eba56663869863a4de",
-      "bytes": 28137,
-      "sha256": "53b2b3d00a80652db08ee456eeb8cdd22c0540b886e4a48eb4d280faa6de2c83"
+      "git_blob_sha": "846b016a8b89dc1bc32ee5cac50d08ee36cefcb2",
+      "bytes": 33278,
+      "sha256": "b8bc08ee90411b2ca35cc187a772ccded9c4518f06f31263bee2c9bf131b4dfa"
     },
     {
       "path": "book/23-学什么技能划算.md",
-      "git_blob_sha": "b09e3a3cc0a5dbfd61d51deba0e1667d9edec8ae",
-      "bytes": 66804,
-      "sha256": "49f8fabc2de6c6de1bb078fe6ba7b7af69b258c7061cfbe7dba6796aa47f4667"
+      "git_blob_sha": "c18cc5c222dd89f2cc8a48bc555c12ba06103a9c",
+      "bytes": 67008,
+      "sha256": "d537293950bb1301b47b95573937b7b8fdc0dae2db90a30db25014d414dbc0ca"
     },
     {
       "path": "book/24-看病.md",
-      "git_blob_sha": "ea86c5406b2856bfcba02ae1bee62848c9cfeafe",
-      "bytes": 48135,
-      "sha256": "2785b324c5936c407d05cf731b946ca0ff2e1775aaf13628f115624933a6e225"
+      "git_blob_sha": "34498df5462ef22d7657844dc159482f6613353d",
+      "bytes": 48794,
+      "sha256": "297297bf673c65c761ec13642fb1bae6d01af9943ee8e1d4af2f2e5160765b82"
     },
     {
       "path": "book/25-人走了以后要办什么.md",
-      "git_blob_sha": "34e736abd4123a2427c009f4a6a7c2bd55b95f78",
-      "bytes": 34270,
-      "sha256": "cd134c1913847a91813a098c9f71668cf6564dae1abfcd67edb157fa27150e72"
+      "git_blob_sha": "c5ca0649721b3113aeffb36f1a44205772a6d508",
+      "bytes": 34834,
+      "sha256": "162d5c0d2d1e129c113315b924267bafb76738c11aaee0227c2e3de0275927c3"
     },
     {
       "path": "book/26-做一个网站或平台.md",
-      "git_blob_sha": "adde2a5603263683629b51a85dc1f1fee6e04fb0",
-      "bytes": 41712,
-      "sha256": "9b1f769a62e52fa3feda4bd5c4864265d979b07d6a2bb8f38943c06a5a3923bc"
+      "git_blob_sha": "0309060141ee817809845b615467d62edb0537c4",
+      "bytes": 41742,
+      "sha256": "2e984668db5e24348230a79db0e026eefae5e29a1b0b82f88a2441767c8bdb21"
     },
     {
       "path": "book/27-怀孕和生产.md",
-      "git_blob_sha": "1f62d6b6655686c62d4299716659cf5a7d5b09b8",
-      "bytes": 52117,
-      "sha256": "023998fb3353a694bbb9d8f69442dc20e2c92117521cc905b69692bedb56a1a2"
+      "git_blob_sha": "c600f9d4937cd3e3510487d540d942e15afd5b32",
+      "bytes": 52747,
+      "sha256": "7f43af84e2afab01d23fada4db7b8c982885c8a9faaa121d86f4a280da0b49bb"
     },
     {
       "path": "book/28-别为了外形把身体搞坏.md",
-      "git_blob_sha": "5b4053ad4e5cb18f9b140fb6e93c52ad9bdc6531",
-      "bytes": 32845,
-      "sha256": "8b1cf1b50200f4a73c9e4a094d16deaccf1c7141cf599d0e20adb8f9bedf5c78"
+      "git_blob_sha": "98e52e4cfda5a873907d215fa4fb3dd48f3f5514",
+      "bytes": 32899,
+      "sha256": "c48042789962c73cbe6b09e8863ecd8ba152412b99ca5eadfdf6a9ad417e0e17"
     },
     {
       "path": "book/29-遭遇重大打击之后.md",
-      "git_blob_sha": "11f3c18a93cc9a4e8fad685af08a260cae2ac203",
-      "bytes": 42529,
-      "sha256": "5bc44e52e2d56f597e5d6eb7981807bde976878c8599a7f089ec8ca05ee09269"
+      "git_blob_sha": "1dcbc2598854d5161b8043e1385c61d330eb41f8",
+      "bytes": 43804,
+      "sha256": "71d383444e16c3dde73500350d573576e84fc7d4f5ba707e46e526b1acbd719a"
     },
     {
       "path": "book/30-上学以后的孩子.md",
-      "git_blob_sha": "bcf9eef9355d3524e0cd2b5f19eec636e53c3f0f",
-      "bytes": 69947,
-      "sha256": "d48096557795ba99bcaa91027ac639f36b4b9d4850dec9745fe9af8a885641da"
+      "git_blob_sha": "8cea43fe615f4a11bcdd6947bbc87d0ed74eff7d",
+      "bytes": 70512,
+      "sha256": "ca03fed26f9b42d62dd595143638626734c8a3a7541059cbc3f243179f0f93e4"
     },
     {
       "path": "book/31-十八岁之后有哪几条路.md",
-      "git_blob_sha": "ff37b14bfe57e6f1968c035dd8ac22ee4a9ab640",
-      "bytes": 77164,
-      "sha256": "accccdd315e9653e1de8d29b6da72c59d430f845c7820996a9ff14c693d2fade"
+      "git_blob_sha": "b703f27c59a1565baae2dd3fa1b898051811a7b1",
+      "bytes": 77401,
+      "sha256": "fee3343d0816e3c2877bffeae8ef944528aa9b39997405d90f37328f4e062657"
     },
     {
       "path": "book/32-出国留学.md",
-      "git_blob_sha": "3965a48930877a0a984123fd6c67d6bf7b0f77bd",
-      "bytes": 28011,
-      "sha256": "b2550d774c77d66adbd3b079012a5a6b4010c4d2ee6d21446df2322b20e5045c"
+      "git_blob_sha": "c3f7cc411775ff5c63aef689281677f740e0ed99",
+      "bytes": 28092,
+      "sha256": "8992babffb2c7f7d53a623dbce4e8d02c048dcb74be9a358adba537a3cb29555"
     },
     {
       "path": "book/33-残疾之后怎么活.md",
-      "git_blob_sha": "97dc2b78d9a66a85c98648cedd31ede56a742424",
-      "bytes": 64643,
-      "sha256": "410bc923e894cd8f70d407aef2ec16b04ab8976acfaa227827446fed12fd8226"
+      "git_blob_sha": "2ccf01d1359a0f63b89ec39be62c40db37aef61d",
+      "bytes": 65188,
+      "sha256": "4c55b67c18ae7b6508ae283981b31843e73a616b8f6867641faa58d45f988c6c"
     },
     {
       "path": "book/34-家里的常备药别吃出事.md",
-      "git_blob_sha": "ae882d3b8dbac4790ec48fc8c7cfc4aa9e37e394",
-      "bytes": 38561,
-      "sha256": "c5e62c669d73444be0647e53f2e6f5f4ed1e2e1eafabd40c0470e939a4b917df"
+      "git_blob_sha": "1ad9e99cd35e9af90127db25a70beba336468b3f",
+      "bytes": 46224,
+      "sha256": "1f67cf0e2e273a42e0924109adf55f996f39b07837951364a0c7ac42af7f0aeb"
     }
   ]
 }
