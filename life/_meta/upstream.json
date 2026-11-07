@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "e2edc2e2ea80635412aac1b0c4f5b465c0fa3133",
-  "upstream_committed_at": "2026-11-05T07:21:46Z",
-  "imported_on": "2026-11-06",
+  "commit": "21ad9068a207fb5f99d7ae60a9ef9a814a45ba20",
+  "upstream_committed_at": "2026-11-06T08:59:15Z",
+  "imported_on": "2026-11-07",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -22,9 +22,9 @@
     },
     {
       "path": "README.md",
-      "git_blob_sha": "65d5da8d3ae509b53170ec9b8f635d68f2402e96",
+      "git_blob_sha": "2fd23a2f67891a7ac0a0bdebf426a7569f24e697",
       "bytes": 52697,
-      "sha256": "0767633addfd2b2ad627c5cb90225d1198e49accf9466bdf8b95856607011dae"
+      "sha256": "84829f8c111dab9b64aaa2db3292b3bd175965731f518a82064c9198946b9ab4"
     },
     {
       "path": "book/01-不要早死.md",
@@ -40,9 +40,9 @@
     },
     {
       "path": "book/03-不要浪费精力.md",
-      "git_blob_sha": "960922e52f570d402c68a46def96d54ebc9bf71c",
-      "bytes": 67863,
-      "sha256": "0f314b37339d01c2262c5b87fb0059645e7d11729ef3927e61139755e0e19192"
+      "git_blob_sha": "f3699682a36a1ab105b54eca236eb407fad8f616",
+      "bytes": 67979,
+      "sha256": "eb1eb27776fad6ef5836c1d06d5649c7fd0f3cbbca58cd60e119559de71a9f12"
     },
     {
       "path": "book/04-不要浪费时间.md",
@@ -142,9 +142,9 @@
     },
     {
       "path": "book/20-刚出生的孩子怎么带.md",
-      "git_blob_sha": "5de3b45aba6a8d0e66c5b7fb68368d37052e586c",
-      "bytes": 52750,
-      "sha256": "7582988a3ffd3ec4ffde8f386e536a7e20f0202446e4d780ff1491608a3385ac"
+      "git_blob_sha": "a4ec4d0bbe8bb488854cf25914015b8c6f0f302a",
+      "bytes": 52786,
+      "sha256": "296d2c8f96595f2721549eaf791e989fbe0ebd7731344e1056b1d6e4da702a0f"
     },
     {
       "path": "book/21-出国旅行与境外安全.md",
@@ -208,9 +208,9 @@
     },
     {
       "path": "book/31-十八岁之后有哪几条路.md",
-      "git_blob_sha": "b703f27c59a1565baae2dd3fa1b898051811a7b1",
-      "bytes": 77401,
-      "sha256": "fee3343d0816e3c2877bffeae8ef944528aa9b39997405d90f37328f4e062657"
+      "git_blob_sha": "6f0a70878886af89774f9e5c8abdb763a8a6df92",
+      "bytes": 77517,
+      "sha256": "2e4cfcc3ca2bd45504a7a64b55e348990e671022d1d76718a20d362ad26fcec5"
     },
     {
       "path": "book/32-出国留学.md",
