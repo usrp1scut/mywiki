@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "dff814dcbb0a2e968acc0af48e418814655ba1df",
-  "upstream_committed_at": "2026-11-09T00:26:08Z",
-  "imported_on": "2026-11-09",
+  "commit": "49fceab4254c8c2df0f7cdb1b2959cab6c451b96",
+  "upstream_committed_at": "2026-11-16T09:44:06Z",
+  "imported_on": "2026-11-17",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -52,21 +52,21 @@
     },
     {
       "path": "book/05-不要浪费钱.md",
-      "git_blob_sha": "c20253c2423fdf9f04877363633962f0dbd617fc",
-      "bytes": 151638,
-      "sha256": "d8e50910ce89fa1d44777ebe162b896c93deda7d714cbc2d76e676a64b7af4d1"
+      "git_blob_sha": "a604659f92bcdfa618263a3dbd38c14b774346ed",
+      "bytes": 151716,
+      "sha256": "90e9b8441515bbdb89c668492db376857a2d6057e4fecb426578e3a76ea4518a"
     },
     {
       "path": "book/06-反面清单.md",
-      "git_blob_sha": "49538652ecef4b50bf9fd0172fa43b61d20d5cb7",
-      "bytes": 131404,
-      "sha256": "22bff774d0d2a04ef779307e781e4cccb7c5a8bfef21f9a4070413b1b666468d"
+      "git_blob_sha": "bc129455b80e4d6ed6c2640f7e48b3d4e1532290",
+      "bytes": 131446,
+      "sha256": "ab5175fd462ca8fee0ab9a28a587746380ccc450d0bea3148a5c50e894767619"
     },
     {
       "path": "book/07-没钱的时候怎么活.md",
-      "git_blob_sha": "c2c9aea500520b217848fc499bbabff02819f6d8",
-      "bytes": 77861,
-      "sha256": "b193ce757db80ba5dab89b98f09ee56ce5278b0c4386a99f87db71cb014336c1"
+      "git_blob_sha": "f259bc4ca709e76e19624afced3270329c5fa9ee",
+      "bytes": 77864,
+      "sha256": "b47b966d885377cd4ab4441623045b40138dcead131ce9f18dc3816eb7e36200"
     },
     {
       "path": "book/08-别把自己搭进去.md",
@@ -76,9 +76,9 @@
     },
     {
       "path": "book/09-普通人容易踩的法律红线.md",
-      "git_blob_sha": "ecb3735922b0912c1f2e250d039c56631ec71c38",
-      "bytes": 113040,
-      "sha256": "7aeb5313df434bc0a612cd17c09f6d5b1d69aa479d3121c5fb07b5970ab56a35"
+      "git_blob_sha": "08241a18746ee17d0a742b77ad139cb3a6cd3ac1",
+      "bytes": 113046,
+      "sha256": "475eec66655a74ba6fe3622868c3d66fcb48ae4f49c965d40729e760be748e5f"
     },
     {
       "path": "book/10-恋爱和结婚划不划算.md",
@@ -154,9 +154,9 @@
     },
     {
       "path": "book/22-怎么放松.md",
-      "git_blob_sha": "846b016a8b89dc1bc32ee5cac50d08ee36cefcb2",
-      "bytes": 33278,
-      "sha256": "b8bc08ee90411b2ca35cc187a772ccded9c4518f06f31263bee2c9bf131b4dfa"
+      "git_blob_sha": "43f9c2b5aadde4cd48d21c94486e0ec8f88794fb",
+      "bytes": 33281,
+      "sha256": "a0f03d6ec2f9cc2889c25f6ac40f827ea0a285fe2a30e913a51e1a9f080a5c95"
     },
     {
       "path": "book/23-学什么技能划算.md",
@@ -184,9 +184,9 @@
     },
     {
       "path": "book/27-怀孕和生产.md",
-      "git_blob_sha": "c600f9d4937cd3e3510487d540d942e15afd5b32",
-      "bytes": 52747,
-      "sha256": "7f43af84e2afab01d23fada4db7b8c982885c8a9faaa121d86f4a280da0b49bb"
+      "git_blob_sha": "8a3ef75b19528cdf45f9524af35bbb900adbd7f1",
+      "bytes": 52750,
+      "sha256": "4ff92fa889f1f1afbe0327aafaec33803679c8143547d48f432c8e626d7ba194"
     },
     {
       "path": "book/28-别为了外形把身体搞坏.md",
