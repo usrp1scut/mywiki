@@ -1,0 +1,109 @@
+.footer {
+  padding: 1.5rem 1rem 1.75rem;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem 0.75rem;
+}
+
+.randomButton,
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 36px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.randomButton {
+  border: 1px solid var(--surface-border);
+  background: var(--surface-reading);
+  color: var(--ink-medium);
+  font-family: var(--font-literary);
+  cursor: pointer;
+}
+
+.randomButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background: var(--surface-hover);
+}
+
+.actionLink {
+  color: var(--ink-light);
+  text-decoration: none !important;
+}
+
+.actionLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+.sep {
+  color: var(--surface-border);
+  user-select: none;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+/* 暗色模式：终端翡翠绿控制台风 */
+:global([data-theme='dark']) .randomButton {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  background: rgba(16, 25, 22, 0.78);
+  border-color: rgba(var(--accent-rgb), 0.28);
+  color: var(--space-text);
+}
+
+:global([data-theme='dark']) .randomButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-light);
+  background: rgba(var(--accent-rgb), 0.1);
+  box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.2);
+}
+
+:global([data-theme='dark']) .actionLink {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  color: var(--space-text-muted);
+}
+
+:global([data-theme='dark']) .actionLink:hover {
+  color: var(--ifm-color-primary);
+}
+
+:global([data-theme='dark']) .sep {
+  color: rgba(var(--accent-rgb), 0.28);
+}
+
+@media (max-width: 768px) {
+  .randomButton,
+  .actionLink {
+    min-height: 44px;
+  }
+
+  .sep {
+    display: none;
+  }
+}

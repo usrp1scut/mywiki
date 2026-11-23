@@ -123,73 +123,73 @@
 }
 
 /* ═════════════════════════════════════════════════════
-   暗色模式 —— 炭灰与冷蓝
+   暗色模式 —— 深墨黑与终端翡翠绿（运维控制台）
    ═════════════════════════════════════════════════════ */
 html[data-theme='dark'] {
-  --accent-rgb: 150, 185, 229;
-  --on-primary: #141414;
+  --accent-rgb: 52, 211, 153;
+  --on-primary: #04140e;
   --action-fill: var(--ifm-color-primary);
   --action-fill-hover: var(--ifm-color-primary-light);
-  --control-border: #808080;
-  --surface-page: #141414;
-  --surface-nav: #1b1b1b;
-  --surface-sidebar: #181818;
-  --surface-selected: #303030;
-  --seal-mark: #96b9e5;
+  --control-border: #2f5246;
+  --surface-page: #0a100e;
+  --surface-nav: rgba(10, 16, 14, 0.8);
+  --surface-sidebar: #0d1512;
+  --surface-selected: #182c25;
+  --seal-mark: #34d399;
 
   --ifm-heading-font-family: var(--ifm-font-family-base);
   --search-local-highlight-color: var(--ifm-color-primary);
   --search-local-hit-active-color: var(--space-heading);
   --search-local-hit-active-background: var(--surface-selected);
-  /* 冷蓝用于操作与定位，不染色阅读和选中背景。 */
-  --ifm-color-primary: #96b9e5;
-  --ifm-color-primary-dark: #80a7d8;
-  --ifm-color-primary-darker: #729bcd;
-  --ifm-color-primary-darkest: #6088ba;
-  --ifm-color-primary-light: #afcbef;
-  --ifm-color-primary-lighter: #c3d9f3;
-  --ifm-color-primary-lightest: #d9e7f8;
+  /* 终端翡翠绿用于操作、脉络与定位微辉 */
+  --ifm-color-primary: #34d399;
+  --ifm-color-primary-dark: #10b981;
+  --ifm-color-primary-darker: #059669;
+  --ifm-color-primary-darkest: #047857;
+  --ifm-color-primary-light: #6ee7b7;
+  --ifm-color-primary-lighter: #a7f3d0;
+  --ifm-color-primary-lightest: #d1fae5;
 
-  /* 去掉默认背景 —— 交给全局动画层绘制 */
+  /* 去掉默认背景 —— 交给全局深空与点阵层绘制 */
   --ifm-background-color: transparent;
   --ifm-navbar-background-color: transparent;
   --ifm-footer-background-color: transparent;
 
-  /* 深空色板 */
-  --space-glow-cyan: rgba(var(--accent-rgb), 0.25);
-  --space-glow-purple: rgba(139, 146, 192, 0.12);
-  --space-glow-blue: rgba(var(--accent-rgb), 0.15);
-  --space-surface: #202020;
-  --space-surface-hover: #2b2b2b;
-  --space-border: #454545;
-  --space-border-hover: #666666;
-  --space-text: #e6e6e6;
-  --space-heading: #f5f5f5;
-  --space-text-muted: #b5b5b5;
-  --space-text-subtle: rgba(180, 180, 180, 0.82);
-  --surface-reading: #202020;
-  --surface-raised: #292929;
-  --surface-code: #161616;
-  --surface-border: #454545;
-  --surface-rule: #383838;
-  --surface-hover: rgba(255, 255, 255, 0.045);
-  --code-ink: #e1e1e1;
-  --syntax-text: #e4e4e4;
-  --syntax-comment: #aaaaaa;
-  --syntax-keyword: #8db9ed;
-  --syntax-function: #eab8a1;
-  --syntax-string: #e6cc91;
-  --syntax-number: #ceb9ef;
-  --syntax-variable: #d0d0d0;
-  --syntax-punctuation: #c2c2c2;
-  --poetry-header: #151515;
-  --poetry-header-ink: #f5f5f5;
-  --poetry-fold: #686868;
+  /* 终端深色板 */
+  --space-glow-cyan: rgba(var(--accent-rgb), 0.28);
+  --space-glow-purple: rgba(52, 211, 153, 0.1);
+  --space-glow-blue: rgba(var(--accent-rgb), 0.16);
+  --space-surface: #101916;
+  --space-surface-hover: #172621;
+  --space-border: #20372f;
+  --space-border-hover: #365f51;
+  --space-text: #e2ece8;
+  --space-heading: #f4faf7;
+  --space-text-muted: #93aba2;
+  --space-text-subtle: rgba(147, 171, 162, 0.82);
+  --surface-reading: #101916;
+  --surface-raised: #16221e;
+  --surface-code: #070d0b;
+  --surface-border: #20372f;
+  --surface-rule: #192b24;
+  --surface-hover: rgba(var(--accent-rgb), 0.06);
+  --code-ink: #e2ece8;
+  --syntax-text: #e2ece8;
+  --syntax-comment: #769187;
+  --syntax-keyword: #6ee7b7;
+  --syntax-function: #f4b8a0;
+  --syntax-string: #ebd29b;
+  --syntax-number: #c4b5fd;
+  --syntax-variable: #cbd8d3;
+  --syntax-punctuation: #93aba2;
+  --poetry-header: #0b1612;
+  --poetry-header-ink: #ecfdf5;
+  --poetry-fold: #23473a;
   --ifm-code-background: var(--surface-code);
   --ifm-table-border-color: var(--surface-border);
   --ifm-table-stripe-background: var(--surface-hover);
 
-  /* IFM 语义色映射到太空色 */
+  /* IFM 语义色映射到终端暗色 */
   --ifm-font-color-base: var(--space-text);
   --ifm-font-color-secondary: var(--space-text-muted);
   --ifm-heading-color: var(--space-heading);
@@ -218,7 +218,7 @@ html[data-theme='dark'] {
   --blog-surface-accent: var(--ifm-color-primary);
   --blog-surface-title: var(--space-heading);
   --blog-surface-text: var(--space-text);
-  --blog-surface-tag-border: rgba(var(--accent-rgb), 0.3);
+  --blog-surface-tag-border: rgba(var(--accent-rgb), 0.32);
   --blog-surface-tag-color: var(--ifm-color-primary-light);
   --blog-surface-tag-hover-bg: rgba(var(--accent-rgb), 0.12);
   --blog-surface-thumb-bg: var(--surface-selected);

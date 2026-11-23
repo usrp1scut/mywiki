@@ -97,3 +97,95 @@
 @media (prefers-reduced-motion: reduce) {
   .node { transition: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   暗色模式 —— 发光脉络运维科技树
+   ═══════════════════════════════════════════════════════════════ */
+:global([data-theme='dark']) .heading h2,
+:global([data-theme='dark']) .root strong {
+  font-family: var(--ifm-font-family-base);
+  letter-spacing: -0.01em;
+}
+:global([data-theme='dark']) .heading .totals,
+:global([data-theme='dark']) .certifications,
+:global([data-theme='dark']) .noteCount,
+:global([data-theme='dark']) .detailCount {
+  font-family: var(--ifm-font-family-monospace);
+}
+:global([data-theme='dark']) .tree {
+  background:
+    radial-gradient(ellipse 75% 48% at 50% 0%, rgba(var(--accent-rgb), 0.13), transparent 65%),
+    rgba(9, 17, 14, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.55),
+    0 0 32px rgba(var(--accent-rgb), 0.1),
+    inset 0 1px 0 rgba(var(--accent-rgb), 0.22);
+}
+:global([data-theme='dark']) .rootMark {
+  filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.75));
+}
+:global([data-theme='dark']) .branch::before {
+  border-top-color: rgba(var(--accent-rgb), 0.28);
+}
+:global([data-theme='dark']) .branchHeading::before,
+:global([data-theme='dark']) .branchHeading::after,
+:global([data-theme='dark']) .nodeItem:not(:last-child)::after {
+  background: rgba(var(--accent-rgb), 0.28);
+}
+:global([data-theme='dark']) .nodes::before {
+  border-top-color: rgba(var(--accent-rgb), 0.28);
+  border-left-color: rgba(var(--accent-rgb), 0.28);
+}
+:global([data-theme='dark']) .rootRow::after,
+:global([data-theme='dark']) .activeBranch .branchHeading::before {
+  background: var(--ifm-color-primary);
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.8);
+}
+:global([data-theme='dark']) .branchIcon {
+  border-color: rgba(var(--accent-rgb), 0.45);
+  color: var(--ifm-color-primary-light);
+  background: rgba(var(--accent-rgb), 0.08);
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.18);
+}
+:global([data-theme='dark']) .activeBranch .branchIcon {
+  background: rgba(var(--accent-rgb), 0.24);
+  border-color: var(--ifm-color-primary-light);
+  color: #ecfdf5;
+  box-shadow:
+    0 0 24px rgba(var(--accent-rgb), 0.55),
+    inset 0 0 12px rgba(var(--accent-rgb), 0.35);
+}
+:global([data-theme='dark']) .node {
+  background: rgba(7, 14, 11, 0.82);
+  border-color: rgba(var(--accent-rgb), 0.2);
+  transition: background 180ms, border-color 180ms, box-shadow 180ms;
+}
+:global([data-theme='dark']) .node:hover {
+  background: rgba(16, 32, 26, 0.92);
+  border-color: rgba(var(--accent-rgb), 0.55);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.18);
+}
+:global([data-theme='dark']) .litDot {
+  width: 7px;
+  height: 7px;
+  background: var(--ifm-color-primary-light);
+  border-color: var(--ifm-color-primary);
+  box-shadow:
+    0 0 10px rgba(var(--accent-rgb), 0.95),
+    0 0 18px rgba(var(--accent-rgb), 0.45);
+}
+:global([data-theme='dark']) .selectedNode,
+:global([data-theme='dark']) .selectedNode:hover {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.2), rgba(16, 185, 129, 0.08));
+  border-color: var(--ifm-color-primary);
+  box-shadow:
+    0 0 24px rgba(var(--accent-rgb), 0.28),
+    inset 0 1px 0 rgba(167, 243, 208, 0.25);
+}
+:global([data-theme='dark']) .detail {
+  background: transparent;
+  border-bottom-color: rgba(var(--accent-rgb), 0.24);
+}

@@ -26,12 +26,17 @@ body::before {
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background:
-    var(--surface-page);
+  background: var(--surface-page);
 }
 
+/* 暗色模式：深墨绿底 + 顶部与中段翡翠微光 + 24px 精密点阵网格 */
 [data-theme='dark'] body::before {
-  background: var(--surface-page);
+  background:
+    radial-gradient(ellipse 65% 45% at 78% 14%, rgba(var(--accent-rgb), 0.2), transparent 68%),
+    radial-gradient(ellipse 70% 42% at 50% 78%, rgba(16, 185, 129, 0.14), transparent 70%),
+    radial-gradient(rgba(var(--accent-rgb), 0.22) 1px, transparent 1px),
+    #070d0b;
+  background-size: 100% 100%, 100% 100%, 24px 24px, 100% 100%;
 }
 
 main {
@@ -56,20 +61,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   暗黑模式 — 辅助动效
-   ═══════════════════════════════════════════════════════════════ */
-
-@keyframes cursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
    导航栏
    ═══════════════════════════════════════════════════════════════ */
 .navbar {
   background: var(--surface-nav);
-  backdrop-filter: none;
   box-shadow: none;
   border-bottom: 1px solid rgba(60, 60, 55, 0.1);
   transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -160,9 +155,18 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme='dark'] .navbar {
   background: var(--surface-nav);
-  backdrop-filter: none;
-  border-bottom: 1px solid var(--surface-border);
-  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.18);
+  box-shadow: 0 1px 0 rgba(var(--accent-rgb), 0.06);
+}
+
+[data-theme='dark'] .navbar__brand:is(:hover, :focus-visible) .navbar__logo {
+  filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.55));
+}
+
+[data-theme='dark'] .navbar__items > a.navbar__link::after {
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.65);
 }
 
 [data-theme='dark'] .navbar__title {
@@ -178,7 +182,6 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme='dark'] .navbar__link:hover,
 [data-theme='dark'] .navbar__link--active {
   color: var(--ifm-color-primary);
-  text-shadow: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -186,7 +189,6 @@ h1, h2, h3, h4, h5, h6 {
    ═══════════════════════════════════════════════════════════════ */
 .footer {
   background: var(--surface-nav);
-  backdrop-filter: none;
   box-shadow: none;
   transition: background 0.3s;
   z-index: 1000;
@@ -206,9 +208,9 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme='dark'] .footer {
   background: var(--surface-nav);
-  border-top: 1px solid var(--surface-border);
-  backdrop-filter: none;
-  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.16);
 }
 
 [data-theme='dark'] .footer a {
@@ -283,16 +285,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ═══════════════════════════════════════════════════════════════
    杂项
    ═══════════════════════════════════════════════════════════════ */
-.banner {
-  padding: 4rem;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
 .main-wrapper>div>div {
   border-right: none !important;
 }
@@ -303,7 +295,6 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme='dark'] .dropdown__menu {
   background: var(--surface-reading);
-  backdrop-filter: none;
   border: 1px solid var(--surface-border);
 }
 
@@ -311,10 +302,6 @@ code {
   color: var(--code-ink);
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.9em;
-}
-
-[data-theme='dark'] code {
-  text-shadow: none;
 }
 
 html[data-theme='dark'] body,
@@ -435,7 +422,6 @@ details.alert > div > :last-child {
 
 [data-theme='dark'] details.alert > summary:hover {
   color: var(--ifm-color-primary-light);
-  text-shadow: none;
 }
 
 [data-theme='dark'] details.alert[open] > summary {
@@ -447,8 +433,8 @@ details.alert > div > :last-child {
    ═══════════════════════════════════════════════════════════════ */
 html.docs-wrapper.plugin-docs.docs-doc-page main article {
   background: var(--paper-light);
-  border: 1px solid var(--surface-border);
-  border-radius: 4px;
+  border: 0;
+  border-radius: 0;
   padding: 1.75rem 2rem;
   box-shadow: none;
 }
@@ -464,7 +450,7 @@ html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > :is(h2, h3, h4
   scroll-margin-top: calc(var(--ifm-navbar-height) + 14px);
 }
 
-html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > :is(h2, h3) {
+html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > h2 {
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--surface-border);
 }
@@ -501,10 +487,6 @@ html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown blockquote {
   background: var(--surface-code);
 }
 
-html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown pre {
-  border-radius: 4px;
-  box-shadow: none;
-}
 
 html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-toc-desktop {
   top: calc(var(--ifm-navbar-height) + 1rem);
@@ -534,11 +516,9 @@ html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-sidebar-menu .menu__link-
   background: var(--surface-sidebar);
 }
 
-/* 文档页 — 暗黑太空 */
+/* 文档页 — 暗黑模式 */
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page main article {
   background: var(--surface-reading);
-  border-color: var(--surface-border);
-  box-shadow: none;
 }
 
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown {
@@ -547,17 +527,15 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdo
 
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown :is(h1, h2, h3, h4, h5, h6) {
   color: var(--space-heading);
-  text-shadow: none;
 }
 
-html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > :is(h2, h3) {
+html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > h2 {
   border-bottom-color: var(--surface-border);
 }
 
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown blockquote {
   border-left-color: var(--control-border);
   background: var(--surface-code);
-  backdrop-filter: none;
 }
 
 /* 代码区使用独立的深浅底色，语法颜色由 Prism 提供。 */
@@ -582,15 +560,21 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdo
   box-shadow: none;
 }
 
+[data-theme='dark'] .markdown pre,
+[data-theme='dark'] .markdown .prism-code {
+  border-color: rgba(var(--accent-rgb), 0.2);
+  box-shadow: inset 0 1px 0 rgba(var(--accent-rgb), 0.08);
+}
+
 .markdown :not(pre) > code {
   color: var(--code-ink);
   border: 1px solid var(--surface-rule);
   border-radius: 3px;
 }
 
-/* 侧边栏 — 暗黑太空 */
+/* 侧边栏 */
 .menu__link {
-  transition: background-color 180ms, color 180ms;
+  transition: background-color 180ms, color 180ms, box-shadow 180ms;
 }
 .table-of-contents__link {
   transition: color 150ms;
@@ -598,12 +582,7 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdo
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-sidebar-menu .menu__link--active {
   background: var(--surface-selected);
   color: var(--ifm-menu-color-active);
-  box-shadow: inset 1px 0 0 var(--ifm-color-primary);
-  text-shadow: none;
-}
-
-[data-theme='dark'] .menu__link {
-  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+  box-shadow: inset 2px 0 0 var(--ifm-color-primary), 0 0 12px rgba(var(--accent-rgb), 0.08);
 }
 
 [data-theme='dark'] .menu__link:hover {
@@ -611,30 +590,8 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .theme-doc-sideba
 }
 
 html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-contents__link--active {
-  border-left-color: rgba(var(--accent-rgb), 0.7);
+  border-left-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
-  text-shadow: none;
-}
-
-@media (max-width: 996px) {
-  html.docs-wrapper.plugin-docs.docs-doc-page main article {
-    padding: 1rem;
-    border-radius: 4px;
-  }
-
-  html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown {
-    max-width: 100%;
-    font-size: 0.98rem;
-    line-height: 1.82;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   Admonition / Alert — 暗黑太空
-   ═══════════════════════════════════════════════════════════════ */
-[data-theme='dark'] .alert {
-  backdrop-filter: none;
-  border: 1px solid var(--space-border);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -645,12 +602,6 @@ html[data-theme='dark'].docs-wrapper.plugin-docs.docs-doc-page .table-of-content
   outline-offset: 2px;
   border-radius: 4px;
   transition: outline-color 0.15s ease;
-}
-
-/* 卡片级别容器：让整个卡片可聚焦时也有清晰提示 */
-:where(.quickNavItem, article.margin-bottom--xl):focus-within {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
 }
 
 [data-theme='dark'] :where(a, button, input, select, textarea, summary, [role='button'], [tabindex]):focus-visible {
@@ -689,10 +640,6 @@ textarea:focus-visible {
   transition: color 0.2s;
 }
 
-[data-theme='dark'] a:hover {
-  text-shadow: none;
-}
-
 /* ═══════════════════════════════════════════════════════════════
    亮色模式按钮 — 水墨风
    ═══════════════════════════════════════════════════════════════ */
@@ -729,18 +676,13 @@ html:not([data-theme='dark']) .button--secondary:hover {
   border-radius: 4px;
 }
 
-/* 暗色按钮：填充色表示主操作，边框表示次操作。 */
+/* 暗色按钮：填充色表示主操作，悬停带克制冷蓝微辉。 */
 [data-theme='dark'] .button--primary {
-  background: var(--action-fill);
-  border-color: var(--action-fill);
-  color: var(--on-primary);
-  box-shadow: none;
+  box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.25);
 }
 
 [data-theme='dark'] .button--primary:hover {
-  background: var(--action-fill-hover);
-  border-color: var(--action-fill-hover);
-  color: var(--on-primary);
+  box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.34);
   transform: none;
 }
 
@@ -803,7 +745,6 @@ html:not([data-theme='dark']) .button--outline.button--primary:hover {
 [data-theme='dark'] .alert,
 [data-theme='dark'] .admonition {
   background: var(--surface-raised);
-  backdrop-filter: none;
   border-radius: 4px;
   border: 1px solid var(--surface-border);
   border-left: 1px solid var(--ifm-alert-border-color, var(--space-border-hover));
@@ -814,7 +755,6 @@ html:not([data-theme='dark']) .button--outline.button--primary:hover {
 [data-theme='dark'] mark {
   color: var(--ifm-color-primary);
   background: rgba(var(--accent-rgb), 0.12);
-  text-shadow: none;
 }
 
 /* 长文阅读：保留站点配色，正文使用清楚、稳定的排版。 */
@@ -865,18 +805,8 @@ html.docs-doc-page .theme-doc-markdown table td {
   }
 }
 
-html.docs-doc-page .theme-doc-markdown :is(pre, .prism-code) {
-  box-shadow: none;
-}
-
 html.docs-doc-page .theme-doc-markdown pre::before {
   content: none;
-}
-
-html[data-theme='dark'].docs-doc-page .theme-doc-markdown a:hover,
-html[data-theme='dark'].docs-doc-page .theme-doc-sidebar-menu .menu__link--active,
-html[data-theme='dark'].docs-doc-page .table-of-contents__link--active {
-  text-shadow: none;
 }
 
 html[data-theme='light'].docs-doc-page .theme-doc-markdown :is(h1, h2) {
@@ -887,10 +817,6 @@ html[data-theme='light'].docs-doc-page .theme-doc-markdown :is(h1, h2) {
 
 html[data-theme='light'].docs-doc-page .theme-doc-markdown > h2 {
   border-image: linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 90%) 1;
-}
-
-html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown > h3 {
-  border-bottom: none;
 }
 
 html[data-theme='light'].docs-doc-page .theme-doc-sidebar-menu .menu__link--active {
@@ -914,13 +840,14 @@ html.docs-doc-page .pagination-nav__link:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .navbar__brand .navbar__logo { transform: none !important; }
 }
 
 /* 阅读页：让纸面承载内容，窄屏释放原本由嵌套边框占用的空间。 */
 html.docs-doc-page body { background: var(--surface-reading); }
-html.docs-doc-page body::before { background: var(--surface-reading); }
+html.docs-doc-page body::before,
+html[data-theme='dark'].docs-doc-page body::before { background: var(--surface-reading); }
 html.docs-doc-page .main-wrapper { background: var(--surface-reading); }
-html.docs-wrapper.plugin-docs.docs-doc-page main article { border: 0; border-radius: 0; }
 /* 行长由阅读容器统一控制，避免中文段落在标题和代码块之前提前折行。 */
 html.docs-doc-page .theme-doc-markdown { margin-inline: auto; }
 html.docs-doc-page .theme-doc-markdown h1 { margin-bottom: 1.5rem; text-wrap: balance; }
@@ -946,6 +873,10 @@ a { text-underline-offset: 0.2em; }
   pointer-events: none;
 }
 
+[data-theme='dark'] .reading-progress {
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.7);
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -953,12 +884,13 @@ a { text-underline-offset: 0.2em; }
 }
 ::view-transition-new(root) { z-index: 1; }
 
-@media (prefers-reduced-motion: reduce) {
-  .navbar__brand .navbar__logo { transform: none !important; }
-}
 @media (max-width: 996px) {
   html.docs-wrapper.plugin-docs.docs-doc-page main article { padding: 0.5rem 0; }
-  html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown { font-size: 1rem; }
+  html.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.82;
+  }
   html.docs-doc-page .theme-doc-markdown h1 { font-size: 1.75rem; }
   .navbar__toggle {
     display: flex;
@@ -966,5 +898,74 @@ a { text-underline-offset: 0.2em; }
     justify-content: center;
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   /life 生活指南 —— 书卷散文阅读氛围（与 /docs 运维手册轻量区分）
+   ═══════════════════════════════════════════════════════════════ */
+html.plugin-id-life.docs-doc-page .theme-doc-markdown {
+  line-height: 1.98;
+}
+
+html.plugin-id-life.docs-doc-page .theme-doc-markdown > p {
+  margin-bottom: 1.25rem;
+}
+
+html.plugin-id-life.docs-doc-page .theme-doc-markdown :is(h1, h2) {
+  font-family: var(--font-literary);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* 亮色模式：温润微暖纸面 + 克制朱砂印点缀 */
+html[data-theme='light'].plugin-id-life.docs-doc-page {
+  --surface-reading: #fbf9f5;
+  --surface-sidebar: #f3f0ea;
+  --surface-code: #f4f1ea;
+  --surface-selected: #ebe6dc;
+}
+
+html[data-theme='light'].plugin-id-life.docs-doc-page .theme-doc-markdown > h2::after {
+  background: var(--seal-red);
+  width: 2.25rem;
+}
+
+html[data-theme='light'].plugin-id-life.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown blockquote {
+  border-left: 2px solid var(--seal-red);
+  border-radius: 4px;
+  background: #f5f1e8;
+}
+
+html[data-theme='light'].plugin-id-life.docs-doc-page .theme-doc-sidebar-menu .menu__link--active {
+  box-shadow: inset 2px 0 0 var(--seal-red);
+}
+
+html[data-theme='light'].plugin-id-life.docs-wrapper.plugin-docs.docs-doc-page .table-of-contents__link--active {
+  border-left-color: var(--seal-red);
+  color: var(--seal-red);
+}
+
+/* 暗色模式：静谧夜读书房（保留翡翠绿体系，弱化冷硬技术感） */
+html[data-theme='dark'].plugin-id-life.docs-doc-page {
+  --surface-reading: #131715;
+  --surface-sidebar: #0f1311;
+  --surface-code: #0c100e;
+}
+
+html[data-theme='dark'].plugin-id-life.docs-doc-page .theme-doc-markdown > h2::after {
+  background: var(--ifm-color-primary);
+  width: 2.25rem;
+}
+
+html[data-theme='dark'].plugin-id-life.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown blockquote {
+  border-left: 2px solid rgba(var(--accent-rgb), 0.55);
+  border-radius: 4px;
+}
+
+@media (max-width: 996px) {
+  html.plugin-id-life.docs-wrapper.plugin-docs.docs-doc-page .theme-doc-markdown {
+    max-width: 100%;
+    line-height: 1.9;
   }
 }

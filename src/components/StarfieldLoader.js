@@ -14,7 +14,7 @@ export default function StarfieldLoader() {
   const baseUrl = useBaseUrl('/');
   const localPath = pathname.slice(baseUrl.length).replace(/\/$/, '');
   // Unknown routes (404) stay quiet, just like documents and search results.
-  const showBackground = ['', 'news', 'mbti', 'sbti'].includes(localPath);
+  const showBackground = ['', 'tools', 'news', 'mbti', 'sbti'].includes(localPath);
   const [dark, setDark] = useState(
     () => document.documentElement.getAttribute('data-theme') === 'dark',
   );

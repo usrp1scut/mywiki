@@ -14,3 +14,29 @@
   .field { gap: 0.5rem; }
   .field svg { display: none; }
 }
+
+/* 暗色模式：终端翡翠绿玻璃搜索框 */
+:global([data-theme='dark']) .field {
+  background: rgba(7, 15, 12, 0.85);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(var(--accent-rgb), 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+:global([data-theme='dark']) .field:focus-within {
+  border-color: var(--ifm-color-primary);
+  box-shadow:
+    0 0 0 3px rgba(var(--accent-rgb), 0.16),
+    0 0 24px rgba(var(--accent-rgb), 0.24);
+}
+:global([data-theme='dark']) .field svg {
+  color: var(--ifm-color-primary);
+}
+:global([data-theme='dark']) .field button {
+  box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.3);
+  transition: background-color 160ms ease, box-shadow 180ms ease;
+}
+:global([data-theme='dark']) .field button:hover {
+  box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.5);
+}

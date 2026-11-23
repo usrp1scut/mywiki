@@ -201,3 +201,81 @@
 @media (prefers-reduced-motion: reduce) {
   .poetryCard::after, .heroActions a span { transform: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   暗色模式 —— 科技控制台反差视觉
+   ═══════════════════════════════════════════════════════════════ */
+:global([data-theme='dark']) .heroContent h1 {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+:global([data-theme='dark']) .heroContent h1::after {
+  width: 88px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), rgba(var(--accent-rgb), 0.12));
+  clip-path: none;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.55);
+}
+:global([data-theme='dark']) .noteLinks a {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+}
+:global([data-theme='dark']) .poetryCard {
+  background: linear-gradient(
+    155deg,
+    rgba(16, 185, 129, 0.17) 0%,
+    rgba(11, 23, 19, 0.92) 48%,
+    rgba(7, 15, 12, 0.96) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(var(--accent-rgb), 0.38);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 0 36px rgba(var(--accent-rgb), 0.14),
+    inset 0 1px 0 rgba(var(--accent-rgb), 0.28);
+  transition: border-color 240ms var(--motion-ease), box-shadow 240ms var(--motion-ease);
+}
+:global([data-theme='dark']) .poetryCard:hover,
+:global([data-theme='dark']) .poetryCard:focus-within {
+  border-color: rgba(var(--accent-rgb), 0.62);
+  box-shadow:
+    0 18px 52px rgba(0, 0, 0, 0.6),
+    0 0 42px rgba(var(--accent-rgb), 0.22),
+    inset 0 1px 0 rgba(var(--accent-rgb), 0.36);
+}
+:global([data-theme='dark']) .poetryCard::after {
+  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 55%, #059669 100%);
+  box-shadow: -2px 2px 14px rgba(52, 211, 153, 0.55);
+}
+:global([data-theme='dark']) .poetryHeader {
+  background: rgba(var(--accent-rgb), 0.08);
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.24);
+}
+:global([data-theme='dark']) .poetryCard .poetryTitle {
+  color: #ecfdf5;
+}
+:global([data-theme='dark']) .switchButton {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+}
+:global([data-theme='dark']) .switchButton:hover {
+  border-color: rgba(var(--accent-rgb), 0.6);
+  color: var(--ifm-color-primary-light);
+}
+:global([data-theme='dark']) .sectionTitle {
+  border-bottom-color: rgba(var(--accent-rgb), 0.2);
+}
+:global([data-theme='dark']) .hanTitle {
+  font-family: var(--ifm-font-family-base);
+  letter-spacing: 0.01em;
+}
+:global([data-theme='dark']) .recentPost:hover,
+:global([data-theme='dark']) .recentPost:focus-within {
+  border-color: rgba(var(--accent-rgb), 0.4);
+}
+:global([data-theme='dark']) .quickNavItem::after {
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.65);
+}
