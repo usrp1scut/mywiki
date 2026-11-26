@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "49fceab4254c8c2df0f7cdb1b2959cab6c451b96",
-  "upstream_committed_at": "2026-11-16T09:44:06Z",
-  "imported_on": "2026-11-17",
+  "commit": "6f1dd6ba49627b40697a788608923ac4d2260456",
+  "upstream_committed_at": "2026-11-25T10:21:19Z",
+  "imported_on": "2026-11-26",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -22,15 +22,15 @@
     },
     {
       "path": "README.md",
-      "git_blob_sha": "9f0b69735c9f90cf46f085011e2855a2738a6b89",
-      "bytes": 52813,
-      "sha256": "8af24ad56de6b073be6e23af9fabf463baeb45f312a1d9f41dfba641a385baf4"
+      "git_blob_sha": "110d112f3365d4024958cec3adc4a93a60287c97",
+      "bytes": 52894,
+      "sha256": "bcaaf87ea3ba882d9cdaad97e2d91c853efab18d3e60e32098365eb9b3aff8f2"
     },
     {
       "path": "book/01-不要早死.md",
-      "git_blob_sha": "dafb85e2008ff5c8475dd76c3fd6e42d911d2939",
-      "bytes": 168942,
-      "sha256": "64d856f8656a2dcf99931d86364b8411fd335368346d70dfbb42f1b366cdfc96"
+      "git_blob_sha": "31507ee75d2d77497442cf87631203fd9cfee1cf",
+      "bytes": 175159,
+      "sha256": "16fe06745077e013c2065d7bfe3417a2b885df65b5c31feecdd01b982aa61474"
     },
     {
       "path": "book/02-不要慢慢死.md",
@@ -184,9 +184,9 @@
     },
     {
       "path": "book/27-怀孕和生产.md",
-      "git_blob_sha": "8a3ef75b19528cdf45f9524af35bbb900adbd7f1",
-      "bytes": 52750,
-      "sha256": "4ff92fa889f1f1afbe0327aafaec33803679c8143547d48f432c8e626d7ba194"
+      "git_blob_sha": "5f9b9ea406c1584c6175b5b2fb040f5cbc00d06c",
+      "bytes": 59807,
+      "sha256": "931d5641956fa4325f30a548d1100182a5f7388486b10fcf4cc4a527931f523d"
     },
     {
       "path": "book/28-别为了外形把身体搞坏.md",
