@@ -1,16 +1,16 @@
 {
-  "commit": "6f1dd6ba49627b40697a788608923ac4d2260456",
-  "imported_on": "2026-11-26",
+  "commit": "2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467",
+  "imported_on": "2026-11-28",
   "chapters": [
     {
       "source": "book/01-不要早死.md",
       "destination": "life/chapters/01-不要早死.md",
       "source_sha256": "16fe06745077e013c2065d7bfe3417a2b885df65b5c31feecdd01b982aa61474",
-      "transformed_body_sha256": "ca19f028a84bb267573474c8a832a5ddeb514c745b49742010821a4c589c7dd2",
+      "transformed_body_sha256": "2b052cff552d77fb77bf8adf53635ca90d6dbc4c9b7e5a85fe9ad8350506425a",
       "chapter_entries": 50,
       "linked_references": 86,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/家庭应急装备清单.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/家庭应急装备清单.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -18,12 +18,12 @@
     {
       "source": "book/02-不要慢慢死.md",
       "destination": "life/chapters/02-不要慢慢死.md",
-      "source_sha256": "e710eb58e63863cecb228819c57e627833fa220231697b8dc8bbd6a262db2509",
-      "transformed_body_sha256": "f65d5128b087c07624291a102a41989421f789739883309b78ab26a9da6d869e",
+      "source_sha256": "58827c6d7962fba3cf057d9a84f4a850c2fa22c5ac7701d4058d4bd6f7c58dd1",
+      "transformed_body_sha256": "aefdeb1e9f87f9645cbca92f842938429fd418b1484be4f837e62f86aa43b10b",
       "chapter_entries": 47,
       "linked_references": 47,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/生物钟和夜班.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/生物钟和夜班.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -87,11 +87,11 @@
       "source": "book/08-别把自己搭进去.md",
       "destination": "life/chapters/08-别把自己搭进去.md",
       "source_sha256": "8291173460cd7d3e611e6273ae59bcef546be8ff067130abf34684acc3a27273",
-      "transformed_body_sha256": "5a0bb4746ca66d471ded4cfd4486b02d9fd696a51026b9a80ec80c8163fb5776",
+      "transformed_body_sha256": "86a85a26f9812f16c225305ca8c50afd649c137eb0af9e6495165fbdf53827f1",
       "chapter_entries": 46,
       "linked_references": 86,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/遇到陌生人出事该不该停.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/遇到陌生人出事该不该停.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -111,12 +111,12 @@
       "source": "book/10-恋爱和结婚划不划算.md",
       "destination": "life/chapters/10-恋爱和结婚划不划算.md",
       "source_sha256": "25d9c8835145e9a54f53215ac5729a15b9747ecab56c38e513a3f21d1ae5716d",
-      "transformed_body_sha256": "2883a8b2899cba873b9c84858aff3455c5a2b572a1773a711c3016cd67bca700",
+      "transformed_body_sha256": "1fa0aefd41ed17122c74955790bd4092041fa374c97c544b024856a75b37059e",
       "chapter_entries": 23,
       "linked_references": 23,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/结婚划不划算.md",
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/结婚划不划算.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/结婚划不划算.md",
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/结婚划不划算.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -147,11 +147,11 @@
       "source": "book/13-紧急情况.md",
       "destination": "life/chapters/13-紧急情况.md",
       "source_sha256": "54d94a685802c6a7f417b548f2d61f70ed68d628bbd875350a385c99985125e1",
-      "transformed_body_sha256": "fbac8aa2b05a1c9efef67b543b8cfbf66f075d7ba290c7f18d1d7313dd61b48b",
+      "transformed_body_sha256": "3892c73b71cadfc3ac7edfde3fe685ab99f95b3f8285a2e016c740ca1bbbba3c",
       "chapter_entries": 49,
       "linked_references": 71,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/遇到陌生人出事该不该停.md"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/遇到陌生人出事该不该停.md"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0
@@ -292,12 +292,12 @@
       "source": "book/26-做一个网站或平台.md",
       "destination": "life/chapters/26-做一个网站或平台.md",
       "source_sha256": "6f12f3582d2c9da6c4dd57cd228fcf52ad81dc1c9ebb0abebd13db81a4679aca",
-      "transformed_body_sha256": "8e5fd98dbb2b2a0a64a9b50c61d47c4ba6694b7482eceece65bcd77286a1a461",
+      "transformed_body_sha256": "a49d045d0183dc7f32e1a667e61b307cecf2f8ee5ac2d67b63b35caf3317140a",
       "chapter_entries": 13,
       "linked_references": 6,
       "externalized_links": [
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/docs/做平台要办哪些证.md",
-        "https://github.com/eternity4719/HowToLiveBetter/blob/6f1dd6ba49627b40697a788608923ac4d2260456/LICENSE-CODE"
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/docs/做平台要办哪些证.md",
+        "https://github.com/eternity4719/HowToLiveBetter/blob/2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467/LICENSE-CODE"
       ],
       "unresolved_references": [],
       "removed_ad_blocks": 0

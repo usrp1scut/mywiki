@@ -1,8 +1,8 @@
 {
   "repository": "https://github.com/eternity4719/HowToLiveBetter",
-  "commit": "6f1dd6ba49627b40697a788608923ac4d2260456",
-  "upstream_committed_at": "2026-11-25T10:21:19Z",
-  "imported_on": "2026-11-26",
+  "commit": "2e130ee6f9ff4d60bba9d55f78d7b7acfe57f467",
+  "upstream_committed_at": "2026-11-28T01:13:46Z",
+  "imported_on": "2026-11-28",
   "timezone": "Asia/Shanghai",
   "author": "eternity4719 及项目贡献者",
   "content_license": "CC-BY-4.0",
@@ -22,9 +22,9 @@
     },
     {
       "path": "README.md",
-      "git_blob_sha": "110d112f3365d4024958cec3adc4a93a60287c97",
+      "git_blob_sha": "caf3f1f1b3df6bde962d283e7253bbb8c4ebbb8a",
       "bytes": 52894,
-      "sha256": "bcaaf87ea3ba882d9cdaad97e2d91c853efab18d3e60e32098365eb9b3aff8f2"
+      "sha256": "c9206635d760f4aed9abf98ff061dd0a4ef859fffcd6953a36aa7cef9788f32d"
     },
     {
       "path": "book/01-不要早死.md",
@@ -34,9 +34,9 @@
     },
     {
       "path": "book/02-不要慢慢死.md",
-      "git_blob_sha": "4fef0548dc3df1a8bcf0cbe63bf84c53bc06e248",
-      "bytes": 142654,
-      "sha256": "e710eb58e63863cecb228819c57e627833fa220231697b8dc8bbd6a262db2509"
+      "git_blob_sha": "6547428b019a9eae8555005899611b34b17afb89",
+      "bytes": 144219,
+      "sha256": "58827c6d7962fba3cf057d9a84f4a850c2fa22c5ac7701d4058d4bd6f7c58dd1"
     },
     {
       "path": "book/03-不要浪费精力.md",
