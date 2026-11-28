@@ -143,10 +143,17 @@
 .inlineLink { display: inline-flex; align-items: center; min-height: 36px; font-size: 0.9rem; }
 .recentPost { padding-block: 1.3rem; border-bottom: 1px solid var(--surface-rule); transition: border-color 180ms; }
 .recentPost:focus-within, .recentPost:hover { border-color: var(--control-border); }
-.recentPost h3 { margin: 0 0 0.65rem; font-family: var(--ifm-font-family-base); font-size: 1.075rem; font-weight: 600; line-height: 1.65; }
+.postMeta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.9rem; margin-bottom: 0.45rem; color: var(--ifm-font-color-secondary); font-family: var(--ifm-font-family-monospace); font-size: 0.78rem; }
+.postTags { color: var(--ifm-color-primary); }
+.recentPost h3 { margin: 0 0 0.55rem; font-family: var(--ifm-font-family-base); font-size: 1.075rem; font-weight: 600; line-height: 1.65; }
 .recentPost h3 a { color: var(--ifm-font-color-base); text-decoration-thickness: 1px; }
 .recentPost h3 a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
 .recentPost p { margin: 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; line-height: 1.8; max-width: 78ch; }
+.weeklyList { list-style: none; margin: 0; padding: 0; }
+.weeklyItem { display: flex; align-items: baseline; gap: 1rem; padding-block: 0.9rem; border-bottom: 1px solid var(--surface-rule); }
+.weeklyItem time { flex-shrink: 0; color: var(--ifm-font-color-secondary); font-family: var(--ifm-font-family-monospace); font-size: 0.82rem; }
+.weeklyItem a { color: var(--ifm-font-color-base); font-size: 0.95rem; line-height: 1.65; }
+.weeklyItem a:hover { color: var(--ifm-color-primary); text-decoration: underline; }
 .quickNav { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 1.3rem; }
 .quickNavItem { position: relative; flex: 1 1 150px; display: flex; flex-direction: column; gap: 0.25rem; padding-block: 0.75rem; border-bottom: 1px solid var(--surface-border); text-decoration: none; }
 .quickNavItem::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 1px; background: var(--ifm-color-primary); transform: scaleX(0); transform-origin: left; transition: transform 240ms var(--motion-ease); }
@@ -177,6 +184,7 @@
   .poetryLine { font-size: 1rem; }
   .switchButton, .expandButton { min-height: 44px; }
   .section { margin-top: 2.5rem; }
+  .weeklyItem { flex-direction: column; gap: 0.25rem; }
   .quickNav { gap: 1rem; }
   .quickNavItem { flex-basis: calc(50% - 1rem); }
 }

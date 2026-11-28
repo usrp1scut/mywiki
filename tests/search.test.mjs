@@ -62,7 +62,9 @@ test('concurrent navbar/page queries receive their own results even out of order
   const {workers, create} = workerFactory();
   const search = createSearchClient(create);
   const first = search('nginx', '/');
-  const second = search('变量', '/');
+  const second = search('变量', '/', 'life');
+  assert.equal(workers[0].messages[0].scope, '');
+  assert.equal(workers[0].messages[1].scope, 'life');
   workers[0].respond(workers[0].messages[1], {result: 'variables'});
   workers[0].respond(workers[0].messages[0], {result: 'nginx'});
   assert.deepEqual(await Promise.all([first, second]), ['nginx', 'variables']);

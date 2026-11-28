@@ -23,11 +23,11 @@ module.exports = {
   tagline: '',
   url: "https://xiebo.fun",
   baseUrl: "/",
-  onBrokenLinks: "warn",
+  onBrokenLinks: "throw",
   markdown: {
     mermaid: true,
     hooks: {
-      onBrokenMarkdownLinks: "warn",
+      onBrokenMarkdownLinks: "throw",
     },
   },
   favicon: "img/favicon.svg",
@@ -53,6 +53,9 @@ module.exports = {
         indexBlog: true,
         docsRouteBasePath: ["docs", "life"],
         docsDir: ["docs", "life"],
+        blogRouteBasePath: ["blog", "weekly"],
+        blogDir: ["blog", "weekly"],
+        searchContextByPaths: ["life"],
         explicitSearchResultPath: true,
         searchResultContextMaxLength: 100,
         highlightSearchTermsOnTargetPage: true,
@@ -123,13 +126,13 @@ module.exports = {
           position: "left",
         },
         {
-          to: "/life",
-          label: "生活指南",
+          to: "blog",
+          label: "博客",
           position: "left",
         },
         {
-          to: "/news",
-          label: "资讯",
+          to: "weekly",
+          label: "开源周报",
           position: "left",
         },
         {
@@ -139,9 +142,17 @@ module.exports = {
         },
         {
           type: "dropdown",
-          label: "性格测试",
+          label: "更多",
           position: "left",
           items: [
+            {
+              to: "/life",
+              label: "生活指南",
+            },
+            {
+              to: "/news",
+              label: "资讯",
+            },
             {
               to: "/sbti",
               label: "SBTI 测试",
@@ -153,17 +164,15 @@ module.exports = {
           ],
         },
         {
-          to: "blog",
-          label: "博客",
+          to: "/about",
+          label: "关于",
           position: "right",
         },
-
         {
           href: "mailto:jacob@xiebo.fun",
           label: "联系我",
           position: "right",
         },
-
       ],
     },
   }, 
@@ -178,6 +187,21 @@ module.exports = {
         breadcrumbs: false,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
+        editUrl: 'https://github.com/usrp1scut/mywiki/tree/main',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'weekly',
+        path: 'weekly',
+        routeBasePath: 'weekly',
+        blogTitle: '开源周报',
+        blogDescription: '每周 GitHub Trending 热门项目观察与工程趋势拆解。',
+        blogSidebarCount: 8,
+        blogSidebarTitle: '最近周报',
+        postsPerPage: 10,
+        showReadingTime: false,
         editUrl: 'https://github.com/usrp1scut/mywiki/tree/main',
       },
     ],
@@ -211,7 +235,7 @@ module.exports = {
         },
         blog: {
           blogTitle: '博客',
-          blogDescription: '技术实践、开源周报与日常随笔。',
+          blogDescription: '云原生、运维架构、安全响应与工程实践。',
           blogSidebarCount: 8,
           blogSidebarTitle: "最近文章",
           postsPerPage: 8,

@@ -15,7 +15,7 @@ export default function BlogListPage(props) {
     <BlogListPageStructuredData {...props} />
     <BlogLayout>
       <header className="blog-heading">
-        <h1>博客</h1>
+        <h1>{metadata.blogTitle || '博客'}</h1>
         <p>{metadata.blogDescription}</p>
       </header>
       <BlogPostItems items={items} />

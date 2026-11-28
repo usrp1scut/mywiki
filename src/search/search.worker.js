@@ -1,7 +1,7 @@
 import {search} from './engine';
-self.onmessage = async ({data: {id, query, baseUrl}}) => {
+self.onmessage = async ({data: {id, query, baseUrl, scope = ''}}) => {
   try {
-    self.postMessage({id, result: await search(query, baseUrl)});
+    self.postMessage({id, result: await search(query, baseUrl, scope)});
   } catch (error) {
     self.postMessage({id, error: error.message || '搜索暂时不可用'});
   }

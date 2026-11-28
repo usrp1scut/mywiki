@@ -19,6 +19,7 @@ export default function NewsPage() {
             className={styles.frame}
             src={frameSrc}
             title="资讯"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             referrerPolicy="no-referrer-when-downgrade"
           />
         ) : (

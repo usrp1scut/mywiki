@@ -12,7 +12,7 @@ export function createSearchClient(createWorker, timeoutMs = 30000) {
     }
     pending.clear();
   }
-  return function search(query, baseUrl) {
+  return function search(query, baseUrl, scope = '') {
     if (!query.trim()) return Promise.resolve({items: [], limited: false});
     return new Promise((resolve, reject) => {
       try {
@@ -32,7 +32,7 @@ export function createSearchClient(createWorker, timeoutMs = 30000) {
         const id = ++sequence;
         const timer = setTimeout(() => reset(new Error('搜索加载超时')), timeoutMs);
         pending.set(id, {resolve, reject, timer});
-        worker.postMessage({id, query, baseUrl});
+        worker.postMessage({id, query, baseUrl, scope});
       } catch (error) {
         reset(error);
         reject(error);
@@ -42,10 +42,10 @@ export function createSearchClient(createWorker, timeoutMs = 30000) {
 }
 
 const workerSearch = createSearchClient(() => new Worker(new URL('./search.worker.js', import.meta.url)));
-export async function searchSite(query, baseUrl) {
+export async function searchSite(query, baseUrl, scope = '') {
   if (typeof Worker === 'undefined') {
     const {search} = await import('./engine.js');
-    return search(query, baseUrl);
+    return search(query, baseUrl, scope);
   }
-  return workerSearch(query, baseUrl);
+  return workerSearch(query, baseUrl, scope);
 }

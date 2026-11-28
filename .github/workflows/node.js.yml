@@ -35,11 +35,13 @@ jobs:
       uses: actions/setup-node@v6
       with:
         node-version-file: '.nvmrc'
+        cache: 'yarn'
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     # - run: yarn add @node-rs/jieba-linux-x64-musl
     - run: yarn test:search
     - run: yarn test:skills
+    - run: yarn test:blog
     - run: yarn test:tools
     - run: python3 -m unittest discover -s tests -p 'test_*.py'
     - run: yarn build

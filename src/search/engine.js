@@ -8,12 +8,21 @@ import {getStemmedPositions} from '@easyops-cn/docusaurus-search-local/dist/clie
 import {loadSearchIndex} from './load-index.mjs';
 
 const RESULT_LIMIT = 100;
-let sourcePromise;
-function loadSource(baseUrl) {
-  if (!sourcePromise) {
-    sourcePromise = (async () => {
+const ALLOWED_SCOPES = new Set(['', 'life']);
+const sourcePromises = new Map();
+
+function normalizeScope(scope = '') {
+  return ALLOWED_SCOPES.has(scope) ? scope : '';
+}
+
+function loadSource(baseUrl, scope = '') {
+  const scopeKey = normalizeScope(scope);
+  const cacheKey = `${baseUrl}::${scopeKey}`;
+  if (!sourcePromises.has(cacheKey)) {
+    const promise = (async () => {
       if (process.env.NODE_ENV !== 'production') return () => [];
-      const url = new URL(`${baseUrl}${searchIndexUrl.replace('{dir}', '')}`, self.location.origin);
+      const dirSuffix = scopeKey ? `-${scopeKey}` : '';
+      const url = new URL(`${baseUrl}${searchIndexUrl.replace('{dir}', dirSuffix)}`, self.location.origin);
       if (url.origin !== self.location.origin) throw new Error('搜索索引地址无效');
       const json = await loadSearchIndex(url);
       const wrappedIndexes = json.map(({documents, index}, type) => ({type, documents, index: lunr.Index.load(index)}));
@@ -25,16 +34,17 @@ function loadSource(baseUrl) {
       }
       return SearchSourceFactory(wrappedIndexes, [...dictionary], RESULT_LIMIT);
     })().catch((error) => {
-      sourcePromise = undefined;
+      sourcePromises.delete(cacheKey);
       throw error;
     });
+    sourcePromises.set(cacheKey, promise);
   }
-  return sourcePromise;
+  return sourcePromises.get(cacheKey);
 }
 
-export async function search(query, baseUrl) {
+export async function search(query, baseUrl, scope = '') {
   if (!query.trim()) return {items: [], limited: false};
-  const source = await loadSource(baseUrl);
+  const source = await loadSource(baseUrl, scope);
   let matches = [];
   source(query, (items) => { matches = items; });
   const targets = new Map();

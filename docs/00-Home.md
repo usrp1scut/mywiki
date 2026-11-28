@@ -38,9 +38,9 @@ import NotebookIndex from '@site/src/components/NotebookIndex';
 - RHCE 红帽认证工程师
 
 <figure>
-<img alt="CKS 认证证书" loading="lazy" src="https://xiebo.fun/img/CKS.png" width="280" height="210"/>
-<img alt="CKA 认证证书" loading="lazy" src="https://xiebo.fun/img/CKA.png" width="280" height="210"/>
-<img alt="RHCE 认证证书" loading="lazy" src="https://xiebo.fun/img/RHCE.png" width="280" height="210"/>
+<img alt="CKS 认证证书" loading="lazy" src="/img/CKS.png" width="280" height="210"/>
+<img alt="CKA 认证证书" loading="lazy" src="/img/CKA.png" width="280" height="210"/>
+<img alt="RHCE 认证证书" loading="lazy" src="/img/RHCE.png" width="280" height="210"/>
 </figure>
 
 这是我的运维笔记本

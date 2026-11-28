@@ -1,0 +1,194 @@
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2.75rem 2rem 4.5rem;
+}
+
+.header {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.header h1 {
+  margin: 0;
+  font-family: var(--font-literary);
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.lead {
+  margin: 1rem 0 0;
+  max-width: 68ch;
+  color: var(--ifm-font-color-secondary);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  margin-top: 1.15rem;
+  color: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+}
+
+.section {
+  margin-top: 2.75rem;
+}
+
+.section h2 {
+  margin: 0 0 1.1rem;
+  font-family: var(--font-literary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.certCard {
+  margin: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+  background: var(--surface-reading);
+}
+
+.certCard img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+.certCard figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.75rem;
+}
+
+.certCard strong {
+  color: var(--ifm-font-color-base);
+  font-size: 0.95rem;
+}
+
+.certCard span {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.82rem;
+}
+
+.postList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.postList li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--surface-rule);
+}
+
+.postList time {
+  flex-shrink: 0;
+  color: var(--ifm-font-color-secondary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+}
+
+.postList a {
+  color: var(--ifm-font-color-base);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.postList a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+.sectionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.siteCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 4px;
+  background: var(--surface-reading);
+  text-decoration: none;
+  transition: border-color 180ms;
+}
+
+.siteCard:hover {
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.siteCard strong {
+  color: var(--ifm-font-color-base);
+  font-size: 0.98rem;
+}
+
+.siteCard:hover strong {
+  color: var(--ifm-color-primary);
+}
+
+.siteCard span {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.contactList {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 2;
+  color: var(--ifm-font-color-secondary);
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 1.75rem 1.25rem 3rem;
+  }
+
+  .certGrid,
+  .sectionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postList li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

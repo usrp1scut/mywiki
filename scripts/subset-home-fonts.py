@@ -21,7 +21,7 @@ for path in (ROOT / "blog").glob("*.md*"):
 recent = "".join(path.read_text().split("---")[1] for _, path in sorted(posts, reverse=True)[:3])
 vocabulary = {
     "noto-sans-sc": ui + recent,
-    "noto-serif-sc": ui + (ROOT / "src/pages/精选诗词表.js").read_text(),
+    "noto-serif-sc": ui + (ROOT / "src/data/精选诗词表.js").read_text(),
 }
 source_css = (ROOT / "src/css/fonts.css").read_text()
 output = ROOT / "src/fonts/home-subsets"

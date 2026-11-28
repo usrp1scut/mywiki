@@ -7,17 +7,17 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useGlobalData from '@docusaurus/useGlobalData';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-import {Poetry} from './精选诗词表';
+import {Poetry} from '@site/src/data/精选诗词表';
 import SiteSearchForm from '@site/src/components/SiteSearchForm';
 import SkillTree from '@site/src/components/SkillTree';
 
 const quickNav = [
-  {label: '知识库', to: '/docs', desc: '运维文档与排障经验'},
-  {label: '博客', to: '/blog', desc: '技术实践与回顾'},
-  {label: '工具箱', to: '/tools', desc: '开发与运维实用工具'},
-  {label: 'SBTI', to: '/sbti', desc: '趣味人格测试'},
-  {label: 'MBTI', to: '/mbti', desc: '60题性格测试'},
-  {label: '联系', href: 'mailto:jacob@xiebo.fun', desc: '交流与反馈'},
+  {label: '知识库', to: '/docs', desc: '运维文档、速查与排障经验'},
+  {label: '博客', to: '/blog', desc: '云原生、安全响应与架构实践'},
+  {label: '开源周报', to: '/weekly', desc: '每周 GitHub Trending 项目拆解'},
+  {label: '工具箱', to: '/tools', desc: '20 款本地开发与运维工具'},
+  {label: '生活指南', to: '/life', desc: '高性价比人生指南全文查阅'},
+  {label: '关于我', to: '/about', desc: '技术方向、认证与联系方式'},
 ];
 
 const noteLinks = [
@@ -38,12 +38,23 @@ function Home() {
   const darkMarkUrl = useBaseUrl('/img/wiki-mark-dark.svg');
   const recentBlogData = globalData['recent-blog-posts']?.default;
 
-  const recentPosts = useMemo(() => {
-    const posts = recentBlogData?.recentPosts ?? [];
-    return posts.map((post) => ({
+  const featuredPosts = useMemo(() => {
+    const posts = recentBlogData?.featuredPosts ?? recentBlogData?.recentPosts ?? [];
+    return posts.slice(0, 5).map((post) => ({
       title: post.title,
       summary: post.description || '点击查看完整文章内容。',
       to: post.permalink,
+      date: post.date || '',
+      tags: post.tags ?? [],
+    }));
+  }, [recentBlogData]);
+
+  const recentWeekly = useMemo(() => {
+    const posts = recentBlogData?.recentWeekly ?? [];
+    return posts.map((post) => ({
+      title: post.title,
+      to: post.permalink,
+      date: post.date || '',
     }));
   }, [recentBlogData]);
 
@@ -73,7 +84,7 @@ function Home() {
   };
 
   return (
-    <Layout title={siteConfig.title} description="聚焦运维、DevOps 与知识沉淀">
+    <Layout title={siteConfig.title} description="聚焦运维、云原生、安全响应与知识沉淀">
       <main className={styles.page}>
         <header className={styles.hero}>
           <div className={styles.heroContent}>
@@ -90,7 +101,7 @@ function Home() {
             <div className={styles.heroActions}>
               <Link to="/docs">浏览全部笔记 <span aria-hidden="true">→</span></Link>
               <a href="#skill-tree">探索技能树 <span aria-hidden="true">↓</span></a>
-              <Link to="/blog">看博客 <span aria-hidden="true">→</span></Link>
+              <Link to="/blog">看实战博客 <span aria-hidden="true">→</span></Link>
             </div>
           </div>
 
@@ -149,14 +160,20 @@ function Home() {
 
         <section className={styles.section}>
           <div className={styles.sectionTitle}>
-            <h2 className={styles.hanTitle}>最新文章</h2>
+            <h2 className={styles.hanTitle}>精选实战</h2>
             <Link to="/blog" className={styles.inlineLink}>
-              查看全部 →
+              全部博客 →
             </Link>
           </div>
           <div>
-            {recentPosts.map((post) => (
+            {featuredPosts.map((post) => (
               <article key={post.to} className={styles.recentPost}>
+                <div className={styles.postMeta}>
+                  {post.date && <time dateTime={post.date}>{post.date}</time>}
+                  {post.tags.length > 0 && (
+                    <span className={styles.postTags}>{post.tags.join(' · ')}</span>
+                  )}
+                </div>
                 <h3><Link to={post.to}>{post.title}</Link></h3>
                 <p>{post.summary}</p>
               </article>
@@ -164,7 +181,25 @@ function Home() {
           </div>
         </section>
 
-        {/* 快捷导航 — 合并"从这里开始"和"站内工具" */}
+        {recentWeekly.length > 0 && (
+          <section className={styles.section}>
+            <div className={styles.sectionTitle}>
+              <h2 className={styles.hanTitle}>开源周报</h2>
+              <Link to="/weekly" className={styles.inlineLink}>
+                查看全部周报 →
+              </Link>
+            </div>
+            <ul className={styles.weeklyList}>
+              {recentWeekly.map((post) => (
+                <li key={post.to} className={styles.weeklyItem}>
+                  {post.date && <time dateTime={post.date}>{post.date}</time>}
+                  <Link to={post.to}>{post.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <section className={styles.section}>
           <h2 className={styles.hanTitle}>快捷导航</h2>
           <nav className={styles.quickNav} aria-label="快捷导航">

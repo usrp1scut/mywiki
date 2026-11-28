@@ -1,10 +1,16 @@
 import React from 'react';
 import {HtmlClassNameProvider, PageMetadata, ThemeClassNames} from '@docusaurus/theme-common';
+import {useLocation} from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import BlogLayout from '@theme/BlogLayout';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 
 export default function BlogArchivePage({archive}) {
+  const {pathname} = useLocation();
+  const weeklyRoot = useBaseUrl('/weekly');
+  const isWeekly = pathname.startsWith(weeklyRoot);
+  const title = isWeekly ? '开源周报归档' : '博客归档';
   const groups = new Map();
   [...archive.blogPosts].sort((a, b) => b.metadata.date.localeCompare(a.metadata.date)).forEach(({metadata}) => {
     const year = metadata.date.slice(0, 4);
@@ -12,9 +18,9 @@ export default function BlogArchivePage({archive}) {
     groups.get(year).push(metadata);
   });
   return <HtmlClassNameProvider className={ThemeClassNames.wrapper.blogPages}>
-    <PageMetadata title="博客归档" />
+    <PageMetadata title={title} />
     <BlogLayout>
-      <header className="blog-heading"><h1>博客归档</h1><p>共 {archive.blogPosts.length} 篇，按时间排列。</p></header>
+      <header className="blog-heading"><h1>{title}</h1><p>共 {archive.blogPosts.length} 篇，按时间排列。</p></header>
       <nav className="blog-archive-years" aria-label="跳到年份">
         {[...groups.keys()].map(year => <a key={year} href={`#year-${year}`}>{year}</a>)}
       </nav>

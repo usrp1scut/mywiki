@@ -1,5 +1,9 @@
 .page { width: 100%; max-width: 880px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
-.page h1 { margin-bottom: 1.75rem; font-size: 2rem; }
+.page h1 { margin-bottom: 1.25rem; font-size: 2rem; }
+.scopes { display: inline-flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+.scopeButton, .scopeActive { min-height: 36px; padding: 0.35rem 0.9rem; border: 1px solid var(--surface-border); border-radius: 4px; background: var(--surface-reading); color: var(--ifm-font-color-secondary); font: inherit; font-size: 0.875rem; cursor: pointer; transition: border-color 180ms, color 180ms, background 180ms; }
+.scopeButton:hover { border-color: var(--control-border); color: var(--ifm-font-color-base); }
+.scopeActive { border-color: var(--ifm-color-primary); background: var(--surface-selected); color: var(--ifm-color-primary); font-weight: 600; }
 .status { margin: 1.25rem 0; color: var(--ifm-font-color-secondary); font-size: 0.9rem; }
 .result { padding: 1.25rem 0; border-bottom: 1px solid var(--surface-rule); }
 .result h2 { margin: 0; font-family: var(--ifm-font-family-base); font-size: 1.15rem; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }

@@ -14,7 +14,7 @@ function collectGroups(items, currentDocId) {
     for (const item of nodes) {
       if (item.type === 'category') {
         visit(item.items, [...parents, item.label]);
-      } else if (item.type === 'link' && item.docId && item.docId !== currentDocId) {
+      } else if (item.type === 'link' && item.docId && item.docId !== currentDocId && !item.unlisted) {
         const labels = parents.length ? parents : ['站内文档'];
         const name = labels.join(' / ');
         if (!groups.has(name)) {

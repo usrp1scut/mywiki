@@ -29,11 +29,12 @@ function excerpt(text) {
 export default function BlogPostItem({children, className}) {
   const {isBlogPostPage, assets, frontMatter, metadata, toc} = useBlogPost();
   const {thumbnails = {}, summaries = {}} = usePluginData('blog-thumbnails') || {};
-  const filename = metadata.source?.split(/[\\/]/).pop();
-  const thumbnail = assets?.image || frontMatter.image || thumbnails[filename];
+  const sourceKey = metadata.source?.replace(/^@site\//, '');
+  const filename = sourceKey?.split(/[\\/]/).pop();
+  const thumbnail = assets?.image || frontMatter.image || thumbnails[sourceKey] || thumbnails[filename];
   const description = metadata.description?.trim();
   const summary = description && !/^(none|null)$/i.test(description)
-    ? description : summaries[filename] || '';
+    ? description : summaries[sourceKey] || summaries[filename] || '';
 
   if (isBlogPostPage) {
     return (

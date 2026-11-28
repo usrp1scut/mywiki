@@ -12,13 +12,19 @@ export default function SearchBar({handleSearchBarToggle}) {
   const history = useHistory();
   const location = useLocation();
   const searchUrl = useBaseUrl('/search');
+  const lifeUrl = useBaseUrl('/life');
+  const isLifeSection = location.pathname === lifeUrl || location.pathname.startsWith(`${lifeUrl}/`);
+  const scope = isLifeSection ? 'life' : '';
+  const placeholder = isLifeSection ? '搜索生活指南' : '搜索笔记与博客';
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(-1);
-  const {items, status, retry} = useSiteSearch(query, open);
+  const {items, status, retry} = useSiteSearch(query, open, scope);
   const results = items.slice(0, 8);
   const expanded = open && Boolean(query.trim());
-  const fullSearchUrl = `${searchUrl}?${new URLSearchParams({q: query.trim()})}`;
+  const searchParams = new URLSearchParams({q: query.trim()});
+  if (scope) searchParams.set('scope', scope);
+  const fullSearchUrl = `${searchUrl}?${searchParams}`;
 
   useEffect(() => { setOpen(false); setSelected(-1); }, [location.pathname, location.search]);
   useEffect(() => { setSelected(-1); }, [query, items]);
@@ -71,9 +77,9 @@ export default function SearchBar({handleSearchBarToggle}) {
       <div className={styles.field}>
         <svg className={styles.icon} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
         <input ref={input} className={`navbar__search-input ${styles.input}`} type="text" role="combobox"
-          aria-label="搜索笔记与博客" aria-expanded={expanded} aria-controls={`${id}-results`}
+          aria-label={placeholder} aria-expanded={expanded} aria-controls={`${id}-results`}
           aria-autocomplete="list" aria-activedescendant={expanded && selected >= 0 ? `${id}-result-${selected}` : undefined}
-          autoComplete="off" spellCheck="false" placeholder="搜索笔记与博客" value={query}
+          autoComplete="off" spellCheck="false" placeholder={placeholder} value={query}
           onChange={(event) => { setQuery(event.target.value); setSelected(-1); setOpen(true); }}
           onClick={() => setOpen(true)}
           onFocus={() => setOpen(true)} onKeyDown={keyDown} />

@@ -90,7 +90,7 @@ for (const route of routes) {
 
 const knowledgeHome = await readRoute('/docs/');
 assert.ok(!knowledgeHome.includes('高性价比人生指南'), 'Life guide leaked into the knowledge-base index');
-const indexes = JSON.parse(await readFile(path.join(output, 'search-index.json'), 'utf8'));
+const indexes = JSON.parse(await readFile(path.join(output, 'search-index-life.json'), 'utf8'));
 const searchContent = JSON.stringify(indexes);
 for (const route of chapterRoutes) {
   assert.ok(searchContent.includes(`"u":"${route}`), `${route}: missing search entry`);
